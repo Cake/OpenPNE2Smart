@@ -142,4 +142,15 @@ $GLOBALS['_OPENPNE_PC2KTAI_LINK_ACTION_LIST'] = array(
     'page_fh_album_image_show' => 'page_fh_album_image_show',
 );
 
+/* OpenPNE2 スマートフォン対応：ここから追加 */
+// PC版と携帯版で名前の違うアクション一覧
+// ktaiアクション名 => PCアクション名
+$GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'] = array(
+    'page' => array(
+        'c_bbs' => 'c_topic_detail',
+//        'c_bbs' => 'c_event_detail', // PC側で、トピック⇔イベント詳細間自動遷移あり
+    ),
+);
+/* OpenPNE2 スマートフォン対応：ここまで追加 */
+
 ?>

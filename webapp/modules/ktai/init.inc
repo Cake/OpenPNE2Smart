@@ -17,7 +17,20 @@ if (!OPENPNE_ENABLE_KTAI) {
 
 // User-Agent判別
 if (CHECK_KTAI_UA && !isKtaiUserAgent()) {
-    openpne_redirect('pc');
+    /* OpenPNE2 スマートフォン対応：ここから追加 */
+    // 対応するアクションに遷移
+    if (isset($GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'][$type][$action])) {
+        $action = $GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'][$type][$action];
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $p = $_POST;
+    } else {
+        $p = $_GET;
+    }
+
+    openpne_redirect('pc', $type. '_'. $action, $p);
+//    openpne_redirect('pc');
+    /* OpenPNE2 スマートフォン対応：ここまで追加 */
 }
 
 $agent = new OpenPNE_KtaiUA();
