@@ -153,6 +153,14 @@ function openpne_forward($module, $type = '', $action = '', $errors = array())
         $smarty = new OpenPNE_Smarty($GLOBALS['SMARTY']);
         $smarty->templates_dir = $module . '/templates';
 
+        /* OpenPNE2 スマートフォン対応：ここから追加 */
+        // スマートフォン用テンプレートセット
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($module == 'pc' && $smartPhone->is_smart) {
+            $smarty->templates_dir = 'smart' . '/templates';
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで追加 */
+
         $smarty->assign('requests', $requests);
 
         $smarty->assign('msg', $requests['msg']);

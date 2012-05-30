@@ -87,6 +87,10 @@ require_once 'controller.php';
 require_once 'OpenPNE/Smarty.php';
 require_once 'OpenPNE/Auth.php';
 
+/* OpenPNE2 スマートフォン対応：ここから追加 */
+require_once 'OpenPNE/SmartPhoneUA.php';
+/* OpenPNE2 スマートフォン対応：ここまで追加 */
+
 require_once 'OpenPNE/Config.php';
 
 // DBから設定読み込み
