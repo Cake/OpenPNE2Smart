@@ -116,7 +116,18 @@ if (OPENPNE_AUTH_MODE != 'email' && empty($_SESSION['regist_step'])) {
 
         // メールアドレスが未登録
         if (!$is_registered_address) {
-            openpne_redirect('pc', 'page_h_regist_address');
+            /* OpenPNE2 スマートフォン対応：ここから */
+            if ($module == 'pc' && $smartPhone->is_smart) {
+                // スマートフォンの場合携帯アドレス登録チェック
+                $is_registered_ktai_address = db_member_is_ktai_address_registered($u);
+                if (!$is_registered_ktai_address) {
+                    openpne_redirect('pc', 'page_h_regist_address');
+                }
+            } else {
+                openpne_redirect('pc', 'page_h_regist_address');
+            }
+//            openpne_redirect('pc', 'page_h_regist_address');
+            /* OpenPNE2 スマートフォン対応：ここまで */
         }
 
     }
