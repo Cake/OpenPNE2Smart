@@ -12,6 +12,8 @@ class OpenPNE_SmartPhoneUA
     var $is_android = false;
     var $is_apple = false;
 
+    var $is_ktaiaddress_login = false;
+
     /**
      * constructor
      */
@@ -68,5 +70,12 @@ class OpenPNE_SmartPhoneUA
     function is_tablet() { return $this->is_tablet; }
     function is_android() { return $this->is_android; }
     function is_apple() { return $this->is_apple; }
+
+    function set_ktaiaddress($param = true) {
+        $this->is_ktaiaddress_login = $param;
+    }
+    function is_ktaiaddress() {
+        return $this->is_ktaiaddress_login;
+    }
 }
 

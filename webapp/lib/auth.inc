@@ -6,16 +6,53 @@
 
 require_once 'OpenPNE/Auth.php';
 
+/* OpenPNE2 スマートフォン対応：ここから */
+$smartPhone = new OpenPNE_SmartPhoneUA();
+/* OpenPNE2 スマートフォン対応：ここまで */
+
 $config = get_auth_config();
 $auth = new OpenPNE_Auth($config);
 $auth->setExpire($GLOBALS['OpenPNE']['common']['session_lifetime']);
 $auth->setIdle($GLOBALS['OpenPNE']['common']['session_idletime']);
 
+/* OpenPNE2 スマートフォン対応：ここから */
+/* 【auth.inc認証共通化】OpenPNE2 スマートフォン対応コメントアウト：ここから
 if (!$auth->auth()
     || !($u = db_member_c_member_id4username_encrypted($auth->getUsername(), false))
     || db_member_is_login_rejected($u)
     || db_member_is_blacklist($u)
     || !db_member_is_one_session_per_user($u, session_id())) {
+   OpenPNE2 スマートフォン対応コメントアウト：ここまで*/
+
+// PCアドレスでまず認証
+if (!$u = __auth_inc_check($auth)) { // 認証共通化
+    // 失敗の場合
+    // スマートフォンなら携帯アドレスで再ログイン
+    // slavepneとpneid除く
+    if ($smartPhone->is_smart
+        && OPENPNE_AUTH_MODE != 'slavepne'
+        && OPENPNE_AUTH_MODE != 'pneid'
+        ) {
+        unset($auth);
+
+        $config['options']['usernamecol'] = 'ktai_address';
+
+        $auth = new OpenPNE_Auth($config);
+        $auth->setExpire($GLOBALS['OpenPNE']['common']['session_lifetime']);
+        $auth->setIdle($GLOBALS['OpenPNE']['common']['session_idletime']);
+
+        // 再認証
+        if (!$u = __auth_inc_check($auth, true)) {
+            // ログアウト
+            __auth_inc_logout($auth); // ログアウト共通化
+        }
+
+        $smartPhone->set_ktaiaddress(true);
+    } else {
+        // ログアウト
+        __auth_inc_logout($auth);
+    }
+/* 【auth.incログアウト共通化】OpenPNE2 スマートフォン対応コメントアウト：ここから
     $auth->logout();
 
     if (LOGIN_URL_PC) {
@@ -31,6 +68,8 @@ if (!$auth->auth()
         openpne_forward('pc', 'page', "o_login");
         exit;
     }
+   OpenPNE2 スマートフォン対応コメントアウト：ここまで */
+    /* OpenPNE2 スマートフォン対応：ここまで */
 }
 
 $auth->uid($u);
@@ -110,6 +149,47 @@ if (IS_PASSWORD_QUERY_ANSWER == 2 && OPENPNE_AUTH_MODE != 'slavepne' && empty($_
             $p = array("msg" => "秘密の質問を登録してください");
             openpne_redirect('pc', 'page_h_config', $p);
         }
+    }
+}
+
+/* 共通関数 */
+/* 認証
+ 引数：$auth
+       $is_ktaiaddress_login : 携帯アドレスでのログインか否か
+ return : $u(閲覧者の$c_member_id)
+ */
+function __auth_inc_check(&$auth, $is_ktaiaddress_login = false) {
+    if (!$auth->auth()
+        || !($u = db_member_c_member_id4username_encrypted($auth->getUsername(), $is_ktaiaddress_login))
+        || db_member_is_login_rejected($u)
+        || db_member_is_blacklist($u)
+        || !db_member_is_one_session_per_user($u, session_id())) {
+            return false;
+        } else {
+            return $u;
+        }
+}
+
+
+/* ログアウト処理
+ 引数：auth
+ return : なし(リダイレクト)
+ */
+function __auth_inc_logout(&$auth) {
+    $auth->logout();
+
+    if (LOGIN_URL_PC) {
+        client_redirect_absolute(get_login_url());
+    } else {
+        $parts = explode('/', $_SERVER['SCRIPT_NAME']);
+        $_REQUEST['login_params'] = $_SERVER['QUERY_STRING'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = array('login_params' => $_SERVER['QUERY_STRING']);
+        } else {
+            $_GET = array('login_params' => $_SERVER['QUERY_STRING']);
+        }
+        openpne_forward('pc', 'page', "o_login");
+        exit;
     }
 }
 

@@ -19,6 +19,22 @@ class pc_do_o_login extends OpenPNE_Action
     {
         $this->_login_params = $requests['login_params'];
         $config = get_auth_config();
+
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        // 携帯アドレスでのログイン
+        if ($smartPhone->is_smart 
+            && db_common_is_mailaddress($_POST['username']) && is_ktai_mail_address($_POST['username'])
+            && OPENPNE_AUTH_MODE != 'slavepne'
+            && OPENPNE_AUTH_MODE != 'pneid'
+        ) {
+            $smartPhone->set_ktaiaddress(true);
+            $config['options']['usernamecol'] = 'ktai_address';
+
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $auth = new OpenPNE_Auth($config);
         $this->_auth =& $auth;
         $auth->setExpire($GLOBALS['OpenPNE']['common']['session_lifetime']);
@@ -45,7 +61,10 @@ class pc_do_o_login extends OpenPNE_Action
             $this->_fail_login();
         }
 
-        $c_member_id = db_member_c_member_id4username_encrypted($auth->getUsername(), false);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $c_member_id = db_member_c_member_id4username_encrypted($auth->getUsername(), $smartPhone->is_ktaiaddress());
+//        $c_member_id = db_member_c_member_id4username_encrypted($auth->getUsername(), false);
+        /* OpenPNE2 スマートフォン対応：ここまで */
         if (OPENPNE_AUTH_MODE == 'slavepne' && !$c_member_id) {
             $c_member_id = db_member_create_member($_POST['username']);
         }
