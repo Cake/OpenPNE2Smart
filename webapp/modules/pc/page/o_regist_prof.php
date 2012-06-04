@@ -19,6 +19,13 @@ class pc_page_o_regist_prof extends OpenPNE_Action
         }
         //>
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart && IS_GET_EASY_ACCESS_ID == 3) {
+                openpne_redirect('pc', 'page_o_regist_error');
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         // --- リクエスト変数
         $sid = $requests['sid'];
         $err_msg = $requests['err_msg'];

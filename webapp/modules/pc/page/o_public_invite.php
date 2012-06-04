@@ -23,6 +23,11 @@ class pc_page_o_public_invite extends OpenPNE_Action
         }
         //>
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_smart', $smartPhone->is_smart);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //---- inc_ テンプレート用 変数 ----//
         $this->set('inc_page_header', fetch_inc_page_header('public'));
 

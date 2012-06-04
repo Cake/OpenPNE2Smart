@@ -28,6 +28,13 @@ class pc_do_o_public_invite extends OpenPNE_Action
         $pc_address2 = $requests['pc_address2'];
         // ----------
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart && IS_GET_EASY_ACCESS_ID == 3) {
+                openpne_redirect('pc', 'page_o_regist_error');
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //新規登録時の招待者（c_member_id=1）
         $c_member_id_invite = 1;
 
