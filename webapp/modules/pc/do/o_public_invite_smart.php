@@ -4,7 +4,7 @@
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
-class pc_do_o_public_invite extends OpenPNE_Action
+class pc_do_o_public_invite_smart extends OpenPNE_Action
 {
     function isSecure()
     {
@@ -28,12 +28,14 @@ class pc_do_o_public_invite extends OpenPNE_Action
         $pc_address2 = $requests['pc_address2'];
         // ----------
 
-        /* OpenPNE2 スマートフォン対応：ここから */
         $smartPhone = new OpenPNE_SmartPhoneUA();
-        if ($smartPhone->is_smart && IS_GET_EASY_ACCESS_ID == 3) {
+        if (!$smartPhone->is_smart) {
+            openpne_forward('pc', 'do', "o_public_invite");
+            exit;
+        }
+        if (IS_GET_EASY_ACCESS_ID == 3) {
                 openpne_redirect('pc', 'page_o_regist_error');
         }
-        /* OpenPNE2 スマートフォン対応：ここまで */
 
         //新規登録時の招待者（c_member_id=1）
         $c_member_id_invite = 1;
@@ -53,25 +55,18 @@ class pc_do_o_public_invite extends OpenPNE_Action
             $p = array('msg' => $msg);
             openpne_redirect('pc', 'page_o_public_invite', $p);
         }
-        if (is_ktai_mail_address($pc_address)) {
-            /* OpenPNE2 スマートフォン対応：ここから */
-            // 処理系が複雑になるので別アクションに遷移
-            if ($smartPhone->is_smart) {
-                $_SESSION['captcha_keystring'] = $requests['captcha'];
-                openpne_forward('pc', 'do', "o_public_invite_smart");
-                exit;
-            }
-            /* OpenPNE2 スマートフォン対応：ここまで */
-            $msg = '携帯メールアドレスは入力できません';
-            $p = array('msg' => $msg);
-            openpne_redirect('pc', 'page_o_public_invite', $p);
+        // 携帯アドレスのみ
+        if (!is_ktai_mail_address($pc_address)) {
+            $_SESSION['captcha_keystring'] = $requests['captcha'];
+            openpne_forward('pc', 'do', "o_public_invite");
+            exit;
         }
         if ($pc_address != $pc_address2) {
             $msg = 'メールアドレスが一致していません';
             $p = array('msg' => $msg);
             openpne_redirect('pc', 'page_o_public_invite', $p);
         }
-        if (db_member_c_member_id4pc_address($pc_address)) {
+        if (db_member_c_member_id4ktai_address2($pc_address)) {
             $msg = 'そのメールアドレスは既に登録されています';
             $p = array('msg' => $msg);
             openpne_redirect('pc', 'page_o_public_invite', $p);
@@ -84,13 +79,13 @@ class pc_do_o_public_invite extends OpenPNE_Action
 
         $session = create_hash();
 
-        if (db_member_c_member_pre4pc_address($pc_address)) {
-            db_member_update_c_invite($c_member_id_invite, $pc_address, '', $session);
+        if (db_member_c_member_ktai_pre4ktai_address($pc_address)) {
+            db_member_update_c_member_ktai_pre($session, $pc_address, $c_member_id_invite);
         } else {
-            db_member_insert_c_invite($c_member_id_invite, $pc_address, '', $session);
+            db_member_insert_c_member_ktai_pre($session, $pc_address, $c_member_id_invite);
         }
 
-        do_h_invite_insert_c_invite_mail_send($c_member_id_invite, $session, '', $pc_address);
+        h_invite_insert_c_invite_mail_send($session, $c_member_id_invite, $pc_address);
 
         // delete cookie
         setcookie(session_name(), '', time() - 3600, ini_get('session.cookie_path'));
