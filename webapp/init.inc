@@ -150,6 +150,7 @@ $GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'] = array(
         'c_bbs' => 'c_topic_detail',
 //        'c_bbs' => 'c_event_detail', // PC側で、トピック⇔イベント詳細間自動遷移あり
         'o_login2' => 'o_login2ktai', // 携帯アドレス登録
+        'o_regist_pre' => 'o_regist_smart_intro', // 携帯アドレスで新規登録
     ),
 );
 /* OpenPNE2 スマートフォン対応：ここまで追加 */
