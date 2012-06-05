@@ -73,6 +73,22 @@
 </div><!-- Left -->
 <div id="Center">
 
+({**OpenPNE2 スマートフォン対応：ここから**})
+<div class="dparts infoButtonBox"><div class="parts">
+<div class="partsHeading"><h3>メールで投稿</h3></div>
+<div class="block">
+<form method="get" action="mailto:({$blog_address})">
+<ul class="moreInfo button">
+<li><input type="submit" class="input_submit" value="メールで投稿" /></li>
+</ul>
+</form>
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真を添付すると写真付き({$WORD_DIARY})になります。<br>
+</p>
+</div>
+</div></div>
+({**OpenPNE2 スマートフォン対応：ここまで**})
+
 ({* {{{ formTable *})
 <div class="dparts formTable"><div class="parts">
 <div class="partsHeading"><h3>({$WORD_DIARY})を書く</h3></div>
@@ -94,6 +110,13 @@
 </td>
 </tr>
 <tr>
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<th>写真</th>
+<td>
+写真は、日記投稿後にメールで追加編集できます。<br>
+</td>
+({else})({**OpenPNE2 スマートフォン対応：ここまで**})
 <th>写真1</th>
 <td>
 <input type="file" class="input_file" name="upfile_1" size="40" />
@@ -110,6 +133,7 @@
 <td>
 <input type="file" class="input_file" name="upfile_3" size="40" />
 </td>
+({/if})({**OpenPNE2 スマートフォン対応：ここ追加行**})
 </tr>
 ({if $use_diary_category})
 <tr>

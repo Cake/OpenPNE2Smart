@@ -23,6 +23,27 @@ class pc_page_h_diary_add extends OpenPNE_Action
 
         $this->set('inc_navi', fetch_inc_navi("h"));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $this->set('is_smart', $smartPhone->is_smart);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = "b{$u}-".t_get_user_hash($u)."@".MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = "blog"."@".MAIL_SERVER_DOMAIN;;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('blog_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //プロフィール
         $c_member = db_member_c_member4c_member_id($u);
         if (empty($form_val['public_flag'])) {
