@@ -83,6 +83,27 @@ class pc_page_fh_diary_list extends OpenPNE_Action
 
         $this->set('diary_list_count', count($list_set[0]));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $this->set('is_smart', $smartPhone->is_smart);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = "b{$u}-".t_get_user_hash($u)."@".MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = "blog"."@".MAIL_SERVER_DOMAIN;;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('blog_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //日記一覧、カレンダー用変数
         $date_val = array(
             'year'  => $year,

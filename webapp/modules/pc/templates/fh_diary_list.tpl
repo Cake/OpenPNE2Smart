@@ -95,6 +95,19 @@
 <li><input type="submit" class="input_submit" value="({$WORD_DIARY})を書く" /></li>
 </ul>
 ({/t_form_block})
+
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<form method="get" action="mailto:({$blog_address})">
+<ul class="moreInfo button">
+<li><input type="submit" class="input_submit" value="メールで投稿" /></li>
+</ul>
+</form>
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真を添付すると写真付き({$WORD_DIARY})になります。<br>
+</p>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+
 </div>
 </div></div>
 ({* }}} *})
