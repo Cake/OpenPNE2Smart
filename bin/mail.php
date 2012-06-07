@@ -62,6 +62,13 @@ function m_process_mail($raw_mail)
         return false;
     }
 
+    /* OpenPNE2 スマートフォン対応：ここから */
+    // メールログに送信者を記録
+    if (MAIL_DEBUG_LOG_FROM) {
+        m_debug_log('mail_sns::m_process_mail() From : '. $from. ' To '. $to);
+   }
+    /* OpenPNE2 スマートフォン対応：ここまで */
+
     list($to_user, $to_host) = explode("@", $to, 2);
 
     // check prefix
