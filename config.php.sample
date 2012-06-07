@@ -671,7 +671,7 @@ define('OPENPNE_POST_USE_DB', true);
 
 /* OpenPNE2 スマートフォン対応 */
 // PCメールによるメール投稿を許可する
-define('MAIL_ALLOW_PC_POST', true);
+define('ALLOW_PC_MAIL_POST', true);
 
 // メール投稿を制限するドメイン
 // 携帯メールアドレスのドメインは指定しても無効です
