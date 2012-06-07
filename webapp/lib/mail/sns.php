@@ -1068,7 +1068,7 @@ class mail_sns
         }
 
         // 最終投稿時間と投稿回数を取得
-        list($last_post_time, $post_count) = db_etc_get_post_info($u);
+        list($last_post_time, $post_count) = $this->db_etc_get_mail_post_info($u);
 
         $now_time = time();
         $interval = $now_time - (int)$last_post_time;
@@ -1081,7 +1081,7 @@ class mail_sns
         }
 
         // 情報更新
-        db_etc_set_post_info($u, $now_time, $post_count);
+        $this->db_etc_set_mail_post_info($u, $now_time, $post_count);
 
         // 投稿回数が一定数以上のため、連続投稿であるとみなす
         if ($post_count > OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT) {
@@ -1089,6 +1089,27 @@ class mail_sns
         }
 
         return true;
+    }
+    /**
+     * メール連投回数読込(DB)
+     * @param int $u
+     * @return array
+     */
+    function db_etc_get_mail_post_info($u) 
+    {
+        $result = db_member_c_member_config4c_member_id($u);
+        return array($result['last_mailpost_time'], $result['last_mailpost_count']);
+    }
+    /**
+     * メール連投回数のDB保存
+     * @param int $u
+     * @param int $post_time
+     * @param int $post_count
+     */
+    function db_etc_set_mail_post_info($u, $post_time, $post_count) 
+    {
+        db_member_update_c_member_config($u, 'last_mailpost_time', $post_time);
+        db_member_update_c_member_config($u, 'last_mailpost_count', $post_count);
     }
     /* OpenPNE2 スマートフォン対応：ここまで */
 
