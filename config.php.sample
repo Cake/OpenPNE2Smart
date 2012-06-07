@@ -673,6 +673,13 @@ define('OPENPNE_POST_USE_DB', true);
 // PCメールによるメール投稿を許可する
 define('MAIL_ALLOW_PC_POST', true);
 
+// メール投稿を制限するドメイン
+// 携帯メールアドレスのドメインは指定しても無効です
+// 「*.example.com」とする事で、ワイルドカードが使用可能です。
+$GLOBALS['MAIL_POST_LIMIT_DOMAIN'] = array(
+	'',
+);
+
 // メールログに送受信アドレス(FromとTo)情報残すかどうか(var/log/mail.log)
 define('MAIL_DEBUG_LOG_FROM', false);
 

@@ -67,6 +67,13 @@ function m_process_mail($raw_mail)
     if (MAIL_DEBUG_LOG_FROM) {
         m_debug_log('mail_sns::m_process_mail() From : '. $from. ' To '. $to);
    }
+
+    // ドメイン制限チェック
+    if (check_mail_post_limit_domain4mail_address($from)) {
+        m_debug_log('mail.php::m_process_mail() ERROR LIMIT Domain');
+        return false;
+    }
+
     /* OpenPNE2 スマートフォン対応：ここまで */
 
     list($to_user, $to_host) = explode("@", $to, 2);
@@ -107,5 +114,39 @@ function m_debug_log($msg, $priority =  PEAR_LOG_WARNING)
     mb_convert_encoding($msg, 'JIS', 'auto');
     $file->log($msg, $priority);
 }
+
+
+/* OpenPNE2 スマートフォン対応：ここから */
+/**
+ * 制限ドメインチェック
+ * 引数：$mail_address メールアドレス
+ * 返り値: 制限なし = false 
+ *         制限あり = true 
+ */
+function check_mail_post_limit_domain4mail_address($mail_address) {
+
+    // 設定がない場合
+    if (!isset($GLOBALS['MAIL_POST_LIMIT_DOMAIN']) || empty($GLOBALS['MAIL_POST_LIMIT_DOMAIN'])) {
+        return false;
+    }
+
+    // 正規性はチェック済み
+
+    $arr = explode('@', $mail_address);
+    $mail_domain = $arr[1];
+
+    foreach ($GLOBALS['MAIL_POST_LIMIT_DOMAIN'] as $domain) {
+        if ($domain) {
+            $regexp = str_replace('\*', '.*', preg_quote($domain, '/'));
+            if (preg_match(sprintf('/%s/', $regexp), $mail_domain)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+/* OpenPNE2 スマートフォン対応：ここまで */
 
 ?>
