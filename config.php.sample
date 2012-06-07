@@ -670,6 +670,9 @@ define('OPENPNE_POST_USE_DB', true);
 
 
 /* OpenPNE2 スマートフォン対応 */
+// PCメールによるメール投稿を許可する
+define('MAIL_ALLOW_PC_POST', true);
+
 // メールログに送受信アドレス(FromとTo)情報残すかどうか(var/log/mail.log)
 define('MAIL_DEBUG_LOG_FROM', false);
 

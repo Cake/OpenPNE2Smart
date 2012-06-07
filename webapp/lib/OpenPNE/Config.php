@@ -68,6 +68,7 @@ class OpenPNE_Config
             'USE_RESPONSE_COMMENT',
             'USE_MESSAGE_OPEN_UNOPEN',
         /* OpenPNE2 スマートフォン対応 */
+            'MAIL_ALLOW_PC_POST',
             'MAIL_DEBUG_LOG_FROM',
         );
     }
@@ -267,6 +268,7 @@ class OpenPNE_Config
             'OPENPNE_FUNCTION_CACHE_LIFETIME_LONG' => 3600,
             'OPENPNE_DECORATION_CMD_URL' => 'http://www.openpne.jp/cmd/',
         /* OpenPNE2 スマートフォン対応 */
+            'MAIL_ALLOW_PC_POST' => false,
             'MAIL_DEBUG_LOG_FROM' => false,
         );
 

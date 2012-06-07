@@ -12,6 +12,9 @@ class mail_sns
 
     var $c_member_id;
 
+    /* OpenPNE2 スマートフォン対応 */
+    var $is_pc_address = false;
+
     function mail_sns(&$decoder)
     {
         $this->decoder =& $decoder;
@@ -24,13 +27,24 @@ class mail_sns
             m_debug_log('mail_sns::main() From : '. $this->from. ' To '. $this->to);
         }
 
-        $this->c_member_id = db_member_c_member_id4ktai_address2($this->from);
-
         // メンバーIDが見つからない場合は、ローカルパートに二重引用符を付加してリトライ
-        if (!$this->c_member_id) {
-            list($local, $domain) = explode('@', $this->from, 2);
-            $this->c_member_id = db_member_c_member_id4ktai_address2('"' . $local . '"' . '@' . $domain);
+        if (is_ktai_mail_address($this->from)) {
+            $this->c_member_id = db_member_c_member_id4ktai_address2($this->from);
+            if (!$this->c_member_id) {
+                list($local, $domain) = explode('@', $this->from, 2);
+                $this->c_member_id = db_member_c_member_id4ktai_address2('"' . $local . '"' . '@' . $domain);
+            }
+        } elseif (ALLOW_PC_MAIL_POST) {
+            $this->is_pc_address = true;
+
+            $this->c_member_id = db_member_c_member_id4pc_address($this->from);
+            // メンバーIDが見つからない場合は、ローカルパートに二重引用符を付加してリトライ
+            if (!$this->c_member_id) {
+                list($local, $domain) = explode('@', $this->from, 2);
+                $this->c_member_id = db_member_c_member_id4pc_address('"' . $local . '"' . '@' . $domain);
+            }
         }
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
 
     function main()
@@ -46,8 +60,11 @@ class mail_sns
             return false;
         }
 
-        // from_host が携帯ドメイン以外はエラー
-        if (!is_ktai_mail_address($this->from)) {
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // from_host が携帯ドメイン以外はエラー: スマートフォン対応で変更
+//        if (!is_ktai_mail_address($this->from)) {
+        if (!is_ktai_mail_address($this->from) && !ALLOW_PC_MAIL_POST) {
+        /* OpenPNE2 スマートフォン対応：ここまで */
             m_debug_log('mail_sns::main() from wrong host');
             return false;
         }
