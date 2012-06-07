@@ -80,7 +80,10 @@ class mail_sns
 
             if (!IS_CLOSED_SNS) {
                 // get 新規登録
-                if ($to_user == 'get') {
+        /* OpenPNE2 スマートフォン対応：ここから */
+//                if ($to_user == 'get') {
+                if ($to_user == 'get' && !$this->is_pc_address) {
+        /* OpenPNE2 スマートフォン対応：ここまで */
                     // アフィリエイトIDが付いている場合
                     $body = $this->decoder->get_text_body();
 
