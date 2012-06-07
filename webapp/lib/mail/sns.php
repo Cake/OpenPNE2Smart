@@ -103,6 +103,15 @@ class mail_sns
             return false;
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // 連投制限チェック
+        if (!$this->check_mail_post_interval($this->c_member_id)) {
+            $this->error_mail(OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND. '秒以内の連続投稿は禁止されています。しばらく経ってから再度送信してください。');
+            m_debug_log('mail_sns::main() ERROR too short interval');
+            return false;
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //---
 
         // ログインURL通知
@@ -1042,6 +1051,47 @@ class mail_sns
         $subject = '['.SNS_NAME.']メール投稿エラー';
         t_send_email($this->from, $subject, $body);
     }
+
+    /* OpenPNE2 スマートフォン対応：ここから */
+    /**
+     * 連続投稿確認用
+     *
+     * @param  int    $u
+     * @return bool   true  : post OK
+     *                false : post NG
+     */
+    function check_mail_post_interval($u)
+    {
+        // チェックしない
+        if (!OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND) {
+            return true;
+        }
+
+        // 最終投稿時間と投稿回数を取得
+        list($last_post_time, $post_count) = db_etc_get_post_info($u);
+
+        $now_time = time();
+        $interval = $now_time - (int)$last_post_time;
+
+        if (!$last_post_time || $interval > OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT_RESET_SECOND) {
+        // 最終投稿時間が不明か、前回投稿から一定時間経過しているためカウントをリセットする
+            $post_count = 1;
+        } elseif ($interval < OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND) {
+            $post_count++;
+        }
+
+        // 情報更新
+        db_etc_set_post_info($u, $now_time, $post_count);
+
+        // 投稿回数が一定数以上のため、連続投稿であるとみなす
+        if ($post_count > OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT) {
+            return false;
+        }
+
+        return true;
+    }
+    /* OpenPNE2 スマートフォン対応：ここまで */
+
 }
 
 ?>
