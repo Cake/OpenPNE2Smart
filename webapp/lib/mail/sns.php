@@ -18,6 +18,12 @@ class mail_sns
         $this->from = $decoder->get_from();
         $this->to = $decoder->get_to();
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メールログに送信者を記録
+        if (MAIL_DEBUG_LOG_FROM) {
+            m_debug_log('mail_sns::main() From : '. $this->from. ' To '. $this->to);
+        }
+
         $this->c_member_id = db_member_c_member_id4ktai_address2($this->from);
 
         // メンバーIDが見つからない場合は、ローカルパートに二重引用符を付加してリトライ
