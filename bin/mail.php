@@ -119,9 +119,10 @@ function m_debug_log($msg, $priority =  PEAR_LOG_WARNING)
 /* OpenPNE2 スマートフォン対応：ここから */
 /**
  * 制限ドメインチェック
- * 引数：$mail_address メールアドレス
- * 返り値: 制限なし = false 
- *         制限あり = true 
+ * @param  string $mail_address
+ * @param  int    $u
+ * @return bool   true  : post NG
+ *                false : post OK
  */
 function check_mail_post_limit_domain4mail_address($mail_address) {
 
