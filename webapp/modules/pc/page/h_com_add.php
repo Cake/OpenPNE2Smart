@@ -29,6 +29,12 @@ class pc_page_h_com_add extends OpenPNE_Action
 
         $this->set('inc_navi', fetch_inc_navi('h'));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // コミュ画像投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_apple', $smartPhone->is_apple);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $c_commu_category_list = db_commu_c_commu_category4is_create_commu();
         if (!$c_commu_category_list) {
             openpne_redirect('pc', 'page_h_err_c_commu_add');

@@ -46,10 +46,16 @@
 <textarea name="info" rows="6" cols="50">({$form_val.info})</textarea>
 </td>
 </tr>
+({**OpenPNE2 スマートフォン対応：ここから**})
 <tr>
 <th>写真</th>
 <td>
+({if $is_apple})
+({$WORD_COMMUNITY})作成後に設定してください。
+<input type="hidden" name="image_filename" value="" />
+({else})
 <input type="file" class="input_file" name="image_filename" size="40" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 </table>

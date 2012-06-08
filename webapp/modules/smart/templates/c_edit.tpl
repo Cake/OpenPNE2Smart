@@ -48,7 +48,22 @@
 <a href="({t_url m=pc a=do_c_edit_image_delete_c_commu_image})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<p>
+({if $c_commu.image_filename})
+新しい写真を登録する場合は今の写真を削除してください。<br>
+({else})
+以下のメールアドレスに写真を添付して送信してください。<br>
+({t_mail_post mailto=$mail_address _linktxt=写真設定用アドレス})<br>
+<li>写真は1枚以上登録できません</font><br>
+<li>タイトルと本文は反映されません</font><br>
+<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+</p>
+({/if})
+({else})
 <input type="file" size="40" name="image_filename" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td></tr>
 ({if !$is_unused_join_commu})
 <tr><th>参加お知らせメール受信設定</th><td>
