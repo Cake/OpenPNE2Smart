@@ -15,6 +15,26 @@ class pc_page_h_config_image extends OpenPNE_Action
         //プロフィール
         $this->set("c_member", db_member_c_member4c_member_id($u));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = "p{$u}-".t_get_user_hash($u)."@" . MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = "p{$u}"."@" . MAIL_SERVER_DOMAIN;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('mail_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }

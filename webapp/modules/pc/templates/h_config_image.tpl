@@ -49,12 +49,23 @@
 </table>
 
 <div class="block">
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if (!$is_apple)})
 ({t_form_block _enctype=file m=pc a=do_h_config_image})
 <p><input name="upfile" type="file" value=" 参 照 " /></p>
 <p><input type="submit" class="input_submit" name="submit" value="写真をアップロードする" /></p>
 ({/t_form_block})
-<ul>
+({/if})
+<ul ({if ($is_apple)})style="margin: 15px; list-style: none;"({/if})>
 <li>写真は最大3枚までアップロードできます。</li>
+({if ($is_apple)})
+({if $c_member.image_filename_1&&$c_member.image_filename_2&&$c_member.image_filename_3})
+<li>新しく登録する場合は登録した写真を削除してください。</li>
+({else})
+<li>({t_mail_post mailto=$mail_address _linktxt=写真をアップロードする})</li>
+<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。</li>
+({/if})
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 <li>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください。</li>
 <li>著作権や肖像権の侵害にあたる写真、暴力的・卑猥な写真、他のメンバーが見て不快に感じる写真の掲載は禁止しております。掲載はご自身の責任でお願いいたします。</li>
 </ul>
