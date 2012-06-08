@@ -60,7 +60,7 @@ class pc_page_h_diary_edit extends OpenPNE_Action
                 $mail_address = 'bi' . $target_c_diary_id . "@" . MAIL_SERVER_DOMAIN;
             }
         }
-        $this->set('blog_address', $mail_address);
+        $this->set('mail_address', $mail_address);
 
         $this->set('SNS_NAME', SNS_NAME);
         /* OpenPNE2 スマートフォン対応：ここまで */

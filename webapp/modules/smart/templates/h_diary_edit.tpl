@@ -149,7 +149,7 @@
 ({if $diary.image_filename_1 && $diary.image_filename_2 && $diary.image_filename_3})
 すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。<br>
 ({else})
-({t_mail_post mailto=$blog_address _linktxt=新しい写真をメールで投稿})<br>
+({t_mail_post mailto=$mail_address _linktxt=新しい写真をメールで投稿})<br>
 <p>
 ({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真を添付すると写真付き({$WORD_DIARY})になります。<br>

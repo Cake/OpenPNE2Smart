@@ -78,7 +78,7 @@
 <div class="dparts infoButtonBox"><div class="parts">
 <div class="partsHeading"><h3>メールで投稿</h3></div>
 <div class="block">
-({t_mail_post mailto=$blog_address _type=button})
+({t_mail_post mailto=$mail_address _type=button})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真を添付すると写真付き({$WORD_DIARY})になります。<br>
 </p>
