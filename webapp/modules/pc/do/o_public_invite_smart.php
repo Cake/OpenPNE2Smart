@@ -85,7 +85,7 @@ class pc_do_o_public_invite_smart extends OpenPNE_Action
             db_member_insert_c_member_ktai_pre($session, $pc_address, $c_member_id_invite);
         }
 
-        h_invite_insert_c_invite_mail_send($session, $c_member_id_invite, $pc_address);
+        h_invite_insert_c_invite_mail_send($session, $c_member_id_invite, $pc_address, '');
 
         // delete cookie
         setcookie(session_name(), '', time() - 3600, ini_get('session.cookie_path'));
