@@ -51,6 +51,8 @@ $GLOBALS['OpenPNE']['KTAI_DOMAINS'] = array(
     'disney.ne.jp',
     'emnet.ne.jp',
     'willcom.com',
+    /* OpenPNE2 スマートフォン対応 */
+    'i.softbank.jp',
 );
 
 // Smarty の設定
