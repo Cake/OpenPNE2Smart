@@ -97,12 +97,11 @@
 ({/t_form_block})
 
 ({**OpenPNE2 スマートフォン対応：ここから**})
-({if ($is_apple)})
 ({t_mail_post mailto=$mail_address _type=button})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真を添付すると写真付き({$WORD_DIARY})になります。<br>
 </p>
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+({**OpenPNE2 スマートフォン対応：ここまで**})
 
 </div>
 </div></div>

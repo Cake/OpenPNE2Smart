@@ -50,10 +50,9 @@ class pc_page_h_diary_edit extends OpenPNE_Action
         $smartPhone = new OpenPNE_SmartPhoneUA();
 
         $this->set('is_apple', $smartPhone->is_apple);
-        $this->set('is_smart', $smartPhone->is_smart);
         $mail_address = null;
 
-        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+        if ($smartPhone->is_apple) {
             if (MAIL_ADDRESS_HASHED) {
                 $mail_address = 'bi' . $target_c_diary_id . '-' . t_get_user_hash($u) . "@" . MAIL_SERVER_DOMAIN;
             } else {

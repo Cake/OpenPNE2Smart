@@ -88,7 +88,6 @@ class pc_page_fh_diary_list extends OpenPNE_Action
         $smartPhone = new OpenPNE_SmartPhoneUA();
 
         $this->set('is_apple', $smartPhone->is_apple);
-        $this->set('is_smart', $smartPhone->is_smart);
         $mail_address = null;
 
         if ($smartPhone->is_apple || $smartPhone->is_smart) {
