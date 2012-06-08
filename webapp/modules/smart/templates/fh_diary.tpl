@@ -250,11 +250,13 @@
 <table><tr>
 <th>本文</th><td><textarea name="body" id="comment_box" rows="8" cols="40">({$requests.body})</textarea></td>
 </tr><tr>
+({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <th>写真1</th><td><input type="file" class="input_file" name="upfile_1" size="40" /></td>
 </tr><tr>
 <th>写真2</th><td><input type="file" class="input_file" name="upfile_2" size="40" /></td>
 </tr><tr>
 <th>写真3</th><td><input type="file" class="input_file" name="upfile_3" size="40" /></td>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </tr></table>
 <div class="operation">
 <ul class="moreInfo button">
