@@ -104,7 +104,10 @@
 <a href="({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=1&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if (!$is_apple)})
 <input type="file" class="input_file" name="upfile_1" size="40" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 <tr>
@@ -117,7 +120,10 @@
 <a href="({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=2&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if (!$is_apple)})
 <input type="file" class="input_file" name="upfile_2" size="40" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 <tr>
@@ -130,9 +136,28 @@
 <a href="({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=3&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if (!$is_apple)})
 <input type="file" class="input_file" name="upfile_3" size="40" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<tr>
+<td colspan="2">
+({if $diary.image_filename_1 && $diary.image_filename_2 && $diary.image_filename_3})
+すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。<br>
+({else})
+({t_mail_post mailto=$blog_address _linktxt=新しい写真をメールで投稿})<br>
+<p>
+({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真を添付すると写真付き({$WORD_DIARY})になります。<br>
+</p>
+({/if})
+</td>
+</tr>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $use_diary_category})
 <tr>
 <th>カテゴリ</th>

@@ -45,6 +45,26 @@ class pc_page_h_diary_edit extends OpenPNE_Action
         if ($_REQUEST['del_img'] & 0x04 == 1)  $c_diary['image_filename_3'] = "";
         $this->set('del_img', $_REQUEST['del_img']);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $this->set('is_smart', $smartPhone->is_smart);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = 'bi' . $target_c_diary_id . '-' . t_get_user_hash($u) . "@" . MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = 'bi' . $target_c_diary_id . "@" . MAIL_SERVER_DOMAIN;
+            }
+        }
+        $this->set('blog_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('inc_navi', fetch_inc_navi('h'));
 
         //プロフィール
