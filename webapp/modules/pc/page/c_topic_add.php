@@ -56,6 +56,12 @@ class pc_page_c_topic_add extends OpenPNE_Action
         // 許可されている拡張子のリスト
         $this->set('allowed_extensions', util_get_file_allowed_extensions('string'));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // コミュ画像投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_apple', $smartPhone->is_apple);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }

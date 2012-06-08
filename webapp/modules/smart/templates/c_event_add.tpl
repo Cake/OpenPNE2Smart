@@ -68,9 +68,11 @@
 <input type="text" class="input_text" name="capacity" value="({if $event.capacity})({$event.capacity})({/if})" />
 </td>
 </tr>
+({if !$is_apple})
 <tr><th>写真1</th><td><input type="file" name="image_filename1" size="40" /></td></tr>
 <tr><th>写真2</th><td><input type="file" name="image_filename2" size="40" /></td></tr>
 <tr><th>写真3</th><td><input type="file" name="image_filename3" size="40" /></td></tr>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <tr>
 <th>ファイル</th>

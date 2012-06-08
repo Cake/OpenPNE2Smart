@@ -83,6 +83,26 @@ class pc_page_c_event_edit extends OpenPNE_Action
         // 許可されている拡張子のリスト
         $this->set('allowed_extensions', util_get_file_allowed_extensions('string'));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = 'ti' . $c_commu_topic_id . '-' . t_get_user_hash($u) . "@" . MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = 'ti' . $c_commu_topic_id . "@" . MAIL_SERVER_DOMAIN;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('mail_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }
