@@ -77,11 +77,7 @@
 <div class="dparts infoButtonBox"><div class="parts">
 <div class="partsHeading"><h3>メールで投稿</h3></div>
 <div class="block">
-<form method="get" action="mailto:({$blog_address})">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="メールで投稿" /></li>
-</ul>
-</form>
+({t_mail_post mailto=$blog_address _type=button})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真を添付すると写真付き({$WORD_DIARY})になります。<br>
 </p>
