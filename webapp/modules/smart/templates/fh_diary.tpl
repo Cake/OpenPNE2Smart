@@ -235,6 +235,17 @@
 ({* {{{ formTable *})
 <div class="dparts formTable" id="commentForm"><div class="parts">
 <div class="partsHeading"><h3>コメントを書く</h3></div>
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<div class="operation">
+({t_mail_post mailto=$mail_address _type=button})
+<ul class="" style="padding-left: 50px">
+<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
+<li>写真も添付できます。<br></li>
+</ul>
+</p>
+</div>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <table><tr>

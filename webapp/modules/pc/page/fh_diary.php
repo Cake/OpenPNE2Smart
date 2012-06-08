@@ -112,6 +112,28 @@ class pc_page_fh_diary extends OpenPNE_Action
         }
         $this->set('pager', $pager);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $this->set('is_smart', $smartPhone->is_smart);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = "bc{$target_c_diary_id}-".t_get_user_hash($u).'@'.MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = "bc{$target_c_diary_id}".'@'.MAIL_SERVER_DOMAIN;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('mail_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
+
         //最近の日記を取得
         $list_set = p_fh_diary_list_diary_list4c_member_id($target_c_member_id, 7, 1, $u);
         $this->set('new_diary_list', $list_set[0]);
