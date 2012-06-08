@@ -186,13 +186,26 @@
 ({* {{{ formTable *})
 <div class="dparts formTable" id="commentForm"><div class="parts">
 <div class="partsHeading"><h3>新しく書き込む</h3></div>
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<div class="operation">
+({t_mail_post mailto=$mail_address _type=button})
+<ul class="" style="padding-left: 50px;">
+<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
+<li>写真も添付できます。<br></li>
+</ul>
+</p>
+</div>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({t_form_block _enctype=file m=pc a=page_c_event_write_confirm})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
 <table>
 <tr><th>本文</th><td><textarea name="body" id="comment_box" rows="10" cols="50">({$body})</textarea></td></tr>
+({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <tr><th>写真1</th><td><input type="file" class="input_file" name="image_filename1" size="40" /></td></tr>
 <tr><th>写真2</th><td><input type="file" class="input_file" name="image_filename2" size="40" /></td></tr>
 <tr><th>写真3</th><td><input type="file" class="input_file" name="image_filename3" size="40" /></td></tr>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <tr>
 <th>ファイル</th>
