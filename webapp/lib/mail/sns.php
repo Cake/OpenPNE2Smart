@@ -106,7 +106,7 @@ class mail_sns
         /* OpenPNE2 スマートフォン対応：ここから */
         // 連投制限チェック
         if (!$this->check_mail_post_interval($this->c_member_id)) {
-            $this->error_mail(OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND. '秒以内の連続投稿は禁止されています。しばらく経ってから再度送信してください。');
+            $this->error_mail('連続投稿は禁止されています。しばらく経ってから再度送信してください。');
             m_debug_log('mail_sns::main() ERROR too short interval');
             return false;
         }
