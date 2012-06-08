@@ -685,11 +685,11 @@ $GLOBALS['MAIL_POST_LIMIT_DOMAIN'] = array(
   // 前回投稿時刻と投稿回数の保存先にはデータベースを使用します。
 // 連続投稿と判断する間隔(秒)
 // 0を指定した場合、チェックしない
-define('OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND', 10);
+define('OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND', 30);
 
 // 前回から[MAIL_POST_INTERVAL_UNFAIR_SECOND]秒以内の投稿が、
 // 何回を超えて行われた時に、連続投稿と判断するか
-define('OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT', 3);
+define('OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT', 5);
 
 // 前回投稿から何秒以上あいていたら、連続投稿回数をリセットするか
 // 0を指定した場合、リセットしない

@@ -272,8 +272,8 @@ class OpenPNE_Config
             'OPENPNE_DECORATION_CMD_URL' => 'http://www.openpne.jp/cmd/',
         /* OpenPNE2 スマートフォン対応 */
             'ALLOW_PC_MAIL_POST' => false,
-            'OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND' => 10,
-            'OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT' => 3,
+            'OPENPNE_MAIL_POST_INTERVAL_UNFAIR_SECOND' => 30,
+            'OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT' => 5,
             'OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT_RESET_SECOND' => 60*60,
             'MAIL_DEBUG_LOG_FROM' => false,
         );
