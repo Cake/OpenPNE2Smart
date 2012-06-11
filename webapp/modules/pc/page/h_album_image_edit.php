@@ -49,6 +49,11 @@ class pc_page_h_album_image_edit extends OpenPNE_Action
         $this->set('target_c_album_id', $target_c_album_id);
         $this->set('target_c_album_image_id', $target_c_album_image_id);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_apple', $smartPhone->is_apple);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }
