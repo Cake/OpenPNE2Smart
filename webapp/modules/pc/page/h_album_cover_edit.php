@@ -49,6 +49,26 @@ class pc_page_h_album_cover_edit extends OpenPNE_Action
         $sessid = session_id();
         t_image_clear_tmp($sessid);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        $this->set('is_apple', $smartPhone->is_apple);
+        $mail_address = null;
+
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
+            if (MAIL_ADDRESS_HASHED) {
+                $mail_address = "ac{$target_c_album_id}-".t_get_user_hash($u).'@'.MAIL_SERVER_DOMAIN;
+            } else {
+                $mail_address = "ac{$target_c_album_id}".'@'.MAIL_SERVER_DOMAIN;
+            }
+            $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
+        }
+        $this->set('mail_address', $mail_address);
+
+        $this->set('SNS_NAME', SNS_NAME);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }

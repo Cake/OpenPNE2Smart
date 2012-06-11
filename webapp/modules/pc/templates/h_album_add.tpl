@@ -16,7 +16,16 @@
 </tr>
 <tr>
 <th>表紙</th>
-<td><input type="file" class="input_file" name="image_filename" size="40" /></td>
+({**OpenPNE2 スマートフォン対応：ここから**})
+<tr>
+<th>写真</th>
+<td>
+({if $is_apple})
+アルバム作成後に設定できます。
+({else})
+<input type="file" class="input_file" name="image_filename" size="40" />
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+</td>
 </tr>
 <tr>
 <th>公開範囲</th>

@@ -24,6 +24,12 @@ class pc_page_h_album_add extends OpenPNE_Action
         $sessid = session_id();
         t_image_clear_tmp($sessid);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // メール投稿
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_apple', $smartPhone->is_apple);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('inc_navi', fetch_inc_navi("h"));
         $this->set("form_val", $form_val);
         $this->set('err_msg', $err_msg);
