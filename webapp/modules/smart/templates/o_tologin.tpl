@@ -1,11 +1,15 @@
-<div id="LayoutC">
-<div id="Center">
+<div id="pc_page_({$INC_HEADER_page_name})" data-role="page">
+({ext_include file="common/inc_header.tpl"})
+<div data-role="content">({* {{{ Page content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
+<section class="parts linkLine"><ul class="moreInfo">
 <li><a href="({$login_url})">ログインページへ</a></li>
-</ul></div>
+</ul></section>
 ({* }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* Page content}}} *})
+({ext_include file="common/inc_footer.tpl"})
+</div>
+
