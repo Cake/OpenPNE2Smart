@@ -699,4 +699,11 @@ define('OPENPNE_MAIL_POST_INTERVAL_UNFAIR_COUNT_RESET_SECOND', 60*60);
 // メールログに送受信アドレス(FromとTo)情報残すかどうか(var/log/mail.log)
 define('MAIL_DEBUG_LOG_FROM', false);
 
+
+// 追加画像サイズ
+$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array_merge($GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'], array(
+	'36x36',
+));
+
+
 ?>
