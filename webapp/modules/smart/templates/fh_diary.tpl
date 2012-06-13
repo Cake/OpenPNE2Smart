@@ -1,143 +1,71 @@
-<div id="LayoutB">
-
-<div id="Left">
-
-({* {{{ sideNav *})
-<div class="parts sideNav">
-<div class="item calendar">
-<div class="partsHeading"><h3>
-({if $ym.prev_month})<a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;year=({$ym.prev_year})&amp;month=({$ym.prev_month})">＜</a>({/if})
-({$date_val.month})月のカレンダー
-({if $ym.next_month})<a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;year=({$ym.next_year})&amp;month=({$ym.next_month})">＞</a>({/if})
-</h3></div>
-<table class="calendar">
-<tr>
-<th class="sun">日</th>
-<th class="mon">月</th>
-<th class="tue">火</th>
-<th class="wed">水</th>
-<th class="thu">木</th>
-<th class="fri">金</th>
-<th class="sat">土</th>
-</tr>({foreach from=$calendar item=week})<tr>
-({foreach from=$week item=item name="calendar_days"})
-<td>({strip})
-({if $item.day})
-({if $item.is_diary})
-<a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;year=({$date_val.year})&amp;month=({$date_val.month})&amp;day=({$item.day})">({$item.day})</a>
-({else})
-({$item.day})
-({/if})
-({else})
-({/if})
-({/strip})</td>
-({/foreach})
-</tr>
-({/foreach})
-</table>
-</div>
-
-<div class="item recentlyDiary">
-<div class="partsHeading"><h3>最近の({$WORD_DIARY})</h3></div>
-<ul class="list">
-({foreach from=$new_diary_list item=item})
-<li><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})">({$item.subject})</a></li>
-({/foreach})
-</ul>
-</div>
-
-<div class="item recentlyComment">
-<div class="partsHeading"><h3>最近のコメント</h3></div>
-<ul class="list">
-<li><a href="({t_url m=pc a=page_fh_comment_list})&amp;target_c_member_id=({$target_member.c_member_id})">一覧を見る</a></li>
-</ul>
-</div>
-
-({if $date_list})
-<div class="item monthlyDiary">
-<div class="partsHeading"><h3>各月の({$WORD_DIARY})</h3></div>
-<ul class="list">
-({foreach from=$date_list item=item})
-<li><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;year=({$item.year})&amp;month=({$item.month})">({$item.year})年({$item.month})月の一覧</a></li>
-({/foreach})
-</ul>
-</div>
-({/if})
-
-({if $category})
-<div class="item listCategory">
-<div class="partsHeading"><h3>カテゴリ一覧</h3></div>
-<ul class="list">
-({foreach from=$category item=category_item})
-<li><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category_item.c_diary_category_id})">({$category_item.category_name})</a></li>
-({/foreach})
-</ul>
-</div>
-({/if})
-</div>
-({* }}} *})
-
-</div><!-- Left -->
-<div id="Center">
+<div data-role="page">
+({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
+<div data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
+({* 【メモ】検索 *})
 
 ({* {{{ diaryDetailBox *})
-<div class="dparts diaryDetailBox"><div class="parts">
-<div class="partsHeading"><h3>({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})</h3>
-<p class="public">
+<section class="parts diaryDetailBox">
+
+<section class="authorBar">
+<div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
+<div class="memberData">
+<div class="title">
+<h2><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})</a>({if $type == "f"})さん({/if})の({$WORD_DIARY})</h2>
+<span class="public">
 ({if $target_diary.public_flag == "public"})（全員に公開）
 ({elseif $target_diary.public_flag == "friend"})（({$WORD_MY_FRIEND})まで公開）
-({elseif $target_diary.public_flag == "private"})（公開しない）({/if})
-</p></div>
+({elseif $target_diary.public_flag == "private"})（公開しない）({/if})</span>
+</div>
+<div class="data">
+<time datetime="({$target_diary.r_datetime})" id="diaryDatetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+</div>
+</div>
+</section>
+
+<article class="body">
+({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
+<figure class="ui-grid-b photo">
+({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
+</figure>
+({/if})
+<p id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
+({if $category_list})
+<p id="diaryCategory"><small>(
+({foreach from=$category_list item=category})
+<span><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category.c_diary_category_id})">({$category.category_name})</a></span>
+({/foreach})
+)</small></p>
+({/if})
+</article>
+
 ({if $c_diary_id_prev || $c_diary_id_next})
-<div class="block prevNextLinkLine">
+<section class="block prevNextLinkLine">
 ({if $c_diary_id_prev})<p class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})">≪前の({$WORD_DIARY})</a></p>({/if})
 ({if $c_diary_id_next})<p class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})">次の({$WORD_DIARY})≫</a></p>({/if})
-</div>
+</section>
 ({/if})
-<dl>
-<dt>({$target_diary.r_datetime|date_format:"%Y年<br />%m月%d日<br />%H:%M"})</dt>
-<dd>
-<div class="title">
-<p class="heading">({$target_diary.subject})</p>
-</div>
-<div class="body">
-({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
-<ul class="photo">
-({if $target_diary.image_filename_1})<li><a href="({t_img_url filename=$target_diary.image_filename_1})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $target_diary.image_filename_2})<li><a href="({t_img_url filename=$target_diary.image_filename_2})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $target_diary.image_filename_3})<li><a href="({t_img_url filename=$target_diary.image_filename_3})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_3 w=120 h=120})" alt="" /></a></li>({/if})
-</ul>
-({/if})
-({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})
-</div>
-</dd>
-</dl>
-({if $category_list})
-<div class="block category">
-<ul>
-({foreach from=$category_list item=category})
-<li>({$category.category_name})</li>
-({/foreach})
-</ul>
-</div>
-({/if})
+
 ({if $type == "h"})
 <div class="operation">
 ({t_form_block _method=get m=pc a=page_h_diary_edit})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="　編　集　" /></li>
-</ul>
+<input type="submit" class="input_submit" value="　編　集　" />
 ({/t_form_block})
 </div>
 ({/if})
-</div></div>
 ({* }}} *})
+
+</section>
+({*  diaryDetailBox }}} *})
+
 
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
-<div class="dparts commentList" id="commentList"><div class="parts">
-<div class="partsHeading"><h3>コメント</h3></div>
+<section class="parts commentList" id="diaryCommentList" data-role="collapsible">
+<h3>コメント</h3>
 ({t_form_block m=pc a=page_fh_delete_comment})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 
@@ -216,35 +144,15 @@
 </div>
 ({/if})
 ({/t_form_block})
-</div></div>
-({* }}} *})
-({/if})
-
-({if $c_diary_id_prev || $c_diary_id_next})
-({* {{{ prevNextLinkLine *})
-<div class="parts prevNextLinkLine">
-({if $c_diary_id_prev})<p class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})">≪前の({$WORD_DIARY})</a></p>({/if})
-({if $c_diary_id_next})<p class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})">次の({$WORD_DIARY})≫</a></p>({/if})
-</div>
+</section>
 ({* }}} *})
 ({/if})
 
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT or $is_comment_input})
-
 ({if $is_writable_comment})
 ({* {{{ formTable *})
-<div class="dparts formTable" id="commentForm"><div class="parts">
-<div class="partsHeading"><h3>コメントを書く</h3></div>
-({**OpenPNE2 スマートフォン対応：ここから**})
-<div class="operation">
-({t_mail_post mailto=$mail_address _type=button})
-<ul class="" style="padding-left: 50px;">
-<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
-<li>写真も添付できます。<br></li>
-</ul>
-</p>
-</div>
-({**OpenPNE2 スマートフォン対応：ここまで**})
+<section class="parts commentForm" id="diarycommentForm" data-role="collapsible">
+<h3>コメントを書く</h3>
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <table><tr>
@@ -264,19 +172,27 @@
 </ul>
 </div>
 ({/t_form_block})
-</div></div>
+<div class="operation">
+({t_mail_post mailto=$mail_address _type=button})
+<ul class="" style="padding-left: 50px;">
+<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
+<li>写真も添付できます。<br></li>
+</ul>
+</p>
+</div>
+</section>
 ({* }}} *})
 ({else})
 ({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>コメントを書く</h3></div>
-<div class="block">
+<section class="parts simpleBox" id="diaryNoavailableComment" data-role="collapsible">
+<h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、この({$WORD_DIARY})にはコメントできません。</p>
-</div>
-</div></div>
+</section>
 ({* }}} *})
 ({/if})
 ({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutB -->
+
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
