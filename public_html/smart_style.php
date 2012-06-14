@@ -20,6 +20,15 @@ time {
 	font-size: 80% !important;
 }
 
+/*----------------------------------------------
+ * パーツ内上下の部分（1件～20件を表示など）
+ *--------------------------------------------*/
+.pagerRelative {
+	text-align: right;
+}
+.pagerRelative span {
+	margin-left: 3px;
+}
 
 /*----------------------------------------------
  * ユーザ写真＋情報バー
@@ -72,7 +81,7 @@ time {
 }
 
 .diaryDetailBox #diaryCategory {
-	float: right;
+	float: left;
 }
 
 .diaryDetailBox #diaryCategory span {
@@ -82,5 +91,9 @@ time {
 
 .diaryDetailBox #diaryCategory span:first-child {
 	margin-left: 0;
+}
+
+.commentWriteButton {
+	text-align:right;
 }
 
