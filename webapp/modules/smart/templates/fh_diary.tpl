@@ -1,3 +1,6 @@
+({if $smarty.const.USE_RESPONSE_COMMENT}) 
+<script type="text/javascript" src="./modules/smart/comment.js"></script>
+({/if})
 <div data-role="page">
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
 <div data-role="content">({* {{{ content *})
@@ -32,19 +35,25 @@
 </figure>
 ({/if})
 <p id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
-({if $category_list})
-<p id="diaryCategory"><small>(
+
+<p>
+<div id="diaryCategory" data-inline="true"><small>({if $category_list})(
 ({foreach from=$category_list item=category})
 <span><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category.c_diary_category_id})">({$category.category_name})</a></span>
-({/foreach})
-)</small></p>
-({/if})
+({/foreach}))
+({/if})</small></div>
+<div class="operation" data-inline="true">
+<a href="javascript:void(0);" onclick="$('#diarycommentForm').children().toggle(true);jump_to('diarycommentForm', 'comment_box'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a>
+</div>
+</p>
 </article>
 
-({if $c_diary_id_prev || $c_diary_id_next})
 <section class="block prevNextLinkLine">
-({if $c_diary_id_prev})<p class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})">≪前の({$WORD_DIARY})</a></p>({/if})
-({if $c_diary_id_next})<p class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})">次の({$WORD_DIARY})≫</a></p>({/if})
+({if $c_diary_id_prev || $c_diary_id_next})
+({strip})
+({if $c_diary_id_prev})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})" data-role="button" data-icon="back" data-inline="true">前の({$WORD_DIARY})</a>({/if})
+({if $c_diary_id_next})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})" data-role="button" data-icon="forward" data-inline="true">次の({$WORD_DIARY})</a>({/if})
+({/strip})
 </section>
 ({/if})
 
@@ -52,7 +61,7 @@
 <div class="operation">
 ({t_form_block _method=get m=pc a=page_h_diary_edit})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
-<input type="submit" class="input_submit" value="　編　集　" />
+<input type="submit" class="input_submit" value="編集" />
 ({/t_form_block})
 </div>
 ({/if})
@@ -115,7 +124,7 @@
 ({if $type == 'f' && $item.c_member_id == $member.c_member_id}) <a href="({t_url m=pc a=page_fh_delete_comment})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;target_c_diary_comment_id=({$item.c_diary_comment_id})">削除</a>({/if})
 ({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})
-<a href="javascript:void(0);" onclick="response_comment_format($('comment-({$item.number})-member').getAttribute('title'), '({$item.number})', 'comment_box');return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a>
+<a href="javascript:void(0);" onclick="response_comment($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#diarycommentForm').children().toggle(true);jump_to('diarycommentForm', 'comment_box'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a>
 ({/if})
 ({/if})
 </p>
@@ -139,7 +148,7 @@
 ({if $type == 'h'})
 <div class="operation">
 <ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="　削　除　" /></li>
+<li><input type="submit" class="input_submit" value="削除" /></li>
 </ul>
 </div>
 ({/if})

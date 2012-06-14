@@ -72,7 +72,7 @@ time {
 }
 
 .diaryDetailBox #diaryCategory {
-	text-align: right;
+	float: right;
 }
 
 .diaryDetailBox #diaryCategory span {
