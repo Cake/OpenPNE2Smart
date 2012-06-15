@@ -1,4 +1,5 @@
-({if $smarty.const.OPENPNE_USE_DECORATION})
+({**if $smarty.const.OPENPNE_USE_DECORATION**})({*decoration無効化:jQueryMobileと齟齬*})
+({if false})
 <script type="text/javascript" src="./js/pne_decoration.js"></script>
 <script type="text/javascript" src="./js/tiny_mce/tiny_mce.js?r7140"></script>
 <script type="text/javascript">
