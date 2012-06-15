@@ -158,28 +158,21 @@ $('#diarycommentForm').ready(function(){
 ({* {{{ formTable *})
 <section class="parts commentForm" id="diarycommentForm" data-role="collapsible">
 <h3>コメントを書く</h3>
+<div class="operation">
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
-<table><tr>
-<th>本文</th><td><textarea name="body" id="comment_box" rows="8" cols="40">({$requests.body})</textarea></td>
-</tr><tr>
+<textarea name="body" id="comment_box" rows="8" cols="40">({$requests.body})</textarea>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
-<th>写真1</th><td><input type="file" class="input_file" name="upfile_1" size="40" /></td>
-</tr><tr>
-<th>写真2</th><td><input type="file" class="input_file" name="upfile_2" size="40" /></td>
-</tr><tr>
-<th>写真3</th><td><input type="file" class="input_file" name="upfile_3" size="40" /></td>
+<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br>
+<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40" /><br>
+<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
-</tr></table>
-<div class="operation">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="確認画面" /></li>
-</ul>
-</div>
+<input type="submit" class="input_submit" value="確認画面" />
 ({/t_form_block})
+</div>
 <div class="operation">
 ({t_mail_post mailto=$mail_address _type=button})
-<ul class="" style="padding-left: 50px;">
+<ul class="">
 <li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
 <li>写真も添付できます。<br></li>
 </ul>
