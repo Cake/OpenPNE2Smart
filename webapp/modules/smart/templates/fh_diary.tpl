@@ -1,3 +1,16 @@
+<script language="JavaScript">
+<!--
+({if $comment_count})
+$('#diarycommentForm').ready(function(){
+	jump_to('diaryComment({$comment_count})','diaryCommentList');
+});
+({elseif $flg})
+$('#diarycommentForm').ready(function(){
+	jump_to('({$flg})','({$flg})');
+});
+({/if})
+//-->
+</script>
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
@@ -72,15 +85,15 @@
 ({if $total_num > 20 || $total_page_num > 1})
 ({if $total_page_num > 1})
 ({if $requests.order == 'asc'})
-<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})">最新を表示</a></span>
+<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;flg=diaryCommentList" data-ajax="false">最新を表示</a></span>
 ({else})
-<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;order=asc">最初から表示</a></span>
+<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;order=asc&amp;flg=diaryCommentList" data-ajax="false">最初から表示</a></span>
 ({/if})
 ({/if})
 ({/if})
-({if $pager.page_prev})<span class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_prev})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})">前を表示</a></span>({/if})
+({if $pager.page_prev})<span class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_prev})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;flg=diaryCommentList" data-ajax="false">前を表示</a></span>({/if})
 <span class="number">({$pager.start})番～({$pager.end})番</span>
-({if $pager.page_next})<span class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_next})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})">次を表示</a></span>({/if})
+({if $pager.page_next})<span class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_next})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;flg=diaryCommentList" data-ajax="false">次を表示</a></span>({/if})
 </p>
 ({/strip})({/capture})
 
@@ -92,8 +105,8 @@
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 
 ({foreach from=$target_diary_comment_list item=item})
-<article id="diaryComment({$item.c_diary_id})">
-<section class="authorBar" id="diaryComment({$item.c_diary_id})Author">
+<article id="diaryComment({$item.number})">
+<section class="authorBar" id="diaryComment({$item.number})Author">
 <div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
 <div class="title">
@@ -184,7 +197,7 @@
 ({/if})
 ({/if})
 
-
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
 </div>({* page }}} *})
+
