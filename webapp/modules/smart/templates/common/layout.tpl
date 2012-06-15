@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 ({t_url_smart_style})
+<script type="text/javascript" src="./js/pne.js"></script>
 </head>
 <body id="pc_page_({$INC_HEADER_page_name})" class="Body">
 <!-- start of op_content -->
