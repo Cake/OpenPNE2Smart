@@ -14,6 +14,7 @@
 	//-->
 	</script>
 	<script type="text/javascript" src="./modules/smart/jquermobile/1.1/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="./modules/smart/smartpne.js"></script>
 <script type="text/javascript" src="./js/pne.js"></script>
 <link rel="stylesheet" href="./smart_style.php?hash={$hash}" type="text/css" />
 </head>
