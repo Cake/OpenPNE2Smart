@@ -43,7 +43,7 @@
 ({/foreach}))
 ({/if})</small></div>
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="$('#diarycommentForm').children().toggle(true);jump_to('diarycommentForm', 'comment_box'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 </div>
 </p>
 </article>
@@ -85,7 +85,7 @@
 ({/strip})({/capture})
 
 ({* {{{ commentList *})
-<section class="parts commentList" id="diaryCommentList" data-role="collapsible" data-collapsed="false">
+<section class="parts commentList" id="diaryCommentList" data-role="collapsible" data-collapsed="true">
 <h3><span>コメント</span> <span class="pagerRelative">全({$total_num})件</span></h3>
 ({$smarty.capture.pager|smarty:nodefaults})
 ({t_form_block m=pc a=page_fh_delete_comment})
@@ -119,7 +119,7 @@
 
 ({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="$('#diarycommentForm').children().toggle(true);response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();jump_to('diarycommentForm'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm');response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 ({/if})
 ({/if})
 </section>

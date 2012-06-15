@@ -9,7 +9,7 @@
 	<script language="JavaScript">
 	<!--
 	$(document).bind("mobileinit", function(){
-	//	$.mobile.ajaxEnabled = false; // Ajax ‚ðŽg—p‚µ‚½‘JˆÚ‚ð–³Œø‚É‚·‚é
+	//	$.mobile.ajaxEnabled = false; // Ajax ã‚’ä½¿ç”¨ã—ãŸé·ç§»ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 	});
 	//-->
 	</script>
