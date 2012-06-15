@@ -1,6 +1,6 @@
 ({* {{{ header *})<header id="mainHeader" data-role="header">
 ({* Home Button *})({if $_headline_link != $smarty.const.OPENPNE_URL})
-<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext" data-direction="reverse" data-iconpos="notext" data-icon="home" href="({$smarty.const.OPENPNE_URL})" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Home">
+<a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext" data-direction="reverse" data-iconpos="notext" data-icon="home" href="({t_url m=pc})" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Home" data-ajax="false">
 <span class="ui-btn-inner ui-btn-corner-all">
 <span class="ui-btn-text">({$smarty.const.SNS_NAME})</span>
 <span class="ui-icon ui-icon-home ui-icon-shadow">&nbsp;</span>

@@ -119,7 +119,7 @@
 
 ({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="$('#diarycommentForm').children().toggle(true);response_comment($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');jump_to('diarycommentForm', 'comment_box'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="$('#diarycommentForm').children().toggle(true);response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');jump_to('diarycommentForm', 'comment_box'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 ({/if})
 ({/if})
 </section>

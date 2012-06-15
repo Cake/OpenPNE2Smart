@@ -22,7 +22,7 @@
 <div class="operation">
 <ul class="moreInfo button">
 <li>
-({t_form_block m=pc a=do_fh_diary_insert_c_diary_comment})
+({t_form_block m=pc a=do_fh_diary_insert_c_diary_comment _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$form_val.target_c_diary_id})" />
 <input type="hidden" name="body" value="({$form_val.body})" />
 <input type="hidden" name="tmpfile_1" value="({$form_val.tmpfile_1})" />
@@ -32,7 +32,7 @@
 ({/t_form_block})
 </li>
 <li>
-({t_form_block _form_action=#commentForm _enctype=file m=pc a=page_fh_diary})
+({t_form_block _enctype=file m=pc a=page_fh_diary _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$form_val.target_c_diary_id})" />
 <input type="hidden" name="body" value="({$form_val.body})" />
 <input type="submit" class="input_submit" value="　修　正　" />
