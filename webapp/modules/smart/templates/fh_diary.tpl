@@ -8,13 +8,15 @@ $('#diarycommentForm').ready(function(){
 $('#diarycommentForm').ready(function(){
 	jump_to('({$flg})','({$flg})');
 });
+
+var page=2;
 ({/if})
 //-->
 </script>
+<div data-role="page" id="diary">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
-<div data-role="page" id="diary">
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
 <div data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})

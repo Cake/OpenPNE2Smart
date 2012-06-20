@@ -34,7 +34,7 @@ time {
  * パーツ内上下の部分（1件～20件を表示など）
  *--------------------------------------------*/
 .pagerRelative {
-	text-align: right;
+	text-align: center;
 }
 .pagerRelative span {
 	margin-left: 3px;

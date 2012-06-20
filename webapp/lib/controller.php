@@ -409,4 +409,43 @@ function handle_kengen_error()
     exit;
 }
 
+
+/* OpenPNE2 スマートフォン対応：ここから */
+function openpne_display_ajax($data = array(), $action = null)
+{
+    if (!empty($action)) {
+        // スマートフォン用テンプレートセット
+        $smarty = new OpenPNE_Smarty($GLOBALS['SMARTY']);
+        $smarty->templates_dir = 'smart' . '/templates';
+
+//        send_nocache_headers();
+	foreach ((array)$data as $key => $item) {
+	        $smarty->assign($key, $item);
+	}
+
+        $smarty->load_filter('output', 'pne_display_emoji');
+        $smarty->register_outputfilter('smarty_outputfilter_pne_display_emoji');
+        $smarty->sendContentType();
+        return $smarty->ext_fetch("{$action}.tpl", '', '', false);
+    }
+    exit;
+}
+
+function openpne_display_ajax2($data = array(), $action = null)
+{
+    if (!empty($action)) {
+        // スマートフォン用テンプレートセット
+        $smarty = new OpenPNE_Smarty($GLOBALS['SMARTY']);
+        $smarty->templates_dir = 'smart' . '/templates';
+
+//        send_nocache_headers();
+        $smarty->assign('data', (array)$data);
+
+        $smarty->ext_display("{$action}.tpl");
+    } elseif (is_string($data)) {
+        echo $data;
+    }
+    exit;
+}
+
 ?>
