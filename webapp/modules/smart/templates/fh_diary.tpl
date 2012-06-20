@@ -80,66 +80,16 @@ $('#diarycommentForm').ready(function(){
 
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
-({capture name=pager})({strip})
-<p class="pagerRelative">
-({if $total_num > 20 || $total_page_num > 1})
-({if $total_page_num > 1})
-({if $requests.order == 'asc'})
-<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;flg=diaryCommentList" data-ajax="false">最新を表示</a></span>
-({else})
-<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;order=asc&amp;flg=diaryCommentList" data-ajax="false">最初から表示</a></span>
-({/if})
-({/if})
-({/if})
-({if $pager.page_prev})<span class="prev"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_prev})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;flg=diaryCommentList" data-ajax="false">前を表示</a></span>({/if})
-<span class="number">({$pager.start})番～({$pager.end})番</span>
-({if $pager.page_next})<span class="next"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;page=({$pager.page_next})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;flg=diaryCommentList" data-ajax="false">次を表示</a></span>({/if})
-</p>
-({/strip})({/capture})
-
-({* {{{ commentList *})
-<section class="parts commentList" id="diaryCommentList" data-role="collapsible" data-collapsed="true">
-<h3><span>コメント</span> <span class="pagerRelative">全({$total_num})件</span></h3>
-({$smarty.capture.pager|smarty:nodefaults})
 ({t_form_block m=pc a=page_fh_delete_comment})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
+<section class="parts commentList" id="diaryCommentList" data-role="collapsible" data-collapsed="true">
+<h3><span>コメント</span> <span class="pagerRelative">全({$total_num})件</span></h3>
 
+({ext_include file="inc_fh_diary_comment_pager_upper.tpl"})
 ({foreach from=$target_diary_comment_list item=item})
-<article id="diaryComment({$item.number})">
-<section class="authorBar" id="diaryComment({$item.number})Author">
-<div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
-<div class="memberData">
-<div class="title">
-<h4><strong>({$item.number})</strong>:({if $item.nickname})<a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>({/if}) ({if $type == 'f' && $item.c_member_id == $member.c_member_id}) <a href="({t_url m=pc a=page_fh_delete_comment})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;target_c_diary_comment_id=({$item.c_diary_comment_id})">削除</a>({/if})</h4>
-<span class="operation">
-({if $type == "h"})<span><input type="checkbox" class="input_checkbox" name="target_c_diary_comment_id[]" value="({$item.c_diary_comment_id})" /></span>({/if})
-</span>
-</div>
-<div class="data">
-<time datetime="({$item.r_datetime})" id="diaryComment({$item.c_diary_id})Datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
-</div>
-</div>
-</section>
-<section class="body">
-({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})
-<figure class="ui-grid-b photo">
-({if $item.image_filename_1})<a href="({t_img_url filename=$item.image_filename_1})" target="_blank"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
-({if $item.image_filename_2})<a href="({t_img_url filename=$item.image_filename_2})" target="_blank"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a>({/if})
-({if $item.image_filename_3})<a href="({t_img_url filename=$item.image_filename_3})" target="_blank"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
-</figure>
-({/if})
-<p class="text">({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</p>
-
-({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})
-({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm');response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
-({/if})
-({/if})
-</section>
-</article>
+({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})
-
-({$smarty.capture.pager|smarty:nodefaults})
+({ext_include file="inc_fh_diary_comment_pager_bottom.tpl"})
 
 ({if $type == 'h'})
 <section class="operation">
@@ -148,8 +98,9 @@ $('#diarycommentForm').ready(function(){
 </ul>
 </section>
 ({/if})
-({/t_form_block})
+
 </section>
+({/t_form_block})
 ({* commentList }}} *})
 ({/if})
 

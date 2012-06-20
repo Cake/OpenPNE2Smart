@@ -73,6 +73,15 @@ class pc_page_fh_diary extends OpenPNE_Action
             $desc = true;
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+
+        if ($smartPhone->is_smart) {
+             // コメント取得件数
+             $page_size = 5;
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         list($c_diary_comment_list, $is_prev, $is_next, $total_num, $total_page_num)
             = k_p_fh_diary_c_diary_comment_list4c_diary_id($target_c_diary_id, $page_size, $page, $desc);
         if ($desc) {
@@ -114,8 +123,6 @@ class pc_page_fh_diary extends OpenPNE_Action
 
         /* OpenPNE2 スマートフォン対応：ここから */
         // メール投稿
-        $smartPhone = new OpenPNE_SmartPhoneUA();
-
         $this->set('is_apple', $smartPhone->is_apple);
         $mail_address = null;
 
@@ -131,7 +138,6 @@ class pc_page_fh_diary extends OpenPNE_Action
 
         $this->set('SNS_NAME', SNS_NAME);
         /* OpenPNE2 スマートフォン対応：ここまで */
-
 
         //最近の日記を取得
         $list_set = p_fh_diary_list_diary_list4c_member_id($target_c_member_id, 7, 1, $u);
