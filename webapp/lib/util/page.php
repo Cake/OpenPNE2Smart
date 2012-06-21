@@ -32,6 +32,14 @@ function fetch_inc_navi($type, $target_id = null)
 
     $inc_smarty = new OpenPNE_Smarty($GLOBALS['SMARTY']);
     $inc_smarty->templates_dir = 'pc/templates';
+    /* OpenPNE2 スマートフォン対応：ここから追加 */
+    // スマートフォン用テンプレートセット
+    $smartPhone = new OpenPNE_SmartPhoneUA();
+    if ($smartPhone->is_smart) {
+        $inc_smarty->templates_dir = 'smart' . '/templates';
+    }
+    /* OpenPNE2 スマートフォン対応：ここまで追加 */
+
     $inc_smarty->assign('PHPSESSID', md5(session_id()));
 
     switch ($type) {

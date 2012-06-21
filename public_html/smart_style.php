@@ -31,6 +31,45 @@ time {
 }
 
 /*----------------------------------------------
+ * ベースレイアウト
+ *--------------------------------------------*/
+nav#LeftNav {
+	overflow: hidden;
+	position: absolute;
+	top: 42px;
+	left: -280px;
+	width: 250px; 
+	min-height: 100%;
+	padding: 0 15px;
+	z-index: 99;
+}
+nav#LeftNav .ui-header .ui-btn {
+	z-index: 100;
+
+}
+
+nav .ui-field-contain {
+	margin: 0;
+}
+
+header {
+	height: 40px;
+}
+header #headerHomeButton {
+	margin-left: 48px;
+}
+header .ui-header .ui-title {
+	margin-top: -0.8em;
+}
+h1#pageTitle {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+
+/*----------------------------------------------
  * パーツ内上下の部分（1件～20件を表示など）
  *--------------------------------------------*/
 .pagerRelative {

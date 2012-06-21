@@ -42,6 +42,48 @@ function submitPager(a, id, order, element, pagerId, totalPageNum) {
 	});
 }
 
+/* 左ナビの開閉 */
+function leftNavToggleSetting(){
+	$('#headerNavButton').bind('click', function(){
+		var color = $(this).data('color');
+		$('div#'+color).toggle();
+	});
+}
+function leftNavToggle(){
+	if ($('nav#LeftNav ').css('left') == '0px') {
+		leftNavHide();
+	} else {
+		leftNavShow();
+	}
+}
+function leftNavHide(){
+//	$('nav#LeftNav ').css('left','-280px'); 
+	$('nav#LeftNav ').animate(
+		{'left':'-280px'},
+		{
+			duration: "fast", 
+			easing: "linear",
+			complete: function(){
+				$('div.content').click(leftNavHide);
+			}
+		}
+	);
+}
+function leftNavShow(){
+//	$('nav#LeftNav ').css('left','0px'); 
+	$('nav#LeftNav ').animate(
+		{'left':'0px'},
+		{
+			duration: "fast", 
+			easing: "linear",
+			complete: function(){
+				$('div.content').unbind('click', 'leftNavHide') ;
+			}
+		}
+	);
+   }
+
+/* 指定IDにジャンプ */
 function jump_to(target, open){
 	if ($("#"+open).attr("id")!==undefined) {
 		$("#"+open).children().toggle(true);
@@ -53,6 +95,7 @@ function jump_to(target, open){
 	}
 }
 
+/* ページトップにジャンプ */
 function go_top(){
 		var p = $("body").offset().top;
 		$('html,body').animate({ scrollTop: p }, 'fast');

@@ -13,12 +13,12 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 //-->
 </script>
-<div data-role="page" id="diary">
+<div class="page" data-role="page" id="fh_diary">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
-<div data-role="content">({* {{{ content *})
+<div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 ({* 【メモ】検索 *})
 

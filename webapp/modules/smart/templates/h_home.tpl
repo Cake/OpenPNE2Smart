@@ -1,24 +1,8 @@
-<div id="LayoutA">
-<div id="Top">
-
-({if $smarty.const.DISPLAY_SEARCH_HOME})
-({* {{{ searchFormLine *})
-<div class="parts searchFormLine">
-({t_form_block m=pc a=do_h_home_search})
-<ul>
-<li><img src="({t_img_url_skin filename=icon_search})" alt="search" /></li>
-<li><input type="text" class="input_text" name="q" value="" size="30" /></li>
-<li><input type="image" class="input_image" src="({t_img_url_skin filename=button_search_1})" value="diary" alt="({$WORD_DIARY})" name="diary" /></li>
-<li><input type="image" class="input_image" src="({t_img_url_skin filename=button_search_2})" value="community" alt="({$WORD_COMMUNITY})" name="community" /></li>
-<li><input type="image" class="input_image" src="({t_img_url_skin filename=button_search_4})" value="message" alt="メッセージ" name="message" /></li>
-({if $smarty.const.USE_EXTRA_SERVICE})
-<li><input type="image" class="input_image" src="({t_img_url_skin filename=button_search_3})" value="web" alt="web" name="web" /></li>
-({/if})
-</ul>
-({/t_form_block})
-</div>
-({* }}} *})
-({/if})
+<div class="page" data-role="page" id="h_home">
+({ext_include file="common/inc_header.tpl" _headline=$c_member.nickname|string_format:"%sさんのホーム"})
+<div class="content" data-role="content">({* {{{ Page content *})
+({ext_include file="common/inc_msg.tpl"})
+({* 【メモ】検索BOX削除 *})
 
 ({if $birthday_flag})
 <div class="parts homeBirthdayBox">
