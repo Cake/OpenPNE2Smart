@@ -64,12 +64,12 @@ $('#diarycommentForm').ready(function(){
 </article>
 
 ({strip})
-<section class="block prevNextLinkLine">
+<div class="pagerRelative">
 ({if $c_diary_id_prev || $c_diary_id_next})
-({if $c_diary_id_prev})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})" data-role="button" data-icon="back" data-inline="true">前の({$WORD_DIARY})</a>({/if})
-({if $c_diary_id_next})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})" data-role="button" data-icon="forward" data-inline="true">次の({$WORD_DIARY})</a>({/if})
+({if $c_diary_id_prev})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})" data-role="button" data-icon="back" data-mini="true" data-inline="true">前の({$WORD_DIARY})</a>({/if})
+({if $c_diary_id_next})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})" data-role="button" data-icon="forward" data-mini="true" data-inline="true">次の({$WORD_DIARY})</a>({/if})
 ({/if})
-</section>
+</div>
 ({/strip})
 
 ({if $type == "h"})

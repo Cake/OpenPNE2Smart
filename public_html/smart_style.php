@@ -37,13 +37,11 @@ time {
 	text-align: center;
 }
 .pagerRelative span {
-	margin-left: 3px;
 }
 
 div.operation ul {
 	text-align: center;
 }
-
 
 /*----------------------------------------------
  * ユーザ写真＋情報バー
