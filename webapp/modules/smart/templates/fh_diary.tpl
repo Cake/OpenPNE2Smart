@@ -1,5 +1,7 @@
 <script language="JavaScript">
 <!--
+var page=2;
+
 ({if $comment_count})
 $('#diarycommentForm').ready(function(){
 	jump_to('diaryComment({$comment_count})','diaryCommentList');
@@ -8,8 +10,6 @@ $('#diarycommentForm').ready(function(){
 $('#diarycommentForm').ready(function(){
 	jump_to('({$flg})','({$flg})');
 });
-
-var page=2;
 ({/if})
 //-->
 </script>
