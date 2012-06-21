@@ -13,14 +13,13 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 //-->
 </script>
-<div class="page" data-role="page" id="fh_diary">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
-({* 【メモ】検索 *})
 
 ({* {{{ diaryDetailBox *})
 <section class="parts diaryDetailBox">
@@ -44,9 +43,9 @@ $('#diarycommentForm').ready(function(){
 <article class="body">
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
 <figure class="ui-grid-b photo">
-({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" target="_blank"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
 </figure>
 ({/if})
 <p id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>

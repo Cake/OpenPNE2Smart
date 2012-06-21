@@ -15,9 +15,9 @@
 <section class="body">
 ({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})
 <figure class="ui-grid-b photo">
-({if $item.image_filename_1})<a href="({t_img_url filename=$item.image_filename_1})" target="_blank"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
-({if $item.image_filename_2})<a href="({t_img_url filename=$item.image_filename_2})" target="_blank"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a>({/if})
-({if $item.image_filename_3})<a href="({t_img_url filename=$item.image_filename_3})" target="_blank"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
+({if $item.image_filename_1})<a href="({t_img_url filename=$item.image_filename_1})"  data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
+({if $item.image_filename_2})<a href="({t_img_url filename=$item.image_filename_2})"  data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a>({/if})
+({if $item.image_filename_3})<a href="({t_img_url filename=$item.image_filename_3})"  data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
 </figure>
 ({/if})
 <p class="text">({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</p>
