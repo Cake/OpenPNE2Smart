@@ -28,7 +28,7 @@ $('#diarycommentForm').ready(function(){
 <div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
 <div class="title">
-<h2><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})</a>({if $type == "f"})さん({/if})の({$WORD_DIARY})</h2>
+<h2><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})</a></h2>
 <span class="public">
 ({if $target_diary.public_flag == "public"})（全員に公開）
 ({elseif $target_diary.public_flag == "friend"})（({$WORD_MY_FRIEND})まで公開）

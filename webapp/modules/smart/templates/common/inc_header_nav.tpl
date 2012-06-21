@@ -1,8 +1,34 @@
 ({* {{{ nav *})<nav id="LeftNav" data-role="content" class="ui-nav ui-bar-a">
 ({* {{{ LayoutB *})({strip})
-({* {{{ Diary *})({if 
+({* {{{ Diary *})
+({* {{{ searchFormLine *})
+({if 
 	$INC_HEADER_page_name == 'fh_diary'
+	|| $INC_HEADER_page_name == 'fh_diary_list'
+})({if $type == 'h'})
+<div class="searchFormLine">
+({t_form_block _method=get m=pc a=page_fh_diary_list})
+<input type="text" class="input_text search" data-type="search" name="q" value="" size="30" data-role="fieldcontain" data-mini="true" placeholder="({$target_member.nickname})の({$WORD_DIARY})検索">
+<input type="submit" class="input_submit" value="検索" />
+({/t_form_block})
+</div>
+({/if})({/if})({* searchFormLine }}} *})
+
+({if 
+	$INC_HEADER_page_name == 'fh_diary'
+	|| $INC_HEADER_page_name == 'fh_diary_list'
 })<div id="diaryNav" data-role="collapsible-set">
+({if $type == "h"})
+({* {{{ infoButtonBox *})
+({* {{{ writeDiaryBox *})<div id="writeDiaryBox" data-role="collapsible" data-collapsed="true">
+<h3>({$WORD_DIARY})を書く</h3>
+<ul class="ui-listview" data-role="listview"> 
+<li><a href="({t_url m=pc a=page_h_diary_add})">フォームから書く</a></li>
+<li>({t_mail_post mailto=$mail_address})</li>
+</ul>
+</div>
+({* }}} *})
+({/if})
 ({* {{{ recentlyDiary *})<div id="recentlyDiary" data-role="collapsible" data-collapsed="true">
 <h3>最近の({$WORD_DIARY})</h3>
 <ul class="ui-listview" data-role="listview"> 
@@ -37,7 +63,7 @@
 
 ({/strip})({* LayoutB }}} *})
 
-({if $smarty.const.DISPLAY_SEARCH_HOME})({strip})
+({if false})({**LayoutA:Home**})({if $smarty.const.DISPLAY_SEARCH_HOME})({strip})
 ({* {{{ searchFormLine *})
 <div class="searchFormLine">
 ({t_form_block m=pc a=do_h_home_search})
@@ -48,7 +74,7 @@
 ({/t_form_block})
 </div>
 ({* }}} *})
-({/strip})({/if})
+({/strip})({/if})({/if})
 ({if $inc_navi})({* {{{ pageNav *})({strip})({$inc_navi|smarty:nodefaults})({/strip})({* pageNav }}} *})({/if})
 ({* {{{ globalNav *})({if $before_after == "after"})({strip})
 <ul id="({if $before_after == "after"})globalNav({else})globalNavBefore({/if})" data-role="controlgroup">
