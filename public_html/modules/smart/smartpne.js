@@ -26,23 +26,13 @@ function submitPager(a, id, order, element, pagerId, totalPageNum) {
 			}
 
 			// 本文
-			if (order == "asc") {
-	            $(element+":last").after(response['comment_list']);
-			} else {
-				var jumpId = $(element+":first").attr("id");
-    	        $(element+":first").before(response['comment_list']);
-			}
-
+            $(element+":last").after(response['comment_list']);
 
 			// Pager
 			if (totalPageNum > page) {
 				page++;
 			} else {
 				$("#"+pagerId+" span.next").remove();
-			}
-
-			if (order != "asc") {
-				jump_to(jumpId, '');
 			}
 
 			// 出力完了

@@ -64,9 +64,7 @@ class pc_page_fh_diary_comment extends OpenPNE_Action
             return false;
         }
 
-        if ($desc) {
-            $c_diary_comment_list = array_reverse($c_diary_comment_list);
-        }
+        // スマートフォンの場合、新着コメント順は上が新しい記事
 
         $pager = array();
         if ($is_prev) {

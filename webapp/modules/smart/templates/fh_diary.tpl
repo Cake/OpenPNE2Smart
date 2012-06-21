@@ -86,12 +86,23 @@ $('#diarycommentForm').ready(function(){
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <section class="parts commentList" id="diaryCommentList" data-role="collapsible" data-collapsed="true">
 <h3><span>コメント</span> <span class="pagerRelative">全({$total_num})件</span></h3>
-
-({ext_include file="inc_fh_diary_comment_pager_upper.tpl"})
 ({foreach from=$target_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})
-({ext_include file="inc_fh_diary_comment_pager_bottom.tpl"})
+
+({* {{{ Pager *})({strip})
+({if $total_page_num > 1})
+<div class="pagerRelative" id="diaryComment({$target_diary.c_diary_id})NextPager">
+({if $requests.order == 'asc' && $pager.page_next})<span class="next"><a href="javascript:void(0);" onclick="submitPager('page_fh_diary_comment', 'target_c_diary_id=({$target_diary.c_diary_id})', 'asc', 'article.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_page_num})');return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mini="true" data-ajax="true">もっと読む</a></span>({/if})
+({if $requests.order != 'asc' && $pager.page_prev})<span class="next"><a href="javascript:void(0);" onclick="submitPager('page_fh_diary_comment', 'target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'article.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_page_num})');return false;" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-mini="true" data-ajax="true">もっと読む</a></span>({/if})
+({if $requests.order == 'asc'})
+<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;flg=diaryCommentList" data-role="button" data-icon="forward" data-iconpos="right" data-inline="true" data-mini="true" data-ajax="false">新しい順</a></span>
+({else})
+<span class="order"><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;order=asc&amp;flg=diaryCommentList" data-role="button" data-icon="back" data-iconpos="right" data-inline="true" data-mini="true" data-ajax="false">古い順に表示</a></span>
+({/if})
+</div>
+({/if})
+({/strip})({* Pager }}} *})
 
 ({if $type == 'h'})
 <section class="operation">
