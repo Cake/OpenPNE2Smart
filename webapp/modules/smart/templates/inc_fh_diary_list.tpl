@@ -1,4 +1,5 @@
-<li><a class="ui-link-inherit diaryListItem" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
+<li id="diary({$item.c_diary_id})" class="diaryList">
+<a class="ui-link-inherit diaryListItem" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
 <h3 id="diary({$item.c_diary_id})Title">({$item.subject})</h3>
 <span class="ui-li-count">({$item.num_comment})</span>
 <p>({if $item.public_flag == "public"})

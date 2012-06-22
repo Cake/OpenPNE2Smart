@@ -35,6 +35,10 @@ function submitPager(a, id, order, element, pagerId, totalPageNum) {
 				$("#"+pagerId+" span.next").remove();
 			}
 
+			// スタイル更新]
+			$(element).parent().listview();
+			$(element).parent().listview('refresh');
+
 			// 出力完了
 			$.mobile.hidePageLoadingMsg();
 			return false;
