@@ -63,20 +63,20 @@ var page=2;
 ({if $c_rss_cache_list})
 ({* {{{ recentList *})
 <section class="ecentList" id="blog">
-<h3>({strip})
+<h2>({strip})
 ({if !$all})
 ({$target_member.nickname})({if $type == "f"})さん({/if})({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})のBlog
 ({else})
 ({$target_member.nickname})({if $type == "f"})さん({/if})のBlog
 ({/if})
-({/strip})</h3>
-({foreach from=$c_rss_cache_list item=item})
+({/strip})</h2>
 <ul class="ui-listview" data-role="listview"> 
-<li><a href="({$item.link})" target="_blank">
-<p>({$item.subject})</a></p>
-<p class="ui-li-aside ui-li-desc">({$item.r_datetime|date_format:"%m月%d日%H:%M"})</p>
-</ul>
+({foreach from=$c_rss_cache_list item=item})
+<li><a class="rssListItem" href="({$item.link})" rel="external" target="_blank">
+<h3>({$item.subject})</h3>
+<p class="ui-li-aside">({$item.r_datetime|date_format:"%m月%d日<br>%H:%M"})</p>
 ({/foreach})
+</ul>
 </section>
 ({* }}} *})
 ({/if})
