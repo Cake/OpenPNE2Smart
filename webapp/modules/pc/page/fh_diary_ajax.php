@@ -97,7 +97,7 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
                 'pager' => $pager,
                 'requests' => $requests,
         ), 
-        'fh_diary_comment');
+        'fh_diary_ajax');
 
 	// JSON出力
         $data = array('msg' => '',
