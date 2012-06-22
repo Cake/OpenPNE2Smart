@@ -5,7 +5,7 @@
   * View出力なし */
 require_once OPENPNE_WEBAPP_DIR. '/lib/util/json.php';
 
-class pc_page_fh_diary_comment extends OpenPNE_Action
+class pc_page_fh_diary_ajax extends OpenPNE_Action
 {
     function execute($requests)
     {
