@@ -70,7 +70,7 @@ var page=2;
 ({$target_member.nickname})({if $type == "f"})さん({/if})のBlog
 ({/if})
 ({/strip})</h2>
-<ul class="ui-listview" data-role="listview"> 
+<ul class="ui-listview" data-role="listview" data-inset="true"> 
 ({foreach from=$c_rss_cache_list item=item})
 <li><a class="rssListItem" href="({$item.link})" rel="external" target="_blank">
 <h3>({$item.subject})</h3>
