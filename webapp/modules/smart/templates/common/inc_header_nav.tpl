@@ -17,7 +17,12 @@
 ({if 
 	$INC_HEADER_page_name == 'fh_diary'
 	|| $INC_HEADER_page_name == 'fh_diary_list'
+	|| $INC_HEADER_page_name == 'h_diary_add'
 })<div id="diaryNav" data-role="collapsible-set">
+({if 
+	$INC_HEADER_page_name == 'fh_diary'
+	|| $INC_HEADER_page_name == 'fh_diary_list'
+})
 ({if $type == "h"})
 ({* {{{ infoButtonBox *})
 ({* {{{ writeDiaryBox *})<div id="writeDiaryBox" data-role="collapsible" data-collapsed="true">
@@ -28,7 +33,7 @@
 </ul>
 </div>
 ({* }}} *})
-({/if})
+({/if})({/if})
 ({* {{{ recentlyDiary *})<div id="recentlyDiary" data-role="collapsible" data-collapsed="true">
 <h3>最近の({$WORD_DIARY})</h3>
 <ul class="ui-listview" data-role="listview"> 
