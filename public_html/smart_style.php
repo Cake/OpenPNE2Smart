@@ -74,11 +74,21 @@ header .ui-header .ui-title {
 	margin-top: -0.8em;
 }
 h1#pageTitle {
-/*	position: absolute;
-	top: 0;
-	overflow: hidden;
-	text-align: center;*/
 	margin: 0.6em 10% 0.8em;
+}
+
+#commonPageScrollUp, 
+#commonPageScrollDown {
+	opacity: 0.5;
+	position: fixed;
+	top: 50%;
+	z-index: 90;
+}
+#commonPageScrollUp {
+	left: 5px;
+}
+#commonPageScrollDown {
+	right: 5px;
 }
 
 
