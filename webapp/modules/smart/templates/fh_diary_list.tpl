@@ -16,20 +16,16 @@ var page=2;
 </section>
 
 ({if $type == "h"})
-<div id="diaryNav" data-role="collapsible-set">
-({* {{{ infoButtonBox *})
-({* {{{ writeDiaryBox *})
+<div id="writeDiaryBodyBox" data-role="collapsible">
 <h3>({$WORD_DIARY})を書く</h3>
-<ul class="ui-listview" data-role="listview"> 
+<ul class="ui-listview" data-role="listview" data-inset="true"> 
 <li><a href="({t_url m=pc a=page_h_diary_add})">フォームから書く</a></li>
 <li>({t_mail_post mailto=$mail_address})
-<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+<p>({$SNS_NAME})に登録した<br>アドレスから投稿してください。<br>
 写真を添付すると写真付き({$WORD_DIARY})になります。<br>
-</p>
-</li>
+</p></li>
 </ul>
 </div>
-({* }}} *})
 ({/if})
 
 ({if $target_diary_list})
