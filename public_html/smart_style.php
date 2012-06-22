@@ -74,10 +74,11 @@ header .ui-header .ui-title {
 	margin-top: -0.8em;
 }
 h1#pageTitle {
-	position: absolute;
+/*	position: absolute;
 	top: 0;
 	overflow: hidden;
-	text-align: center;
+	text-align: center;*/
+	margin: 0.6em 10% 0.8em;
 }
 
 
