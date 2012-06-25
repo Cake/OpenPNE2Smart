@@ -1,4 +1,4 @@
-function submitPager(a, id, order, element, pagerId, totalPageNum) {
+function submitPager(a, id, order, element, pagerId, totalPageNum, isListview) {
 	var url = "./?m=pc&a="+a+"&"+id+"&page="+page;
 	if (order == "asc") {
 		url += "&order="+order;
@@ -35,9 +35,10 @@ function submitPager(a, id, order, element, pagerId, totalPageNum) {
 				$("#"+pagerId+" span.next").remove();
 			}
 
-			// スタイル更新]
-			$(element).parent().listview();
-			$(element).parent().listview('refresh');
+			// スタイル更新
+			if (isListview) {
+				$(element).parent().listview('refresh');
+			}
 
 			// 出力完了
 			$.mobile.hidePageLoadingMsg();

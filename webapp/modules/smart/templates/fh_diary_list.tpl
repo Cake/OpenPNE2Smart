@@ -39,7 +39,7 @@ var page=2;
 ({* {{{ Pager *})({strip})
 ({if $is_next})
 <div class="pagerRelative" id="diaryList({$member.c_member_id})NextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPager('page_fh_diary_list_ajax', 'target_c_member_id=({$member.c_member_id})({if $url_keyword})&amp;keyword=({$url_keyword})({/if})({if $category_id})&amp;category_id=({$category_id})({elseif !$all})({if $date_val.year})&amp;year=({$date_val.year})({/if})({if $date_val.month})&amp;month=({$date_val.month})({/if})({if $date_val.day})&amp;day=({$date_val.day})({/if})({/if})', 'desc', 'li.diaryList', 'diaryList({$member.c_member_id})NextPager', '({$total_page_num})'); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPager('page_fh_diary_list_ajax', 'target_c_member_id=({$member.c_member_id})({if $url_keyword})&amp;keyword=({$url_keyword})({/if})({if $category_id})&amp;category_id=({$category_id})({elseif !$all})({if $date_val.year})&amp;year=({$date_val.year})({/if})({if $date_val.month})&amp;month=({$date_val.month})({/if})({if $date_val.day})&amp;day=({$date_val.day})({/if})({/if})', 'desc', 'li.diaryList', 'diaryList({$member.c_member_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({/strip})({* Pager }}} *})
