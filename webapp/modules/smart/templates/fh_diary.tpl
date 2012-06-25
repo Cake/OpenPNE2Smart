@@ -17,7 +17,7 @@ $('#diarycommentForm').ready(function(){
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
-({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
+({ext_include file="common/inc_header.tpl"})
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
@@ -28,7 +28,7 @@ $('#diarycommentForm').ready(function(){
 <div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
 <div class="title">
-<h2><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})</a></h2>
+<h2>({$target_diary.subject})</h2>
 <span class="public">
 ({if $target_diary.public_flag == "public"})（全員に公開）
 ({elseif $target_diary.public_flag == "friend"})（({$WORD_MY_FRIEND})まで公開）
@@ -36,21 +36,22 @@ $('#diarycommentForm').ready(function(){
 </div>
 <div class="data">
 <time datetime="({$target_diary.r_datetime})" id="diaryDatetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+<span class="author diaryAuthorName"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})({if $type == "f"})さん({/if})</a></span>
 </div>
 </div>
 </section>
 
 <article class="body">
-({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
-<figure class="ui-grid-b photo">
-({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
-</figure>
-({/if})
 <p id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
 
-<p>
+({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
+<p><figure class="ui-grid-b photo">
+({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop"  data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
+({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
+</figure></p>
+({/if})
+
 <div id="diaryCategory" data-inline="true"><small>({if $category_list})(
 ({foreach from=$category_list item=category})
 <span><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category.c_diary_category_id})">({$category.category_name})</a></span>
@@ -122,7 +123,7 @@ $('#diarycommentForm').ready(function(){
 <section class="parts commentForm" id="diarycommentForm" data-role="collapsible">
 <h3>コメントを書く</h3>
 <div class="operation">
-({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm})
+({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <textarea name="body" id="comment_box" rows="8" cols="40">({$requests.body})</textarea>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
