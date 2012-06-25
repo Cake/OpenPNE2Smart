@@ -77,6 +77,14 @@ h1#pageTitle {
 	margin: 0.6em 10% 0.8em;
 }
 
+#commonPageScrollUp {
+	position: absolute;
+	right: 5px;
+}
+#commonPageScrollDown {
+	display: none;
+}
+/*
 #commonPageScrollUp, 
 #commonPageScrollDown {
 	opacity: 0.5;
@@ -90,7 +98,7 @@ h1#pageTitle {
 #commonPageScrollDown {
 	right: 5px;
 }
-
+*/
 
 /*----------------------------------------------
  * パーツ内上下の部分（1件～20件を表示など）

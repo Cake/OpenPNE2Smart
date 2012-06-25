@@ -153,8 +153,6 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 ({/if})
 
-({ext_include file="common/inc_page_scroll.tpl"})
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
 </div>({* page }}} *})
-

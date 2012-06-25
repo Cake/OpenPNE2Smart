@@ -86,7 +86,6 @@ div.ui-slider-switch { width: 9em!important }
 </section>
 ({* }}} *})
 
-({ext_include file="common/inc_page_scroll.tpl"})
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
 </div>({* page }}} *})
