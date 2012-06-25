@@ -42,16 +42,17 @@ $('#diarycommentForm').ready(function(){
 </section>
 
 <article class="body">
-<p id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
+<p class="text" id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
 
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
-<p><figure class="ui-grid-b photo">
-({if $target_diary.image_filename_1})<div class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop"  data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_2})<div class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></div>({/if})
-({if $target_diary.image_filename_3})<div class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></div>({/if})
-</figure></p>
+<figure class="ui-grid-b photo">
+({if $target_diary.image_filename_1})<a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop"  data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
+({if $target_diary.image_filename_2})<a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a>({/if})
+({if $target_diary.image_filename_3})<a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
+</figure>
 ({/if})
 
+<p>
 <div id="diaryCategory" data-inline="true"><small>({if $category_list})(
 ({foreach from=$category_list item=category})
 <span><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category.c_diary_category_id})">({$category.category_name})</a></span>
@@ -60,6 +61,7 @@ $('#diarycommentForm').ready(function(){
 <div class="operation" data-inline="true">
 <p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 </div>
+</p>
 </article>
 
 ({strip})
@@ -105,18 +107,24 @@ $('#diarycommentForm').ready(function(){
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT or $is_comment_input})
 ({if $is_writable_comment})
 ({* {{{ formTable *})
-<section class="parts commentForm" id="diarycommentForm" data-role="collapsible">
-<h3>コメントを書く</h3>
+<section class="parts commentForm" id="diarycommentForm">
 <div class="operation">
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
-<textarea name="body" id="comment_box" rows="8" cols="40">({$requests.body})</textarea>
+<div data-role="fieldcontain" class="ui-hide-label">
+<label for="body">コメント</label>
+<textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメントする" onfocus="$('.formDetail').show()" onblur="if (!$('input').focus()) {$('.formDetail').hide()}">({$requests.body})</textarea>
+</div>
+<div class="formDetail">
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
-<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br>
-<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40" /><br>
-<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br>
+<div data-role="fieldcontain">
+<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br />
+<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40" /><br />
+<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br />
+</div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 <input type="submit" class="input_submit" value="確認画面" />
+</div>
 ({/t_form_block})
 </div>
 <div class="operation">

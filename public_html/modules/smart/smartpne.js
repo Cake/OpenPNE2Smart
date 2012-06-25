@@ -143,6 +143,7 @@ function jump_to(target, open){
 	if ($("#"+target).attr("id")!==undefined) {
 		var p = $("#"+target).offset().top;
 		$('html,body').animate({ scrollTop: p }, 'fast');
+		$("#"+target).focus();
 	}
 }
 

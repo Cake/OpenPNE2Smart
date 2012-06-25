@@ -13,6 +13,7 @@
 </div>
 </section>
 <section class="body">
+<p class="text">({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</p>
 ({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})
 <figure class="ui-grid-b photo">
 ({if $item.image_filename_1})<a href="({t_img_url filename=$item.image_filename_1})"  data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
@@ -20,7 +21,6 @@
 ({if $item.image_filename_3})<a href="({t_img_url filename=$item.image_filename_3})"  data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
 </figure>
 ({/if})
-<p class="text">({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</p>
 <div class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" data-role="controlgroup" data-type="horizontal" class="commentVomeButton">
 <a class="ui-btn ui-btn-icon-notext ui-corner-left ui-btn-up-c" title="Upper" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-icon="arrow-u" data-iconpos="notext" onclick="jump_to('diaryCommentList', '');return false;"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">Up</span><span class="ui-icon ui-icon-arrow-u ui-icon-shadow">&nbsp;</span></span></a>
 
