@@ -13,6 +13,7 @@ var page=2;
 <div class="title">
 <h2><span>({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})({if !$all})({if !$category}) ({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})({/if})({$category_name})({/if})</span> <span class="pagerRelative">全({$total_num})件</span></h2>
 </div>
+</div>
 </section>
 
 ({if $type == "h"})
