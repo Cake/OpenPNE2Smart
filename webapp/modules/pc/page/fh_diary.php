@@ -78,17 +78,16 @@ class pc_page_fh_diary extends OpenPNE_Action
         if ($smartPhone->is_smart) {
              // コメント取得件数
              $page_size = 5;
+            // 順番 : desc
+            $desc = true;
         }
         /* OpenPNE2 スマートフォン対応：ここまで */
 
         list($c_diary_comment_list, $is_prev, $is_next, $total_num, $total_page_num)
             = k_p_fh_diary_c_diary_comment_list4c_diary_id($target_c_diary_id, $page_size, $page, $desc);
-        /* OpenPNE2 スマートフォン対応：ここから */
-        // スマートフォンの場合、新着コメント順は上が新しい記事
-        if ($desc && !$smartPhone->is_smart) {
+        if ($desc) {
             $c_diary_comment_list = array_reverse($c_diary_comment_list);
         }
-        /* OpenPNE2 スマートフォン対応：ここまで */
 
         $this->set('target_diary_comment_list', $c_diary_comment_list);
         $this->set('total_num', $total_num);

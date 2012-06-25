@@ -1,9 +1,52 @@
-function submitPager(a, id, order, element, pagerId, totalPageNum, isListview) {
-	var url = "./?m=pc&a="+a+"&"+id+"&page="+page;
-	if (order == "asc") {
-		url += "&order="+order;
-	}
+function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
+	url = url+"&total_num="+totalNum;
 
+	$.ajax({
+        type: "GET",
+        url: url,
+        dataType: "json",
+		cache:  false,
+        beforeSend: function(xhr) {
+			$.mobile.showPageLoadingMsg();
+		},
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+			$.mobile.hidePageLoadingMsg();
+			showDialog('ERROR', errorThrown);
+			return false;
+		},
+        success: function(response) {
+			// 出力
+			// エラーの場合
+			if (response['msg']) {
+				$.mobile.hidePageLoadingMsg();
+				showDialog('ERROR', response['msg']);
+				return false;
+			}
+
+			// 本文
+			if (order == 'asc') {
+	            $(element+":last").after(response['comment_list']);
+			} else {
+    	        $(element+":first").before(response['comment_list']);
+			}
+
+			// Pager Remove
+			$("#"+pagerId).remove();
+
+			// スタイル更新
+			if (isListview) {
+				$(element).parent().listview('refresh');
+			}
+
+			// 出力完了
+			$.mobile.hidePageLoadingMsg();
+			return false;
+        }
+	});
+}
+function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview) {
+	var url = url+"&page="+page;
+	
 	$.ajax({
         type: "GET",
         url: url,
@@ -26,7 +69,11 @@ function submitPager(a, id, order, element, pagerId, totalPageNum, isListview) {
 			}
 
 			// 本文
-            $(element+":last").after(response['comment_list']);
+			if (order == 'asc') {
+	            $(element+":last").after(response['comment_list']);
+			} else {
+    	        $(element+":first").before(response['comment_list']);
+			}
 
 			// Pager
 			if (totalPageNum > page) {

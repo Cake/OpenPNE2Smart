@@ -84,6 +84,9 @@ class pc_page_fh_diary_list extends OpenPNE_Action
         $this->set('diary_list_count', count($list_set[0]));
 
         /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($list_set[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+
         // メール投稿
         $smartPhone = new OpenPNE_SmartPhoneUA();
 
