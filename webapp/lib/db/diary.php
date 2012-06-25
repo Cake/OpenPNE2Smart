@@ -886,6 +886,9 @@ function k_p_fh_diary_c_diary_comment_list4c_diary_id($c_diary_id, $page_size, $
     foreach ($c_diary_comment_list as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
         $c_diary_comment_list[$key]['nickname'] = $c_member['nickname'];
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $c_diary_comment_list[$key]['image_filename'] = $c_member['image_filename'];
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
 
     $sql = 'SELECT COUNT(c_diary_comment_id) FROM c_diary_comment WHERE c_diary_id = ?';

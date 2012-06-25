@@ -198,3 +198,19 @@ div.operation ul {
 	text-align:right;
 }
 
+/*==============================================================================
+ * 22. commentList（コメントリスト）
+ *----------------------------------------------------------------------------*/
+li.diaryComment {
+	line-height: 1.2em;
+	padding: 2px 0 7px 0 !important;
+}
+li.diaryComment .memberData {
+	font-size: 16px;
+	font-weight: normal;
+	padding-left: 46px;
+}
+
+li.diaryComment .ui-li-thumb {
+	padding: 4px;
+}

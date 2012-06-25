@@ -83,24 +83,14 @@ $('#diarycommentForm').ready(function(){
 
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
-({t_form_block m=pc a=page_fh_delete_comment})
-<input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <section class="parts commentList" id="diaryCommentList">
-({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'article.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', false);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', true);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+<ul id="diary({$target_diary.c_diary_id})CommentList" class="ui-listview" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})
-
-({if $type == 'h'})
-<section class="operation">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="削除" /></li>
 </ul>
 </section>
-({/if})
-
-</section>
-({/t_form_block})
 ({* commentList }}} *})
 ({/if})
 
