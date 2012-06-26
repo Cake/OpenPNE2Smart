@@ -24,7 +24,8 @@ ul {
  *--------------------------------------------*/
 
 .ui-li-aside {
-	width: 30%;
+	width: 10%;
+	padding-right: 5px;
 }
 
 .ui-li-desc img {
@@ -162,6 +163,10 @@ div.operation ul {
 .authorBar .memberData .data time {
 }
 
+div.photo {
+	padding: 5px;
+}
+
 /*==============================================================================
  * 3. alertBox（アラートボックス）
  *----------------------------------------------------------------------------*/
@@ -201,16 +206,25 @@ div.operation ul {
 /*==============================================================================
  * 22. commentList（コメントリスト）
  *----------------------------------------------------------------------------*/
-li.diaryComment {
-	line-height: 1.2em;
+.commentForm {
+	margin-top: 15px;
+}
+
+ul.ui-listview li.commentList {
+	line-height: 1.5em;
 	padding: 2px 0 7px 0 !important;
 }
-li.diaryComment .memberData {
+ul.ui-listview li.commentList .memberData {
 	font-size: 16px;
 	font-weight: normal;
 	padding-left: 46px;
 }
-
-li.diaryComment .ui-li-thumb {
+ul.ui-listview li.commentList .memberData .nameBody {
+	max-height: 3.0em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 83%;
+}
+ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
