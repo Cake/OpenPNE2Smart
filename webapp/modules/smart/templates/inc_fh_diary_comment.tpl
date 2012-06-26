@@ -4,7 +4,7 @@
 <div class="memberData">
 <div class="nameBody">
 <span class="number">({$item.number})</span>:({if $item.nickname})<a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>({/if})
-<span class="body">({$item.body|t_decoration:1|t_truncate:48:".."})</span></div>
+<span class="body">({$item.body|t_decoration:1|t_truncate:56:".."})</span></div>
 
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<div class="ui-grid-b photo">
 ({if $item.image_filename_1})<img src="({t_img_url filename=$item.image_filename_1 w=36 h=36})" alt="" />({/if})
@@ -12,7 +12,7 @@
 ({if $item.image_filename_3})<img src="({t_img_url filename=$item.image_filename_3 w=36 h=36})" alt="" />({/if})
 </div>({/if})
 
-<time datetime="({$target_diary.r_datetime})" id="diaryComment({$item.number})Datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+<time datetime="({$target_diary.r_datetime})" id="diaryComment({$item.number})Datetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 
 </div></p>
 

@@ -19,7 +19,7 @@ var page=2;
 ({if $type == "h"})
 <div id="writeDiaryBodyBox" data-role="collapsible">
 <h3>({$WORD_DIARY})を書く</h3>
-<ul class="ui-listview" data-role="listview" data-inset="true"> 
+<ul data-role="listview" data-inset="true"> 
 <li><a href="({t_url m=pc a=page_h_diary_add})">フォームから書く</a></li>
 <li>({t_mail_post mailto=$mail_address})
 <p>({$SNS_NAME})に登録した<br>アドレスから投稿してください。<br>
@@ -31,8 +31,8 @@ var page=2;
 
 ({if $target_diary_list})
 ({* {{{ commentList *})
-<section class="parts commentList" id="diaryList" data-role="collapsible-set">
-<ul id="diaryList({$member.c_member_id})" class="ui-listview" data-role="listview" data-inset="true"> 
+<section class="parts" id="diaryList" data-role="collapsible-set">
+<ul id="diaryList({$member.c_member_id})" class="diaryList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
@@ -56,11 +56,11 @@ var page=2;
 ({$target_member.nickname})({if $type == "f"})さん({/if})のBlog
 ({/if})
 ({/strip})</h2>
-<ul class="ui-listview" data-role="listview" data-inset="true"> 
+<ul class="ui-listview" data-role="listview" data-inset="false"> 
 ({foreach from=$c_rss_cache_list item=item})
 <li><a class="rssListItem" href="({$item.link})" rel="external" target="_blank">
 <h3>({$item.subject})</h3>
-<p class="ui-li-aside">({$item.r_datetime|date_format:"%m月%d日<br>%H:%M"})</p>
+<time class="datetime">({$item.r_datetime|date_format:"%m月%d日<br>%H:%M"})</time>
 ({/foreach})
 </ul>
 </section>

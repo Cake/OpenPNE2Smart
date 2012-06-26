@@ -154,13 +154,13 @@ div.operation ul {
 	margin: 0 3px;
 }
 
-.authorBar .memberData .data *,
-.authorBar .memberData .title * {
+.authorBar .title *,
+.authorBar .data *,
+.authorBar .memberData .title *,
+.authorBar .memberData .data * {
 	font-size: 100%;
 	display: inline;
 }
-
-.authorBar .memberData .data time {
 }
 
 div.photo {
@@ -203,6 +203,7 @@ div.photo {
 	text-align:right;
 }
 
+
 /*==============================================================================
  * 22. commentList（コメントリスト）
  *----------------------------------------------------------------------------*/
@@ -211,16 +212,19 @@ div.photo {
 }
 
 ul.ui-listview li.commentList {
-	line-height: 1.5em;
-	padding: 2px 0 7px 0 !important;
+	line-height: 1.3em;
+	padding: 0 !important;
 }
+
 ul.ui-listview li.commentList .memberData {
 	font-size: 16px;
 	font-weight: normal;
 	padding-left: 46px;
 }
+
+ul.ui-listview li.commentList .nameBody,
 ul.ui-listview li.commentList .memberData .nameBody {
-	max-height: 3.0em;
+/*	max-height: 3.0em; */
 	text-overflow: ellipsis;
 	overflow: hidden;
 	width: 83%;
