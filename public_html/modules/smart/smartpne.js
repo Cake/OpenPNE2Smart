@@ -36,6 +36,7 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 			// スタイル更新
 			if (isListview) {
 				$(element).parent().listview('refresh');
+				$(element).trigger("create");
 			}
 
 			// 出力完了
