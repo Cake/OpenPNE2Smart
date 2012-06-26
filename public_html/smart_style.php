@@ -1,4 +1,7 @@
 <?php
+require_once './config.inc.php';
+require_once OPENPNE_WEBAPP_DIR . '/init.inc';
+
 header('Content-Type: text/css');
 
 header('Cache-Control: max-age=315360000');
@@ -17,19 +20,6 @@ ul {
 	list-style-position: outside;
 	list-style-type: none;
 	padding: 0;
-}
-
-/*----------------------------------------------
- * リストビュー
- *--------------------------------------------*/
-
-.ui-li-aside {
-	width: 10%;
-	padding-right: 5px;
-}
-
-.ui-li-desc img {
-	padding : 0 10px 0 0;
 }
 
 /*----------------------------------------------
@@ -100,6 +90,50 @@ h1#pageTitle {
 	right: 5px;
 }
 */
+
+/**=============================================================================
+ * アイコン
+ *----------------------------------------------------------------------------*/
+
+#headerRight {
+	float: right;
+}
+#headerRight a {
+	position: relative;
+
+}
+a.smartIcon span.ui-icon {
+/*	width: 24px !important;
+	height: 24px !important;*/
+	background-size: 18px !important;
+	background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+<?php
+foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_img ) {
+	if (!empty($icon_name) && !empty($icon_img)) {
+		$icon_url = './modules/smart/icons/'.$icon_img;
+		echo ".ui-icon-". $icon_name. " { \n".
+			"\t".'background: url("'.$icon_url.'") no-repeat !important;'."\n".
+		'}'."\n";
+	}
+}
+?>
+
+
+/*----------------------------------------------
+ * リストビュー
+ *--------------------------------------------*/
+
+.ui-li-aside {
+	width: 10%;
+	padding-right: 5px;
+}
+
+.ui-li-desc img {
+	padding : 0 10px 0 0;
+}
+
 
 /*----------------------------------------------
  * パーツ内上下の部分（1件～20件を表示など）

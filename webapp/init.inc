@@ -155,6 +155,21 @@ $GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'] = array(
         'o_regist_pre' => 'o_regist_smart_intro', // 携帯アドレスで新規登録
     ),
 );
+
+// アイコン
+$GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
+	'settings' => array(
+		'smart-home' => '190-bank.png',
+		'smart-diary' => '96-book.png',
+		'smart-bbs' => '112-group.png',
+		'smart-visitor' => '102-walk.png',
+		'smart-message' => '18-envelope.png',
+		'smart-profile' => '157-wrench.png',
+		'smart-write' => '187-pencil.png',
+		'smart-public-friend' => '111-user.png',
+		'smart-public-private' => '54-lock.png',
+	), 
+);
 /* OpenPNE2 スマートフォン対応：ここまで追加 */
 
 ?>
