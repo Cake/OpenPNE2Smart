@@ -12,7 +12,7 @@
 <input type="password" class="input_text" name="password" id="password" tabindex="2" />
 <input type="checkbox" class="input_checkbox" name="is_save" id="is_save" value="1" tabindex="3" />
 <label for="is_save">次回から自動的にログイン</label>
-<input type="submit" name="submit" id="button_login" tabindex="4" value="ログイン" />
+<input type="submit" name="submit" id="button_login" tabindex="4" value="ログイン" data-ajax="false" />
 ({/t_form_block})
 </section>
 
@@ -25,7 +25,7 @@
 <p class="password_query"><a href="({t_url m=pc a=page_o_help_login_error})">&gt;ログインできない方はこちら</a></p>
 ({/if})
 ({if $SSL_SELECT_URL})
-<br /><a href="({$SSL_SELECT_URL})">({if $HTTPS})標準(http)({else})SSL(https)({/if})はこちら</a>
+<br /><a href="({$SSL_SELECT_URL})" data-ajax="false">({if $HTTPS})標準(http)({else})SSL(https)({/if})はこちら</a>
 </section>
 ({/if})
 

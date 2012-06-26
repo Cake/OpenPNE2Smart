@@ -5,7 +5,7 @@
 
 ({* {{{ linkLine *})
 <section class="parts linkLine"><ul class="moreInfo">
-<li><a href="({$login_url})">ログインページへ</a></li>
+<li><a href="({$login_url})" data-ajax="false">ログインページへ</a></li>
 </ul></section>
 ({* }}} *})
 
