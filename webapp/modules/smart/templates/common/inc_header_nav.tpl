@@ -1,4 +1,4 @@
-({* {{{ nav *})<nav id="LeftNav" data-role="content" class="ui-nav ui-bar-a">
+({* {{{ nav *})<div id="LeftNav" data-role="content" class="ui-nav ui-bar-a">
 ({* {{{ LayoutB *})({strip})
 ({* {{{ Diary *})
 ({* {{{ searchFormLine *})
@@ -91,4 +91,4 @@
 <li id="globalNav_9"><a href="({t_url m=pc a=do_inc_page_header_logout})&amp;sessid=({$PHPSESSID})" data-role="button" data-icon="arrow-r" data-iconpos="right">ログアウト </a></li>
 </ul>
 ({/strip})({/if})({* globalNav }}} *})
-</nav>({* nav }}} *})
+</div>({* nav }}} *})

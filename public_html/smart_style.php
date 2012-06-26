@@ -46,7 +46,7 @@ time {
 /*----------------------------------------------
  * ベースレイアウト
  *--------------------------------------------*/
-nav#LeftNav {
+div#LeftNav {
 	overflow: hidden;
 	position: absolute;
 	top: 42px;
@@ -56,22 +56,22 @@ nav#LeftNav {
 	padding: 0 15px;
 	z-index: 99;
 }
-nav#LeftNav .ui-header .ui-btn {
+div#LeftNav .ui-header .ui-btn {
 	z-index: 100;
 
 }
 
-nav .ui-field-contain {
+div.ui-nav .ui-field-contain {
 	margin: 0;
 }
 
-header {
+div#mainHeader {
 	height: 40px;
 }
-header #headerHomeButton {
+div#mainHeader #headerHomeButton {
 	margin-left: 48px;
 }
-header .ui-header .ui-title {
+div#mainHeader .ui-header .ui-title {
 	margin-top: -0.8em;
 }
 h1#pageTitle {

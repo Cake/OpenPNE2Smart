@@ -103,15 +103,15 @@ function leftNavToggleSetting(){
 	});
 }
 function leftNavToggle(){
-	if ($('nav#LeftNav ').css('left') == '0px') {
+	if ($('div#LeftNav ').css('left') == '0px') {
 		leftNavHide();
 	} else {
 		leftNavShow();
 	}
 }
 function leftNavHide(){
-//	$('nav#LeftNav ').css('left','-280px'); 
-	$('nav#LeftNav ').animate(
+//	$('div#LeftNav ').css('left','-280px'); 
+	$('div#LeftNav ').animate(
 		{'left':'-280px'},
 		{
 			duration: "fast", 
@@ -123,8 +123,8 @@ function leftNavHide(){
 	);
 }
 function leftNavShow(){
-//	$('nav#LeftNav ').css('left','0px'); 
-	$('nav#LeftNav ').animate(
+//	$('div#LeftNav ').css('left','0px'); 
+	$('div#LeftNav ').animate(
 		{'left':'0px'},
 		{
 			duration: "fast", 
