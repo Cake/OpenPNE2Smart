@@ -36,8 +36,16 @@ time {
 /*----------------------------------------------
  * ベースレイアウト
  *--------------------------------------------*/
+.content {
+	margin-top: 73px;
+}
+
 /* ヘッダー */
 div#mainHeader {
+	position: fixed;
+	top: 0px;
+	z-index: 90;
+	width: 100%; 
 	height: 40px;
 }
 div#mainHeader #headerHomeButton {
@@ -53,7 +61,7 @@ h1#pageTitle {
 /* メニュー */
 div#menu {
 	overflow: hidden;
-	position: absolute;
+	position: fixed;
 	top: 42px;
 	width: 100%; 
 	height: 0px; 
@@ -76,10 +84,12 @@ div#div#menu .ui-header .ui-btn {
 
 /* 個別ナビゲーション */
 div.topNav {
-	overflow: hidden;
+	position: fixed;
+	top: 42px;
+	z-index: 90;
 	width: 100%; 
 	padding: 0;
-	z-index: 90;
+	overflow: hidden;
 }
 div.topNav ul {
 	margin: 0;
