@@ -165,6 +165,7 @@ div.operation ul {
 }
 
 .authorBar .memberPhoto76,
+.authorBar .memberPhoto48,
 .authorBar .memberPhoto36 {
 	display: table-cell;
 	width: auto;
@@ -172,6 +173,10 @@ div.operation ul {
 
 .authorBar .memberPhoto76 {
 	width: 81px;
+}
+
+.authorBar .memberPhoto48 {
+	width: 53px;
 }
 
 .authorBar .memberPhoto36 {
@@ -253,12 +258,13 @@ ul.ui-listview li.commentList {
 ul.ui-listview li.commentList .memberData {
 	font-size: 16px;
 	font-weight: normal;
-	padding-left: 46px;
+	padding-left: 60px;
 }
 
 ul.ui-listview li.commentList .nameBody,
 ul.ui-listview li.commentList .memberData .nameBody {
 /*	max-height: 3.0em; */
+	min-height: 33px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	width: 83%;

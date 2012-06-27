@@ -25,7 +25,7 @@ $('#diarycommentForm').ready(function(){
 <section class="parts diaryDetailBox">
 
 <section class="authorBar" id="diary({$target_diary.c_diary_id})Author">
-<div class="memberPhoto36"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=36 h=36 noimg=no_image})" alt=""></a></div>
+<div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>

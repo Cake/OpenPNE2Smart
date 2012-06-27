@@ -703,6 +703,7 @@ define('MAIL_DEBUG_LOG_FROM', false);
 // 追加画像サイズ
 $GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array_merge($GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'], array(
 	'36x36',
+	'48x48',
 ));
 
 
