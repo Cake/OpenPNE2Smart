@@ -104,8 +104,8 @@ function menuToggle(){
 	}
 }
 function menuHide(){
-//	$('div#menu ').css('height','0px');
-	$('div#menu').animate(
+	$('div#menu ').css('height','0px');
+/*	$('div#menu').animate(
 		{'height':'0px'},
 		{
 			duration: "fast", 
@@ -114,12 +114,12 @@ function menuHide(){
 				$('div.content').click(menuHide);
 			}
 		}
-	);
+	);*/
 }
 function menuShow(){
-//	$('div#menu ').css('height','64px'); 
-	$('div#menu').animate(
-		{'height':'64px'},
+	$('div#menu ').css('height','auto'); 
+/*	$('div#menu').animate(
+		{'height':'128px'},
 		{
 			duration: "fast", 
 			easing: "linear",
@@ -127,8 +127,8 @@ function menuShow(){
 				$('div.content').unbind('click', 'menuHide') ;
 			}
 		}
-	);
-   }
+	); */
+}
 
 /* 指定IDにジャンプ */
 function jump_to(target, open){
