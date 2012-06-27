@@ -1,4 +1,4 @@
-({* {{{ menu *})({strip})<div id="menu" data-role="content">
+({* {{{ menu *})({strip})<div id="menu">
 <ul class="ui-grid-b" data-role="">
 <li id="menuDiary" class="ui-block-a"><a href="({t_url m=pc a=page_fh_diary_list})" data-role="button" data-corners="false" data-mini="true">({$WORD_DIARY})</a></li>
 <li id="menuCommunity" class="ui-block-b"><a href="({t_url m=pc a =page_fh_com_list})" data-role="button" data-corners="false" data-mini="true">掲示板</a></li>
