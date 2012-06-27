@@ -36,6 +36,20 @@ time {
 /*----------------------------------------------
  * ベースレイアウト
  *--------------------------------------------*/
+/* ヘッダー */
+div#mainHeader {
+	height: 40px;
+}
+div#mainHeader #headerHomeButton {
+	margin-left: 48px;
+}
+div#mainHeader .ui-header .ui-title {
+	margin-top: -0.8em;
+}
+h1#pageTitle {
+	margin: 0.6em 10% 0.8em;
+}
+
 /* メニュー */
 div#menu {
 	overflow: hidden;
@@ -79,19 +93,6 @@ div.topNav ul li a.ui-btn span {
 div#navDiary ul li a.ui-btn span {
 	font-size: 11.5px;
 	padding: 0.55em 2px 0.5em;
-}
-
-div#mainHeader {
-	height: 40px;
-}
-div#mainHeader #headerHomeButton {
-	margin-left: 48px;
-}
-div#mainHeader .ui-header .ui-title {
-	margin-top: -0.8em;
-}
-h1#pageTitle {
-	margin: 0.6em 10% 0.8em;
 }
 
 #commonPageScrollUp {
