@@ -4,3 +4,10 @@
 ({* {{{ menuButton *})({strip})<a title="Menu" data-icon="grid" class="ui-btn-right" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-iconpos="notext"  onclick="menuToggle();">Menu</a>({/strip})({* menuButton }}} *})
 </div>({* header }}} *})
 ({* {{{ Menu *})({ext_include file="common/inc_header_menu.tpl"})({* Menu }}} *})
+({* {{{ Navi *})({strip})
+({if 
+	($INC_HEADER_page_name == 'fh_diary' && $type == "h")
+	|| ($type == "h" && $INC_HEADER_page_name == 'fh_diary_list')
+	|| $INC_HEADER_page_name == 'h_diary_add'
+})({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
+({/strip})({* Menu }}} *})

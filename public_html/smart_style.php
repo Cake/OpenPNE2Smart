@@ -54,15 +54,31 @@ div#menu ul li a.ui-btn {
 }
 div#menu ul li a.ui-btn span {
 	text-overflow: clip;
-
 }
 
 div#div#menu .ui-header .ui-btn {
 	z-index: 100;
 }
 
-div.ui-nav .ui-field-contain {
+/* 個別ナビゲーション */
+div.topNav {
+	overflow: hidden;
+	width: 100%; 
+	padding: 0;
+	z-index: 90;
+}
+div.topNav ul {
 	margin: 0;
+}
+div.topNav ul li a.ui-btn {
+	margin: 0;
+}
+div.topNav ul li a.ui-btn span {
+	text-overflow: clip;
+}
+div#navDiary ul li a.ui-btn span {
+	font-size: 11.5px;
+	padding: 0.55em 2px 0.5em;
 }
 
 div#mainHeader {
