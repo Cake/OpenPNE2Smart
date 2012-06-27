@@ -36,19 +36,29 @@ time {
 /*----------------------------------------------
  * ベースレイアウト
  *--------------------------------------------*/
-div#LeftNav {
+/* メニュー */
+div#menu {
 	overflow: hidden;
 	position: absolute;
 	top: 42px;
-	left: -280px;
-	width: 250px; 
-	min-height: 100%;
-	padding: 0 15px;
+	width: 100%; 
+	height: 0px; 
+	padding: 0;
 	z-index: 99;
 }
-div#LeftNav .ui-header .ui-btn {
-	z-index: 100;
+div#menu ul {
+	margin: 0;
+}
+div#menu ul li a.ui-btn {
+	margin: 0;
+}
+div#menu ul li a.ui-btn span {
+	text-overflow: clip;
 
+}
+
+div#div#menu .ui-header .ui-btn {
+	z-index: 100;
 }
 
 div.ui-nav .ui-field-contain {

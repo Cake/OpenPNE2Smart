@@ -95,42 +95,36 @@ function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview)
 	});
 }
 
-/* 左ナビの開閉 */
-function leftNavToggleSetting(){
-	$('#headerNavButton').bind('click', function(){
-		var color = $(this).data('color');
-		$('div#'+color).toggle();
-	});
-}
-function leftNavToggle(){
-	if ($('div#LeftNav ').css('left') == '0px') {
-		leftNavHide();
+/* メニューの開閉 */
+function menuToggle(){
+	if ($('div#menu ').css('height') != '0px') {
+		menuHide();
 	} else {
-		leftNavShow();
+		menuShow();
 	}
 }
-function leftNavHide(){
-//	$('div#LeftNav ').css('left','-280px'); 
-	$('div#LeftNav ').animate(
-		{'left':'-280px'},
+function menuHide(){
+//	$('div#menu ').css('height','0px');
+	$('div#menu').animate(
+		{'height':'0px'},
 		{
 			duration: "fast", 
 			easing: "linear",
 			complete: function(){
-				$('div.content').click(leftNavHide);
+				$('div.content').click(menuHide);
 			}
 		}
 	);
 }
-function leftNavShow(){
-//	$('div#LeftNav ').css('left','0px'); 
-	$('div#LeftNav ').animate(
-		{'left':'0px'},
+function menuShow(){
+//	$('div#menu ').css('height','64px'); 
+	$('div#menu').animate(
+		{'height':'64px'},
 		{
 			duration: "fast", 
 			easing: "linear",
 			complete: function(){
-				$('div.content').unbind('click', 'leftNavHide') ;
+				$('div.content').unbind('click', 'menuHide') ;
 			}
 		}
 	);
