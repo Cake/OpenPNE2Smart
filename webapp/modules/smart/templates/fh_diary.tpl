@@ -18,7 +18,7 @@ $('#diarycommentForm').ready(function(){
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
 ({ext_include file="common/inc_header.tpl"})
-<div class="menu-content" data-role="content">({* {{{ content *})
+<div class="({if $type=="h"})menu-content({/if})" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ diaryDetailBox *})

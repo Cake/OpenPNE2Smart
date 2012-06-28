@@ -5,7 +5,7 @@ var page=2;
 </script>
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
-<div class="menu-content" data-role="content">({* {{{ content *})
+<div class="({if $type=="h"})menu-content({/if})" data-role="content">({* {{{ content *})
 
 <section class="authorBar" id="diaryAuthor">
 <div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
