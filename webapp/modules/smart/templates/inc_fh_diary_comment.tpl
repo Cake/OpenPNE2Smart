@@ -12,10 +12,8 @@
 ({if $item.image_filename_3})<img src="({t_img_url filename=$item.image_filename_3 w=36 h=36})" alt="" />({/if})
 </div>({/if})
 
-<p class="operation">
 <time datetime="({$target_diary.r_datetime})" id="diaryComment({$item.number})Datetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
-({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})<span class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm');response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></span>({/if})({/if})
-({if $type == "h" || ($type == 'f' && $item.c_member_id == $member.c_member_id)})<span><a href="({t_url m=pc a=page_fh_delete_comment})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;target_c_diary_comment_id=({$item.c_diary_comment_id})">削除</a><//span>({/if})
-</p>
+({if $smarty.const.USE_RESPONSE_COMMENT && $is_writable_comment})({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT || $is_comment_input})<a title="返信" data-icon="smart-write" class="" data-wrapperels="span" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext"  onclick="jump_to('diarycommentForm', 'diarycommentForm');response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();return false;">返信</a>({/if})({/if})
+({if $type == "h" || ($type == 'f' && $item.c_member_id == $member.c_member_id)})<a title="削除" data-icon="delete" class="" data-wrapperels="span" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="({t_url m=pc a=page_fh_delete_comment})&amp;target_c_diary_id=({$target_diary.c_diary_id})&amp;target_c_diary_comment_id=({$item.c_diary_comment_id})" data-role="button" data-iconpos="notext">削除</a>({/if})
 </div></p>
 </li>
