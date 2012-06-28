@@ -150,9 +150,8 @@ a.smartIcon span.ui-icon {
 }
 
 <?php
-foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_img ) {
-	if (!empty($icon_name) && !empty($icon_img)) {
-		$icon_url = './modules/smart/icons/'.$icon_img;
+foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
+	if (!empty($icon_name) && !empty($icon_url)) {
 		echo ".ui-icon-". $icon_name. " { \n".
 			"\t".'background: url("'.$icon_url.'") no-repeat !important;'."\n".
 		'}'."\n";
