@@ -22,8 +22,7 @@ $('#diarycommentForm').ready(function(){
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ diaryDetailBox *})
-<section class="parts diaryDetailBox">
-
+<section class="parts diaryDetailBox" id="diary({$target_diary.c_diary_id})">
 <section class="authorBar" id="diary({$target_diary.c_diary_id})Author">
 <div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
@@ -38,14 +37,14 @@ $('#diarycommentForm').ready(function(){
 </div>
 </section>
 
-<article class="body">
-<p class="text" id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
-
+<article class="diary">
+<p class="body nameBody" id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
+({if $target_diary.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.diary'); return false;">続きを読む</a></div>({/if})
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
 <div class="ui-grid-b photo">
-({if $target_diary.image_filename_1})<a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop"  data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a>({/if})
-({if $target_diary.image_filename_2})<a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a>({/if})
-({if $target_diary.image_filename_3})<a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a>({/if})
+({if $target_diary.image_filename_1})<span class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></span>({/if})
+({if $target_diary.image_filename_2})<a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><span class="ui-block-b"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></span>({/if})
+({if $target_diary.image_filename_3})<span class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></span>({/if})
 </div>
 ({/if})
 

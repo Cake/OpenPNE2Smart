@@ -53,6 +53,17 @@ class pc_page_fh_diary extends OpenPNE_Action
             db_ashiato_insert_c_ashiato($target_c_member_id, $u);
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // 本文省略フラグ
+        $target_c_diary['isShorten'] = false;
+        if(substr_count($target_c_diary['body'], "\n") >= 3
+                    || substr_count("\n", $target_c_diary['body']) >= 3) {
+            $target_c_diary['isShorten'] = true;
+        } elseif (strlen($target_c_diary['body']) >= 118) {
+            $target_c_diary['isShorten'] = true;
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('type', $type);
         $this->set('inc_navi', fetch_inc_navi($type, $target_c_member_id));
 

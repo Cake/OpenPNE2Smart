@@ -259,6 +259,9 @@ div.photo {
  *----------------------------------------------------------------------------*/
 .diaryDetailBox #diaryBody {
 	margin: 0;
+	max-height: 3.6em;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .diaryDetailBox #diaryCategory {
