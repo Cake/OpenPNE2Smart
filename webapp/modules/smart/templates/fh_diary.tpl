@@ -83,7 +83,7 @@ $('#diarycommentForm').ready(function(){
 
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
-<section class="parts" id="diaryCommentList">
+<section class="parts commentListBox" id="diaryCommentList">
 ({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', true);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
 <ul id="diary({$target_diary.c_diary_id})CommentList" class="diaryCommentList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})

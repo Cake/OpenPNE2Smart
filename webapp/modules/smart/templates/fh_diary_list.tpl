@@ -31,7 +31,7 @@ var page=2;
 
 ({if $target_diary_list})
 ({* {{{ commentList *})
-<section class="parts" id="diaryList" data-role="collapsible-set">
+<section class="parts commentListBox" id="diaryList" data-role="collapsible-set">
 <ul id="diaryList({$member.c_member_id})" class="diaryList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
@@ -48,7 +48,7 @@ var page=2;
 
 ({if $c_rss_cache_list})
 ({* {{{ recentList *})
-<section class="ecentList" id="blog">
+<section class="ecentList commentListBox" id="blog">
 <h2>({strip})
 ({if !$all})
 ({$target_member.nickname})({if $type == "f"})さん({/if})({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})のBlog

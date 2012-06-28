@@ -282,6 +282,14 @@ div.photo {
 /*==============================================================================
  * 22. commentList（コメントリスト）
  *----------------------------------------------------------------------------*/
+.commentListBox {
+	margin-top: 25px;
+}
+
+.commentListBox>.pagerRelative {
+	margin-top: 25px;
+}
+
 .commentForm {
 	margin-top: 15px;
 }
