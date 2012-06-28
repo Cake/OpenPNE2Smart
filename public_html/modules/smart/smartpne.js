@@ -1,3 +1,12 @@
+function readMore(element) {
+	$(element).children('.nameBody')
+		.css('max-height', 'none');
+	$(element).children('.photo')
+		.css('display', 'block');
+	$(element).children('.readMore')
+		.css('display', 'none');
+
+}
 function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 	url = url+"&total_num="+totalNum;
 

@@ -310,3 +310,8 @@ ul.ui-listview li.commentList .memberData .nameBody {
 ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
+
+ul.ui-listview li.commentList .photo {
+	display: none;
+}
+

@@ -89,6 +89,23 @@ class pc_page_fh_diary extends OpenPNE_Action
             $c_diary_comment_list = array_reverse($c_diary_comment_list);
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // コメント省略フラグ
+        if (!empty($c_diary_comment_list)) {
+            foreach ($c_diary_comment_list as $k => $v) {
+                $c_diary_comment_list[$k]['isShorten'] = false;
+                if ($v['image_filename_1'] || $v['image_filename_2'] || $v['image_filename_3']) {
+                    $c_diary_comment_list[$k]['isShorten'] = true;
+                } else {
+                    $com_body = $v['number']. ":". $v['nickname']. $v['body'];
+                    if (strlen($com_body) >= 210) {
+                        $c_diary_comment_list[$k]['isShorten'] = true;
+                    }
+                }
+            }
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('target_diary_comment_list', $c_diary_comment_list);
         $this->set('total_num', $total_num);
         $this->set('total_page_num', $total_page_num);

@@ -168,6 +168,7 @@ $GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
 		'smart-write' => './modules/smart/icons/187-pencil.png',
 		'smart-public-friend' => './modules/smart/icons/111-user.png',
 		'smart-public-private' => './modules/smart/icons/54-lock.png',
+		'smart-camera' => './skin/default/img/icon_camera.gif',
 	), 
 );
 /* OpenPNE2 スマートフォン対応：ここまで追加 */
