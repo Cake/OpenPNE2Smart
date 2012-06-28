@@ -103,7 +103,7 @@ $('#diarycommentForm').ready(function(){
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="body">コメント</label>
-<textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメントする" onfocus="$('.formDetail').show()" onblur="if (!$('input').focus()) {$('.formDetail').hide()}">({$requests.body})</textarea>
+<textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメントする">({$requests.body})</textarea>
 </div>
 <div class="formDetail">
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
