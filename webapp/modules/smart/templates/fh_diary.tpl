@@ -29,7 +29,7 @@ $('#diarycommentForm').ready(function(){
 <div class="memberData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>
-({ext_include file="common/inc_public_flag.tpl" item="$target_diary"})
+<span class="public">({t_public_flag public_flag=$target_diary.public_flag})</span>
 </div>
 <div class="data">
 <time datetime="({$target_diary.r_datetime})" id="diaryDatetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
