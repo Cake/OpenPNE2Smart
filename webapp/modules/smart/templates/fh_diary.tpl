@@ -29,10 +29,7 @@ $('#diarycommentForm').ready(function(){
 <div class="memberData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>
-<span class="public">
-({if $target_diary.public_flag == "public"})（全員に公開）
-({elseif $target_diary.public_flag == "friend"})（({$WORD_MY_FRIEND})まで公開）
-({elseif $target_diary.public_flag == "private"})（公開しない）({/if})</span>
+({ext_include file="common/inc_public_flag.tpl" item="$target_diary"})
 </div>
 <div class="data">
 <time datetime="({$target_diary.r_datetime})" id="diaryDatetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
