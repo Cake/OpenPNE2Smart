@@ -4,7 +4,7 @@
 <div class="memberData">
 <div class="nameBody">
 <span class="number">({$item.number})</span>:({if $item.nickname})<a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>({/if})
-<span class="body">({$item.body|t_decoration:1|t_truncate:56:".."})</span></div>
+<span class="body">({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</span></div>
 
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<div class="ui-grid-b photo">
 ({if $item.image_filename_1})<img src="({t_img_url filename=$item.image_filename_1 w=36 h=36})" alt="" />({/if})

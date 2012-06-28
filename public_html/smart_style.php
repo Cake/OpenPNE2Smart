@@ -296,19 +296,18 @@ ul.ui-listview li.commentList {
 }
 
 ul.ui-listview li.commentList .memberData {
-	font-size: 16px;
 	font-weight: normal;
 	padding-left: 60px;
 }
 
 ul.ui-listview li.commentList .nameBody,
 ul.ui-listview li.commentList .memberData .nameBody {
-/*	max-height: 3.0em; */
+	max-height: 4.0em;
 	min-height: 33px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	width: 83%;
 }
+
 ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
