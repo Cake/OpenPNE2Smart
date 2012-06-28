@@ -73,6 +73,9 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
                 $c_diary_comment_list[$k]['isShorten'] = false;
                 if ($v['image_filename_1'] || $v['image_filename_2'] || $v['image_filename_3']) {
                     $c_diary_comment_list[$k]['isShorten'] = true;
+                } elseif(substr_count($v['body'], "\n") >= 3
+                    || substr_count("\n", $v['body']) >= 3) {
+                        $c_diary_comment_list[$k]['isShorten'] = true;
                 } else {
                     $com_body = $v['number']. ":". $v['nickname']. $v['body'];
                     if (strlen($com_body) >= 210) {
