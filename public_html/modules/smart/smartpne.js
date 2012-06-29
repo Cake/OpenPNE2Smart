@@ -5,8 +5,15 @@ function readMore(element) {
 		.css('display', 'block');
 	$(element).children('.readMore')
 		.css('display', 'none');
-
 }
+
+function setDiaryIdparams(diaryId) {
+	return '&target_c_diary_id='+diaryId;
+}
+function changePage(url, params) {
+	$.mobile.changePage(url+params, { transition: "slide"} );
+}
+
 function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 	url = url+"&total_num="+totalNum;
 

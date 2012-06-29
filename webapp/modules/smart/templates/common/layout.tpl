@@ -10,6 +10,9 @@
 	<!--
 	$(document).bind("mobileinit", function(){
 	//	$.mobile.ajaxEnabled = false; // Ajax を使用した遷移を無効にする
+
+		// Swipe
+		$.event.special.swipe.horizontalDistanceThreshold = 120;
 	});
 	//-->
 	</script>

@@ -1,7 +1,5 @@
 <script language="JavaScript">
 <!--
-var page=2;
-
 ({if $comment_count})
 $('#diarycommentForm').ready(function(){
 	jump_to('diaryComment({$comment_count})','diaryCommentList');
@@ -13,7 +11,35 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 //-->
 </script>
-<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})({$target_diary.c_diary_id})">
+<script language="JavaScript">
+<!--
+var page=2;
+var prevDiaryId = null;
+var nextDiaryId = null;
+
+// Swipe
+$('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',function(event){
+({if $c_diary_id_prev || $c_diary_id_next})
+({if $c_diary_id_prev})	// 前の日記
+	prevDiaryId = '({$c_diary_id_prev})';
+	$("#({$INC_HEADER_page_name})({$target_diary.c_diary_id})").bind("swiperight", function(){
+		var params = setDiaryIdparams(prevDiaryId);
+		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params);
+	});
+({/if})
+({if $c_diary_id_next})	// 次の日記
+	nextDiaryId = '({$c_diary_id_next})';
+	$("#({$INC_HEADER_page_name})({$target_diary.c_diary_id})").bind("swipeleft", function(){
+		var params = setDiaryIdparams(nextDiaryId);
+		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params);
+	});
+({/if})
+({/if})
+});
+//-->
+</script>
+
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
@@ -59,15 +85,6 @@ $('#diarycommentForm').ready(function(){
 </div>
 </p>
 </article>
-
-({strip})
-<div class="pagerRelative">
-({if $c_diary_id_prev || $c_diary_id_next})
-({if $c_diary_id_prev})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_prev})" data-role="button" data-icon="back" data-mini="true" data-inline="true">前の({$WORD_DIARY})</a>({/if})
-({if $c_diary_id_next})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$c_diary_id_next})" data-role="button" data-icon="forward" data-mini="true" data-inline="true">次の({$WORD_DIARY})</a>({/if})
-({/if})
-</div>
-({/strip})
 
 ({if $type == "h"})
 <section class="operation">
