@@ -4,18 +4,45 @@
 <title>({$INC_HEADER_title})</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="./modules/smart/jquermobile/1.1/jquery.mobile.min.css">
-	<script type="text/javascript" src="./modules/smart/jquery/1.7.2/jquery.min.js"></script>
-	<script language="JavaScript">
+<link rel="stylesheet" href="./modules/smart/jquermobile/1.1/jquery.mobile.min.css">
+<link rel="stylesheet" href="./modules/smart/photoswipe/photoswipe.css">
+<script type="text/javascript" src="./modules/smart/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="./modules/smart/photoswipe/lib/klass.min.js"></script>
+<script type="text/javascript" src="./modules/smart/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+<script language="JavaScript">
 	<!--
-	$(document).bind("mobileinit", function(){
-	//	$.mobile.ajaxEnabled = false; // Ajax を使用した遷移を無効にする
+	(function(window, $, PhotoSwipe){
+		$(document).bind('mobileinit', function(){
+		//	$.mobile.ajaxEnabled = false; // Ajax を使用した遷移を無効にする
 
-		// Swipe
-		$.event.special.swipe.horizontalDistanceThreshold = 120;
-	});
+			// Swipe
+			$.event.special.swipe.horizontalDistanceThreshold = 120;
+
+			$('.page')
+				.live('pageinit', function(e){
+					var $cp = $(e.target);
+					var pageId = $cp.attr('id');
+					if ($('#'+pageId+' ul.gallery a').size() > 0) {
+						var opt = {},
+						photoSwipeInstance = $('ul.gallery a', e.target).photoSwipe(opt, $cp.attr('id'));
+					}
+					return true;
+				})
+				.live('pageremove', function(e){
+					var $cp = $(e.target);
+					var photoSwipeInstance = PhotoSwipe.getInstance($cp.attr('id'));
+					if(typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null){
+//					if(typeof photoSwipeInstance == 'object'){
+						PhotoSwipe.detatch(photoSwipeInstance);
+					}
+					return true;
+				});
+		});
+({*/if*})
+	}(window, jQuery, window.Code.PhotoSwipe));
 	//-->
-	</script>
+</script>
+
 	<script type="text/javascript" src="./modules/smart/jquermobile/1.1/jquery.mobile.min.js"></script>
 <script type="text/javascript" src="./modules/smart/smartpne.js"></script>
 <script type="text/javascript" src="./js/pne.js"></script>

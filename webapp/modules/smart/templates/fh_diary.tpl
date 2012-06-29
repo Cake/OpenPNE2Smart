@@ -66,13 +66,13 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <article class="diary">
 <p class="body nameBody" id="diaryBody">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
 ({if $target_diary.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.diary'); return false;">続きを読む</a></div>({/if})
+<ul class="gallery ui-grid-b">
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
-<div class="ui-grid-b photo">
-({if $target_diary.image_filename_1})<span class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></span>({/if})
-({if $target_diary.image_filename_2})<a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><span class="ui-block-b"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></span>({/if})
-({if $target_diary.image_filename_3})<span class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></span>({/if})
-</div>
+({if $target_diary.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
+({if $target_diary.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></li>({/if})
+({if $target_diary.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></li>({/if})
 ({/if})
+</ul>
 
 <p>
 <div id="diaryCategory" data-inline="true"><small>({if $category_list})(
