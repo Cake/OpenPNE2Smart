@@ -63,8 +63,18 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 				window.Code.PhotoSwipe.detatch(photoSwipeInstance);
 			}
 			if ($('#'+pageId+' ul.gallery a').size() > 0) {
-				var opt = {},
+				   $('#'+pageId+' ul.gallery').each(function(){
+						if ($(this).children().size()) {
+							var photoBoxId = $(this).attr("id");
+							if (photoBoxId != undefined) {
+								var myPhotoSwipe = $('ul#'+photoBoxId+' a').photoSwipe({ enableMouseWheel: false , enableKeyboard: false, captionAndToolbarShowEmptyCaptions: false });
+							}
+						}
+					});
+/* 日記～全コメント一括スライドショー
+				var opt = {captionAndToolbarShowEmptyCaptions: false},
 					photoSwipeInstance = $('ul.gallery a', '.page').photoSwipe(opt, $cp.attr('id'));
+ */
 			}
 
 			// 出力完了

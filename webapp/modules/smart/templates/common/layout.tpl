@@ -20,26 +20,40 @@
 
 			$('.page')
 				.live('pageinit', function(e){
+({literal})
 					var $cp = $(e.target);
 					var pageId = $cp.attr('id');
+
+					$('#'+pageId+' ul.gallery').each(function(){
+						if ($(this).children().size()) {
+							var photoBoxId = $(this).attr("id");
+							if (photoBoxId != undefined) {
+								var myPhotoSwipe = $('ul#'+photoBoxId+' a').photoSwipe({ enableMouseWheel: false , enableKeyboard: false, captionAndToolbarShowEmptyCaptions: false });
+							}
+						}
+					});
+({/literal})
+/* 日記～全コメント一括スライドショー
 					var photoSwipeInstance = PhotoSwipe.getInstance($cp.attr('id'));
 					if(typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null){
 						PhotoSwipe.detatch(photoSwipeInstance);
 					}
-
 					if ($('#'+pageId+' ul.gallery a').size() > 0) {
-						var opt = {},
+						var opt = {captionAndToolbarShowEmptyCaptions: false},
 						photoSwipeInstance = $('ul.gallery a', e.target).photoSwipe(opt, $cp.attr('id'));
 					}
 					return true;
+*/
 				})
 				.live('pageremove', function(e){
+/* 日記～全コメント一括スライドショー
 					var $cp = $(e.target);
 					var photoSwipeInstance = PhotoSwipe.getInstance($cp.attr('id'));
 					if(typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null){
 //					if(typeof photoSwipeInstance == 'object'){
 						PhotoSwipe.detatch(photoSwipeInstance);
 					}
+*/
 					return true;
 				});
 		});

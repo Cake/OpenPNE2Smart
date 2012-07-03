@@ -6,11 +6,12 @@
 <span class="number">({$item.number})</span>:({if $item.nickname})<a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>({/if})
 <span class="body"> ({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</span>
 </div>
-({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<div class="ui-grid-b photo">
-({if $item.image_filename_1})<span class="ui-block-a"><a href="({t_img_url filename=$item.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a></span>({/if})
-({if $item.image_filename_2})<span class="ui-block-b"><a href="({t_img_url filename=$item.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a></span>({/if})
-({if $item.image_filename_3})<span class="ui-block-c"><a href="({t_img_url filename=$item.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a></span>({/if})
-</div>({/if})
+<ul class="gallery ui-grid-b" id="diaryComment({$item.number})gallery">
+({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})
+({if $item.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$item.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
+({if $item.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$item.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a></li>({/if})
+({if $item.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$item.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_3 w=76 h=76})" alt="" /></a></li>({/if})
+({/if})</ul>
 ({if $item.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('#diaryComment({$item.number}) .memberData'); return false;">続きを読む</a></div>({/if})
 <time datetime="({$target_diary.r_datetime})" id="diaryComment({$item.number})Datetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<a title="写真" data-icon="smart-camera" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext"  onclick="readMore('#diaryComment({$item.number}) .memberData'); return false;">写真</a>({/if})
