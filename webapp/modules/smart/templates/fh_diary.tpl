@@ -118,7 +118,6 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <label for="body">コメント</label>
 <textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメントする">({$requests.body})</textarea>
 </div>
-<div class="formDetail">
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <div data-role="fieldcontain">
 <laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br />
@@ -126,6 +125,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br />
 </div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+<div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面" />
 </div>
 ({/t_form_block})
