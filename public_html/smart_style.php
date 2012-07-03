@@ -319,7 +319,6 @@ ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
 
-ul.ui-listview li.commentList .photo {
+ul.ui-listview li.diaryComment .gallery {
 	display: none;
 }
-
