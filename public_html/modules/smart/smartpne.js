@@ -55,6 +55,18 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 				$(element).trigger("create");
 			}
 
+			//PhotoSwipe
+			$cp = $('.page');
+			var pageId = $cp.attr('id');
+			var photoSwipeInstance = window.Code.PhotoSwipe.getInstance($cp.attr('id'));
+			if(typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null){
+				window.Code.PhotoSwipe.detatch(photoSwipeInstance);
+			}
+			if ($('#'+pageId+' ul.gallery a').size() > 0) {
+				var opt = {},
+					photoSwipeInstance = $('ul.gallery a', '.page').photoSwipe(opt, $cp.attr('id'));
+			}
+
 			// 出力完了
 			$.mobile.hidePageLoadingMsg();
 			return false;

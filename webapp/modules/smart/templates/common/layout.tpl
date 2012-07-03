@@ -22,6 +22,11 @@
 				.live('pageinit', function(e){
 					var $cp = $(e.target);
 					var pageId = $cp.attr('id');
+					var photoSwipeInstance = PhotoSwipe.getInstance($cp.attr('id'));
+					if(typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null){
+						PhotoSwipe.detatch(photoSwipeInstance);
+					}
+
 					if ($('#'+pageId+' ul.gallery a').size() > 0) {
 						var opt = {},
 						photoSwipeInstance = $('ul.gallery a', e.target).photoSwipe(opt, $cp.attr('id'));
@@ -38,7 +43,7 @@
 					return true;
 				});
 		});
-({*/if*})
+
 	}(window, jQuery, window.Code.PhotoSwipe));
 	//-->
 </script>
