@@ -1,8 +1,8 @@
 function readMore(element) {
 	$(element).children('.nameBody')
 		.css('max-height', 'none');
-	$(element).children('.gallery')
-		.css('display', 'block');
+/*	$(element).children('.gallery')
+		.css('display', 'block'); */
 	$(element).children('.readMore')
 		.css('display', 'none');
 }

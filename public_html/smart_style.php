@@ -320,5 +320,4 @@ ul.ui-listview li.commentList .ui-li-thumb {
 }
 
 ul.ui-listview li.diaryComment .gallery {
-	display: none;
 }
