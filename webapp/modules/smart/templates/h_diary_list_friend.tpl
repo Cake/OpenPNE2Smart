@@ -1,57 +1,51 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({capture name=headline})({$WORD_MY_FRIEND})最新({$WORD_DIARY})({/capture})
+({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
+
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({if $total_num})
-({* {{{ recentList *})
-<div class="dparts recentList"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_MY_FRIEND})最新({$WORD_DIARY})</h3></div>
-
-({capture name=pager})({strip})
-<div class="pagerRelative">
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_h_diary_list_friend})&amp;page=({$page-1})">前を表示</a></p>({/if})
-<p class="number">({$pager.start})件～({$pager.end})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_h_diary_list_friend})&amp;page=({$page+1})">次を表示</a></p>({/if})
-</div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
+({* {{{ commentList *})
+<section class="commentListBox" id="friendDiaryList" data-role="collapsible-set">
+<ul id="diaryListFriend" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$h_diary_list_friend item=item})
-<dl>
-<dt>({$item.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})</dt>
-<dd><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;comment_count=({$item.count_comments})">({$item.subject})(({$item.count_comments}))</a> (({$item.c_member.nickname}))({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})<img src="({t_img_url_skin filename=icon_camera})" alt="" />({/if})</dd>
-</dl>
+({ext_include file="inc_h_diary_list.tpl"})
 ({/foreach})
+</ul>
+</section>({* commentList }}} *})
 
-({$smarty.capture.pager|smarty:nodefaults})
-
-</div></div>
-({* }}} *})
+({* {{{ Pager *})({strip})
+({if $is_next})
+<div class="pagerRelative" id="diaryListFriend({$u})NextPager">
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_diary_list_friend_ajax})', 'asc', 'li.diaryList', 'diaryListFriend({$u})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+</div>
+({/if})
+({/strip})({* Pager }}} *})
 
 ({else})
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_MY_FRIEND})最新({$WORD_DIARY})</h3></div>
-<div class="block">
-<p>({$WORD_MY_FRIEND})の({$WORD_DIARY})がありません。</p>
-</div>
-</div></div>
+({* {{{ NoData *})
+({ext_include file="common/inc_msg.tpl" msg=$smarty.capture.headline|string_format:"%sはありません。"})
 ({* }}} *})
 ({/if})
 
 ({if $c_rss_cache_list})
 ({* {{{ recentList *})
-<div class="dparts recentList" id="blog"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_MY_FRIEND})最新Blog</h3></div>
-
+<section class="commentListBox blogListBox" data-role="collapsible-set">
+<h2>({$WORD_MY_FRIEND})最新Blog</h2>
+<ul id="recentBlog" class="pictureIconList " data-role="listview" data-inset="false">
 ({foreach from=$c_rss_cache_list item=item})
-<dl>
-<dt>({$item.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})</dt>
-<dd><a href="({$item.link})" target="_blank">({$item.subject})</a> (({$item.c_member.nickname}))</dd>
-</dl>
+({ext_include file="inc_blog_list.tpl"})
 ({/foreach})
-</div></div>
-({* }}} *})
+</ul>
+</section>({* recentList }}} *})
 ({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

@@ -38,6 +38,11 @@ class pc_page_h_diary_list_all extends OpenPNE_Action
         $this->set('page', $page);
         $this->set('pager', $pager);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($result[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         //バグ回避のため半角空白を全角に統一
         $keyword = str_replace(" ", "　", $keyword);
 

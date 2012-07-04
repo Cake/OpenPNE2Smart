@@ -34,6 +34,11 @@ class pc_page_h_diary_list_friend extends OpenPNE_Action
         }
         $this->set('pager', $pager);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($lst[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         if ($page == 1) {
             // rss_cache
             $limit = 20;

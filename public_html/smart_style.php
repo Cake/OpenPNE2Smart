@@ -219,12 +219,14 @@ div.operation ul {
 	width: 41px;
 }
 
-.authorBar .itemData {
+.authorBar .itemData,
+.authorBar .itemData_noComNum {
 	display: table-cell;
 	vertical-align: top;
 }
 
 .authorBar .itemData .memberData,
+.authorBar .itemData_noComNum .memberData,
 .authorBar .itemData .title,
 .authorBar .itemData_noComNum .title {
 	margin: 0 3px;
@@ -233,7 +235,9 @@ div.operation ul {
 a .itemData .title *,
 a .itemData_noComNum .title *,
 .itemData .title *,
-.itemData .memberData * {
+.itemData_noComNum .title *,
+.itemData .memberData *,
+.itemData_noComNum .memberData * {
 	font-size: 100%;
 	display: inline;
 }
@@ -289,7 +293,9 @@ a .itemData_noComNum .title *,
 
 /*============================================================================
  * 22. commentList（コメントリスト）
- * fh_diary(コメント), fh_diary_list
+ * fh_diary(コメント), fh_diary_list, h_diary_list_all
+ * 25. recentList（最新書き込みリスト）
+ * h_diary_list_friend
  *----------------------------------------------------------------------------*/
 .commentListBox {
 	margin-top: 25px;
