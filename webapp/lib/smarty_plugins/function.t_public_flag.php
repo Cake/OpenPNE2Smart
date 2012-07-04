@@ -23,13 +23,7 @@ function smarty_function_t_public_flag($params, &$smarty)
         return null;
     }
 
-    $html = sprintf(
-        "<form action=\"mailto:%s\" method=\"%s\"%s>\n", 
-            $params['mailto'], 
-            'get',
-            $attr
-    );
-    $html .= "<img src=\"$icon_url\" alt=\"$alt\" />";
+    $html = "<img src=\"$icon_url\" alt=\"$alt\" class=\"icon_public\" />";
 
     return $html;
 }

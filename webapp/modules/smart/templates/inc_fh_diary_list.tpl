@@ -4,7 +4,7 @@
 <h3 id="diary({$item.c_diary_id})Title">({$item.subject})</h3>
 <span class="public">({t_public_flag public_flag=$item.public_flag})</span>
 </div></div></p>({/strip})
-<p class="nameBody">({$item.body|t_decoration:1|t_truncate:48:""})</p>
+<p class="nameBody">({$item.body|t_decoration:1|t_truncate:100:""})</p>
 <p><time class="datetime" id="diaryDatetime({$item.c_diary_id})">({$item.r_datetime|date_format:"%m月%d日%H:%M"})</time></p>
 
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<p><div class="ui-grid-b photo">
