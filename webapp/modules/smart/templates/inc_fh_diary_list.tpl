@@ -10,4 +10,3 @@
 <p class="nameBody">({$item.body|t_decoration:1|t_truncate:100:""})</p>
 ({if isset($item.num_comment)})<p><span class="ui-li-count">({$item.num_comment})</span></p>({/if})
 </div></a></li>
-

@@ -323,7 +323,7 @@ ul.ui-listview li.commentList .memberData .nameBody {
 	overflow: hidden;
 }
 
-/* 写真付きリスト */ 
+/* 本文＋写真リスト */ 
 ul.pictureList li.commentList .nameBody,
 ul.pictureList li.commentList .memberData .nameBody {
 	max-height: 4.0em;
@@ -333,34 +333,56 @@ ul.pictureList li.commentList .memberData .nameBody {
 ul.pictureList li.commentList .gallery {
 }
 
-/* 写真なしリスト */ 
-ul.noPictureList li.commentList {
+/* 本文＋カメラアイコンリスト */ 
+ul.pictureIconList li.commentList {
 	height: 44px;
 }
 
-ul.noPictureList li.commentList a.ui-link-inherit {
+ul.pictureIconList li.commentList a.ui-link-inherit {
 	height: 40px;
 }
 
-ul.noPictureList .title {
+ul.pictureIconList li.commentList .title {
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 67%;
+	font-size: 100%;
 }
 
-ul.noPictureList li.commentList .public {
+ul.pictureIconList .itemData .title {
+	width: 72%;
+}
+
+ul.pictureIconList .itemData_noComNum .title {
+	width: 62%;
+}
+
+ul.pictureIconList li.commentList .public {
 	position: absolute;
 	top: 0;
-	right: 45%;
 }
 
-ul.noPictureList li.commentList .icon_camera {
+ul.pictureIconList .itemData .public {
+	right: 43%;
+}
+
+ul.pictureIconList .itemData_noComNum .public {
+	right: 33%;
+}
+
+ul.pictureIconList li.commentList .icon_camera {
 	position: absolute;
 	top: 0;
-	right: 40%;
 }
 
-ul.noPictureList .datetime {
+ul.pictureIconList .itemData .icon_camera {
+	right: 38%;
+}
+
+ul.pictureIconList .itemData_noComNum .icon_camera {
+	right: 28%;
+}
+
+ul.pictureIconList .datetime {
 	position: absolute;
 	top: 0px;
 	font-size: 80%;
@@ -368,15 +390,15 @@ ul.noPictureList .datetime {
 	width: 90px;
 }
 
-ul.noPictureList .itemData  .datetime {
+ul.pictureIconList .itemData .datetime {
 	right: 10%;
 }
 
-ul.noPictureList .itemData_noComNum  .datetime {
-	right: 0%;
+ul.pictureIconList .itemData_noComNum .datetime {
+	right: -2%;
 }
 
-ul.noPictureList li.commentList .nameBody {
+ul.pictureIconList li.commentList .nameBody {
 	width: 85%;
 }
 
