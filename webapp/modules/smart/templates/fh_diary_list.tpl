@@ -3,13 +3,13 @@
 var page=2;
 //-->
 </script>
-<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
 <div class="({if $type=="h"})menu-content({/if})" data-role="content">({* {{{ content *})
 
 <section class="authorBar" id="diaryAuthor">
 <div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
-<div class="memberData">
+<div class="itemData">
 <div class="title">
 <h2><span>({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})({if !$all})({if !$category}) ({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})({/if})({$category_name})({/if})</span> <span class="pagerRelative">全({$total_num})件</span></h2>
 </div>
@@ -32,11 +32,12 @@ var page=2;
 ({if $target_diary_list})
 ({* {{{ commentList *})
 <section class="parts commentListBox" id="diaryList" data-role="collapsible-set">
-<ul id="diaryList({$member.c_member_id})" class="diaryList" data-role="listview" data-inset="false"> 
+<ul id="diaryList({$member.c_member_id})" class="noPictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
+</section>
 ({* {{{ Pager *})({strip})
 ({if $is_next})
 <div class="pagerRelative" id="diaryList({$member.c_member_id})NextPager">
@@ -48,7 +49,7 @@ var page=2;
 
 ({if $c_rss_cache_list})
 ({* {{{ recentList *})
-<section class="ecentList commentListBox" id="blog">
+<section class="commentListBox blogListBox" data-role="collapsible-set">
 <h2>({strip})
 ({if !$all})
 ({$target_member.nickname})({if $type == "f"})さん({/if})({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})のBlog
@@ -56,11 +57,9 @@ var page=2;
 ({$target_member.nickname})({if $type == "f"})さん({/if})のBlog
 ({/if})
 ({/strip})</h2>
-<ul class="ui-listview" data-role="listview" data-inset="false"> 
+<ul id="recentBlog" class="noPictureList " data-role="listview" data-inset="false">
 ({foreach from=$c_rss_cache_list item=item})
-<li><a class="rssListItem" href="({$item.link})" rel="external" target="_blank">
-<h3>({$item.subject})</h3>
-<time class="datetime">({$item.r_datetime|date_format:"%m月%d日<br>%H:%M"})</time>
+({ext_include file="inc_blog_list.tpl"})
 ({/foreach})
 </ul>
 </section>

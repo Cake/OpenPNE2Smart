@@ -1,17 +1,13 @@
 <li id="diary({$item.c_diary_id})" class="commentList diaryList">
-<a class="ui-link-inherit diaryListItem" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
-({strip})<p><div class="authorBar"><div class="title">
+<a class="listItemLink" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
+<div class="itemData({if !isset($item.num_comment)})_noComNum({/if})">
+({strip})<div class="title">
 <h3 id="diary({$item.c_diary_id})Title">({$item.subject})</h3>
+({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<span class="icon_camera"><img src="({t_img_url_skin filename=icon_camera})" alt="写真あり" /></span>({/if})
 <span class="public">({t_public_flag public_flag=$item.public_flag})</span>
-</div></div></p>({/strip})
+<time class="datetime" id="diaryDatetime({$item.c_diary_id})">({$item.r_datetime|date_format:"%m月%d日<br />%H:%M"})</time>
+</div>({/strip})
 <p class="nameBody">({$item.body|t_decoration:1|t_truncate:100:""})</p>
-<p><time class="datetime" id="diaryDatetime({$item.c_diary_id})">({$item.r_datetime|date_format:"%m月%d日%H:%M"})</time></p>
-
-({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<p><div class="ui-grid-b photo">
-({if $item.image_filename_1})<img src="({t_img_url filename=$item.image_filename_1 w=36 h=36})" alt="" />({/if})
-({if $item.image_filename_2})<img src="({t_img_url filename=$item.image_filename_2 w=36 h=36})" alt="" />({/if})
-({if $item.image_filename_3})<img src="({t_img_url filename=$item.image_filename_3 w=36 h=36})" alt="" />({/if})
-</div></p>({/if})
-<p><span class="ui-li-count">({$item.num_comment})</span></p>
-</a></li>
+({if isset($item.num_comment)})<p><span class="ui-li-count">({$item.num_comment})</span></p>({/if})
+</div></a></li>
 

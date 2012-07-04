@@ -11,7 +11,7 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 //-->
 </script>
-<div class="page" data-role="page" id="({$INC_HEADER_page_name})({$target_diary.c_diary_id})">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$target_diary.c_diary_id})">
 <script language="JavaScript">
 <!--
 var page=2;
@@ -51,12 +51,12 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <section class="parts diaryDetailBox" id="diary({$target_diary.c_diary_id})">
 <section class="authorBar" id="diary({$target_diary.c_diary_id})Author">
 <div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
-<div class="memberData">
+<div class="itemData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>
 <span class="public">({t_public_flag public_flag=$target_diary.public_flag})</span>
 </div>
-<div class="data">
+<div class="memberData">
 <time datetime="({$target_diary.r_datetime})" id="diaryDatetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 <span class="author diaryAuthorName"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})({if $type == "f"})さん({/if})</a></span>
 </div>
@@ -81,7 +81,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({/foreach}))
 ({/if})</small></div>
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', 'diarycommentForm'); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('diarycommentForm', ''); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 </div>
 </p>
 </article>
@@ -97,8 +97,8 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
 <section class="parts commentListBox" id="diaryCommentList">
-({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.diaryComment', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', true);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
-<ul id="diary({$target_diary.c_diary_id})CommentList" class="diaryCommentList" data-role="listview" data-inset="false"> 
+({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.commentList', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', true);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+<ul id="diary({$target_diary.c_diary_id})CommentList" class="pictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})

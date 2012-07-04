@@ -219,27 +219,32 @@ div.operation ul {
 	width: 41px;
 }
 
-.authorBar .memberData {
+.authorBar .itemData {
 	display: table-cell;
 	vertical-align: top;
 }
 
-.authorBar .memberData .data,
-.authorBar .memberData .title {
+.authorBar .itemData .memberData,
+.authorBar .itemData .title,
+.authorBar .itemData_noComNum .title {
 	margin: 0 3px;
 }
 
-.authorBar .title *,
-.authorBar .data *,
-.authorBar .memberData .title *,
-.authorBar .memberData .data * {
+a .itemData .title *,
+a .itemData_noComNum .title *,
+.itemData .title *,
+.itemData .memberData * {
 	font-size: 100%;
 	display: inline;
 }
+
+.icon_public {
+	width: 16px;
+	height: 16px;
 }
 
-div.photo {
-	padding: 5px;
+.datetime {
+	margin-left: 10px;
 }
 
 /*==============================================================================
@@ -282,15 +287,13 @@ div.photo {
 }
 
 
-/*==============================================================================
+/*============================================================================
  * 22. commentList（コメントリスト）
+ * fh_diary(コメント), fh_diary_list
  *----------------------------------------------------------------------------*/
 .commentListBox {
 	margin-top: 25px;
-}
-
-.commentListBox>.pagerRelative {
-	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .commentForm {
@@ -302,6 +305,13 @@ ul.ui-listview li.commentList {
 	padding: 0 !important;
 }
 
+ul.ui-listview li.commentList a.ui-link-inherit {
+	padding: 0 15px;
+}
+
+ul.ui-listview li.commentList .ui-li-thumb {
+	padding: 4px;
+}
 ul.ui-listview li.commentList .memberData {
 	font-weight: normal;
 	padding-left: 60px;
@@ -309,15 +319,74 @@ ul.ui-listview li.commentList .memberData {
 
 ul.ui-listview li.commentList .nameBody,
 ul.ui-listview li.commentList .memberData .nameBody {
-	max-height: 4.0em;
-	min-height: 33px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
 
-ul.ui-listview li.commentList .ui-li-thumb {
-	padding: 4px;
+/* 写真付きリスト */ 
+ul.pictureList li.commentList .nameBody,
+ul.pictureList li.commentList .memberData .nameBody {
+	max-height: 4.0em;
+	min-height: 33px;
 }
 
-ul.ui-listview li.diaryComment .gallery {
+ul.pictureList li.commentList .gallery {
 }
+
+/* 写真なしリスト */ 
+ul.noPictureList li.commentList {
+	height: 44px;
+}
+
+ul.noPictureList li.commentList a.ui-link-inherit {
+	height: 40px;
+}
+
+ul.noPictureList .title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 67%;
+}
+
+ul.noPictureList li.commentList .public {
+	position: absolute;
+	top: 0;
+	right: 45%;
+}
+
+ul.noPictureList li.commentList .icon_camera {
+	position: absolute;
+	top: 0;
+	right: 40%;
+}
+
+ul.noPictureList .datetime {
+	position: absolute;
+	top: 0px;
+	font-size: 80%;
+	font-weight: normal;
+	width: 90px;
+}
+
+ul.noPictureList .itemData  .datetime {
+	right: 10%;
+}
+
+ul.noPictureList .itemData_noComNum  .datetime {
+	right: 0%;
+}
+
+ul.noPictureList li.commentList .nameBody {
+	width: 85%;
+}
+
+/* ブログリスト */
+.blogListBox h2 {
+	font-size: 120%;
+	margin-bottom: 25px;
+}
+
+.blogList h3 {
+	display: block !important;
+}
+

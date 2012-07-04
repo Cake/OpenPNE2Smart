@@ -1,4 +1,4 @@
-<li id="diaryComment({$item.number})" class="commentList diaryComment">
+<li id="diaryComment({$item.number})" class="commentList">
 <p class="authorBar">
 <div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
 <div class="memberData">
