@@ -16,8 +16,8 @@ var page=2;
 </div>
 </section>
 
-({if $type == "h"})
-<div id="writeDiaryBodyBox" data-role="collapsible">
+({if $type == "h"})({* {{{ infoButtonBox *})
+<div class="infoButtonBox" id="writeDiaryBodyBox" data-role="collapsible">
 <h3>({$WORD_DIARY})を書く</h3>
 <ul data-role="listview" data-inset="true"> 
 <li><a href="({t_url m=pc a=page_h_diary_add})">フォームから書く</a></li>
@@ -27,7 +27,7 @@ var page=2;
 </p></li>
 </ul>
 </div>
-({/if})
+({/if})({* infoButtonBox }}} *})
 
 ({if $target_diary_list})
 ({* {{{ commentList *})
