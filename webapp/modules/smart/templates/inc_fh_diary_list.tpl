@@ -1,6 +1,6 @@
 <li id="diary({$item.c_diary_id})" class="commentList diaryList">
 <a class="listItemLink" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
-<div class="itemData({if !isset($item.num_comment)})_noComNum({/if})">
+<div class="itemData">
 ({strip})<div class="title">
 <h3 id="diary({$item.c_diary_id})Title">({$item.subject})</h3>
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<span class="icon_camera"><img src="({t_img_url_skin filename=icon_camera})" alt="写真あり" /></span>({/if})

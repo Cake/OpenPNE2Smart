@@ -218,25 +218,19 @@ div.operation ul {
 	width: 41px;
 }
 
-.authorBar .itemData,
-.authorBar .itemData_noComNum {
+.authorBar .itemData {
 	display: table-cell;
 	vertical-align: top;
 }
 
 .authorBar .itemData .memberData,
-.authorBar .itemData_noComNum .memberData,
-.authorBar .itemData .title,
-.authorBar .itemData_noComNum .title {
+.authorBar .itemData .title {
 	margin: 0 3px;
 }
 
 a .itemData .title *,
-a .itemData_noComNum .title *,
 .itemData .title *,
-.itemData_noComNum .title *,
-.itemData .memberData *,
-.itemData_noComNum .memberData * {
+.itemData .memberData * {
 	font-size: 100%;
 	display: inline;
 }
@@ -375,7 +369,7 @@ ul.pictureIconList .itemData .title {
 	width: 72%;
 }
 
-ul.pictureIconList .itemData_noComNum .title {
+ul.pictureIconList li.ui-li-has-count .title {
 	width: 62%;
 }
 
@@ -385,11 +379,11 @@ ul.pictureIconList li.commentList .public {
 }
 
 ul.pictureIconList .itemData .public {
-	right: 43%;
+	right: 33%;
 }
 
-ul.pictureIconList .itemData_noComNum .public {
-	right: 33%;
+ul.pictureIconList li.ui-li-has-count .itemData .public {
+	right: 43%;
 }
 
 ul.pictureIconList li.commentList .icon_camera {
@@ -398,11 +392,11 @@ ul.pictureIconList li.commentList .icon_camera {
 }
 
 ul.pictureIconList .itemData .icon_camera {
-	right: 38%;
+	right: 28%;
 }
 
-ul.pictureIconList .itemData_noComNum .icon_camera {
-	right: 28%;
+ul.pictureIconList li.ui-li-has-count .itemData .icon_camera {
+	right: 38%;
 }
 
 ul.pictureIconList li.commentList .authorName {
@@ -417,11 +411,11 @@ ul.pictureIconList li.commentList .authorName {
 }
 
 ul.pictureIconList .itemData .authorName {
-	right: 10%;
+	right: -2%;
 }
 
-ul.pictureIconList .itemData_noComNum .authorName {
-	right: -2%;
+ul.pictureIconList li.ui-li-has-count .itemData .authorName {
+	right: 10%;
 }
 
 ul.pictureIconList .datetime {
@@ -439,11 +433,11 @@ ul.pictureIconList .datetime {
 }
 
 ul.pictureIconList .itemData .datetime {
-	right: 10%;
+	right: -2%;
 }
 
-ul.pictureIconList .itemData_noComNum .datetime {
-	right: -2%;
+ul.pictureIconList li.ui-li-has-count .itemData .datetime {
+	right: 10%;
 }
 
 ul.pictureIconList li.commentList .nameBody {
