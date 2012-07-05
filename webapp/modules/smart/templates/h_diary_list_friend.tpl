@@ -15,7 +15,7 @@ var page=2;
 <section class="commentListBox" id="friendDiaryList" data-role="collapsible-set">
 <ul id="diaryListFriend" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$h_diary_list_friend item=item})
-({ext_include file="inc_h_diary_list.tpl"})
+({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
 </section>({* commentList }}} *})

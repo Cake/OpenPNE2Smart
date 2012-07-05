@@ -308,7 +308,7 @@ a .itemData_noComNum .title *,
 
 ul.ui-listview li.commentList {
 	line-height: 1.3em;
-	padding: 0 !important;
+	padding: 0 0 1px 0 !important;
 }
 
 ul.ui-listview li.commentList a.ui-link-inherit {
@@ -329,6 +329,10 @@ ul.ui-listview li.commentList .memberData .nameBody {
 	overflow: hidden;
 }
 
+ul.ui-listview li.commentList .title {
+	margin-bottom: 6px;
+}
+
 /* 本文＋写真リスト */ 
 ul.pictureList li.commentList .nameBody,
 ul.pictureList li.commentList .memberData .nameBody {
@@ -341,11 +345,11 @@ ul.pictureList li.commentList .gallery {
 
 /* 本文＋カメラアイコンリスト */ 
 ul.pictureIconList li.commentList {
-	height: 44px;
+	height: 70px;
 }
 
 ul.pictureIconList li.commentList a.ui-link-inherit {
-	height: 40px;
+	height: 68px;
 }
 
 ul.pictureIconList li.commentList .title {
@@ -388,12 +392,37 @@ ul.pictureIconList .itemData_noComNum .icon_camera {
 	right: 28%;
 }
 
+ul.pictureIconList li.commentList .authorName {
+	position: absolute;
+	top: -2px;
+	width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 80%;
+	font-weight: bold;
+	z-index: 2;
+}
+
+ul.pictureIconList .itemData .authorName {
+	right: 10%;
+}
+
+ul.pictureIconList .itemData_noComNum .authorName {
+	right: -2%;
+}
+
 ul.pictureIconList .datetime {
 	position: absolute;
-	top: 0px;
+	top: -2px;
 	font-size: 80%;
 	font-weight: normal;
+	line-height: 1.5em;
 	width: 90px;
+	z-index: 2;
+}
+
+.authorName + .datetime {
+	top: 20px !important;
 }
 
 ul.pictureIconList .itemData .datetime {
@@ -405,7 +434,11 @@ ul.pictureIconList .itemData_noComNum .datetime {
 }
 
 ul.pictureIconList li.commentList .nameBody {
-	width: 85%;
+	width: 76%;
+	height: 3.6em;
+	line-height: 1.2em;
+	overflow: hidden;
+	white-space: normal;
 }
 
 /* ブログリスト */
