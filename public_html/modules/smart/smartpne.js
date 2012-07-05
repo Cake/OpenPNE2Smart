@@ -135,37 +135,17 @@ function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview)
 
 /* メニューの開閉 */
 function menuToggle(){
-	if ($('div#menu ').css('height') != '0px') {
+	if ($('div#menu ').css('display') != 'none') {
 		menuHide();
 	} else {
 		menuShow();
 	}
 }
 function menuHide(){
-	$('div#menu ').css('height','0px');
-/*	$('div#menu').animate(
-		{'height':'0px'},
-		{
-			duration: "fast", 
-			easing: "linear",
-			complete: function(){
-				$('div.content').click(menuHide);
-			}
-		}
-	);*/
+	$('div#menu ').css('display','none');
 }
 function menuShow(){
-	$('div#menu ').css('height','auto'); 
-/*	$('div#menu').animate(
-		{'height':'128px'},
-		{
-			duration: "fast", 
-			easing: "linear",
-			complete: function(){
-				$('div.content').unbind('click', 'menuHide') ;
-			}
-		}
-	); */
+	$('div#menu ').css('display','block');
 }
 
 /* 指定IDにジャンプ */

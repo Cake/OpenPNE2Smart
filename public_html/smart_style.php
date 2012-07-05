@@ -67,7 +67,7 @@ div#menu {
 	position: fixed;
 	top: 42px;
 	width: 100%; 
-	height: 0px; 
+	display: none;
 	padding: 0;
 	z-index: 99;
 }
