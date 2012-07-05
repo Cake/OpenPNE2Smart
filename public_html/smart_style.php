@@ -40,7 +40,7 @@ time {
 	margin-top: 42px;
 }
 .menu-content {
-	margin-top: 73px;
+	margin-top: 93px;
 }
 
 /* ヘッダー */
@@ -99,13 +99,14 @@ div.topNav ul {
 }
 div.topNav ul li a.ui-btn {
 	margin: 0;
+	height: 50px;
 }
 div.topNav ul li a.ui-btn span {
 	text-overflow: clip;
 }
 div#navDiary ul li a.ui-btn span {
 	font-size: 11.5px;
-	padding: 0.55em 2px 0.5em;
+	padding: 16px 2px 16px;
 }
 
 #commonPageScrollUp {
@@ -175,10 +176,11 @@ foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 
 
 /*----------------------------------------------
- * パーツ内上下の部分（1件～20件を表示など）
+ * パーツ内上下の部分（ページャー、検索BOXなど）
  *--------------------------------------------*/
 .pagerRelative {
 	text-align: center;
+	margin-top: 25px;
 }
 .pagerRelative span {
 }
@@ -186,6 +188,12 @@ foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 div.operation ul {
 	text-align: center;
 }
+
+.writeBox,
+.searchFormBox {
+	margin-bottom: 25px;
+}
+
 
 /*----------------------------------------------
  * フォーム
@@ -298,7 +306,6 @@ a .itemData_noComNum .title *,
  * h_diary_list_friend
  *----------------------------------------------------------------------------*/
 .commentListBox {
-	margin-top: 25px;
 	margin-bottom: 25px;
 }
 
@@ -450,4 +457,3 @@ ul.pictureIconList li.commentList .nameBody {
 .blogList h3 {
 	display: block !important;
 }
-
