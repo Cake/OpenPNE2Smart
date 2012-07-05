@@ -448,6 +448,21 @@ ul.pictureIconList li.commentList .nameBody {
 	white-space: normal;
 }
 
+
+/* 第二リンク付き(編集など) */
+.ui-li-link-alt {
+	border-width: 0px;
+}
+
+.ui-li-has-alt .nameBody {
+	width: 65% !important;
+}
+
+a.listButton span.ui-shadow {
+	box-shadow: 0 0 0 0;
+}
+
+
 /* ブログリスト */
 .blogListBox h2 {
 	font-size: 120%;
