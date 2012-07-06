@@ -191,7 +191,7 @@ div.operation ul {
 
 
 /*----------------------------------------------
- * ユーザ写真＋情報バー
+ * 写真＋情報バー
  *--------------------------------------------*/
 .authorBar {
 	display: table;
@@ -199,22 +199,22 @@ div.operation ul {
 	width: 100%;
 }
 
-.authorBar .memberPhoto76,
-.authorBar .memberPhoto48,
-.authorBar .memberPhoto36 {
+.authorBar .photo76,
+.authorBar .photo48,
+.authorBar .photo36 {
 	display: table-cell;
 	width: auto;
 }
 
-.authorBar .memberPhoto76 {
+.authorBar .photo76 {
 	width: 81px;
 }
 
-.authorBar .memberPhoto48 {
+.authorBar .photo48 {
 	width: 53px;
 }
 
-.authorBar .memberPhoto36 {
+.authorBar .photo36 {
 	width: 41px;
 }
 
@@ -223,14 +223,14 @@ div.operation ul {
 	vertical-align: top;
 }
 
-.authorBar .itemData .memberData,
+.authorBar .itemData .authorData,
 .authorBar .itemData .title {
 	margin: 0 3px;
 }
 
 a .itemData .title *,
 .itemData .title *,
-.itemData .memberData * {
+.itemData .authorData * {
 	font-size: 100%;
 	display: inline;
 }
@@ -325,13 +325,18 @@ ul.ui-listview li.commentList a.ui-link-inherit {
 ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
-ul.ui-listview li.commentList .memberData {
-	font-weight: normal;
+
+ul.ui-listview li.commentList .photo48 + .itemData div {
 	padding-left: 60px;
 }
 
-ul.ui-listview li.commentList .nameBody,
-ul.ui-listview li.commentList .memberData .nameBody {
+ul.ui-listview li.commentList .authorData {
+	font-weight: normal;
+}
+
+
+ul.ui-listview li.commentList .itemBody,
+ul.ui-listview li.commentList .authorData .itemBody {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
@@ -341,8 +346,8 @@ ul.ui-listview li.commentList .title {
 }
 
 /* 本文＋写真リスト */ 
-ul.pictureList li.commentList .nameBody,
-ul.pictureList li.commentList .memberData .nameBody {
+ul.pictureList li.commentList .itemBody,
+ul.pictureList li.commentList .authorData .itemBody {
 	max-height: 4.0em;
 	min-height: 33px;
 }
@@ -440,7 +445,7 @@ ul.pictureIconList li.ui-li-has-count .itemData .datetime {
 	right: 10%;
 }
 
-ul.pictureIconList li.commentList .nameBody {
+ul.pictureIconList li.commentList .itemBody {
 	width: 76%;
 	height: 3.6em;
 	line-height: 1.2em;
@@ -454,7 +459,7 @@ ul.pictureIconList li.commentList .nameBody {
 	border-width: 0px;
 }
 
-.ui-li-has-alt .nameBody {
+.ui-li-has-alt .itemBody {
 	width: 65% !important;
 }
 

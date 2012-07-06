@@ -1,5 +1,5 @@
 function readMore(element) {
-	$(element).children('.nameBody')
+	$(element).children('.itemBody')
 		.css('max-height', 'none');
 /*	$(element).children('.gallery')
 		.css('display', 'block'); */

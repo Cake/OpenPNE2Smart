@@ -8,6 +8,6 @@
 ({if $item.c_member.nickname})<span class="authorName">({$item.c_member.nickname})</span>({/if})
 <time class="datetime" id="diaryDatetime({$item.c_diary_id})">({$item.r_datetime|date_format:"%m月%d日<br />%H:%M"})</time>
 </div>({/strip})
-<p class="nameBody">({$item.body|t_decoration:1|t_truncate:100:""})</p>
+<p class="itemBody">({$item.body|t_decoration:1|t_truncate:100:""})</p>
 ({if isset($item.num_comment)})<p><span class="ui-li-count">({$item.num_comment})</span></p>({/if})
 </div></a></li>

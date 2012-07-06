@@ -50,13 +50,13 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({* {{{ diaryDetailBox *})
 <section class="parts diaryDetailBox" id="diary({$target_diary.c_diary_id})">
 <section class="authorBar" id="diary({$target_diary.c_diary_id})Author">
-<div class="memberPhoto48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
 <div class="itemData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>
 <span class="public">({t_public_flag public_flag=$target_diary.public_flag})</span>
 </div>
-<div class="memberData">
+<div class="authorData">
 <time datetime="({$target_diary.r_datetime})" id="diaryDatetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 <span class="author diaryAuthorName"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})({if $type == "f"})さん({/if})</a></span>
 </div>
@@ -64,7 +64,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </section>
 
 <article class="diary">
-<p class="body nameBody" id="diary({$target_diary.c_diary_id})body">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
+<p class="itemBody" id="diary({$target_diary.c_diary_id})body">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
 ({if $target_diary.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.diary'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="diary({$target_diary.c_diary_id})gallery">
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
