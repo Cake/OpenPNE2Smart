@@ -240,6 +240,10 @@ a .itemData .title *,
 	height: 16px;
 }
 
+.gallery li {
+	text-align: center;
+}
+
 .datetime {
 	margin-left: 10px;
 }
@@ -326,19 +330,17 @@ ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 4px;
 }
 
-ul.ui-listview li.commentList .photo48 + .itemData div {
+ul.ui-listview li.commentList .photo48 + .itemData div,
+ul.ui-listview li.commentList .photo48 + .itemData ul {
 	padding-left: 60px;
 }
 
-ul.ui-listview li.commentList .authorData {
-	font-weight: normal;
-}
-
-
 ul.ui-listview li.commentList .itemBody,
-ul.ui-listview li.commentList .authorData .itemBody {
+ul.ui-listview li.commentList .authorData,
+ul.ui-listview li.commentList .datetime {
 	text-overflow: ellipsis;
 	overflow: hidden;
+	font-weight: normal;
 }
 
 ul.ui-listview li.commentList .title {
@@ -346,14 +348,14 @@ ul.ui-listview li.commentList .title {
 }
 
 /* 本文＋写真リスト */ 
-ul.pictureList li.commentList .itemBody,
-ul.pictureList li.commentList .authorData .itemBody {
+ul.pictureList li.commentList .itemBody {
 	max-height: 4.0em;
-	min-height: 33px;
 }
 
-ul.pictureList li.commentList .gallery {
+ul.pictureList li.commentList photo48 + .itemData .gallery {
+	padding-top: 33px;;
 }
+
 
 /* 本文＋カメラアイコンリスト */ 
 ul.pictureIconList li.commentList {

@@ -58,9 +58,9 @@ class pc_page_fh_diary extends OpenPNE_Action
         $target_c_diary['isShorten'] = false;
         if(substr_count($target_c_diary['body'], "\n") >= 3
                     || substr_count("\n", $target_c_diary['body']) >= 3) {
-            $target_c_diary['isShorten'] = true;
+            $target_c_diary['isShorten'] = "over 3 lines";
         } elseif (strlen($target_c_diary['body']) >= 118) {
-            $target_c_diary['isShorten'] = true;
+            $target_c_diary['isShorten'] = "over 118 letters.";
         }
         /* OpenPNE2 スマートフォン対応：ここまで */
 
@@ -109,8 +109,7 @@ class pc_page_fh_diary extends OpenPNE_Action
                     || substr_count("\n", $v['body']) >= 3) {
                         $c_diary_comment_list[$k]['isShorten'] = true;
                 } else {
-                    $com_body = $v['number']. ":". $v['nickname']. $v['body'];
-                    if (strlen($com_body) >= 210) {
+                    if (strlen($v['body']) >= 210) {
                         $c_diary_comment_list[$k]['isShorten'] = true;
                     }
                 }
