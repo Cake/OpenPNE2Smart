@@ -6,7 +6,7 @@
 ({if isset($item.number)})<span class="number">({$item.number})</span>:({/if})
 ({if $item.nickname})<span class="authorName"><a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a></span>({/if})
 </div>({/strip})
-<div class="itemBody"> ({$item.body|nl2br|t_url2cmd:'diary':$item.c_member_id|t_cmd:'diary'})</div>
+<div class="itemBody"> ({$item.body|nl2br})</div>
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<ul class="gallery ui-grid-b" id="diaryComment({$item.number})gallery">
 ({if $item.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$item.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
 ({if $item.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$item.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename_2 w=76 h=76})" alt="" /></a></li>({/if})

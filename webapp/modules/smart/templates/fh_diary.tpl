@@ -64,7 +64,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </section>
 
 <article class="diary">
-<p class="itemBody" id="diary({$target_diary.c_diary_id})body">({$target_diary.body|nl2br|t_url2cmd:'diary':$target_diary.c_member_id|t_cmd:'diary'|t_decoration})</p>
+<p class="itemBody" id="diary({$target_diary.c_diary_id})body">({$target_diary.body|nl2br|t_decoration})</p>
 ({if $target_diary.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.diary'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="diary({$target_diary.c_diary_id})gallery">
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
