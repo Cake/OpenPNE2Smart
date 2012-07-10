@@ -85,7 +85,7 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 }
 function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview) {
 	var url = url+"&page="+page;
-	
+
 	$.ajax({
         type: "GET",
         url: url,

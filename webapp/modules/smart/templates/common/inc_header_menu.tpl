@@ -6,6 +6,6 @@
 
 <li id="menuMessage" class="ui-block-a"><a href="({t_url m=pc a=page_h_message_box})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-message" data-iconshadow="true" data-iconpos="bottom">メッセージ</a></li>
 <li id="menuProfile" class="ui-block-b"><a href="({t_url m=pc a=page_h_prof})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-profile" data-iconshadow="true" data-iconpos="bottom">プロフィール</a></li>
-<li id="menuLogout" class="ui-block-c"><a href="({t_url m=pc a=do_inc_page_header_logout})&amp;sessid=({$PHPSESSID})" data-role="button" data-corners="false" data-mini="false" data-icon="delete" data-iconshadow="true" data-iconpos="bottom">ログアウト</a></li>
+<li id="menuLogout" class="ui-block-c"><a href="({t_url m=pc a=do_inc_page_header_logout})&amp;sessid=({$PHPSESSID})" data-role="button" data-corners="false" data-mini="false" data-icon="delete" data-iconshadow="true" data-iconpos="bottom" data-ajax="false">ログアウト</a></li>
 </ul>
 </div>({/strip})({* menu }}} *})
