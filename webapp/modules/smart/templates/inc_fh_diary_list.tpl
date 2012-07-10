@@ -8,7 +8,7 @@
 </div>({/strip})
 <div class="itemBody"> ({$item.body})</div>
 <div class="commentListFooter">
-<time datetime="({$target_diary.r_datetime})" id="diaryComment({$item.number})Datetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+<time datetime="({$item.r_datetime})" id="diaryComment({$item.number})Datetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 ({if isset($item.num_comment)})<span class="num_comment">コメント(({$item.num_comment}))</span>({/if})
 <span class="public">({t_public_flag public_flag=$item.public_flag})</span>
 ({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<span class="icon_camera"><img src="({t_img_url_skin filename=icon_camera})" alt="写真あり" /></span>({/if})
