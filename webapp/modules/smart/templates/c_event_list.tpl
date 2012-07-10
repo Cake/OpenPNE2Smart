@@ -1,98 +1,56 @@
-<div id="LayoutC">
-({ext_include file="inc_c_com_topic_find.tpl"})
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({capture name=headline})イベント一覧({/capture})
+({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-<div id="Center">
+({if $is_warning})({*メンバー以外非公開*})
+({ext_include file="common/inc_msg.tpl" msg=$WORD_COMMUNITY|string_format:"非公開の%sのため、参加しないと掲示板を見ることはできません。"})
 
-({if $is_warning})
-
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>イベント</h3></div>
-<div class="block">
-<p>非公開の({$WORD_COMMUNITY})のため、({$WORD_COMMUNITY})に参加しないとイベントを見ることはできません。</p>
-</div>
-</div></div>
-({* }}} *})
-
-({else})
+({else})({* リスト表示 *})
 
 ({if ($c_commu.is_topic == 'member' && $is_c_commu_member) || ($c_commu.is_topic == 'admin_only' && $is_c_commu_admin) || ($c_commu.is_topic == 'public')})
-({* {{{ infoButtonBox *})
-<div class="dparts infoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>イベントを作成する</h3></div>
-<div class="block">
+({* {{{ infoButtonBox *})<div class="infoButtonBox" id="writeTopicBodyBox" data-role="collapsible" data-content-theme="c">
+<h3>記事を作成する</h3>
 ({t_form_block m=pc a=page_c_topic_add})
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
-<ul class="check">
-<li><input type="radio" class="input_radio" name="event_flag" id="event_flag_0" value="0" /><label for="event_flag_0">トピックを作成</label></li>
-<li><input type="radio" class="input_radio" name="event_flag" id="event_flag_1" value="1" checked="checked" /><label for="event_flag_1">イベントを作成</label></li>
-<li><input type="submit" class="input_submit" value="新規作成" /></li>
-</ul>
+<ul data-role="" class="ui-grid-a narrow-bottom">
+<li class="ui-block-a"><input type="radio" class="input_radio" name="event_flag" id="event_flag_0" value="0" /><label for="event_flag_0">トピックを作成</label></li>
+<li class="ui-block-b"><input type="radio" class="input_radio" name="event_flag" id="event_flag_1" value="1" checked="checked" /><label for="event_flag_1">イベントを作成</label></li>
+</ul> 
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="新規作成" />
+</div>
 ({/t_form_block})
-</div>
-</div></div>
-({* }}} *})
-({/if})
+</div>({* infoButtonBox}}} *})({/if})
 
-({if $c_topic_list })
-({* {{{ commentList *})
-<div class="dparts commentList"><div class="parts">
-<div class="partsHeading"><h3>イベント一覧</h3></div>
-<div class="pagerRelativeMulti">
-<div class="text">
-<p>最近書き込みがあったイベントから順に表示しています。</p>
-<p><a href="({t_url m=pc a=page_c_topic_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})">トピック一覧はこちら</a></p>
-</div>
-<div class="pager">
-({strip})
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;page=({$page-1})">前を表示</a></p>({/if})
-<p class="number">({$start_num})件～({$end_num})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;page=({$page+1})">次を表示</a></p>({/if})
-({/strip})
-</div>
-</div>
+<div class="infoButtonBox" id="toEventList({$c_commu.c_commu_id})"><a href="({t_url m=pc a=page_c_topic_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">トピック一覧はこちら</a></div>
+
+({if $c_topic_list })({* {{{ commentListBox *})
+({* {{{ commentList *})<section class="commentListBox" id="eventList({$c_commu.c_commu_id})Box" data-role="collapsible-set">
+<ul id="eventList({$c_commu.c_commu_id})" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$c_topic_list item=item})
-<dl>
-<dt>({$item.u_datetime|date_format:"%m月%d日<br />%H:%M"})</dt>
-<dd>
-<div class="title">
-<p class="heading"><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})">({$item.name})</a></p>
-</div>
-<div class="body">
-({if $item.image_filename1 || $item.image_filename2 || $item.image_filename3})
-<ul class="photo">
-({if $item.image_filename1})<li><a href="({t_img_url filename=$item.image_filename1})" target="_blank"><img src="({t_img_url filename=$item.image_filename1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename2})<li><a href="({t_img_url filename=$item.image_filename2})" target="_blank"><img src="({t_img_url filename=$item.image_filename2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename3})<li><a href="({t_img_url filename=$item.image_filename3})" target="_blank"><img src="({t_img_url filename=$item.image_filename3 w=120 h=120})" alt="" /></a></li>({/if})
-</ul>
-({/if})
-<p class="text">({$item.body|t_truncate:48:"":3})</p>
-</div>
-<div class="footer">
-<p>
-({if $is_c_commu_admin || ($item.is_c_topic_admin && $c_commu.is_topic !== 'admin_only')})
-({if $is_c_commu_member || $c_commu.is_topic == 'public'})
-<a href="({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})">編集</a> |
-({/if})
-({/if})
-<a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})">もっと見る(({$item.write_num}))</a>
-</p>
-</div>
-</dd>
-</dl>
+({ext_include file="inc_c_bbs_list.tpl"})
 ({/foreach})
-<div class="pagerRelative">
-({strip})
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;page=({$page-1})">前を表示</a></p>({/if})
-<p class="number">({$start_num})件～({$end_num})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;page=({$page+1})">次を表示</a></p>({/if})
-({/strip})
+</ul>
+</section>({* commentList }}} *})
+
+({* {{{ Pager *})({strip})
+({if $is_next})
+<div class="pagerRelative" id="eventList({$c_commu.c_commu_id})NextPager">
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_event_list_ajax})&amp;target_c_commu_id=({$c_commu.c_commu_id})', 'asc', 'li.bbsList', 'eventList({$c_commu.c_commu_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
-</div></div>
-({* }}} *})
 ({/if})
+({/strip})({* Pager }}} *})
+({/if})({* commentListBox }}} *})
 
 ({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

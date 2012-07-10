@@ -185,6 +185,10 @@ div.operation ul {
 	text-align: center;
 }
 
+.narrow-bottom {
+	margin-bottom: 0;
+}
+
 
 /*----------------------------------------------
  * 写真＋情報バー
@@ -255,6 +259,16 @@ a .itemData .title *,
 .infoButtonBox {
 	margin-bottom: 25px;
 }
+
+.infoButtonBox p {
+	padding: 0 10px;
+}
+
+.infoButtonBox ul li.ui-li:last-child,
+.infoButtonBox ul li.ui-li.ui-field-contain:last-child {
+	border-bottom-width: 0;
+}
+
 
 /*==============================================================================
  * 7. searchFormBox（検索フォームボックス）

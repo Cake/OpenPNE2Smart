@@ -17,9 +17,9 @@ var page=2;
 </section>
 
 ({if $type == "h"})({* {{{ infoButtonBox *})
-<div class="infoButtonBox" id="writeDiaryBodyBox" data-role="collapsible">
+<div class="infoButtonBox" id="writeDiaryBodyBox" data-role="collapsible" data-content-theme="c">
 <h3>({$WORD_DIARY})を書く</h3>
-<ul data-role="listview" data-inset="true"> 
+<ul data-role="listview" data-inset="false"> 
 <li><a href="({t_url m=pc a=page_h_diary_add})">フォームから書く</a></li>
 <li>({t_mail_post mailto=$mail_address})
 <p>({$SNS_NAME})に登録した<br>アドレスから投稿してください。<br>
