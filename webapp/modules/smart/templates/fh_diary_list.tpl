@@ -5,7 +5,7 @@ var page=2;
 </script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
-<div class="({if $type=="h"})menu-content({/if})" data-role="content">({* {{{ content *})
+<div class="menu-content" data-role="content">({* {{{ content *})
 
 <section class="authorBar" id="diaryAuthor">
 <div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
@@ -31,7 +31,7 @@ var page=2;
 
 ({if $target_diary_list})
 ({* {{{ commentList *})
-<section class="commentListBox" id="diaryList" data-role="collapsible-set">
+<section class="commentListBox" id="diaryList" data-role="collapsible-set"({if $type == "f"})style="margin-top: 25px;"({/if})>
 <ul id="diaryList({$member.c_member_id})" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})

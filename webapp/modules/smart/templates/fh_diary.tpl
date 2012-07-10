@@ -44,7 +44,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <script type="text/javascript" src="./modules/smart/comment.js"></script>
 ({/if})
 ({ext_include file="common/inc_header.tpl"})
-<div class="({if $type=="h"})menu-content({/if})" data-role="content">({* {{{ content *})
+<div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ diaryDetailBox *})
