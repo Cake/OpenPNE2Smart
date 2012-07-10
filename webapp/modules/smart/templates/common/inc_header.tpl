@@ -9,6 +9,7 @@
 	($INC_HEADER_page_name == 'fh_diary' && $type == "h")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "h")
 	|| $INC_HEADER_page_name == 'h_diary_add'
+	|| $INC_HEADER_page_name == 'h_diary_comment_list'
 	|| $INC_HEADER_page_name == 'h_diary_list_friend'
 	|| $INC_HEADER_page_name == 'h_diary_list_all'
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
