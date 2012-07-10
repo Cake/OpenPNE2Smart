@@ -6,7 +6,7 @@ var page=2;
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({capture name=headline})イベント一覧({/capture})
 ({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
-<div class="content" data-role="content">({* {{{ content *})
+<div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if $is_warning})({*メンバー以外非公開*})

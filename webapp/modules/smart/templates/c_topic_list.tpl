@@ -6,15 +6,15 @@ var page=2;
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({capture name=headline})トピック一覧({/capture})
 ({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
-<div class="content" data-role="content">({* {{{ content *})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({if $is_warning})({*メンバー以外非公開*})
 ({ext_include file="common/inc_msg.tpl" msg=$WORD_COMMUNITY|string_format:"非公開の%sのため、参加しないと掲示板を見ることはできません。"})
 
 ({else})({* リスト表示 *})
 ({if ($c_commu.is_topic == 'member' && $is_c_commu_member) || ($c_commu.is_topic == 'admin_only' && $is_c_commu_admin) || ($c_commu.is_topic == 'public')})
-({* {{{ infoButtonBox *})
-<div class="infoButtonBox" id="writeTopicBodyBox" data-role="collapsible" data-content-theme="c">
+({* {{{ infoButtonBox *})<div class="infoButtonBox" id="writeTopicBodyBox" data-role="collapsible" data-content-theme="c">
 <h3>記事を作成する</h3>
 ({t_form_block m=pc a=page_c_topic_add})
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
@@ -26,8 +26,7 @@ var page=2;
 <input type="submit" class="input_submit" value="新規作成" />
 </div>
 ({/t_form_block})
-</div>
-({* }}} *})
+</div>({* infoButtonBox}}} *})
 ({/if})
 
 <div class="infoButtonBox" id="toEventList({$c_commu.c_commu_id})"><a href="({t_url m=pc a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">イベント一覧はこちら</a></div>

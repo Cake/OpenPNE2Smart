@@ -12,4 +12,10 @@
 	|| $INC_HEADER_page_name == 'h_diary_list_friend'
 	|| $INC_HEADER_page_name == 'h_diary_list_all'
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
+({if 
+	$INC_HEADER_page_name == 'c_home'
+	|| $INC_HEADER_page_name == 'c_topic_list'
+	|| $INC_HEADER_page_name == 'c_event_list'
+})({ext_include file="common/inc_header_nav_com.tpl"})({/if})
+
 ({/strip})({* Menu }}} *})
