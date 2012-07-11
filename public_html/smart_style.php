@@ -231,6 +231,7 @@ div.operation ul {
 .authorBar .itemData .authorData,
 .authorBar .itemData .title {
 	margin: 0 3px;
+	width: 90%;
 }
 
 a .itemData .title *,
@@ -238,6 +239,10 @@ a .itemData .title *,
 .itemData .authorData * {
 	font-size: 100%;
 	display: inline;
+}
+
+.photo48 + .itemData {
+	margin-left: 55px !important;
 }
 
 .icon_public {
@@ -250,16 +255,28 @@ a .itemData .title *,
 }
 
 /*==============================================================================
+ * 1. simpleBox（シンプルボックス）
+
+ *----------------------------------------------------------------------------*/
+
+/*==============================================================================
  * 3. alertBox（アラートボックス）
  *----------------------------------------------------------------------------*/
 .alertBox{
 	border-width: 1px;
 	color: #FF0000;
+	margin-bottom: 15px;
 	padding: 5px 10px;
 }
 .alertBox p {
 	margin: 5px;
 }
+
+/*==============================================================================
+ * 4. infoBox（案内ボックス）
+
+ *----------------------------------------------------------------------------*/
+
 
 /*==============================================================================
  * 5. infoButtonBox（ボタン付き案内ボックス）
@@ -324,12 +341,14 @@ a .itemData .title *,
  * 25. recentList（最新書き込みリスト）
  * h_diary_list_friend
  *----------------------------------------------------------------------------*/
-.commentListBox {
-	margin-bottom: 25px;
+#diaryAuthor .photo48 + .itemData {
+	position: absolute;
+	top: 105px;
+	width: 80%;
 }
 
-.commentForm {
-	margin-top: 15px;
+.commentListBox {
+	margin-bottom: 25px;
 }
 
 ul.ui-listview li.commentList {
@@ -343,11 +362,6 @@ ul.ui-listview li.commentList .ui-li-thumb {
 }
 
 ul.ui-listview li.commentList .itemData {
-}
-
-ul.ui-listview li.commentList .photo48 + .itemData div,
-ul.ui-listview li.commentList .photo48 + .itemData ul {
-	margin-left: 55px;
 }
 
 ul.ui-listview li.commentList .itemBody,
@@ -373,13 +387,17 @@ ul.pictureList li.commentList .itemBody {
 	max-height: 4.0em;
 }
 
-ul.pictureList li.commentList photo48 + .itemData .gallery {
-	padding-top: 33px;
+ul.pictureList li.commentList .photo48 + .itemData .gallery {
+	padding-top: 15px;
 }
 
 /* 本文＋カメラアイコンリスト */ 
 ul.pictureIconList li.commentList .itemData {
 	width: 90%;
+}
+
+ul.pictureIconList li.commentList .photo48 + .itemData {
+	width: 70%;
 }
 
 ul.pictureIconList li.commentList .title,
