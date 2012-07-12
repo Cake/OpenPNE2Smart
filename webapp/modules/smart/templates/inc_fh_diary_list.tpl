@@ -1,10 +1,20 @@
+({strip})({if isset($item.c_member)})
+({assign var=author_name value=$item.c_member.nickname})
+({assign var=author_image value=$item.c_member.image_filename})
+({elseif isset($item.nickname)})
+({assign var=author_name value=$item.nickname})
+({assign var=author_image value=$item.image_filename})
+({elseif isset($target_member)})
+({assign var=author_name value=$target_member.nickname})
+({assign var=author_image value=$target_member.image_filename})
+({/if})({/strip})
 <li id="diary({$item.c_diary_id})" class="commentList diaryList">
 <a class="listItemLink" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})"><section class="authorBar">
-({if isset($item.c_member) || isset($item.image_filename)})<div class="photo48"><img class="ui-li-thumb" src="({if isset($item.c_member)})({t_img_url filename=$item.c_member.image_filename w=48 h=48 noimg=no_image})({else if isset($item.image_filename))})({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})({/if})" alt=""></div>({/if})
+<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$author_image w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title" id="diary({$item.c_diary_id})Title">({$item.subject})</div>
 ({strip})<div class="authorData">
-({if isset($item.c_member.nickname) || isset($item.nickname)})<span class="authorName">({if isset($item.c_member.nickname)})({$item.c_member.nickname})({else if isset($item.nickname)})({$item.nickname})({/if})</span>({/if})
+<span class="authorName">({$author_name})</span>
 </div>({/strip})
 <div class="itemBody"> ({$item.body})</div>
 <div class="commentListFooter">
