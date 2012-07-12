@@ -31,7 +31,7 @@ var page=2;
 </div>
 </div>
 <time datetime="({$c_topic.r_datetime})" id="event({$c_topic.c_topic_id})Datetime" class="datetime">({$c_topic.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
-<div class="ui-grid-a" id="gatherEvent({$c_topic.c_commu_topic_id})">
+<div class="ui-grid-a gatherEvent" id="gatherEvent({$c_topic.c_commu_topic_id})">
 <div class="ui-block-a"><a href="javascript:void(0);" onclick="jump_to('eventWriteForm', '');$('#comment_box').focus(); return false;" data-role="button"({if !$is_event_join_date || !$is_event_join_capacity}) class="ui-disabled"({/if})>参加する</a></div>
 <div class="ui-block-b"><a href="({t_url m=pc a=page_c_event_invite})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">友人に教える</a></div>
 </div>

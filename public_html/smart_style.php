@@ -364,6 +364,10 @@ a .itemData .title *,
 	margin-left: 75px;
 }
 
+.gatherEvent {
+	clear: both;
+}
+
 .commentWriteButton {
 	text-align:right;
 }
