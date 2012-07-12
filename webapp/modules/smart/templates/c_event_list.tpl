@@ -4,7 +4,7 @@ var page=2;
 //-->
 </script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
-({capture name=headline})イベント一覧({/capture})
+({capture name=headline})イベント({/capture})
 ({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
@@ -28,8 +28,6 @@ var page=2;
 </div>
 ({/t_form_block})
 </div>({* infoButtonBox}}} *})({/if})
-
-<div class="infoButtonBox" id="toEventList({$c_commu.c_commu_id})"><a href="({t_url m=pc a=page_c_topic_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">トピック一覧はこちら</a></div>
 
 ({if $c_topic_list })({* {{{ commentListBox *})
 ({* {{{ commentList *})<section class="commentListBox" id="eventList({$c_commu.c_commu_id})Box" data-role="collapsible-set">
