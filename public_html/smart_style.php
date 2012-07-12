@@ -398,6 +398,7 @@ a .itemData .title *,
 ul.ui-listview li.commentList {
 	font-size: 14px;
 	line-height: 1.4em;
+	min-height: 4.2em;
 	padding: 5px !important;
 }
 

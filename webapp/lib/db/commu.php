@@ -1231,6 +1231,13 @@ function db_commu_c_commu_topic_comment_list4c_member_id_2($c_member_id, $limit,
         $c_commu_topic_list[$key]['image_filename2'] = $temp['image_filename2'];
         $c_commu_topic_list[$key]['image_filename3'] = $temp['image_filename3'];
         $c_commu_topic_list[$key]['c_commu_name'] = $c_commu_name;
+
+/* OpenPNE2 スマートフォン対応：ここから */
+        $sql = 'SELECT image_filename AS c_commu_name FROM c_commu WHERE c_commu_id = ?';
+        $c_commu_image_filename = db_get_one($sql, $value['c_commu_id']);
+        $c_commu_topic_list[$key]['c_commu_image_filename'] = $c_commu_image_filename;
+/* OpenPNE2 スマートフォン対応：ここまで */
+
     }
 
     $sql = "SELECT count(DISTINCT ct.c_commu_topic_id)";
