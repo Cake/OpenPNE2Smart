@@ -91,8 +91,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 <a href="({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$target_diary.c_diary_id})" data-role="button">編集</a>
 </section>
 ({/if})
-</section>
-({*  diaryDetailBox }}} *})
+</section>({*  diaryDetailBox }}} *})
 
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})
@@ -109,14 +108,13 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT or $is_comment_input})
 ({if $is_writable_comment})
-({* {{{ formTable *})
-<section class="parts commentForm" id="diarycommentForm">
+({* {{{ formTable *})<section class="formTable" id="diarycommentForm">
 <div class="operation">
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="body">コメント</label>
-<textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメントする">({$requests.body})</textarea>
+<textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメント">({$requests.body})</textarea>
 </div>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <div data-role="fieldcontain">
@@ -138,11 +136,10 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </ul>
 </p>
 </div>
-</section>
-({* }}} *})
+</section>({* formTable }}} *})
 ({else})
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="diaryNoavailableComment" data-role="collapsible">
+<section class="simpleBox" id="diaryNoavailableComment" data-role="">
 <h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、この({$WORD_DIARY})にはコメントできません。</p>
 </section>({* simpleBox }}} *})
