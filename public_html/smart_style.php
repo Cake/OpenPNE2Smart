@@ -305,16 +305,39 @@ a .itemData .title *,
 
 /*==============================================================================
  * 8. diaryDetailBox（日記詳細ボックス）
+ * 9. topicDetailBox（トピック詳細ボックス） 
  *----------------------------------------------------------------------------*/
-.diaryDetailBox #diaryBody {
+.diaryDetailBox .photo48,
+.topicDetailBox .photo48 {
+	height: 53px;
+	float: left;
+}
+.diaryDetailBox .photo48 + .itemData,
+.topicDetailBox .photo48 + .itemData {
+	width: 80%;
+}
+
+.diaryDetailBox .itemBody,
+.topicDetailBox .itemBody {
 	margin: 0;
 	max-height: 3.6em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
 
-.diaryDetailBox #diaryCategory {
+.detailBody {
+	clear: both;
+	margin-top: 10px;
+}
+
+.diaryDetailBox #diaryCategory,
+.topicDetailBox .attachFile {
 	float: left;
+}
+
+.commentList .attachFile {
+	font-size: 100%;
+	padding: 15px 0 5px;
 }
 
 .diaryDetailBox #diaryCategory span {
@@ -326,14 +349,30 @@ a .itemData .title *,
 	margin-left: 0;
 }
 
-.diaryDetailBox time {
+.diaryDetailBox time,
+.topicDetailBox time {
 	font-size: 80% !important;
+}
+
+.eventData dt {
+	float: left;
+}
+#eventData1 dd {
+	margin-left: 95px;
+}
+#eventData2 dd {
+	margin-left: 75px;
 }
 
 .commentWriteButton {
 	text-align:right;
 }
 
+/*==============================================================================
+ * 17. searchFormLine（検索フォームライン）
+ *----------------------------------------------------------------------------*/
+.searchFormLine {
+}
 
 /*============================================================================
  * 22. commentList（コメントリスト）
@@ -348,6 +387,7 @@ a .itemData .title *,
 }
 
 .commentListBox {
+	margin-top: 30px;
 	margin-bottom: 25px;
 }
 
@@ -434,4 +474,11 @@ ul.pictureIconList li.commentList .commentListFooter span {
 
 .blogList h3 {
 	display: block !important;
+}
+
+/*==============================================================================
+ * 39. formTable（入力フォームテーブル）
+ *----------------------------------------------------------------------------*/
+.formTable {
+	margin-top: 15px;
 }

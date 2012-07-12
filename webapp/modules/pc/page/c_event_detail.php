@@ -41,6 +41,16 @@ class pc_page_c_event_detail extends OpenPNE_Action
         $this->set('c_commu', $c_commu);
         $c_topic = db_commu_c_topic4c_commu_topic_id_2($c_commu_topic_id);
         $c_topic['original_filename'] = db_file_original_filename4filename($c_topic['filename']);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        // 本文省略フラグ
+        $c_topic['isShorten'] = false;
+        if(substr_count($c_topic['body'], "\n") >= 3
+                    || substr_count("\n", $c_topic['body']) >= 3) {
+            $c_topic['isShorten'] = "over 3 lines";
+        } elseif (strlen($c_topic['body']) >= 118) {
+            $c_topic['isShorten'] = "over 118 letters.";
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
         $this->set('c_topic', $c_topic);
 
         //書き込み一覧部分
@@ -54,6 +64,15 @@ class pc_page_c_event_detail extends OpenPNE_Action
         } else {
             $desc = true;
         }
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+             // コメント取得件数
+             $page_size = 5;
+            // 順番 : desc
+            $desc = true;
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         list($c_topic_write, $pager) = db_commu_c_topic_write4c_commu_topic_id($c_commu_topic_id, $page, $page_size, $desc);
 
@@ -61,6 +80,16 @@ class pc_page_c_event_detail extends OpenPNE_Action
             if ($value['filename']) {
                 $c_topic_write[$key]['original_filename'] = db_file_original_filename4filename($value['filename']);
             }
+            /* OpenPNE2 スマートフォン対応：ここから */
+            // 本文省略フラグ
+            $c_topic['isShorten'] = false;
+            if(substr_count($c_topic_write[$key]['body'], "\n") >= 3
+                || substr_count("\n", $c_topic_write[$key]['body']) >= 3) {
+                $c_topic_write[$key]['isShorten'] = "over 3 lines";
+            } elseif (strlen($c_topic_write[$key]['body']) >= 118) {
+                $c_topic_write[$key]['isShorten'] = "over 118 letters.";
+            }
+            /* OpenPNE2 スマートフォン対応：ここまで */
         }
 
         $this->set('c_topic_write', $c_topic_write);
@@ -89,7 +118,7 @@ class pc_page_c_event_detail extends OpenPNE_Action
         $this->set('is_apple', $smartPhone->is_apple);
         $mail_address = null;
 
-        if ($smartPhone->is_apple) {
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
             if (MAIL_ADDRESS_HASHED) {
                 $mail_address = "t{$c_commu_topic_id}-".t_get_user_hash($u).'@'.MAIL_SERVER_DOMAIN;
             } else {

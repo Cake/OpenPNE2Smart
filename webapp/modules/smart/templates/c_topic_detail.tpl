@@ -1,206 +1,123 @@
-<div id="LayoutC">
-({ext_include file="inc_c_com_topic_find.tpl"})
-
-<div id="Center">
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
+({ext_include file="common/inc_header.tpl" _headline=$c_commu.name|string_format:"%sのトピック"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({if !$err_msg || !$is_writable_comment})
+({ext_include file="inc_c_com_topic_find.tpl"})
 
 ({* {{{ topicDetailBox *})
-<div class="dparts topicDetailBox"><div class="parts">
-<div class="partsHeading"><h3>[({$c_commu.name})] トピック</h3></div>
-<dl>
-<dt>({$c_topic.r_datetime|date_format:"%Y年%m月%d日"})<br />({$c_topic.r_datetime|date_format:"%H:%M"})</dt>
-<dd>
-<div class="title">
-<p>({$c_topic.name})</p>
+<section class="topicDetailBox" id="topic({$c_topic.c_topic_id})DetailBox">
+<div class="authorBar" id="topic({$c_topic.c_topic_id})Author">
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
+<div class="itemData">
+<div class="title"><h2>({$c_topic.name})</h2></div>
 </div>
-<div class="name">
-<p><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})">({$c_topic.nickname})</a></p>
 </div>
-<div class="body">
-({if $c_topic.image_filename1||$c_topic.image_filename2||$c_topic.image_filename3})
-<ul class="photo">
-({if $c_topic.image_filename1})<li><a href="({t_img_url filename=$c_topic.image_filename1})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename2})<li><a href="({t_img_url filename=$c_topic.image_filename2})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename3})<li><a href="({t_img_url filename=$c_topic.image_filename3})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename3 w=120 h=120})" alt="" /></a></li>({/if})
+<div class="authorData">
+<span class="author topicAuthorName"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})" id="topicAuthor">({$c_topic.nickname})</a></span>
+</div>
+<time datetime="({$c_topic.r_datetime})" id="topic({$c_topic.c_topic_id})Datetime" class="datetime">({$c_topic.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+
+<article class="detailBody">
+<p class="itemBody" id="topic({$c_topic.c_topic_id})body">({$c_topic.body|t_url2a|nl2br})</p>
+({if $c_topic.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
+<ul class="gallery ui-grid-b" id="topic({$c_topic.c_topic_id})gallery">
+({if $c_topic.image_filename1 || $c_topic.image_filename2 || $c_topic.image_filename3})
+({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt="" /></a></li>({/if})
+({/if})
 </ul>
-({/if})
-<p class="text">
-({$c_topic.body|nl2br|t_url2cmd:'community':$c_topic.c_member_id|t_cmd:'community'})
-</p>
+
+<p>
+({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="true"><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_topic.original_filename})</a></div>({/if})
+({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
+({if $is_writable_comment})
+<div class="operation" data-inline="true">
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus(); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
 </div>
-({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<div class="block attachFile"><ul>
-<li><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})">({$c_topic.original_filename})</a></li>
-</ul></div>
 ({/if})
-</dd>
-</dl>
+({/if})
+</p>
+</article>
+
 ({if $is_c_commu_admin || ($is_c_topic_admin && $c_commu.is_topic !== 'admin_only')})
 ({if $is_c_commu_member || $c_commu.is_topic == 'public'})
 <div class="operation">
-({t_form_block _method=get m=pc a=page_c_topic_edit})
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="　編　集　" /></li>
-</ul>
-({/t_form_block})
+<a href="({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">編集</a>
 </div>
 ({/if})
 ({/if})
-</div></div>
-({* }}} *})
+</section>
+({*  topicDetailBox }}} *})
 
 ({if $c_topic_write})
-({* {{{ commentList *})
-<div class="dparts commentList"><div class="parts">
-<div class="partsHeading"><h3>書き込み</h3></div>
-
-({if $pager.total_num > 20 || $pager.total_page_num > 1})
-({strip})
-<div class="pagerRelative">
-
-({if $pager.total_num > 20})
-({if $requests.page_size == 100})
-<p><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.order == 'asc'})&amp;order=asc({/if})#commentList">20件ずつ表示</a></p>
-({else})
-<p><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page_size=100#commentList">100件ずつ表示</a></p>
-({/if})
-({/if})
-
-({if $pager.total_page_num > 1})
-({if $requests.order == 'asc'})
-<p><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})#commentList">最新を表示</a></p>
-({else})
-<p><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})&amp;order=asc#commentList">最初から表示</a></p>
-({/if})
-({/if})
-
-</div>
-({/strip})
-({/if})
-
-({capture name=pager})({strip})
-<div class="pagerRelative">
-({if $pager.page_prev})<p class="prev"><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page=({$pager.page_prev})">前を表示</a></p>({/if})
-<p class="number">({$pager.start_num})番～({$pager.end_num})番を表示</p>
-({if $pager.page_next})<p class="next"><a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page=({$pager.page_next})">次を表示</a></p>({/if})
-</div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
+({* {{{ commentList *})<section class="commentListBox" id="topicWriteList">
+({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.page_prev})<h3><span id="topic({$c_topic.c_topic_id})WriteNextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_c_topic_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', 'li.commentList', 'topic({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_num})', true);return false;" data-ajax="true">コメント({$pager.total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+<ul id="topic({$c_topic.c_topic_id})WriteList" class="pictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$c_topic_write item=item})
-<dl>
-<dt>({$item.r_datetime|date_format:"%Y年<br />%m月%d日<br />%H:%M"})</dt>
-<dd>
-<div class="title">
-<p class="heading"><strong>({$item.number})</strong>:
- <a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>
-({if $c_member_id == $item.c_member_id || $c_member_id == $c_commu.c_member_id_admin || $c_member_id == $c_commu.c_member_id_sub_admin}) <a href="({t_url m=pc a=page_c_topic_write_delete_confirm})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})">削除</a>({/if})
-({if $is_c_commu_member && $is_writable_comment && $smarty.const.USE_RESPONSE_COMMENT}) <a href="javascript:void(0);" onclick="response_comment_format($('comment-({$item.number})-member').getAttribute('title'), '({$item.number})', 'comment_box');return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a>({/if})
-</p>
-</div>
-<div class="body">
-({if $item.image_filename1 || $item.image_filename2 || $item.image_filename3})
-<ul class="photo">
-({if $item.image_filename1})<li><a href="({t_img_url filename=$item.image_filename1})" target="_blank"><img src="({t_img_url filename=$item.image_filename1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename2})<li><a href="({t_img_url filename=$item.image_filename2})" target="_blank"><img src="({t_img_url filename=$item.image_filename2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename3})<li><a href="({t_img_url filename=$item.image_filename3})" target="_blank"><img src="({t_img_url filename=$item.image_filename3 w=120 h=120})" alt="" /></a></li>({/if})
-</ul>
-({/if})
-<p class="text">({$item.body|nl2br|t_url2cmd:'community':$item.c_member_id|t_cmd:'community'})</p>
-</div>
-({if $item.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<div class="block attachFile"><ul>
-<li><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})">({$item.original_filename})</a></li>
-</ul></div>
-({/if})
-</dd>
-</dl>
+({ext_include file="inc_c_bbs_write.tpl"})
 ({/foreach})
-
-({$smarty.capture.pager|smarty:nodefaults})
-
-</div></div>
-({* }}} *})
+</ul>
+</section>({* commentList }}} *})
 ({/if})
-
 ({/if})
 
 ({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
 ({if $is_writable_comment})
-({* {{{ formTable *})
-<div class="dparts formTable" id="commentForm"><div class="parts">
-<div class="partsHeading"><h3>新しく書き込む</h3></div>
-({**OpenPNE2 スマートフォン対応：ここから**})
+({* {{{ formTable *})<section class="formTable" id="topicWriteForm">
 <div class="operation">
-({t_mail_post mailto=$mail_address _type=button})
-<ul class="" style="padding-left: 50px;">
-<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
-<li>写真も添付できます。<br></li>
-</ul>
-</p>
-</div>
-({**OpenPNE2 スマートフォン対応：ここまで**})
-({t_form_block _enctype=file m=pc a=page_c_topic_write_confirm})
+({t_form_block _enctype=file m=pc a=page_c_topic_write_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<table>
-<tr>
-<th>本文</th>
-<td><textarea name="body" id="comment_box" rows="10" cols="50">({$body})</textarea></td>
-</tr>
+<div data-role="fieldcontain" class="ui-hide-label">
+<label for="body">コメント</label>
+<textarea id="comment_box" name="body" cols="({$_cols|default:'40'})" placeholder="コメント">({$body})</textarea>
+</div>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
-<tr>
-<th>写真1</th>
-<td><input type="file" class="input_file" name="image_filename1" size="40" /></td>
-</tr>
-<tr>
-<th>写真2</th>
-<td><input type="file" class="input_file" name="image_filename2" size="40" /></td>
-</tr>
-<tr>
-<th>写真3</th>
-<td><input type="file" class="input_file" name="image_filename3" size="40" /></td>
-</tr>
+<div data-role="fieldcontain">
+<laber for="image_filename1">写真1</label><input type="file" class="input_file" name="image_filename1" size="40" /><br />
+<laber for="image_filename2">写真2</label><input type="file" class="input_file" name="image_filename2" size="40" /><br />
+<laber for="image_filename3">写真3</label><input type="file" class="input_file" name="image_filename3" size="40" /><br />
+</div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<tr>
-<th>ファイル</th>
-<td>
-<input type="file" class="input_file" name="uploadfile" size="40" />
+<div data-role="fieldcontain">
+<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40" />
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
-</td>
-</tr>
+</div>
 ({/if})
-</table>
-<div class="operation">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="確認画面" /></li>
-</ul>
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="確認画面" />
 </div>
 ({/t_form_block})
-</div></div>
-({* }}} *})
+</div>
+({if $mail_address})({**OpenPNE2 スマートフォン対応：ここから**})
+<div class="operation">
+({t_mail_post mailto=$mail_address _type=button})
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br />
+写真も添付できます。</p>
+</div>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+</section>({* formTable }}} *})
+
 ({else})
 ({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>コメントを書く</h3></div>
-<div class="block">
+<section class="simpleBox" id="topicNoavailableComment" data-role="">
+<h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、このトピックにはコメントできません。</p>
-</div>
-</div></div>
-({* }}} *})
+</section>({* simpleBox }}} *})
 ({/if})
 ({/if})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})">[({$c_commu.name})]({$WORD_COMMUNITY})トップへ</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

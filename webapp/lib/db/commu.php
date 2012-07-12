@@ -1320,6 +1320,9 @@ function db_commu_c_topic_list4target_c_commu_id($c_commu_id, $c_member_id, $pag
 function db_commu_c_topic4c_commu_topic_id($c_commu_topic_id)
 {
     $sql = "SELECT ct.*, ctc.*, c_member.nickname" .
+/* OpenPNE2 スマートフォン対応：ここから */
+        ", c_member.image_filename" .
+/* OpenPNE2 スマートフォン対応：ここまで */
         " FROM c_commu_topic AS ct" .
             " LEFT JOIN c_member USING (c_member_id)" .
             ", c_commu_topic_comment AS ctc" .
@@ -2190,7 +2193,10 @@ function db_commu_c_topic4c_commu_topic_id_2($c_commu_topic_id)
 
 function db_commu_c_topic_write4c_commu_topic_id($c_commu_topic_id, $page, $page_size, $desc = true)
 {
-    $sql = 'SELECT ctc.*, c_member.nickname FROM c_commu_topic_comment AS ctc'
+/* OpenPNE2 スマートフォン対応：ここから */
+//    $sql = 'SELECT ctc.*, c_member.nickname FROM c_commu_topic_comment AS ctc'
+    $sql = 'SELECT ctc.*, c_member.nickname, c_member.image_filename FROM c_commu_topic_comment AS ctc'
+/* OpenPNE2 スマートフォン対応：ここまで */
          . ' LEFT JOIN c_member USING (c_member_id)'
          . ' WHERE ctc.c_commu_topic_id = ? AND ctc.number <> 0 ORDER BY ctc.r_datetime';
     if ($desc) {

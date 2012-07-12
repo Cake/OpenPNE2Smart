@@ -1,290 +1,197 @@
-<div id="LayoutC">
-({ext_include file="inc_c_com_topic_find.tpl"})
-
-<div id="Center">
-
-({if !$err_msg || !$is_writable_comment})
-
-({* {{{ infoBox *})
-<div class="dparts infoBox"><div class="parts">
-<p>このイベントを({$WORD_MY_FRIEND})に教える</p>
-<ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_event_invite})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">イベントお知らせメッセージ</a></li>
-</ul>
-</div></div>
-({* }}} *})
-
-({* {{{ eventDetailBox *})
-<div class="dparts eventDetailBox"><div class="parts">
-<div class="partsHeading"><h3>[({$c_commu.name})] イベント</h3></div>
-
-<dl>
-<dt>({$c_topic.r_datetime|date_format:"%Y年%m月%d日<br />%H:%M"})</dt>
-<dd>
-({if $c_topic.image_filename1||$c_topic.image_filename2||$c_topic.image_filename3})
-<ul class="photo">
-({if $c_topic.image_filename1})<li><a href="({t_img_url filename=$c_topic.image_filename1})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename2})<li><a href="({t_img_url filename=$c_topic.image_filename2})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename3})<li><a href="({t_img_url filename=$c_topic.image_filename3})" target="_blank"><img src="({t_img_url filename=$c_topic.image_filename3 w=120 h=120})" alt="" /></a></li>({/if})
-</ul>
-({/if})
-<table><tr>
-<th>タイトル</th>
-<td>({$c_topic.name})</td>
-</tr><tr>
-<th>作成者</th>
-<td><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})">({$c_topic.nickname})</a></td>
-</tr><tr>
-<th>開催日時</th>
-<td>({$c_topic.open_date})&nbsp;({$c_topic.open_date_comment})</td>
-</tr><tr>
-<th>開催場所</th>
-<td>({$c_topic.pref})({$c_topic.open_pref_comment})</td>
-</tr><tr>
-<th>関連({$WORD_COMMUNITY})</th>
-<td><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})">({$c_commu.name})</a></td>
-</tr><tr>
-<th>詳細</th>
-<td>({$c_topic.body|nl2br|t_url2cmd:'community':$c_topic.c_member_id|t_cmd:'community'})</td>
-</tr><tr>
-({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<th>ファイル</th>
-<td>
-<a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})">({$c_topic.original_filename})</a></td>
-</tr><tr>
-({/if})
-<th>募集期限</th>
-<td>({if $c_topic.invite_period != "0000-00-00"})({$c_topic.invite_period})({else})指定なし({/if})</td>
-</tr><tr>
-<th>募集人数</th>
-<td>({if $c_topic.capacity})({$c_topic.capacity})人({else})無制限({/if})</td>
-</tr><tr>
-<th>参加者</th>
-<td>({$c_topic.member_num})人
-({if $c_topic.member_num})
-<ul class="moreInfo"><li><a href="({t_url m=pc a=page_c_event_member_list})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">参加者一覧を見る</a></li></ul>
-({/if})
-</td>
-</tr>
-({if $is_c_event_admin || $is_c_commu_admin})
-<tr>
-<th>一括メッセージ</th>
-<td>イベント参加者に一括メッセージを送ります。
-<ul class="moreInfo"><li><a href="({t_url m=pc a=page_c_event_mail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">一括メッセージを送る</a></li></ul>
-</td>
-</tr>
-({/if})
-</table>
-</dd>
-</dl>
-
-({if $is_c_commu_admin || ($is_c_event_admin && $c_commu.is_topic !== 'admin_only')})
-({if $is_c_commu_member || $c_commu.is_topic == 'public'})
-<div class="operation">
-({t_form_block m=pc a=page_c_event_edit})
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="　編　集　" /></li>
-</ul>
-({/t_form_block})
-</div>
-({/if})
-({/if})
-</div></div>
-({* }}} *})
-
-({* {{{ alertLine *})
-({if !$is_event_join_date})
-    <div class="parts alertLine">
-    <p>募集期間が終了したので、このイベントには参加できません。</p>
-    </div>
-({elseif !$is_event_join_capacity})
-    <div class="parts alertLine">
-    <p>募集人数に達したので、このイベントには参加できません。</p>
-    </div>
-({/if})
-({* }}} *})
-
-({if $c_topic_write.0})
-({* {{{ commentList *})
-<div class="dparts commentList" id="commentList"><div class="parts">
-<div class="partsHeading"><h3>書き込み</h3></div>
-
-({if $pager.total_num > 20 || $pager.total_page_num > 1})
-({strip})
-<div class="pagerRelative">
-
-({if $pager.total_num > 20})
-({if $requests.page_size == 100})
-<p><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.order == 'asc'})&amp;order=asc({/if})#commentList">20件ずつ表示</a></p>
-({else})
-<p><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page_size=100#commentList">100件ずつ表示</a></p>
-({/if})
-({/if})
-
-({if $pager.total_page_num > 1})
-({if $requests.order == 'asc'})
-<p><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})#commentList">最新を表示</a></p>
-({else})
-<p><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})&amp;order=asc#commentList">最初から表示</a></p>
-({/if})
-({/if})
-
-</div>
-({/strip})
-({/if})
-
-({capture name=pager})({strip})
-<div class="pagerRelative">
-({if $pager.page_prev})<p class="prev"><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page=({$pager.page_prev})#commentList">前を表示</a></p>({/if})
-<p class="number">({$pager.start_num})番～({$pager.end_num})番を表示</p>
-({if $pager.page_next})<p class="next"><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})({if $requests.page_size == 100})&amp;page_size=100({/if})({if $requests.order == 'asc'})&amp;order=asc({/if})&amp;page=({$pager.page_next})#commentList">次を表示</a></p>({/if})
-</div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
-({foreach from=$c_topic_write item=item})
-<dl>
-<dt>({$item.r_datetime|date_format:"%Y年<br />%m月%d日<br />%H:%M"})</dt>
-<dd>
-<div class="title">
-<p class="heading"><strong>({$item.number})</strong>:
- <a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a>
-({if $c_member_id == $item.c_member_id || $c_member_id == $c_commu.c_member_id_admin || $c_member_id == $c_commu.c_member_id_sub_admin}) <a href="({t_url m=pc a=page_c_event_write_delete_confirm})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})">削除</a>({/if})
-({if $is_c_commu_member && $is_writable_comment && $smarty.const.USE_RESPONSE_COMMENT}) <a href="javascript:void(0);" onclick="response_comment_format($('comment-({$item.number})-member').getAttribute('title'), '({$item.number})', 'comment_box');return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a>({/if})</p>
-</div>
-<div class="body">
-({if $item.image_filename1 || $item.image_filename2 || $item.image_filename3})
-<ul class="photo">
-({if $item.image_filename1})<li><a href="({t_img_url filename=$item.image_filename1})" target="_blank"><img src="({t_img_url filename=$item.image_filename1 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename2})<li><a href="({t_img_url filename=$item.image_filename2})" target="_blank"><img src="({t_img_url filename=$item.image_filename2 w=120 h=120})" alt="" /></a></li>({/if})
-({if $item.image_filename3})<li><a href="({t_img_url filename=$item.image_filename3})" target="_blank"><img src="({t_img_url filename=$item.image_filename3 w=120 h=120})" alt="" /></a></li>({/if})
-</ul>
-({/if})
-<p class="text">({$item.body|nl2br|t_url2cmd:'community':$item.c_member_id|t_cmd:'community'})</p>
-</div>
-({if $item.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<div class="block attachFile"><ul>
-<li><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})">({$item.original_filename})</a></li>
-</ul></div>
-({/if})
-</dd>
-</dl>
-({/foreach})
+({ext_include file="common/inc_header.tpl" _headline=$c_commu.name|string_format:"%sのイベント"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-({$smarty.capture.pager|smarty:nodefaults})
-</div></div>
+({if !$err_msg || !$is_writable_comment})
+({ext_include file="inc_c_com_topic_find.tpl"})
+
+({* {{{ alertLine *})
+({if !$is_event_join_date})
+({ext_include file="common/inc_msg.tpl" msg="募集期間が終了したので、このイベントには参加できません。"})
+({elseif !$is_event_join_capacity})
+({ext_include file="common/inc_msg.tpl" msg="募集人数に達したので、このイベントには参加できません。"})
+({/if})
 ({* }}} *})
+
+({* {{{ topicDetailBox *})
+<section class="topicDetailBox" id="event({$c_topic.c_topic_id})DetailBox">
+<div class="authorBar" id="event({$c_topic.c_topic_id})Author">
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
+<div class="itemData">
+<div class="title"><h2>({$c_topic.name})</h2></div>
+</div>
+</div>
+<time datetime="({$c_topic.r_datetime})" id="event({$c_topic.c_topic_id})Datetime" class="datetime">({$c_topic.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+<div class="ui-grid-a" id="gatherEvent({$c_topic.c_commu_topic_id})">
+<div class="ui-block-a"><a href="javascript:void(0);" onclick="jump_to('eventWriteForm', '');$('#comment_box').focus(); return false;" data-role="button"({if !$is_event_join_date || !$is_event_join_capacity}) class="ui-disabled"({/if})>参加する</a></div>
+<div class="ui-block-b"><a href="({t_url m=pc a=page_c_event_invite})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">友人に教える</a></div>
+</div>
+
+<dl class="eventData" id="eventData1">
+<dt>企画者</dt>
+<dd class="eventAuthorName"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})" id="diaryAuthor">({$c_topic.nickname})</a></dd>
+<dt>開催日時</dt>
+<dd class="eventOpenDate">({$c_topic.open_date})&nbsp;({$c_topic.open_date_comment})</dd>
+<dt>開催場所</dt>
+<dd class="eventOpenPref">({$c_topic.pref})&nbsp;({$c_topic.open_pref_comment})</dd>
+<dt>関連({$WORD_COMMUNITY_HALF})</dt>
+<dd class="eventCommu"><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})">({$c_commu.name})</a></dd>
+</dl>
+
+<article class="detailBody">
+<p class="itemBody" id="diary({$c_topic.c_topic_id})body">({$c_topic.body|t_url2a|nl2br})</p>
+({if $c_topic.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
+<ul class="gallery ui-grid-b" id="event({$c_topic.c_topic_id})gallery">
+({if $c_topic.image_filename1 || $c_topic.image_filename2 || $c_topic.image_filename3})
+({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt="" /></a></li>({/if})
+({/if})
+</ul>
+
+<dl class="eventData" id="eventData2">
+<dt>募集期限</dt>
+<dd class="eventInvitePeriod">({if $c_topic.invite_period != "0000-00-00"})({$c_topic.invite_period})({else})指定なし({/if})</dd>
+<dt>募集人数</dt>
+<dd class="eventCapacity">({if $c_topic.capacity})({$c_topic.capacity})人({else})無制限({/if})</dd>
+<dt>参加者</dt>
+<dd class="eventMemberNum">({$c_topic.member_num})人
+({if $c_topic.member_num})<div><a href="({t_url m=pc a=page_c_event_member_list})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">参加者一覧を見る</a></div>({/if})</dd>
+</dl>
+
+<p>
+({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="true"><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_topic.original_filename})</a></div>({/if})
+({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
+({if $is_writable_comment})
+<div class="operation" data-inline="true">
+<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus(); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+</div>
+({/if})
+({/if})
+</p>
+</article>
+
+({if $is_c_event_admin || $is_c_commu_admin})
+<div class="operation"><a href="({t_url m=pc a=page_c_event_mail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">参加者へ一括メッセージ送信</a></div>
 ({/if})
 
+({if $is_c_commu_admin || ($is_c_topic_admin && $c_commu.is_topic !== 'admin_only')})
+({if $is_c_commu_member || $c_commu.is_topic == 'public'})
+<div class="operation">
+<a href="({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">編集</a>
+</div>
 ({/if})
+({/if})
+</section>
+({*  topicDetailBox }}} *})
+
+({if $c_topic_write.0})({*$c_topic_write.0*})
+({if $smarty.const.USE_RESPONSE_COMMENT})
+<script type="text/javascript" src="./js/comment.js"></script>
+({/if})
+({* {{{ commentList *})<section class="commentListBox" id="eventWriteList">
+({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.page_prev})<h3><span id="event({$c_topic.c_topic_id})WriteNextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_c_event_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', 'li.commentList', 'event({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_num})', true);return false;" data-ajax="true">コメント({$pager.total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+<ul id="event({$c_topic.c_topic_id})WriteList" class="pictureList" data-role="listview" data-inset="false"> 
+({foreach from=$c_topic_write item=item})
+({ext_include file="inc_c_bbs_write.tpl"})
+({/foreach})
+</ul>
+</section>({* commentList }}} *})
+({/if})({*$c_topic_write.0*})
+({/if})({**!$err_msg || !$is_writable_comment**})
 
 ({if $is_c_commu_member || $c_commu.is_comment == 'public'})
 ({if $is_writable_comment})
-({* {{{ formTable *})
-<div class="dparts formTable" id="commentForm"><div class="parts">
-<div class="partsHeading"><h3>新しく書き込む</h3></div>
-({**OpenPNE2 スマートフォン対応：ここから**})
+({* {{{ formTable *})<section class="formTable" id="eventWriteForm">
 <div class="operation">
-({t_mail_post mailto=$mail_address _type=button})
-<ul class="" style="padding-left: 50px;">
-<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
-<li>写真も添付できます。<br></li>
-</ul>
-</p>
-</div>
-({**OpenPNE2 スマートフォン対応：ここまで**})
-({t_form_block _enctype=file m=pc a=page_c_event_write_confirm})
+({t_form_block _enctype=file m=pc a=page_c_event_write_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<table>
-<tr><th>本文</th><td><textarea name="body" id="comment_box" rows="10" cols="50">({$body})</textarea></td></tr>
+<div data-role="fieldcontain" class="ui-hide-label">
+<label for="body">本文</label>
+<textarea id="comment_box" name="body" cols="({$_cols|default:'40'})" placeholder="本文">({$body})</textarea>
+</div>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
-<tr><th>写真1</th><td><input type="file" class="input_file" name="image_filename1" size="40" /></td></tr>
-<tr><th>写真2</th><td><input type="file" class="input_file" name="image_filename2" size="40" /></td></tr>
-<tr><th>写真3</th><td><input type="file" class="input_file" name="image_filename3" size="40" /></td></tr>
+<div data-role="fieldcontain">
+<laber for="image_filename1">写真1</label><input type="file" class="input_file" name="image_filename1" size="40" /><br />
+<laber for="image_filename2">写真2</label><input type="file" class="input_file" name="image_filename2" size="40" /><br />
+<laber for="image_filename3">写真3</label><input type="file" class="input_file" name="image_filename3" size="40" /><br />
+</div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
-<tr>
-<th>ファイル</th>
-<td>
-<input type="file" class="input_file" name="uploadfile" size="40" />
+<div data-role="fieldcontain">
+<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40" />
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
-</td>
-</tr>
+</div>
 ({/if})
-</table>
-<div class="operation">
-<ul class="moreInfo button">
 ({strip})
 ({if $is_event_join_date})
     ({if $is_c_event_member})
-        <li><input type="submit" class="input_submit" name="button" value="参加をキャンセルする" /></li>
+        <div data-role="fieldcontain">
+        <input type="submit" class="input_submit" name="button" value="参加をキャンセルする" />
+        </div>
     ({elseif $is_event_join_capacity})
-        <li><input type="submit" class="input_submit" name="button" value="イベントに参加する" /></li>
+        <div data-role="fieldcontain">
+        <input type="submit" class="input_submit" name="button" value="イベントに参加する" />
+        </div>
     ({/if})
 ({/if})
 ({/strip})
-<li><input type="submit" class="input_submit" name="button" value="コメントのみ書き込む" /></li>
-</ul>
-</div>
+<div data-role="fieldcontain"><input type="submit" class="input_submit" name="button" value="コメントのみ書き込む" /></div>
 ({/t_form_block})
-</div></div>
-({* }}} *})
-({else})
-({* {{{ alertLine *})
-<div class="parts alertLine">
-<p>コメントが1000番に達したので、このイベントにはコメントできません。</p>
 </div>
-({* }}} *})
+({if $mail_address})({**OpenPNE2 スマートフォン対応：ここから**})
+<div class="operation">
+({t_mail_post mailto=$mail_address _type=button})
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br />
+写真も添付できます。</p>
+</div>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+</section>({* formTable }}} *})
+
+({else})
+({* {{{ simpleBox *})
+<section class="simpleBox" id="eventNoavailableComment" data-role="">
+<h3>コメントを書く</h3>
+<p>コメントが1000番に達したので、このイベントにはコメントできません。</p>
+</section>({* simpleBox }}} *})
 
 ({if $is_event_join_date})
 ({if $is_c_event_member})
-({* {{{ infoButtonBox *})
-<div class="dparts infoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>参加をキャンセルする</h3></div>
-<div class="block">
-
+({* {{{ infoButtonBox *})<section class="infoButtonBox" data-role="">
+<h3>参加をキャンセルする</h3>
 <p>イベント「({$c_topic.name})」の参加をキャンセルしますか？</p>
 
 ({t_form_block m=pc a=do_c_event_drop_c_commu_event})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="参加をキャンセルする" /></li>
-</ul>
+<div data-role="fieldcontain"><input type="submit" class="input_submit" value="参加をキャンセルする" /></div>
 ({/t_form_block})
-</div>
-</div></div>
-({* }}} *})
-({elseif $is_event_join_capacity})
-({* {{{ infoButtonBox *})
-<div class="dparts infoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>このイベントに参加</h3></div>
-<div class="block">
+</section>({* infoButtonBox }}} *})
 
+({elseif $is_event_join_capacity})
+({* {{{ infoButtonBox *})<section class="infoButtonBox" data-role="">
+<h3>このイベントに参加</h3>
 <p>イベント「({$c_topic.name})」に参加しますか？</p>
 
 ({t_form_block m=pc a=do_c_event_join_c_commu_event})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="イベントに参加する" /></li>
-</ul>
+<div data-role="fieldcontain"><input type="submit" class="input_submit" value="イベントに参加する" /></div>
 ({/t_form_block})
-</div>
-</div></div>
-({* }}} *})
-({/if})
-({/if})
+</section>({* infoButtonBox }}} *})
+({/if})({*if $is_c_event_member*})
+({/if})({*if $is_event_join_date*})
 
-({/if})
-({/if})
+({/if})({*if $is_writable_comment*})
+({/if})({*if $is_c_commu_member || $c_commu.is_comment == 'public'*})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})">[({$c_commu.name})]({$WORD_COMMUNITY})トップへ</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
