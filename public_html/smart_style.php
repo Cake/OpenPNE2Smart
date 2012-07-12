@@ -99,16 +99,6 @@ div.topNav ul li a.ui-btn {
 }
 div.topNav ul li a.ui-btn span {
 	text-overflow: clip;
-}
-div#navDiary ul li a.ui-btn span {
-	font-size: 11.5px;
-	padding: 16px 2px 16px;
-}
-div#navFriend ul li a.ui-btn span {
-	font-size: 11.5px;
-	padding: 16px 2px 16px;
-}
-div#navCommunity ul li a.ui-btn span {
 	font-size: 11.5px;
 	padding: 16px 2px 16px;
 }

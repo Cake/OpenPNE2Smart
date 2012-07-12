@@ -24,6 +24,9 @@
 	|| $INC_HEADER_page_name == 'c_event_list'
 	|| $INC_HEADER_page_name == 'c_topic_detail'
 	|| $INC_HEADER_page_name == 'c_topic_list'
-})({ext_include file="common/inc_header_nav_com.tpl"})({/if})
+})({ext_include file="common/inc_header_nav_c_com.tpl"})({/if})
+({if 
+	$INC_HEADER_page_name == 'h_com_comment_list'
+})({ext_include file="common/inc_header_nav_h_com.tpl"})({/if})
 
 ({/strip})({* Menu }}} *})
