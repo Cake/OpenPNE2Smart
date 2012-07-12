@@ -1,8 +1,3 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
 ({ext_include file="common/inc_header.tpl" _headline=$c_commu.name|string_format:"%sのトピック"})
 <div class="menu-content" data-role="content">({* {{{ content *})

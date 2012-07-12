@@ -1,8 +1,3 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./js/comment.js"></script>
