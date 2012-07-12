@@ -83,9 +83,9 @@ div#div#menu .ui-header .ui-btn {
 
 /* 個別ナビゲーション */
 div.topNav {
-	position: fixed;
+	position: absolute;
 	top: 42px;
-	z-index: 90;
+	z-index: 89;
 	width: 100%; 
 	padding: 0;
 	overflow: hidden;
