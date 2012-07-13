@@ -1,5 +1,5 @@
 <div class="page" data-role="page" id="h_home">
-({ext_include file="common/inc_header.tpl" _headline=$c_member.nickname|string_format:"%sさんのホーム"})
+({ext_include file="common/inc_header.tpl"})
 <div class="content" data-role="content">({* {{{ Page content *})
 ({ext_include file="common/inc_msg.tpl"})
 ({* 【メモ】検索BOX削除 *})

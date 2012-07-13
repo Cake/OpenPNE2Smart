@@ -2,7 +2,7 @@
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
-({ext_include file="common/inc_header.tpl" _headline=$c_commu.name|string_format:"%sのイベント"})
+({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 

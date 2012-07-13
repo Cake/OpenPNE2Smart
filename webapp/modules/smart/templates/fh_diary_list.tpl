@@ -4,7 +4,7 @@ var page=2;
 //-->
 </script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
-({ext_include file="common/inc_header.tpl" _headline=$target_diary.subject})
+({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 
 <section class="authorBar" id="diaryAuthor">

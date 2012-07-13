@@ -4,12 +4,7 @@ var page=2;
 //-->
 </script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
-({if $c_diary_search_list_count && $keyword})
-({capture name=headline})({$WORD_DIARY})検索結果一覧({/capture})
-({else})
-({capture name=headline})全体の({$WORD_DIARY})({/capture})
-({/if})
-({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
+({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 

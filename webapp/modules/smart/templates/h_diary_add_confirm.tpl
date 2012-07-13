@@ -1,5 +1,5 @@
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
-({ext_include file="common/inc_header.tpl" _headline='$WORD_DIARY|string_format:"%sを書く"})
+({ext_include file="common/inc_header.tpl"})
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl" msg="以下の内容でよろしいですか？"})
 

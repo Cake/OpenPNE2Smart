@@ -4,8 +4,7 @@ var page=2;
 //-->
 </script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
-({capture name=headline})({$WORD_MY_FRIEND})最新({$WORD_DIARY})({/capture})
-({ext_include file="common/inc_header.tpl" _headline=$smarty.capture.headline})
+({ext_include file="common/inc_header.tpl"})
 
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
@@ -30,6 +29,7 @@ var page=2;
 
 ({else})
 ({* {{{ NoData *})
+({capture name=headline})({$WORD_MY_FRIEND})最新({$WORD_DIARY})({/capture})
 ({ext_include file="common/inc_msg.tpl" msg=$smarty.capture.headline|string_format:"%sはありません。"})
 ({* }}} *})
 ({/if})

@@ -4,21 +4,13 @@ div.ui-slider-switch { width: 9em!important }
 -->
 </style>
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
-({ext_include file="common/inc_header.tpl" _headline='$WORD_DIARY|string_format:"%sを書く"})
+({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({**OpenPNE2 スマートフォン対応：ここから**})
-<section>
-({t_mail_post mailto=$mail_address _type=button})
-<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
-写真を添付すると写真付き({$WORD_DIARY})になります。<br>
-</p>
-</section>
-({**OpenPNE2 スマートフォン対応：ここまで**})
-
 ({* {{{ formTable *})
-<section class="diaryForm" id="diaryAddForm">
+<section class="diaryForm" id="diaryAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>({$WORD_DIARY})を書く</h3>
 ({t_form_block _enctype=file m=pc a=page_h_diary_add_confirm  _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="subject">タイトル</label>
@@ -26,12 +18,11 @@ div.ui-slider-switch { width: 9em!important }
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _body=$form_val.body|smarty:nodefaults})
 
-({**OpenPNE2 スマートフォン対応：ここから**})
 ({if ($is_apple)})
 <div data-role="fieldcontain" class="ui-hide-label">
 写真は、日記投稿後にメールで追加編集できます。
 </div>
-({else})({**OpenPNE2 スマートフォン対応：ここまで**})
+({else})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label>
 <input type="file" class="input_file" name="upfile_1" />
@@ -44,7 +35,7 @@ div.ui-slider-switch { width: 9em!important }
 <label for="upfile_3">写真3</label>
 <input type="file" class="input_file" name="upfile_3" />
 </div>
-({/if})({**OpenPNE2 スマートフォン対応：ここ追加行**})
+({/if})
 ({if $use_diary_category})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="category">カテゴリ</label>
@@ -85,6 +76,13 @@ div.ui-slider-switch { width: 9em!important }
 ({/t_form_block})
 </section>
 ({* }}} *})
+
+<section class="formTable" id="diaryAddMail">
+({t_mail_post mailto=$mail_address _type=button})
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真を添付すると写真付き({$WORD_DIARY})になります。<br>
+</p>
+</section>
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
