@@ -15,7 +15,7 @@ class pc_page_h_com_comment_list_ajax extends OpenPNE_Action
         // ----------
 
         //日記一覧
-        $page_size = 5;
+        $page_size = 20;
 
         $lst = db_commu_c_commu_topic_comment_list4c_member_id_2($u, $page_size, $page);
 

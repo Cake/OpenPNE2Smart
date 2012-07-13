@@ -22,7 +22,7 @@ class pc_page_h_com_comment_list extends OpenPNE_Action
         $smartPhone = new OpenPNE_SmartPhoneUA();
         if ($smartPhone->is_smart) {
              // 取得件数
-             $page_size = 5;
+             $page_size = 20;
         }
         /* OpenPNE2 スマートフォン対応：ここまで */
         $this->set("page_size", $page_size);
