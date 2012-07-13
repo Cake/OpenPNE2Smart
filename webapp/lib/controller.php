@@ -157,7 +157,10 @@ function openpne_forward($module, $type = '', $action = '', $errors = array())
         // スマートフォン用テンプレートセット
         $smartPhone = new OpenPNE_SmartPhoneUA();
         if ($module == 'pc' && $smartPhone->is_smart) {
-            $smarty->templates_dir = 'smart' . '/templates';
+            // スマホ対応テンプレートがあるアクションのみ
+            if ($smarty->ext_search("smart/templates/{$action}.tpl", $place)) {
+                $smarty->templates_dir = 'smart' . '/templates';
+            }
         }
 
         $smarty->assign('comment_count', get_request_var('comment_count'));
