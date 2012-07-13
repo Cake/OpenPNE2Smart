@@ -1,4 +1,7 @@
-({strip})({if isset($c_commu)})
+({strip})({if isset($item.commu_name)})
+({assign var=commu_name value=$item.commu_name})
+({assign var=commu_image value=$item.commu_image})
+({elseif isset($c_commu)})
 ({assign var=commu_name value=$c_commu.name})
 ({assign var=commu_image value=$c_commu.image_filename})
 ({/if})({/strip})

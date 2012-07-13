@@ -292,6 +292,9 @@ a .itemData .title *,
 	margin-bottom: 25px;
 }
 
+.searchFormBox ul#SelectBbsCategory {
+	margin: 0;
+}
 
 /*==============================================================================
  * 8. diaryDetailBox（日記詳細ボックス）
@@ -370,9 +373,8 @@ a .itemData .title *,
 
 /*============================================================================
  * 22. commentList（コメントリスト）
- * fh_diary(コメント), fh_diary_list, h_diary_list_all
+ * 22. 23. searchResultList（検索結果リスト）
  * 25. recentList（最新書き込みリスト）
- * h_diary_list_friend
  *----------------------------------------------------------------------------*/
 #diaryAuthor .photo48 + .itemData {
 	position: absolute;

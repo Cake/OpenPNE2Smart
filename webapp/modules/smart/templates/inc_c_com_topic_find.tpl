@@ -14,10 +14,10 @@
 </select>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="掲示板検索" />
+<input type="submit" class="input_submit" value="掲示板検索" data-icon="search" data-iconshadow="true" data-iconpos="right" />
 </div>
 ({/t_form_block})</p>
-<p><a href="({t_url m=pc a=page_h_com_find_all})&amp;keyword=({$keyword|escape:url|smarty:nodefaults})">({$WORD_COMMUNITY})を検索</a>
+<p><a href="({t_url m=pc a=page_h_com_find_all})&amp;keyword=({$keyword|escape:url|smarty:nodefaults})" data-role="button" data-icon="arrow-r" data-iconshadow="true" data-iconpos="right">({$WORD_COMMUNITY})を検索</a>
 </p>
 </section>
 ({* searchFormLine }}} *})
