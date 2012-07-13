@@ -104,5 +104,5 @@ pne_mce_editor_init();
 
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="body">本文</label>
-<textarea id="mce_editor_textarea" name="({$_name|default:'body'})" rows="({$_rows|default:'15'})" cols="({$_cols|default:'50'})" placeholder="({$_name|default:'body'})">({$_body})</textarea>
+<textarea id="mce_editor_textarea" name="({$_name|default:'body'})" rows="({$_rows|default:'15'})" cols="({$_cols|default:'50'})" placeholder="本文">({$_body})</textarea>
 </div>
