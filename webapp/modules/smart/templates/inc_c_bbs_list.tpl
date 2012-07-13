@@ -16,7 +16,7 @@
 <div class="itemBody"> ({$item.body})</div>
 <div class="commentListFooter">
 <time datetime="({$item.u_datetime})" id="bbsyDatetime({$item.c_commu_topic_id})" class="datetime">({$item.u_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
-<span class="num_comment">コメント(({$item.write_num}))</span>
+({if isset($item.write_num) || isset($item.max_number)})<span class="num_comment">コメント(({if isset($item.write_num)})({$item.write_num})({elseif isset($item.max_number)})({$item.max_number})({/if}))</span>({/if})
 ({if $item.image_filename1||$item.image_filename2||$item.image_filename3})<span class="icon_camera"><img src="({t_img_url_skin filename=icon_camera})" alt="写真あり" /></span>({/if})
 </div></div>
 </section></a>

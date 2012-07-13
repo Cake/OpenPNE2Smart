@@ -1,10 +1,10 @@
 <?php
-/**
- * @copyright 2005-2008 OpenPNE Project
- * @license   http://www.php.net/license/3_01.txt PHP License 3.01
- */
+/* 
+  * 参加コミュニティの新着トピック/イベントをJSON形式で出力
+  * View出力なし */
+require_once OPENPNE_WEBAPP_DIR. '/lib/util/json.php';
 
-class pc_page_c_com_topic_find extends OpenPNE_Action
+class pc_page_c_com_topic_find_ajax extends OpenPNE_Action
 {
     function execute($requests)
     {
@@ -18,14 +18,15 @@ class pc_page_c_com_topic_find extends OpenPNE_Action
         $target_commu = $requests['target_commu'];
         // ----------
         if ($target_commu == 'all') {
-            openpne_forward('pc', 'page', 'h_com_topic_find_all');
+            openpne_forward('pc', 'page', 'h_com_topic_find_all_alax');
             exit;
         }
 
         //--- 権限チェック
         //掲示板閲覧権限
         if (!db_commu_is_c_commu_view4c_commu_idAc_member_id($c_commu_id, $u)) {
-            handle_kengen_error();
+            echo array2json(array('msg' => 'このページにはアクセスすることができません。'));
+            return false;
         }
 
         //バグ回避のため全角空白を半角空白に統一
@@ -36,33 +37,37 @@ class pc_page_c_com_topic_find extends OpenPNE_Action
         $this->set('inc_navi', fetch_inc_navi('c', $c_commu_id));
 
         $page_size = 20;
-        $this->set('page', $page);
 
         //検索結果
         list($result, $is_prev, $is_next, $total_num, $start_num, $end_num)
          = db_commu_search_c_commu_topic($keyword, $page_size, $page, $type, $c_commu_id);
 
-        $this->set('c_commu_topic_search_list', $result);
-        $this->set('is_prev', $is_prev);
-        $this->set('is_next', $is_next);
-        $this->set('total_num', $total_num);
-        $this->set('start_num', $start_num);
-        $this->set('end_num', $end_num);
-
-        /* OpenPNE2 スマートフォン対応：ここから */
-        $total_page_num = ceil($total_num / $page_size);
-        $this->set("total_page_num", $total_page_num);
-        /* OpenPNE2 スマートフォン対応：ここまで */
-
-        $this->set('keyword', $keyword);
         $search_val_list = array(
             'type' => $type,
         );
-        $this->set('search_val_list', $search_val_list);
-        $this->set('c_commu_id', $c_commu_id);
-        $this->set('c_commu', db_commu_c_commu4c_commu_id($c_commu_id));
 
-        return 'success';
+	// テンプレート出力
+	$arr = array(
+        	'list' => $result,
+        	'is_prev' => $is_prev,
+        	'is_next' => $is_next,
+        	'total_num' => $total_num,
+        	'search_val_list' => $search_val_list,
+        	'c_commu_id' => $c_commu_id,
+        	'page' => $page,
+        	'page_size' => $page_size,
+        	'keyword' => $keyword,
+                'requests' => $requests,
+        );
+
+        $data = openpne_display_ajax($arr, 'c_com_topic_find_ajax');
+
+	// JSON出力
+        $data = array('msg' => '', 
+                'comment_list' => $data,
+        );
+        echo array2json($data);
+        return false;    
     }
 }
 

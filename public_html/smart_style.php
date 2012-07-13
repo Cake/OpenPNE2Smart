@@ -376,7 +376,8 @@ a .itemData .title *,
  * 22. 23. searchResultList（検索結果リスト）
  * 25. recentList（最新書き込みリスト）
  *----------------------------------------------------------------------------*/
-#diaryAuthor .photo48 + .itemData {
+#diaryAuthor .photo48 + .itemData,
+#communityInfo .photo48 + .itemData {
 	position: absolute;
 	top: 105px;
 	width: 80%;
