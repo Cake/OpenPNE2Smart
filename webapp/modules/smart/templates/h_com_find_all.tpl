@@ -18,7 +18,7 @@
 
 <p class="form">
 <label for="keyword">キーワード</label>
-<input type="text" class="input_text" name="keyword" id="keyword" value="({$keyword})" size="15" />
+<input type="search" class="input_text" name="keyword" id="keyword" value="({$keyword})" size="15" placeholder="" />
 <label for="category_id">カテゴリ</label>
 <select name="category_id" id="category_id">
 <option value="0">指定なし</option>

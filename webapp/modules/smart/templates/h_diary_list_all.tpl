@@ -12,12 +12,15 @@ var page=2;
 <section class="searchFormBox" id="searchDiaryFormBox" data-role="collapsible" data-collapsed="({if $c_diary_search_list_count && $keyword})false({else})true({/if})" data-content-theme="c">
 <h3>({$WORD_DIARY})検索</h3>
 <p>({t_form_block _method=get m=pc a=page_h_diary_list_all})
-<label for="keyword">キーワード</label> <input type="text" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" />
-<input type="submit" class="input_submit" value="　検　索　" />
-<a href="({t_url m=pc a=page_h_com_find_all})&amp;keyword=({$keyword|escape:url|smarty:nodefaults})">({$WORD_COMMUNITY})検索</a>
-({/t_form_block})
-</p>
+<div data-role="fieldcontain" class="ui-hide-label">
+<label for="keyword">キーワード</label>
+<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
+</div>
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="検索" />
+</div>
 <p class="note">※タイトル、本文より検索をおこないます。スペースで区切ると複数キーワードでの検索ができます。</p>
+({/t_form_block})</p>
 </section>
 ({* }}} *})
 
