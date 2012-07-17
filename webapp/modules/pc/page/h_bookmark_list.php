@@ -29,6 +29,11 @@ class pc_page_h_bookmark_list extends OpenPNE_Action
         );
         $this->set("pager_index", $pager_index);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($list[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }

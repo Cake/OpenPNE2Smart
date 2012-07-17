@@ -27,7 +27,7 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 		},
         error: function(XMLHttpRequest, textStatus, errorThrown) {
 			$.mobile.hidePageLoadingMsg();
-			showDialog('ERROR', errorThrown);
+			showDialog('ERROR', errorThrown, 'Dialog');
 			return false;
 		},
         success: function(response) {
@@ -35,7 +35,7 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
 			// エラーの場合
 			if (response['msg']) {
 				$.mobile.hidePageLoadingMsg();
-				showDialog('ERROR', response['msg']);
+				showDialog('ERROR', response['msg'], 'Dialog');
 				return false;
 			}
 
@@ -96,14 +96,14 @@ function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview)
 		},
         error: function(XMLHttpRequest, textStatus, errorThrown) {
 			$.mobile.hidePageLoadingMsg();
-			showDialog('ERROR', errorThrown);
+			showDialog('ERROR', errorThrown, 'Dialog');
 			return false;
 		},
         success: function(response) {
 			// 出力
 			// エラーの場合
 			if (response['msg']) {
-				showDialog('ERROR', response['msg']);
+				showDialog('ERROR', response['msg'], 'Dialog');
 				return false;
 			}
 
@@ -167,10 +167,20 @@ function go_top(){
 }
 
 /* ダイアログの動的生成 */
-function showDialog(header, msg) {
+function showDialog(header, msg, id) {
+	setDialog(header, msg, id);
+	// ダイアログを表示
+	openDialog(id);
+}
+
+function setDialog(header, msg, id) {
+	if ($("#"+id).html()) {
+		return false;
+	}
+
 	// ダイアログの内容
 	var dialog_html = [
-		'<div data-role="page" id="Dialog">',
+		'<div data-role="page" id="'+id+'">',
 		'<div data-role="header"><h3>'+header+'</h3></div>',
 		'<div data-role="content"><p>'+msg+'</p></div>',
 		'</div>'
@@ -178,10 +188,26 @@ function showDialog(header, msg) {
 
 	// DOMに追加
 	$('body').append($(dialog_html));
- 
-	// ダイアログを表示
-	$.mobile.changePage('#Dialog', {
+}
+
+function openDialog(id) {
+	$.mobile.changePage('#'+id, {
 		transition: 'pop',
 		role: 'dialog',
 	});
+}
+
+function setConfirmDialog(header, yes_url, back_url, id) {
+	var msg = null;
+	// ダイアログの内容
+	if (yes_url != undefined) {
+		msg = '<div class="operation yesNoButtonBox">'+
+		'<ul class="ui-grid-a">'+
+		'<li class="ui-block-a"><a href="'+yes_url+'" data-role="button" data-ajax="false">はい</a></li>'+
+		'<li class="ui-block-b"><a href="'+back_url+'" data-role="button" data-direction="reverse" onclick="$(\'.ui-dialog\').dialog(\'close\')" data-ajax="true">いいえ</a>'+
+			'</li></ul></div>';
+	}
+
+	// DOMに追加
+	setDialog(header, msg, id);
 }

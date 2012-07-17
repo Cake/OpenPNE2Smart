@@ -126,6 +126,23 @@ div.topNav ul li a.ui-btn span {
 }
 */
 
+.ui-dialog .ui-header, 
+.ui-dialog .ui-content, 
+.ui-dialog .ui-footer { 
+	z-index: 200;
+}
+
+.ui-dialog-contain .topNav,
+.ui-dialog-contain #Footer {
+	display: none;
+}
+
+.ui-dialog .ui-content {
+	margin-top: 0;
+	overflow: hidden;
+}
+
+
 /**=============================================================================
  * アイコン
  *----------------------------------------------------------------------------*/

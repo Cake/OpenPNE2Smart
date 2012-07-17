@@ -12,7 +12,7 @@
 </ul>
 </section>({* commentList }}} *})
 
-<div class="operation">
+<div class="operation yesNoButtonBox">
 <ul class="ui-grid-a">
 <li class="ui-block-a">
 ({t_form_block m=pc a=do_fh_diary_delete_c_diary_comment})
