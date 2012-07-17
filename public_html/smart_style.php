@@ -284,6 +284,10 @@ a .itemData .title *,
 	border-bottom-width: 0;
 }
 
+/*==============================================================================
+ * 6. yesNoButtonBox（はい、いいえボタン付きボックス）
+ *----------------------------------------------------------------------------*/
+
 
 /*==============================================================================
  * 7. searchFormBox（検索フォームボックス）
@@ -373,7 +377,7 @@ a .itemData .title *,
 
 /*============================================================================
  * 22. commentList（コメントリスト）
- * 22. 23. searchResultList（検索結果リスト）
+ * 23. searchResultList（検索結果リスト）
  * 25. recentList（最新書き込みリスト）
  *----------------------------------------------------------------------------*/
 #diaryAuthor .photo48 + .itemData,
@@ -473,6 +477,16 @@ ul.pictureIconList li.commentList .commentListFooter span {
 .blogList h3 {
 	display: block !important;
 }
+
+/* コメント削除確認 */
+#fh_delete_comment .commentListBox {
+	margin-top: 0px;
+}
+
+#fh_delete_comment .itemBody {
+	max-height: none;
+}
+
 
 /*==============================================================================
  * 39. formTable（入力フォームテーブル）
