@@ -5,12 +5,12 @@
 ({* {{{ commentList *})
 <section class="diaryCommentDeleteListBox commentListBox" id="diaryCommentDeleteListBox" data-role="collapsible-set">
 <h3>下記のコメントを削除しますか？</h3>
-<ul id="bbsSearchResultList" class="pictureIconList commentList" data-role="listview" data-inset="false"> 
+<ul id="diaryCommentDeleteList" class="pictureIconList commentList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_comment.tpl" _dialog=true})
 ({/foreach})
 </ul>
-</section>({* searchResultList }}} *})
+</section>({* commentList }}} *})
 
 <div class="operation">
 <ul class="ui-grid-a">
