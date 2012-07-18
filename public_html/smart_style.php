@@ -495,6 +495,13 @@ ul.pictureIconList li.commentList .commentListFooter span {
 	display: block !important;
 }
 
+/* メンバー一覧 */
+#h_bookmark_list ul.pictureIconList li.commentList .itemBody {
+	max-height: 1.4em;
+	font-size: 80%;
+	padding-left: 5px;
+}
+
 /* コメント削除確認 */
 #fh_delete_comment .commentListBox {
 	margin-top: 0px;
