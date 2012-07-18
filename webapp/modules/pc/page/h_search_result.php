@@ -52,6 +52,10 @@ class pc_page_h_search_result extends OpenPNE_Action
             $pager['disp_end'] = $disp_end;
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $pager['total_page_num'] =  ceil($pager['total_num'] / $limit);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set("pager", $pager);
 
 

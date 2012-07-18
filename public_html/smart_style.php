@@ -498,6 +498,7 @@ ul.pictureIconList li.commentList .commentListFooter span {
 /* メンバー一覧 */
 /* コミュニティ一覧 */
 #h_bookmark_list ul.pictureIconList li.commentList .itemBody,
+#h_search_result ul.pictureIconList li.commentList .itemBody,
 #h_com_find_all ul.pictureIconList li.commentList .itemBody {
 	max-height: 1.4em;
 	font-size: 80%;

@@ -21,7 +21,7 @@ var page=2;
 <h3>お気に入り</h3>
 <ul id="bookmarkList" class="pictureIconList searchResultList" data-role="listview" data-inset="false" data-split-icon="delete" data-split-theme="c">
 ({foreach from=$c_members item=item})
-({ext_include file="inc_h_member_list.tpl"})
+({ext_include file="inc_h_member_list.tpl" _type="h_bookmark_list"})
 ({/foreach})
 </ul>
 </section>({* searchResultList }}} *})

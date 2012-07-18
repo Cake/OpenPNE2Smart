@@ -1,51 +1,41 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({if $pager.total_num})
+<section class="searchResultListBox" id="memberSearchResultListBox" data-role="collapsible-set">
+<h3>検索結果一覧</h3>
+<p>({$pager.total_num})名が該当しました。</p>
 
-({* {{{ searchResultList *})
-<div class="dparts searchResultList"><div class="parts">
-<div class="partsHeading"><h3>検索結果一覧</h3><p>*** ({$pager.total_num})名が該当しました。</p></div>
-
-({capture name=pager})({strip})
-<div class="pagerRelative">
-({if $pager.page_prev})<p class="prev"><a href="({t_url m=pc a=page_h_search_result})&amp;page=({$pager.page_prev})&amp;({$search_condition})">前を表示</a></p>({/if})
-<p class="number">({$pager.disp_start})件～({$pager.disp_end})件を表示</p>
-({if $pager.page_next})<p class="next"><a href="({t_url m=pc a=page_h_search_result})&amp;page=({$pager.page_next})&amp;({$search_condition})">次を表示</a></p>({/if})
-</div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
-<div class="block">
+<ul id="memberSearchResultList" class="pictureIconList searchResultList" data-role="listview" data-inset="false" data-split-icon="delete" data-split-theme="c">
 ({foreach from=$target_friend_list item=item})
-<div class="ditem"><div class="item"><table><tr>
-<td class="photo" rowspan="3"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a></td>
-<th>({$WORD_NICKNAME})</th><td>({$item.nickname})</td>
-</tr><tr>
-<th>自己紹介</th><td>({$item.profile.self_intro.value|t_truncate:36:"":3})</td>
-</tr><tr class="operation">
-<th>最終ログイン</th><td><span class="text">({$item.last_login})</span> <span class="moreInfo"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url_skin filename=button_shosai})" alt="詳細を見る" /></a></span></td>
-</tr></table></div></div>
+({ext_include file="inc_h_member_list.tpl" _type="h_search_result"})
 ({/foreach})
+</ul>
+</section>({* searchResultList }}} *})
+({* {{{ Pager *})({strip})
+({if $pager.page_next})
+<div class="pagerRelative" id="memberSearchResultListNextPager">
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_search_result_ajax})&amp;({$search_condition})', 'asc', 'li.commentList', 'memberSearchResultListNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></span>
 </div>
-
-({$smarty.capture.pager|smarty:nodefaults})
-
-</div></div>
-({* }}} *})
+({/if})
+({/strip})({* Pager }}} *})
+({* {{{ searchResultList *})
 
 ({else})
-
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>メンバー検索</h3></div>
-<div class="block">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+<h3>メンバー検索</h3>
 <p>該当するメンバーはいませんでした。</p>
-</div>
-</div></div>
-({* }}} *})
+</section>({* simpleBox }}} *})
 
 ({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
