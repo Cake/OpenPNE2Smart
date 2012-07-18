@@ -28,14 +28,14 @@ var page=2;
 <label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索" data-ajax="false" />
 </div>
 ({/t_form_block})</p>
 <div class="label">絞りこみ</div>
 <ul class="ui-grid-b" id="SelectBbsCategory">
-<li class="ui-block-a"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=all&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'all'}) ui-btn-active({/if})" data-role="button" data-mini="true">すべて</a></li>
-<li class="ui-block-b"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=topic&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'topic'}) ui-btn-active({/if})" data-role="button" data-mini="true">トピック</a></li>
-<li class="ui-block-c"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=event&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'event'}) ui-btn-active({/if})" data-role="button" data-mini="true">イベント</a></li>
+<li class="ui-block-a"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=all&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'all'}) ui-btn-active({/if})" data-role="button" data-mini="true" data-ajax="false">すべて</a></li>
+<li class="ui-block-b"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=topic&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'topic'}) ui-btn-active({/if})" data-role="button" data-mini="true" data-ajax="false">トピック</a></li>
+<li class="ui-block-c"><a href="({t_url m=pc a=page_h_com_topic_find_all})&amp;type=event&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})" class="({if $search_val_list.type == 'event'}) ui-btn-active({/if})" data-role="button" data-mini="true" data-ajax="false">イベント</a></li>
 </ul>
 </section>
 ({* searchFormLine }}} *})
@@ -43,8 +43,7 @@ var page=2;
 ({if $total_num})
 ({if $keyword || $search_val_list.type != 'all'})<div class="partsHeading"><h4>({$total_num|default:'0'})件が該当しました。</h4></div>({/if})
 
-({* {{{ searchResultList *})
-<section class="commentListBox searchResultListBox" id="bbsSearchAllResultListBox" data-role="collapsible-set">
+({* {{{ searchResultList *})<section class="commentListBox searchResultListBox" id="bbsSearchAllResultListBox" data-role="collapsible-set">
 <ul id="bbsSearchAllResultList" class="pictureIconList searchResultList" data-role="listview" data-inset="false"> 
 ({foreach from=$c_commu_topic_search_list item=item})
 ({ext_include file="inc_c_bbs_list.tpl"})

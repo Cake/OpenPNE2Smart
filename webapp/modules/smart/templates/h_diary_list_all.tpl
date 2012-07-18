@@ -17,7 +17,7 @@ var page=2;
 <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索" data-ajax="false" />
 </div>
 <p class="note">※タイトル、本文より検索をおこないます。スペースで区切ると複数キーワードでの検索ができます。</p>
 ({/t_form_block})</p>
