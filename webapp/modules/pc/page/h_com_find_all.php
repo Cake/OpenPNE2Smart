@@ -45,6 +45,11 @@ class pc_page_h_com_find_all extends OpenPNE_Action
         $this->set('start_num', $start_num);
         $this->set('end_num', $end_num);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($total_num / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('keyword', $keyword);
         $search_val_list = array(
             'val_order' => $val_order,

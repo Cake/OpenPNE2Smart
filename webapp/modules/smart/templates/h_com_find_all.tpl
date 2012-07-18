@@ -1,25 +1,34 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+var page=2;
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({capture name="keyword_url"})({$keyword|escape:url|smarty:nodefaults})({/capture})
 
-({* {{{ searchFormBox *})
-<div class="dparts searchFormBox"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_COMMUNITY})検索・並び替え</h3></div>
-<div class="item">
-
+({capture name=searchFormBox})({* {{{ searchFormBox *})<section class="searchFormBox" id="searchCommunityAllFormBox" data-role="collapsible-set" data-content-theme="c" data-inset="true">
+({* {{{ searchCommunityAllSort *})<section id="searchCommunityAllSort" data-role="collapsible" data-collapsed="({if $keyword || $requests.category_id})false({else})true({/if})">
+<h3>({$WORD_COMMUNITY})検索</h3>
+<div data-role="collapsible" data-collapsed="false">
+<h4>並び替え</h4>
+<ul class="ui-grid-a" id="comunitySort">
+<li class="ui-block-a"><a href="({t_url m=pc a=page_h_com_find_all})&amp;val_order=count&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$search_val_list.category_id})" class="({if $requests.val_order == 'count'}) ui-btn-active({/if})" data-role="button" data-mini="true" data-ajax="false">メンバー数順</a></li>
+<li class="ui-block-b"><a href="({t_url m=pc a=page_h_com_find_all})&amp;val_order=r_datetime&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$search_val_list.category_id})" class="({if $requests.val_order == 'r_datetime'}) ui-btn-active({/if})" data-role="button" data-mini="true" data-ajax="false">作成日順</a></li>
+</ul>
+</div>
+({* {{{ searchCommunityAll *})<div class="searchFormBox" id="searchCommunityAll" data-role="collapsible" data-collapsed="({if $keyword || $requests.category_id})false({else})true({/if})">
+<h4>({$WORD_COMMUNITY})検索</h4>
 ({t_form_block _method=get m=pc a=page_h_com_find_all})
-<p class="form">
-<span class="label">並び替え</span>
-<a href="({t_url m=pc a=page_h_com_find_all})&amp;val_order=count&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$search_val_list.category_id})">メンバー数順</a>
-|
-<a href="({t_url m=pc a=page_h_com_find_all})&amp;val_order=r_datetime&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$search_val_list.category_id})">作成日順</a>
-</p>
-
-<p class="form">
+<div data-role="fieldcontain" class="ui-hide-label">
 <label for="keyword">キーワード</label>
-<input type="search" class="input_text" name="keyword" id="keyword" value="({$keyword})" size="15" placeholder="" />
-<label for="category_id">カテゴリ</label>
+<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード" />
+</div>
+<div data-role="fieldcontain">
+<label for="category">カテゴリ</label>
 <select name="category_id" id="category_id">
 <option value="0">指定なし</option>
 ({foreach from=$c_commu_category_list item=parent})
@@ -28,86 +37,62 @@
 ({/foreach})
 ({/foreach})
 </select>
-<input type="submit" class="input_submit" value="　検　索　" />
-</p>
+</div>
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="検索" data-ajax="false" />
+</div>
 ({/t_form_block})
-
-<ul class="moreInfo">
-({if $c_commu_category_is_create_commu})
-<li><a href="({t_url m=pc a=page_h_com_add})">新規作成</a>(作成の前に、似た({$WORD_COMMUNITY})がないかご確認ください)</li>
-({/if})
-<li><a href="({t_url m=pc a=page_h_com_topic_find_all})">トピック検索</a></li>
-</ul>
-
-<div class="block">
-<dl class="categories">
-<dt><span class="label">カテゴリ</span></dt>
-<dd>
-<table class="category">
+</div>({* searchCommunityAll }}} *})
+<div id="categorySelect" data-role="collapsible">
+<h4 class="label">カテゴリ絞込み</h4>
+<div data-role="listview">
 ({foreach from=$c_commu_category_parent_list item=item_parent})
-<tr>
-<th>({$item_parent.name})</th>
-<td>
+<li data-role="list-divider">({$item_parent.name})</li>
 ({foreach name=cccl from=$c_commu_category_list[$item_parent.c_commu_category_parent_id] item=item_cat})
-({if !$smarty.foreach.cccl.first}) - ({/if})
-<a href="({t_url m=pc a=page_h_com_find_all})&amp;order=r_datetime&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$item_cat.c_commu_category_id})">({$item_cat.name})(({$item_cat.count_commu_category}))</a>
+<li><a href="({t_url m=pc a=page_h_com_find_all})&amp;order=r_datetime&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;category_id=({$item_cat.c_commu_category_id})" data-ajax="false">({$item_cat.name})<span class="ui-li-count">({$item_cat.count_commu_category})</span></a></li>
 ({/foreach})
-</td>
-</tr>
-({/foreach})
-</table>
-</dd>
-</dl>
-</div>
-
-</div>
-</div></div>
-({* }}} *})
-
-({if $c_commu_search_list})
-({* {{{ searchResultList *})
-<div class="dparts searchResultList"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_COMMUNITY})一覧</h3><p>*** ({$total_num|default:'0'})件が該当しました。</p></div>
-
-({capture name=pager})({strip})
-<div class="pagerRelative">
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_h_com_find_all})&amp;page=({$page-1})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;val_order=({$search_val_list.val_order})&amp;category_id=({$search_val_list.category_id})">前を表示</a></p>({/if})
-<p class="number">({$start_num})件～({$end_num})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_h_com_find_all})&amp;page=({$page+1})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;val_order=({$search_val_list.val_order})&amp;category_id=({$search_val_list.category_id})">次を表示</a></p>({/if})
-</div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
-<div class="block">
-({foreach from=$c_commu_search_list item=c_commu_search})
-<div class="ditem"><div class="item"><table><tr>
-<td class="photo" rowspan="4"><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu_search.c_commu_id})"><img src="({t_img_url filename=$c_commu_search.image_filename w=76 h=76 noimg=no_logo_small})" alt="" /></a></td>
-<th>({$WORD_COMMUNITY})名</th><td>({$c_commu_search.name})</td>
-</tr><tr>
-<th>メンバー数</th><td>({$c_commu_search.count_commu_member})人</td>
-</tr><tr>
-<th>説明文</th><td>({$c_commu_search.info|t_truncate:36:"":3})</td>
-</tr><tr class="operation">
-<th>カテゴリ</th><td><span class="text">({$c_commu_search.c_commu_category_name})</span> <span class="moreInfo"><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu_search.c_commu_id})"><img src="({t_img_url_skin filename=button_shosai})" alt="詳細を見る" /></a></span></td>
-</tr></table></div></div>
 ({/foreach})
 </div>
+</div>
+</section>({* searchCommunityAllSort }}} *})
+({if $c_commu_category_is_create_commu})
+({* {{{ searchCommunityAlloperation *})<div id="searchCommunityAlloperation" data-role="collapsible" data-collapsed="true">
+<h4>新規作成</h4>
+<a href="({t_url m=pc a=page_h_com_add})" data-role="button">新規作成</a>
+<p>作成の前に、似た({$WORD_COMMUNITY})がないかご確認ください</p></div>
+({/if})
+</section>
+({* searchFormBox }}} *})({/capture})
 
-({$smarty.capture.pager|smarty:nodefaults})
+({capture name=searchResult})({* {{{ simpleBox *})<section class="simpleBox" id="CommunityNoavailableComment" data-role="">
+<h3>({$WORD_COMMUNITY})({if $keyword || $requests.category_id != '0'})検索結果({else})一覧({/if})</h3>
+<p>({$total_num|default:'0'})件が該当しました。</p>
+</section>({* simpleBox }}} *})
 
-</div></div>
-({* }}} *})
+({* {{{ searchResultList *})<section class="commentListBox searchResultListBox" id="communitySearchResultListBox" data-role="collapsible-set">
+<ul id="communitySearchResultList" class="pictureIconList searchResultList" data-role="listview" data-inset="false"> 
+({foreach from=$c_commu_search_list item=item})
+({ext_include file="inc_c_com_list.tpl"})
+({/foreach})
+</ul>
+</section>({* searchResultList }}} *})
+({strip})
+({if $is_next})
+<div class="pagerRelative" id="communitySearchResult({$u})NextPager">
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_com_find_all_ajax})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;val_order=({$search_val_list.val_order})&amp;category_id=({$search_val_list.category_id})', 'asc', 'li.commentList', 'communitySearchResult({$u})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></span>
+</div>
+({/if})
+({/strip})
+({/capture})
 
+({if $keyword || $requests.category_id != '0'})
+({$smarty.capture.searchResult|smarty:nodefaults})
+({$smarty.capture.searchFormBox|smarty:nodefaults})
 ({else})
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_COMMUNITY})一覧</h3></div>
-<div class="block">
-<p>該当する({$WORD_COMMUNITY})はありません。</p>
-</div>
-</div></div>
-({* }}} *})
+({$smarty.capture.searchFormBox|smarty:nodefaults})
+({$smarty.capture.searchResult|smarty:nodefaults})
 ({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
