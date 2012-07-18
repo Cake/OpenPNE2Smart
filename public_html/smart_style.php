@@ -513,6 +513,18 @@ ul.pictureIconList li.commentList .commentListFooter span {
 	max-height: none;
 }
 
+/* 承認待ち一覧 */
+#h_confirm_list ul.pictureIconList li.commentList .itemBody {
+	max-height: none;
+}
+
+#h_confirm_list ul.pictureIconList li.commentList .commentListFooter {
+	clear: both;
+}
+
+#h_confirm_list .communityRequest .ui-li-thumb {
+	position: relative;
+}
 
 /*==============================================================================
  * 39. formTable（入力フォームテーブル）
