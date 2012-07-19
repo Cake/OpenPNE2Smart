@@ -112,6 +112,11 @@ class pc_page_h_message_box extends OpenPNE_Action
         $this->set("date_list", db_message_month_list4c_member_id($u, $box));
         $this->set("total_num", $total_num);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($total_num / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         if (!$year || !$month) {
             $this->set('all', 1);
         }

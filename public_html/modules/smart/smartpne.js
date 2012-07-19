@@ -83,9 +83,17 @@ function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {
         }
 	});
 }
+
 function submitPagerPage(url, order, element, pagerId, totalPageNum, isListview) {
 	var url = url+"&page="+page;
+	submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListview);
+}
+function submitPagerPageName(url, pageName, order, element, pagerId, totalPageNum, isListview) {
+	var url = url+"&"+pageName+"="+page;
+	submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListview);
+}
 
+function submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListview) {
 	$.ajax({
         type: "GET",
         url: url,
