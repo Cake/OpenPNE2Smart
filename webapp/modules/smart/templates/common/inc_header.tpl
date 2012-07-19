@@ -8,6 +8,7 @@
 ({if 
 	($INC_HEADER_page_name == 'fh_diary' && $type == "h")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "h")
+	|| $INC_HEADER_page_name == 'h_bookmark_diary_blog_list'
 	|| $INC_HEADER_page_name == 'h_diary_add'
 	|| $INC_HEADER_page_name == 'h_diary_comment_list'
 	|| $INC_HEADER_page_name == 'h_diary_list_friend'

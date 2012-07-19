@@ -30,6 +30,11 @@ class pc_page_h_bookmark_diary_blog_list extends OpenPNE_Action
         $this->set('is_next', $lst[2]);
         $this->set('total_num', $lst[3]);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($lst[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set('page', $page);
         $pager = array();
         $pager['start'] = $page_size * ($page - 1) + 1;
