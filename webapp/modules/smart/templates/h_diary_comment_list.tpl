@@ -9,14 +9,14 @@ var page=2;
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if $total_num})
-({* {{{ commentList *})
-<section class="commentListBox" id="diaryCommentHistoryListBox" data-role="collapsible-set">
+({* {{{ recentListBox *})
+<section class="commentListBox recentListBox" id="diaryCommentHistoryListBox" data-role="collapsible-set">
 <ul id="diaryHistoryCommentList" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$h_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
-</section>({* commentList }}} *})
+</section>({* recentListBox }}} *})
 
 ({* {{{ Pager *})({strip})
 ({if $is_next})

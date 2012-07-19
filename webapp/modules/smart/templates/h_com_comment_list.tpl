@@ -9,8 +9,8 @@ var page=2;
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if $total_num})({* {{{ hCommentRecentListBox *})
-<section class="hCommentRecentListBox" id="hCommentRecentListBox" data-role="collapsible-set">
-({* {{{ commentList *})<ul id="hCommentRecent" class="pictureIconList" data-role="listview" data-inset="false"> 
+<section class="commentListBox recentListBox" id="hCommentRecentListBox" data-role="collapsible-set">
+({* {{{ commentList recentList *})<ul id="hCommentRecent" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$h_com_comment_list item=item})
 ({ext_include file="inc_h_com_comment_list.tpl"})
 ({/foreach})

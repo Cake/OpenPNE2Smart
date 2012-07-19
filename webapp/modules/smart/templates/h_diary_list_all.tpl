@@ -30,14 +30,14 @@ var page=2;
 <p>({$c_diary_search_list_count})件が該当しました。</p>
 ({/if})
 
-({* {{{ commentList *})
-<section class="commentListBox" id="diaryListAll" data-role="collapsible-set">
+({* {{{ recentListBox *})
+<section class="commentListBox recentListBox" id="diaryListAll" data-role="collapsible-set">
 <ul id="diaryListAll" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$new_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
-</section>({* commentList }}} *})
+</section>({* recentListBox }}} *})
 
 ({* {{{ Pager *})({strip})
 ({if $is_next})

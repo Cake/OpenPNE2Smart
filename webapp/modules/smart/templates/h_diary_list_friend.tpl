@@ -11,14 +11,14 @@ var page=2;
 <div class="" id="toBookmarkDiaryList"><a href="({t_url m=pc a=page_h_bookmark_diary_blog_list})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="false" data-ajax="true">お気に入り最新({$WORD_DIARY})</a></div>
 
 ({if $total_num})
-({* {{{ commentList *})
-<section class="commentListBox" id="friendDiaryList" data-role="collapsible-set">
+({* {{{ recentList *})
+<section class="commentListBox recentListBox" id="friendDiaryList" data-role="collapsible-set">
 <ul id="diaryListFriend" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({foreach from=$h_diary_list_friend item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
-</section>({* commentList }}} *})
+</section>({* recentList }}} *})
 
 ({* {{{ Pager *})({strip})
 ({if $is_next})
@@ -37,7 +37,7 @@ var page=2;
 
 ({if $c_rss_cache_list})
 ({* {{{ recentList *})
-<section class="commentListBox blogListBox" data-role="collapsible-set">
+<section class="commentListBox recentList blogListBox" data-role="collapsible-set">
 <h2>({$WORD_MY_FRIEND})最新Blog</h2>
 <ul id="recentBlog" class="pictureIconList " data-role="listview" data-inset="false">
 ({foreach from=$c_rss_cache_list item=item})
