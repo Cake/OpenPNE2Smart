@@ -1,37 +1,31 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
 
-({if $c_ashiato_list})
-
-({* {{{ ashiatoList *})
-<div class="dparts ashiatoList"><div class="parts">
-<div class="partsHeading"><h3>あしあと</h3></div>
-<div class="partsInfo">
-<p>({$c_member.nickname})さんのページを訪れた人たちです。最新30件までを表示、同一人物・同一日付のアクセスは最新の日時だけが表示されます。</p>
-</div>
+({* {{{ ashiatoList *})<section class="commentListBox ashiatoListBox" id="ashiatoListBox" data-role="collapsible-set">
+<p>({$c_member.nickname})さんのページを訪れた人たちです。</p>
+<p class="strong">総アクセス数: ({$c_ashiato_num})<p>
+<h4>最近のあしあと</h4>
 <div class="item">
-<p>ページ全体のアクセス数：<strong>({$c_ashiato_num})</strong> アクセス</p>
-<ul class="list">
-({foreach from=$c_ashiato_list item=c_ashiato})
-<li>({$c_ashiato.r_datetime|date_format:"%Y年%m月%d日 %H:%M"}) <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_ashiato.c_member_id_from})">({$c_ashiato.nickname|default:"&nbsp;"})</a></li>
+({if $c_ashiato_list})
+<ul id="ashiatoList({$u})" class="pictureIconList ashiatoList" data-role="listview" data-inset="false">
+({foreach from=$c_ashiato_list item=item})
+<li class="commentList"><a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})"><section class="authorBar">
+<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="itemData">
+<div class="title authorData">({$item.nickname})</div>
+<div class="commentListFooter">
+<time datetime="({$item.r_datetime|date_format:"%Y/%m/%d %H:%M"})" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+</div></div>
+</section></a></li>
 ({/foreach})
 </ul>
-</div>
-</div></div>
-({* }}} *})
-
 ({else})
-
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>あしあと</h3></div>
-<div class="block">
 <p>まだあしあとはありません。</p>
-</div>
-</div></div>
-({* }}} *})
-
 ({/if})
+</div>
+</section>({* ashiatoList }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

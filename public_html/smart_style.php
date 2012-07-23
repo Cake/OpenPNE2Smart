@@ -142,6 +142,9 @@ div.topNav ul li a.ui-btn span {
 	overflow: hidden;
 }
 
+.strong {
+	font-weight: bold;
+}
 
 /**=============================================================================
  * アイコン

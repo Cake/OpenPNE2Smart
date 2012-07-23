@@ -36,6 +36,9 @@ function db_ashiato_c_ashiato_list4c_member_id($c_member_id_to, $count)
     foreach ($result as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id_from']);
         $result[$key]['nickname'] = $c_member['nickname'];
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $result[$key]['image_filename'] = $c_member['image_filename'];
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
     return $result;
 }
