@@ -16,6 +16,7 @@
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'f_home'
+	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
@@ -28,6 +29,7 @@
 })({ext_include file="common/inc_header_nav_c_com.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'c_com_topic_find'
+	|| ($INC_HEADER_page_name == 'fh_com_list' && (!$requests.c_member_id || $requests.c_member_id == $u))
 	|| $INC_HEADER_page_name == 'h_com_comment_list'
 	|| $INC_HEADER_page_name == 'h_com_find_all'
 	|| $INC_HEADER_page_name == 'h_com_topic_find_all'

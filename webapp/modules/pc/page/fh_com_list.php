@@ -34,6 +34,10 @@ class pc_page_fh_com_list extends OpenPNE_Action
         $this->set("target_member", db_member_c_member4c_member_id($target_c_member_id));
 
         $page_size = 50;
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $page_size = 12;
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
 
         $this->set("page", $page);
 

@@ -284,7 +284,6 @@ a .itemData .title *,
 
 /*==============================================================================
  * 4. infoBox（案内ボックス）
-
  *----------------------------------------------------------------------------*/
 
 
@@ -528,6 +527,63 @@ ul.pictureIconList li.commentList .commentListFooter span {
 
 #h_confirm_list .communityRequest .ui-li-thumb {
 	position: relative;
+}
+
+/*==============================================================================
+ * 37. photoTable（写真テーブル）
+ *----------------------------------------------------------------------------*/
+#fh_com_list .ui-content {
+	padding: 0 5px;
+	margin-bottom: 30px;
+}
+
+ul.photoTable {
+	margin: 0 !important;
+}
+
+ul.photoTable li {
+	border: 1px solid #ddd;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+	float: left;
+	margin: 0;
+	padding: 2px;
+	width: 90px;
+	height: 100px;
+}
+
+ul.photoTable li.photoCell {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+}
+
+ul.photoTable li.photoCell span.ui-icon {
+	right: -25px;
+}
+
+ul.photoTable li.photoCell a.ui-link-inherit {
+	padding: 2px;
+}
+
+ul.photoTable li.pagerTable .ui-li {
+
+	margin-top: 25px;
+}
+ul.photoTable li.photoCell .ui-li .photo {
+	display: table-cell;
+	width: 90px;
+	height: 80px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+ul.photoTable li.photoCell .ui-li .itemData {
+	width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.4em;
+	text-align: center;
 }
 
 /*==============================================================================

@@ -126,7 +126,7 @@ function submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListv
 			if (totalPageNum > page) {
 				page++;
 			} else {
-				$("#"+pagerId+" span.next").remove();
+				$("#"+pagerId).remove();
 			}
 
 			// スタイル更新
