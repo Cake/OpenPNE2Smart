@@ -41,6 +41,11 @@ class pc_page_c_edit_member extends OpenPNE_Action
         $this->set("is_next", $list[2]);
         $this->set("page", $page);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num =  ceil($list[3] / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }
