@@ -1,8 +1,13 @@
-<style type="text/css">
+<script language="JavaScript">
 <!--
-div.ui-slider-switch { width: 9em!important }
--->
-</style>
+var is_comment_input = "({$requests.is_comment_input})";
+
+$('#h_diary_add').live('pageinit',function(event){
+	$("select#is_comment_input").val(is_comment_input)
+	$("select#is_comment_input").slider("refresh");
+});
+//-->
+</script>
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
@@ -65,8 +70,8 @@ div.ui-slider-switch { width: 9em!important }
 <div data-role="containing-element">
 <label for="is_comment_input">コメント許可</label>
 <select name="is_comment_input" id="is_comment_input" data-role="slider">
-	<option value="1"({if $form_val.is_comment_input}) checked="checked"({/if})>許可する</option>
 	<option value="0"({if !$form_val.is_comment_input}) checked="checked"({/if})>許可しない</option>
+	<option value="1"({if $form_val.is_comment_input}) checked="checked"({/if})>許可する</option>
 </select>
 </div>
 ({/if})

@@ -3,15 +3,14 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl" msg="以下の内容でよろしいですか？"})
 
-({* {{{ formTable *})
-<table>
+({* {{{ formTable *})<table>
 <tr>
 <th>タイトル</th>
 <td>({$form_val.subject})</td>
 </tr>
 <tr>
 <th>本文</th>
-<td>({$form_val.body|nl2br|t_url2cmd:'diary':$member.c_member_id|t_cmd:'diary'|t_decoration})</td>
+<td>({$form_val.body|t_url2a|nl2br|t_decoration})</td>
 </tr>
 ({if $form_val.upfile_1.name})
 <tr>
@@ -74,16 +73,15 @@
 <input type="hidden" name="is_comment_input" value="({$form_val.is_comment_input})" />
 <input type="submit" class="input_submit" value="作成" />
 ({/t_form_block})
-({t_form_block m=pc a=page_h_diary_add})
-<input type="hidden" name="subject" value="({$form_val.subject})" _attr='data-ajax="false"' />
+({t_form_block m=pc a=page_h_diary_add _attr='data-ajax="false"'})
+<input type="hidden" name="subject" value="({$form_val.subject})" />
 <input type="hidden" name="body" value="({$form_val.body})" />
 <input type="hidden" name="public_flag" value="({$form_val.public_flag})" />
 <input type="hidden" name="category" value="({$form_val.category})" />
 <input type="hidden" name="is_comment_input" value="({$form_val.is_comment_input})" />
 <input type="submit" class="input_submit" value="修正" />
 ({/t_form_block})
-</div>
-({* }}} *})
+</div>({* formTable }}} *})
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
