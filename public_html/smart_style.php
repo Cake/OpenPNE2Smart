@@ -542,6 +542,11 @@ ul.pictureIconList li.commentList .commentListFooter span {
 #fh_com_list .ui-content {
 	padding: 0 5px;
 	margin-bottom: 30px;
+	text-align:center;
+}
+section.photoTableBox {
+	margin: 15px auto;
+	width: 300px;
 }
 
 ul.photoTable {
@@ -591,6 +596,10 @@ ul.photoTable li.photoCell .ui-li .itemData {
 	text-overflow: ellipsis;
 	height: 1.4em;
 	text-align: center;
+}
+
+section.photoTableBox + * {
+	clear: both;
 }
 
 /*==============================================================================
