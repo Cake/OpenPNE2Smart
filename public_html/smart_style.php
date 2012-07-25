@@ -599,3 +599,8 @@ ul.photoTable li.photoCell .ui-li .itemData {
 .formTable {
 	margin-top: 15px;
 }
+
+#h_diary_add div.ui-slider-switch,
+#h_diary_edit div.ui-slider-switch {
+	width: 9em!important;
+}
