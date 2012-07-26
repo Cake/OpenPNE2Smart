@@ -3,9 +3,7 @@
 <div class="content" data-role="content">({* {{{ content *})
 
 ({* {{{ ashiatoList *})<section class="commentListBox ashiatoListBox" id="ashiatoListBox" data-role="collapsible-set">
-<p>({$c_member.nickname})さんのページを訪れた人たちです。</p>
-<p class="strong">総アクセス数: ({$c_ashiato_num})<p>
-<h4>最近のあしあと</h4>
+<h3>最近のあしあと</h3>
 <div class="item">
 ({if $c_ashiato_list})
 <ul id="ashiatoList({$u})" class="pictureIconList ashiatoList" data-role="listview" data-inset="false">
@@ -20,6 +18,12 @@
 </section></a></li>
 ({/foreach})
 </ul>
+
+<div class="descriptionBox">
+<p class="strong">総アクセス数: ({$c_ashiato_num})<p>
+<p>({$c_member.nickname})さんのページを訪れた人たちです。</p>
+</div>
+
 ({else})
 <p>まだあしあとはありません。</p>
 ({/if})
