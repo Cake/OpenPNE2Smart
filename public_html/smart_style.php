@@ -560,7 +560,7 @@ ul.photoTable li {
 	margin: 0;
 	padding: 2px;
 	width: 90px;
-	height: 100px;
+	height: 135px;
 }
 
 ul.photoTable li.photoCell {
@@ -590,12 +590,14 @@ ul.photoTable li.photoCell .ui-li .photo {
 	text-align: center;
 }
 
-ul.photoTable li.photoCell .ui-li .itemData {
+ul.photoTable li.photoCell .ui-li .caption {
 	width: 90px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 1.4em;
-	text-align: center;
+	line-height: 1.4em;
+	height: 4.2em;
+	white-space: normal;
+	text-align: left;
 }
 
 section.photoTableBox + * {
