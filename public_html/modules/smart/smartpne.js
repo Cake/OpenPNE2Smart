@@ -141,6 +141,26 @@ function submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListv
 	});
 }
 
+/* カルーセルスワイプ */
+function carrouselSwipeLeft(Id, move){
+	if (swipe_num >= 0 && swipe_num < swipe_limit) {
+//			$(Id).css('left', '-'+move*(swipe_num + 1)+'px');
+		$(Id).animate({ 
+			left: '-'+move*(swipe_num + 1)+'px'
+		}, 500 );
+		swipe_num++;
+	}
+}
+function carrouselSwipeRight(Id, move){
+	if (swipe_num > 0) {
+//			$(Id).css('left', '-'+move+*(swipe_num -1)+'px');
+		$(Id).animate({ 
+			left: '-'+move*(swipe_num -1)+'px'
+		}, 500);
+		swipe_num--;
+	}
+}
+
 /* メニューの開閉 */
 function menuToggle(){
 	if ($('div#menu ').css('display') != 'none') {

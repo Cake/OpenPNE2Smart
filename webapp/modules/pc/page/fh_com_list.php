@@ -35,14 +35,22 @@ class pc_page_fh_com_list extends OpenPNE_Action
 
         $page_size = 50;
         /* OpenPNE2 スマートフォン対応：ここから */
-        // 3x3面表示
-        $page_size = 9;
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            // 3x3面表示
+            $page_size = 9;
+        }
         /* OpenPNE2 スマートフォン対応：ここまで */
-
 
         $this->set("page", $page);
 
-        list($c_commu_list, $pager) = db_commu_c_commu_list4c_member_id($target_c_member_id, $page, $page_size);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        if ($smartPhone->is_smart) {
+            list($c_commu_list, $pager) = db_commu_all_c_commu_list4c_member_id($target_c_member_id, $page_size);
+        } else {
+            list($c_commu_list, $pager) = db_commu_c_commu_list4c_member_id($target_c_member_id, $page, $page_size);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         $this->set("fh_com_list_user", $c_commu_list);
         $this->set("pager", $pager);

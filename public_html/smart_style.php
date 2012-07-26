@@ -207,6 +207,51 @@ div.operation ul {
 	margin-bottom: 0;
 }
 
+.pagerAbsolute {
+	width: 290px;
+	height: 77px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	margin: 10px auto 0;
+	padding: 0;
+}
+
+.pagerAbsolute ul.tab {
+
+}
+
+.pagerAbsolute ul.tab li {
+	position: relative;
+	float: left;
+	margin: 6px;
+	width: 44px;
+	height: 33px;
+	padding-top: 11px;
+	border: 1px solid #DDDDDD;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.pagerAbsolute + * {
+	clear: both;
+}
+
+.pagerAbsoluteButton {
+	position: relative;
+	width: 320px;
+	margin: 0 auto;
+	padding: 0;
+	top: -55px;
+}
+
+.pagerAbsoluteButton a#pagerAbsoluteButtonLeft {
+	left: -10px;
+}
+.pagerAbsoluteButton #pagerAbsoluteButtonRight {
+	position: absolute;
+	top: -7px;
+	right: -10px;
+}
 
 /*----------------------------------------------
  * 写真＋情報バー
@@ -544,9 +589,18 @@ ul.pictureIconList li.commentList .commentListFooter span {
 	margin-bottom: 30px;
 	text-align:center;
 }
+
 section.photoTableBox {
 	margin: 15px auto;
 	width: 300px;
+	height: 405px;
+}
+
+section.photoTableBox ul {
+	display: none;
+}
+section.photoTableBox ul:first-child {
+	display: block;
 }
 
 ul.photoTable {
