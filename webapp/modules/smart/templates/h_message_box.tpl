@@ -59,7 +59,7 @@ var page=2;
 ({* {{{ messageList *})
 ({* {{{ recentListBox *})
 <section class="commentListBox messageListBox" id="messageListBox" data-role="collapsible-set">
-<ul id="messageList" class="pictureIconList" data-role="listview" data-inset="false"> 
+<ul id="messageList_$box" class="pictureIconList" data-role="listview" data-inset="false"> 
 ({if $box == "inbox" || !$box})
 ({foreach from=$c_message_ru_list item=item})
 ({ext_include file="inc_h_message_list.tpl"})

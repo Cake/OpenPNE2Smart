@@ -16,7 +16,7 @@ var page=2;
 ({ext_include file="inc_commu_member_manage_list.tpl"})
 ({/foreach})
 </ul>
-</section>({* messageList }}} *})
+</section>({* manageList }}} *})
 
 ({if $is_next})
 <div class="pagerRelative" id="community({$c_commu.c_commu_id})MemberManageListNextPager">
