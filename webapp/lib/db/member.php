@@ -42,6 +42,23 @@ function db_member_c_member4c_member_id($c_member_id, $is_secure = false, $with_
 
     if ($with_profile) {
         $c_member['profile'] = db_member_c_member_profile_list4c_member_id($c_member_id, $public_flag);
+
+        /* OpenPNE2 スマートフォン対応：ここから */
+        foreach ($c_member['profile'] as $k => $v) {
+            $c_member['profile'][$k]['isShorten'] = false;
+            if ($v['form_type'] == 'textarea') {
+                if(substr_count($v['value'], "\n") >= 3
+                    || substr_count("\n", $v['value']) >= 3) {
+                        $c_member['profile'][$k]['isShorten'] = true;
+                } else {
+                    if (strlen($v['value']) >= 210) {
+                        $c_member['profile'][$k]['isShorten'] = true;
+                    }
+                }
+            }
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
     }
 
     // public_flag_birth_year, public_flag_birth_month_day

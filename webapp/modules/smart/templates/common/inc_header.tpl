@@ -14,12 +14,14 @@
 	|| $INC_HEADER_page_name == 'h_diary_comment_list'
 	|| $INC_HEADER_page_name == 'h_diary_list_friend'
 	|| $INC_HEADER_page_name == 'h_diary_list_all'
+	|| $INC_HEADER_page_name == 'h_prof'
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'f_home'
 	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
+	|| $INC_HEADER_page_name == 'f_home'
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'c_home'

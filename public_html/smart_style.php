@@ -498,6 +498,41 @@ ul.ui-listview + .descriptionBox  {
 }
 
 /*==============================================================================
+ * 11. homePhotoBox（ホーム写真ボックス）
+ *----------------------------------------------------------------------------*/
+.homePhotoBox .photo120 {
+	display: table-cell;
+	width: 125px;
+	height: 125px;
+	margin: 0 auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.homePhotoBox .photo120 + .itemData {
+	margin-left: 140px !important;
+	position: absolute;
+	top: 125px;
+}
+
+.homePhotoBox .prof_textarea {
+	max-height: 3.6em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.homePhotoBox .commentListFooter {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-size: 80%;
+	clear: both;
+}
+
+.homePhotoBox + * {
+	clear: both;
+}
+
+/*==============================================================================
  * 17. searchFormLine（検索フォームライン）
  *----------------------------------------------------------------------------*/
 .searchFormLine {
@@ -646,6 +681,7 @@ ul.pictureIconList li.commentList .commentListFooter span {
 }
 
 /*==============================================================================
+ * 36. homeNineTable（ホーム9面テーブル）
  * 37. photoTable（写真テーブル）
  *----------------------------------------------------------------------------*/
 #fh_com_list .ui-content {
@@ -718,8 +754,18 @@ ul.photoTable li.photoCell .ui-li .caption {
 	text-align: left;
 }
 
-section.photoTableBox + * {
+section.photoTableBox + *,
+ul.photoTable + * {
 	clear: both;
+}
+
+/*==============================================================================
+ * 38. homeMainTable（ホームメインテーブル）
+ *----------------------------------------------------------------------------*/
+.homeMainTable .itemBody {
+	max-height: 3.6em;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 /*==============================================================================
