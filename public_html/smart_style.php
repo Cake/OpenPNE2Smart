@@ -22,6 +22,60 @@ ul {
 	padding: 0;
 }
 
+/*==============================================================================
+ * jQuery-UIの上書き
+ *----------------------------------------------------------------------------*/
+/* タブ */
+.ui-tabs,
+.ui-tabs .ui-tabs-nav {
+	padding: 0;
+}
+
+.ui-tabs {
+	border: 1px solid #aaa;
+	background: none repeat scroll 0 0 transparent;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 100%;
+	margin-top: 20px;
+}
+.ui-tabs .ui-collapsible-heading {
+	margin: 0 auto;
+}
+
+.ui-tabs .ui-collapsible-heading a {
+	border: 0 none;
+}
+
+.ui-tabs  .ui-collapsible-content {
+	margin: 0 auto;
+	padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav {
+	border-left: 0 none;
+	border-top: 0 none;
+	border-right: 0 none;
+	border-bottom: 1px solid #aaa;
+}
+
+.ui-tabs .ui-tabs-panel {
+	background: none repeat scroll 0 0 transparent;
+	height: 100%;
+	padding: 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+}
+
+.homeTab .ui-collapsible-content {
+	padding: 0;
+}
+
+.homeTab  .ui-tabs {
+	margin-top: 0;
+}
+
 /*----------------------------------------------
  * セクション
  *--------------------------------------------*/
@@ -269,7 +323,6 @@ div.operation ul {
 .authorBar .photo76 {
 	width: 81px;
 }
-
 .authorBar .photo48 {
 	width: 53px;
 }
