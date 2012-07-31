@@ -500,6 +500,10 @@ ul.ui-listview + .descriptionBox  {
 /*==============================================================================
  * 11. homePhotoBox（ホーム写真ボックス）
  *----------------------------------------------------------------------------*/
+.homePhotoBox {
+	height: 135px;
+}
+
 .homePhotoBox .photo120 {
 	display: table-cell;
 	width: 125px;
@@ -684,6 +688,7 @@ ul.pictureIconList li.commentList .commentListFooter span {
  * 36. homeNineTable（ホーム9面テーブル）
  * 37. photoTable（写真テーブル）
  *----------------------------------------------------------------------------*/
+#c_event_member_list .ui-content,
 #fh_com_list .ui-content {
 	padding: 0 5px;
 	margin-bottom: 30px;
@@ -733,9 +738,9 @@ ul.photoTable li.photoCell a.ui-link-inherit {
 }
 
 ul.photoTable li.pagerTable .ui-li {
-
 	margin-top: 25px;
 }
+
 ul.photoTable li.photoCell .ui-li .photo {
 	display: table-cell;
 	width: 90px;

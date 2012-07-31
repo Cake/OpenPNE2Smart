@@ -28,6 +28,7 @@
 	|| $INC_HEADER_page_name == 'c_edit_member'
 	|| $INC_HEADER_page_name == 'c_event_detail'
 	|| $INC_HEADER_page_name == 'c_event_list'
+	|| $INC_HEADER_page_name == 'c_event_member_list'
 	|| $INC_HEADER_page_name == 'c_topic_detail'
 	|| $INC_HEADER_page_name == 'c_topic_list'
 })({ext_include file="common/inc_header_nav_c_com.tpl"})({/if})

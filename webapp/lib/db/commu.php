@@ -2330,6 +2330,16 @@ function db_commu_c_event_member_list4c_commu_topic_id($c_commu_topic_id, $page,
     $params = array(intval($c_commu_topic_id));
     return db_get_all_page($sql, $page, $page_size, $params);
 }
+/* OpenPNE2 スマートフォン対応：ここから */
+function db_commu_c_event_member_list_all4c_commu_topic_id($c_commu_topic_id)
+{
+    $sql = "SELECT cm.* FROM c_member as cm, c_event_member as cem" .
+            " WHERE cm.c_member_id = cem.c_member_id" .
+            " AND cem.c_commu_topic_id = ?";
+    $params = array(intval($c_commu_topic_id));
+    return db_get_all($sql, $params);
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
 
 function db_commu_count_c_event_member_list4c_commu_topic_id($c_commu_topic_id)
 {

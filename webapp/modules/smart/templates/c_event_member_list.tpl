@@ -1,174 +1,80 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+// swipe
+var swipe_limit = (({$total_c_event_member}) + 1)/5 - 1;
+var pagerId = '#event({$c_topic.c_commu_topic_id})memberPhotoTablePagerList';
+var swipe_num = 0;
+
+// ページャ
+$(function() {
+	$(".tab li").click(function() {
+		var num = $(this).attr('title');
+		var idContent = "#event({$c_topic.c_commu_topic_id})memberPhotoTable"+num+"content";
+		var content = $(idContent);
+
+		$("section.photoTableBox ul").hide();
+		content.show();
+		$(".tab li").attr('class', 'ui-btn-up-c');
+		$(this).attr('class', 'ui-btn-up-b')
+	});
+});
+
+$('#({$INC_HEADER_page_name})').live('pageinit',function(event){
+	$(".pagerAbsolute ul").css('width', 60 * ({$total_c_event_member}));
+
+	// swipe
+({if $total_c_event_member > 5})({literal})
+	$(pagerId).bind("swipeleft", function(){
+		carrouselSwipeLeft(pagerId+' ul li', '240');
+	});
+	$(pagerId).bind("swiperight", function(){
+		carrouselSwipeRight(pagerId+' ul li', '240'
+		);
+	});
+({/literal})({/if})
+});
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
 ({if $c_topic.member_num})
-({* {{{ photoTable *})
-<div class="dparts photoTable"><div class="parts">
-<div class="partsHeading"><h3>イベント参加者一覧</h3></div>
-
-({capture name=pager})({strip})
-<div class="pagerAbsolute">
-<p>[ ({foreach from=$page_num item=item})({if $item != $page})<a href="({t_url m=pc a=page_c_event_member_list})&amp;page=({$item})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">({$item})</a>({else})({$item})({/if}) ({/foreach})]</p>
+({* {{{ pagerList *})({capture name=pager})({strip})
+<div class="pagerAbsolute" id="event({$c_topic.c_commu_topic_id})memberPhotoTablePagerList">
+<ul class="tab">
+({foreach from=$page_num key=key item=item name=pager})
+<li class="({if $item == $page})ui-btn-up-b({else})ui-btn-up-c({/if})" id="event({$c_topic.c_commu_topic_id})memberPhotoTable({$item})" title="({$item})">({$item})</li>
+({/foreach})
+</ul>
 </div>
-
-<div class="pagerRelative">
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_c_event_member_list})&amp;page=({$page-1})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">前を表示</a></p>({/if})
-<p class="number">({$start_num})件～({$end_num})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_c_event_member_list})&amp;page=({$page+1})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">次を表示</a></p>({/if})
+({if $pager.total_page > 5})
+<div class="pagerAbsoluteButton">
+<a title="&lt;&lt;" id="pagerAbsoluteButtonLeft" data-icon="arrow-l" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="carrouselSwipeRight(pagerId+' ul li', '240');">&lt;&lt;</a>
+<a title="&gt;&gt;" id="pagerAbsoluteButtonRight" data-icon="arrow-r" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="carrouselSwipeLeft(pagerId+' ul li', '240');">&&gt;&gt;</a>
 </div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
-<table>
-<tr class="photo">
-({t_loop from=$c_event_member_list start=0 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=0 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-
-({if $c_event_member_list[5]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=5 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=5 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
 ({/if})
+({/strip})({/capture})({* pagerList }}} *})
 
-({if $c_event_member_list[10]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=10 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=10 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[15]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=15 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=15 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[20]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=20 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=20 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[25]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=25 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=25 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[30]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=30 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=30 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[35]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=35 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=35 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[40]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=40 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=40 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_event_member_list[45]})
-<tr class="photo">
-({t_loop from=$c_event_member_list start=45 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_event_member_list start=45 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"})</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-</table>
+<h3>イベント参加者一覧</h3>
+({* {{{ photoTable *})<section class="photoTableBox" id="#event({$c_topic.c_commu_topic_id})memberPhotoTableBox" data-role="">
+({foreach from=$page_num key=key item=num name=table})
+<ul id="event({$c_topic.c_commu_topic_id})memberPhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
+({ext_include file="inc_member_table.tpl" member=$c_event_member_list _start=$key*9})
+</ul>
+({/foreach})
+</section>({* photoTable }}} *})
 
 ({$smarty.capture.pager|smarty:nodefaults})
 
-</div></div>
-({* }}} *})
 ({else})
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>イベント参加者一覧</h3></div>
-<div class="block">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+<h3>イベント参加者一覧</h3>
 <p>イベントへの参加者がいません。</p>
-</div>
-</div></div>
-({* }}} *})
+</section>({* simpleBox }}} *})
 ({/if})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})">イベント [({$c_topic.name})] トップへ</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

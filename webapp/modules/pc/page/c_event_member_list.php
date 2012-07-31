@@ -30,8 +30,18 @@ class pc_page_c_event_member_list extends OpenPNE_Action
         $this->set('inc_navi', fetch_inc_navi('c', $c_commu_id));
         $this->set('page', $page);
         $page_size = 50;
-        $c_event_member_list = db_commu_c_event_member_list4c_commu_topic_id($c_commu_topic_id, $page, $page_size);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            // 3x3面表示
+            $page_size = 9;
+            $c_event_member_list = db_commu_c_event_member_list_all4c_commu_topic_id($c_commu_topic_id);
+        $total_c_event_member = count($c_event_member_list);
+        } else {
+            $c_event_member_list = db_commu_c_event_member_list4c_commu_topic_id($c_commu_topic_id, $page, $page_size);
         $total_c_event_member = db_commu_count_c_event_member_list4c_commu_topic_id($c_commu_topic_id);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         $start_num = ($page-1) * $page_size + 1;
         $end_num = $page * $page_size;
