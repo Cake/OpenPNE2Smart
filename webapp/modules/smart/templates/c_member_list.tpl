@@ -1,177 +1,75 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+// swipe
+var swipe_limit = (({$total_num}) + 1)/5 - 1;
+var pagerId = '#community({$c_commu.c_commu_id})memberPhotoTablePagerList';
+var swipe_num = 0;
 
-({* {{{ photoTable *})
-<div class="dparts photoTable"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_COMMUNITY})メンバー</h3></div>
+// ページャ
+$(function() {
+	$(".tab li").click(function() {
+		var num = $(this).attr('title');
+		var idContent = "#community({$c_commu.c_commu_id})memberPhotoTable"+num+"content";
+		var content = $(idContent);
 
-({capture name=pager})({strip})
-<div class="pagerAbsolute">
-<p>[ ({foreach from=$page_num item=item})({if $item!=$page})<a href="({t_url m=pc a=page_c_member_list})&amp;page=({$item})&amp;target_c_commu_id=({$c_commu_id})">({$item})</a>({else})({$item})({/if}) ({/foreach})]</p>
+		$("section.photoTableBox ul").hide();
+		content.show();
+		$(".tab li").attr('class', 'ui-btn-up-c');
+		$(this).attr('class', 'ui-btn-up-b')
+	});
+});
+
+$('#({$INC_HEADER_page_name})').live('pageinit',function(event){
+	$(".pagerAbsolute ul").css('width', 60 * ({$total_num}));
+
+	// swipe
+({if $total_num > 5})({literal})
+	$(pagerId).bind("swipeleft", function(){
+		carrouselSwipeLeft(pagerId+' ul li', '240');
+	});
+	$(pagerId).bind("swiperight", function(){
+		carrouselSwipeRight(pagerId+' ul li', '240'
+		);
+	});
+({/literal})({/if})
+});
+//-->
+</script>
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
+
+({if $c_member_list})
+({* {{{ pagerList *})({capture name=pager})({strip})
+<div class="pagerAbsolute" id="community({$c_commu.c_commu_id})memberPhotoTablePagerList">
+<ul class="tab">
+({foreach from=$page_num key=key item=item name=pager})
+<li class="({if $item == $page})ui-btn-up-b({else})ui-btn-up-c({/if})" id="({$item})memberPhotoTable({$item})" title="({$item})">({$item})</li>
+({/foreach})
+</ul>
 </div>
-
-<div class="pagerRelative">
-({if $is_prev})<p class="prev"><a href="({t_url m=pc a=page_c_member_list})&amp;page=({$page-1})&amp;target_c_commu_id=({$c_commu_id})">前を表示</a></p>({/if})
-<p class="number">({$start_num})件～({$end_num})件を表示</p>
-({if $is_next})<p class="next"><a href="({t_url m=pc a=page_c_member_list})&amp;page=({$page+1})&amp;target_c_commu_id=({$c_commu_id})">次を表示</a></p>({/if})
+({if $pager.total_page > 5})
+<div class="pagerAbsoluteButton">
+<a title="&lt;&lt;" id="pagerAbsoluteButtonLeft" data-icon="arrow-l" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="carrouselSwipeRight(pagerId+' ul li', '240');">&lt;&lt;</a>
+<a title="&gt;&gt;" id="pagerAbsoluteButtonRight" data-icon="arrow-r" data-iconshadow="true" data-shadow="true" data-corners="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="carrouselSwipeLeft(pagerId+' ul li', '240');">&&gt;&gt;</a>
 </div>
-({/strip})({/capture})
-({$smarty.capture.pager|smarty:nodefaults})
-
-<table>
-<tr class="photo">
-({t_loop from=$c_member_list start=0 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=0 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-
-({if $c_member_list[5]})
-<tr class="photo">
-({t_loop from=$c_member_list start=5 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=5 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
 ({/if})
+({/strip})({/capture})({* pagerList }}} *})
 
-({if $c_member_list[10]})
-<tr class="photo">
-({t_loop from=$c_member_list start=10 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=10 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[15]})
-<tr class="photo">
-({t_loop from=$c_member_list start=15 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=15 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[20]})
-<tr class="photo">
-({t_loop from=$c_member_list start=20 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=20 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[25]})
-<tr class="photo">
-({t_loop from=$c_member_list start=25 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=25 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[30]})
-<tr class="photo">
-({t_loop from=$c_member_list start=30 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=30 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[35]})
-<tr class="photo">
-({t_loop from=$c_member_list start=35 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=35 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[40]})
-<tr class="photo">
-({t_loop from=$c_member_list start=40 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=40 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-
-({if $c_member_list[45]})
-<tr class="photo">
-({t_loop from=$c_member_list start=45 num=5})
-<td>({if $item})({if $item.c_member_id == $c_commu.c_member_id_admin})<img src="({t_img_url_skin filename=icon_crown})" alt="" /><br />({/if})
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image})" alt="" /></a>
-({/if})</td>
-({/t_loop})
-</tr>
-<tr class="text">
-({t_loop from=$c_member_list start=45 num=5})
-<td>({if $item})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|default:"&nbsp;"}) (({$item.friend_count}))</a>({/if})</td>
-({/t_loop})
-</tr>
-({/if})
-</table>
+<h3>({$c_commu.name}) メンバー一覧</h3>
+({* {{{ photoTable *})<section class="photoTableBox" id="community({$c_commu.c_commu_id})memberPhotoTableBox" data-role="">
+({foreach from=$page_num key=key item=num name=table})
+<ul id="community({$c_commu.c_commu_id})memberPhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
+({ext_include file="inc_member_table.tpl" member=$c_member_list _start=$key*9})
+</ul>
+({/foreach})
+</section>({* photoTable }}} *})
 
 ({$smarty.capture.pager|smarty:nodefaults})
 
-</div></div>
-({* }}} *})
+({/if})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

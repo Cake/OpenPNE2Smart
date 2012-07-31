@@ -25,11 +25,21 @@ class pc_page_c_member_list extends OpenPNE_Action
         $this->set("c_commu", db_commu_c_commu4c_commu_id($target_c_commu_id));
         $this->set("c_commu_num", db_commu_count_c_commu_member_list4c_commu_id($target_c_commu_id));
 
-        $page_size = 50;
-
         //コミュニティメンバーリスト
-        list($c_member_list, $is_prev, $is_next, $total_num, $start_num, $end_num)
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            // 3x3面表示
+            $page_size = 9;
+            list($c_member_list, $total_num)
+            = db_commu_c_members_all4c_commu_id($target_c_commu_id);
+            $is_prev = $is_next = $start_num = $end_num = 0;
+        } else {
+            $page_size = 50;
+            list($c_member_list, $is_prev, $is_next, $total_num, $start_num, $end_num)
             = db_commu_c_members4c_commu_id($target_c_commu_id, $page_size, $page);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         $this->set("c_member_list", $c_member_list);
         $this->set("is_prev", $is_prev);

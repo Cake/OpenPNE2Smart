@@ -648,6 +648,26 @@ function db_commu_c_members4c_commu_id($c_commu_id, $page_size, $page)
     return array($list , $prev , $next, $total_num, $start_num, $end_num);
 }
 
+/* OpenPNE2 スマートフォン対応：ここから */
+function db_commu_c_members_all4c_commu_id($c_commu_id)
+{
+    $sql = 'SELECT c_member_id FROM c_commu_member WHERE c_commu_id = ? ORDER BY r_datetime DESC';
+    $params = array(intval($c_commu_id));
+    $id_list = db_get_all($sql, $params);
+
+    $list = array();
+    foreach ($id_list as $key => $value) {
+        $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
+        $c_member['friend_count'] = db_friend_count_friends($value['c_member_id']);
+        $list[] = $c_member;
+    }
+
+    $total_num = count($list);
+
+    return array($list, $total_num);
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
+
 function db_commu_c_commu_list4c_member_id_2($c_member_id, $limit = 9)
 {
     static $is_recurred = false;  //再帰処理中かどうかの判定フラグ

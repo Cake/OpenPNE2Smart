@@ -689,6 +689,7 @@ ul.pictureIconList li.commentList .commentListFooter span {
  * 37. photoTable（写真テーブル）
  *----------------------------------------------------------------------------*/
 #c_event_member_list .ui-content,
+#c_member_list .ui-content,
 #fh_com_list .ui-content {
 	padding: 0 5px;
 	margin-bottom: 30px;
