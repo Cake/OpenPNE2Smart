@@ -155,6 +155,45 @@ function db_friend_friend_list4c_member_id2($c_member_id, $page_size, $page, $or
 
     return array($friend_list , $prev , $next, $total_page_num);
 }
+/* OpenPNE2 スマートフォン対応：ここから */
+function db_friend_friend_list_all4c_member_id2($c_member_id, $orderby)
+{
+    switch ($orderby) {
+    case "ld":
+        $orderby = "m.access_date DESC";
+        break;
+    case "la":
+        $orderby = "m.access_date";
+        break;
+    case "rd":
+        $orderby = "f.r_datetime DESC";
+        break;
+    case "ra":
+        $orderby = "f.r_datetime";
+        break;
+    default:
+        $orderby = "f.r_datetime DESC";
+    }
+
+    $sql = "SELECT" .
+          " m.c_member_id, m.access_date, m.nickname, m.image_filename" .
+          ", f.intro, f.r_datetime" .
+        " FROM c_member AS m, c_friend AS f" .
+        " WHERE f.c_member_id_from = ?" .
+          " AND f.c_member_id_to = m.c_member_id" .
+        " ORDER BY ". $orderby;
+    $params = array(intval($c_member_id));
+    $friend_list = db_get_all($sql, $params);
+
+    foreach ($friend_list as $key => $value) {
+        $friend_list[$key]['friend_count'] = db_friend_count_friends($value['c_member_id']);
+    }
+
+    $total_num = db_friend_count_friends($c_member_id);
+
+    return array($friend_list , 0 , 0, 0, $total_num);
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
 
 function db_friend_intro_list4c_member_id($c_member_id)
 {

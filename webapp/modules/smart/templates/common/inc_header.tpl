@@ -8,6 +8,7 @@
 ({if 
 	($INC_HEADER_page_name == 'fh_diary' && $type == "h")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "h")
+	|| ($INC_HEADER_page_name == 'fh_friend_list' && $type == "h")
 	|| $INC_HEADER_page_name == 'h_bookmark_diary_blog_list'
 	|| $INC_HEADER_page_name == 'h_diary_add'
 	|| $INC_HEADER_page_name == 'h_diary_edit'
@@ -21,6 +22,7 @@
 	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
+	|| ($INC_HEADER_page_name == 'fh_friend_list' && $type == "f")
 	|| $INC_HEADER_page_name == 'f_home'
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
 ({if 

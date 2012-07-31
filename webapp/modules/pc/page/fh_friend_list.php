@@ -51,7 +51,23 @@ class pc_page_fh_friend_list extends OpenPNE_Action
         $page_size = 50;
 
         //ターゲットの詳細な友達リスト
-        $list = db_friend_friend_list4c_member_id2($target_c_member_id, $page_size, $page, $order);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            // 3x3面表示
+            $page_size = 9;
+            $list = db_friend_friend_list_all4c_member_id2($target_c_member_id, $order);
+            $list[3] =  ceil($list[4] / $page_size);
+            if ($page_size < $list[4]) {
+                $list[2] = 1;
+            }
+            $this->set("total_num", $list[4]);
+        } else {
+            $page_size = 50;
+            $list = db_friend_friend_list4c_member_id2($target_c_member_id, $page_size, $page, $order);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         $this->set("order", $order);
 
         $this->set("target_friend_list_disp", $list[0]);
