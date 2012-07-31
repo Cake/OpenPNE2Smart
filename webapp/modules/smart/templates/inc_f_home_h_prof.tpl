@@ -1,14 +1,25 @@
-<script type="text/javascript">
-$(function(){
-    $('.tabs').tabs();
-});
-</script>
 ({if !$is_h_prof})
 ({assign var=id_header value=prof})
 ({else})
 ({assign var=id_header value=$target_c_member.c_member_id|string_format:"member%sHome"})
 ({/if})
-<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+<script language="JavaScript">
+<!--
+// タブ
+$('.inc_f_home_h_prof').live('pageinit',function(event){
+	$(".tab li").click(function() {
+		var id = $(this).attr('id');
+		var content = $("#"+id+"-Content");
+
+		content.siblings().hide();
+		content.show();
+		$(this).siblings().attr('class', 'ui-btn-up-c');
+		$(this).attr('class', 'ui-btn-up-b')
+	});
+});
+//-->
+</script>
+<div class="page inc_f_home_h_prof" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
@@ -40,6 +51,18 @@ $(function(){
 </section>({* homePhotoBox }}} *})
 
 
+({* {{{ simpleBox *})<section class="simpleBox" id="member({if !$is_h_prof})({$target_c_member.c_member_id})({/if})homeLinkBox" data-role="">
+<span>
+({if !$is_friend})
+<a href="({t_url m=pc a=do_f_link_request})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;sessid=({$PHPSESSID})" data-role="button" data-inline="true" data-mini="true" data-ajax="false">({$WORD_MY_FRIEND})追加</a>
+({elseif $relation.wait==1})
+({$WORD_FRIEND_HALF})承認待ち
+({/if})
+</span>
+<span><a href="({t_url m=pc a=page_f_bookmark_add})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="true" data-mini="true" data-ajax="true">お気に入り追加</a></span>
+</div>
+</section>({* simpleBox }}} *})
+
 ({if $is_h_prof})({* {{{ URL *})
 ({* {{{ descriptionBox *})<section class="descriptionBox" id="({$id_header})Url">
 <p>※他のメンバーから見たあなたのページはこのようになります。</p>
@@ -60,32 +83,6 @@ $(function(){
 </p></section>({* descriptionBox }}} *})
 ({/if})({* Birthday }}} *})
 ({/if})
-
-({* {{{ simpleBox *})<section class="simpleBox" id="member({if !$is_h_prof})({$target_c_member.c_member_id})({/if})homeLinkBox" data-role="">
-<div>
-<span>
-<a href="javascript:void(0);" data-role="button" data-inline="true" data-mini="true" data-ajax="true">プロフィール</a></span>
-<span>
-<a href="javascript:void(0);" data-role="button" data-inline="true" data-mini="true" data-ajax="true">最新情報</a></span>
-<span>
-<a href="javascript:void(0);" data-role="button" data-inline="true" data-mini="true" data-ajax="true">紹介文</a></span>
-</div>
-<div>
-<span>
-<a href="javascript:void(0);" data-role="button" data-inline="true" data-mini="true" data-ajax="true">({$WORD_FRIEND})</a></span>
-<span>
-<a href="javascript:void(0);" data-role="button" data-inline="true" data-mini="true" data-ajax="true">参加({$WORD_COMMUNITY})</a></span>
-</div>
-<div>
-<span>
-({if !$is_friend})
-<a href="({t_url m=pc a=do_f_link_request})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;sessid=({$PHPSESSID})" data-role="button" data-inline="true" data-mini="true" data-ajax="false">({$WORD_MY_FRIEND})追加</a>
-({elseif $relation.wait==1})
-({$WORD_FRIEND_HALF})承認待ち
-({/if})
-</span>
-<span><a href="({t_url m=pc a=page_f_bookmark_add})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="true" data-mini="true" data-ajax="true">お気に入り追加</a></span></div>
-</section>({* simpleBox }}} *})
 
 ({* {{{ homeMainTable *})<section class="homeMainTable homeProfileBox" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>プロフィール</h3>
@@ -161,70 +158,74 @@ $(function(){
 
 
 ({if $c_diary_list || $c_rss_cache_list})
-({* {{{ homeMainTable *})<section class="homeMainTable recentListBox homeTab" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-inset="true" data-content-theme="c">
 <h3>({if $c_diary_list && $c_rss_cache_list})最新情報({elseif $c_diary_list})最新({$WORD_DIARY})({elseif $c_rss_cache_list})最新Blog({/if})</h3>
+<div class="homeMainTableTabs" id="({$id_header})RelationTableTabs">
 ({if $c_diary_list && $c_rss_cache_list})
-<div class="tabs" id="({$id_header})RelationTableTabs">
-<ul>
-<li><a href="#recentList-1">最新({$WORD_DIARY})</a></li>
-<li><a href="#recentList-2">最新Blog</a></li>
+<ul class="tab">
+<li class="ui-btn-up-b" id="recentList-1-({$target_c_member_id})">最新({$WORD_DIARY})</li>
+<li class="ui-btn-up-c" id="recentList-2-({$target_c_member_id})">最新Blog</li>
 </ul>
 ({/if})
+({* {{{ homeMainTable *})<section class="homeMainTable" id="({$id_header})recentTable">
 ({if $c_diary_list})
-<section class="({$id_header})friendRecentDiaryBox" id="recentList-1">
-<ul class="pictureIconList" id="({$id_header})friendRecentDiary" data-role="listview" data-inset="true">
+<div class="recentListBox" id="recentList-1-({$target_c_member_id})-Content">
+<ul class="pictureIconList" id="({$id_header})friendRecentDiary" data-role="listview">
 ({assign var=target_member value=$target_c_member})
 ({foreach from=$c_diary_list item=item})
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></div>
-</section>
+</div>
 ({/if})
 ({if $c_rss_cache_list})
-<section class="({$id_header})friendRecentBlog" id="recentList-2">
-<ul class="pictureIconList" id="({$id_header})friendRecentBlog" data-role="listview" data-inset="false">
+<div class="recentListBox" id="recentList-2-({$target_c_member_id})-Content">
+<ul class="pictureIconList" id="({$id_header})friendRecentBlog" data-role="listview">
 ({foreach from=$c_rss_cache_list item=item})
 ({ext_include file="inc_blog_list.tpl"})
 ({/foreach})
 </ul>
-<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})#blog" data-role="button" data-inline="true" data-mini="false" data-ajax="true">もっと読む</a></div>
-</section>
+<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})#blog" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></div>
+</div>
+</section>({* homeMainTable }}} *})
 ({/if})
-</section>({* }}} *})
+</div>
+</section>({* homeTab }}} *})
 ({/if})
 
-({* homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false">
-<h3>({$WORD_FRIEND_HALF})・({$WORD_COMMUNITY_HALF})</h3>
-<div class="tabs" id="({$id_header})RelationTableTabs">
-<ul>
-<li><a href="#relationTable-1">({$WORD_FRIEND})</a></li>
-<li><a href="#relationTable-2">({$WORD_COMMUNITY})</a></li>
+({if $c_friend_list || $c_commu_list})
+({* {{{ homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-inset="true" data-content-theme="c">
+<h3>({if $c_friend_list && $c_commu_list})({$WORD_FRIEND_HALF})・({$WORD_COMMUNITY_HALF})({elseif $c_friend_list})({$WORD_FRIEND})({elseif $c_commu_list})({$WORD_COMMUNITY})({/if})</h3>
+<div class="homeMainTableTabs" id="({$id_header})RelationTableTabs">
+({if $c_friend_list && $c_commu_list})
+<ul class="tab">
+<li class="ui-btn-up-b" id="relationTable-1-({$target_c_member_id})">({$WORD_FRIEND})</li>
+<li class="ui-btn-up-c" id="relationTable-2-({$target_c_member_id})">({$WORD_COMMUNITY})</li>
 </ul>
-({* {{{ homeNineTable *})<section class="photoTableBox memberPhotoTableBox" id="relationTable-1">
+({/if})({* {{{ homeMainTable *})<section class="photoTableBox homeMainTable" id="({$id_header})photoTable">
 ({if $c_friend_list})
+({* {{{ homeNineTable *})<div class="homeNineTable" id="relationTable-1-({$target_c_member_id})-Content">
 <ul id="({$id_header})FriendPhotoTablecontent" class="photoTable" data-role="listview" data-inset="false">
-({ext_include file="inc_member_table.tpl" member=$c_friend_list  _start=$key*9})
+({ext_include file="inc_member_table.tpl" member=$c_friend_list _start=$key*9})
 </ul>
 <div><a href="({t_url m=pc a=page_fh_friend_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全てを見る(({$c_friend_count})人)</a></div>
+</div>({* homeNineTable }}} *})
 ({/if})
-</section>({* homeNineTable }}} *})
-({* {{{ homeNineTable *})<section class="photoTableBox vommunityPhotoTableBox" id="relationTable-2">
 ({if $c_commu_list})
-<ul id="({$id_header})CommunityPhotoTableContent" class="photoTable" data-role="listview" data-inset="false">
-({ext_include file="inc_com_table.tpl" fh_com_list_user=$c_commu_list  _start=$key*9})
+({* {{{ homeNineTable *})<div class="homeNineTable" id="relationTable-2-({$target_c_member_id})-Content">
+<ul id="({$id_header})CommunityPhotoTableContent" class="photoTable" data-role="listview">
+({ext_include file="inc_com_table.tpl" com_list=$c_commu_list _start=$key*9})
 </ul>
 <div class="moreInfo">
 <a href="({t_url m=pc a=page_fh_com_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全てを見る(({$user_count}))</a>
-({if $common_commu_count})
-<a href="({t_url m=pc a=page_f_com_list_common})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">共通({$WORD_COMMUNITY})(({$common_commu_count}))</a>
+({if $common_commu_count})<a href="({t_url m=pc a=page_f_com_list_common})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">共通({$WORD_COMMUNITY})(({$common_commu_count}))</a>({/if})
+</div>({* homeNineTable }}} *})
 ({/if})
-</div>
-({else})
-({/if})
-</section>({* homeNineTable }}} *})
+</section>({* homeMainTable }}} *})
 </div>
 </section>({* homeTab }}} *})
+({/if})
 
 ({if $c_friend_comment_list})
 ({* {{{ friendIntroList *})

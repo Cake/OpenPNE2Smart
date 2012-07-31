@@ -1,4 +1,4 @@
-({t_loop from=$fh_com_list_user item=item start=$_start num=9})
+({t_loop from=$com_list item=item start=$_start num=9})
 ({if $item})
 <li class="photoCell" id="community({$item.c_commu_id})Column" data-icon="arrow-u"({if $item && $item.c_member_id_admin == $target_member.c_member_id}) data-theme=""({/if})>
 <a class="listItemLink" href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$item.c_commu_id})" id="communityLink({$item.c_commu_id})">

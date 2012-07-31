@@ -22,60 +22,6 @@ ul {
 	padding: 0;
 }
 
-/*==============================================================================
- * jQuery-UIの上書き
- *----------------------------------------------------------------------------*/
-/* タブ */
-.ui-tabs,
-.ui-tabs .ui-tabs-nav {
-	padding: 0;
-}
-
-.ui-tabs {
-	border: 1px solid #aaa;
-	background: none repeat scroll 0 0 transparent;
-	font-family: Helvetica,Arial,sans-serif;
-	font-size: 100%;
-	margin-top: 20px;
-}
-.ui-tabs .ui-collapsible-heading {
-	margin: 0 auto;
-}
-
-.ui-tabs .ui-collapsible-heading a {
-	border: 0 none;
-}
-
-.ui-tabs  .ui-collapsible-content {
-	margin: 0 auto;
-	padding: 0;
-}
-
-.ui-tabs .ui-tabs-nav {
-	border-left: 0 none;
-	border-top: 0 none;
-	border-right: 0 none;
-	border-bottom: 1px solid #aaa;
-}
-
-.ui-tabs .ui-tabs-panel {
-	background: none repeat scroll 0 0 transparent;
-	height: 100%;
-	padding: 0;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-}
-
-.homeTab .ui-collapsible-content {
-	padding: 0;
-}
-
-.homeTab  .ui-tabs {
-	margin-top: 0;
-}
-
 /*----------------------------------------------
  * セクション
  *--------------------------------------------*/
@@ -773,6 +719,36 @@ ul.photoTable + * {
 	max-height: 3.6em;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+section.homeTab ul.tab {
+	margin: 10px 0 0;
+	height: 44px;
+}
+section.homeTab ul.tab li {
+	display: inline;
+	height: 44px;
+	margin: 0 10px 0 0;
+	padding: 10px 15px;
+	border: 1px solid #DDD;
+	cursor: pointer;
+	z-index: 1;
+}
+
+section.homeTab .homeMainTable div.recentListBox,
+section.homeTab .homeMainTable div.homeNineTable {
+	display: none;
+}
+section.homeTab .homeMainTable div:first-child {
+	display: block;
+}
+
+.homeTab section.photoTableBox {
+	height: 100%;
+}
+
+.homeTab .ui-collapsible-content {
+/*	padding: 10px 0; */
 }
 
 /*==============================================================================

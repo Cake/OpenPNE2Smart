@@ -4,11 +4,9 @@
 <title>({$INC_HEADER_title})</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="./modules/smart/jqueryui/1.8.22/jquery-ui-1.8.22.custom.css">
 <link rel="stylesheet" href="./modules/smart/jquermobile/1.1/jquery.mobile.min.css">
 <link rel="stylesheet" href="./modules/smart/photoswipe/photoswipe.css">
 <script type="text/javascript" src="./modules/smart/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="./modules/smart/jqueryui/1.8.22/jquery-ui-1.8.22.custom.min.js"></script>
 <script type="text/javascript" src="./modules/smart/photoswipe/lib/klass.min.js"></script>
 <script type="text/javascript" src="./modules/smart/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
 <script language="JavaScript">
