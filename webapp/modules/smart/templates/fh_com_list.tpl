@@ -61,7 +61,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({* {{{ photoTable *})<section class="photoTableBox communityPhotoTableBox" id="communityPhotoTableBox" data-role="">
 ({foreach from=$page_list key=key item=page_num name=table})
 <ul id="hCommunityPhotoTable({$page_num})content" class="photoTable" data-role="listview" data-inset="false">
-({ext_include file="inc_com_table.tpl" _start=$key*9})
+({ext_include file="inc_com_table.tpl" com_list=$fh_com_list_user _start=$key*9})
 </ul>
 ({/foreach})
 </section>({* photoTable }}} *})

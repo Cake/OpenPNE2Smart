@@ -3390,6 +3390,61 @@ function db_common_commu_common_commu_list4c_member_id($target_c_member_id, $u, 
 
 }
 
+/* OpenPNE2 スマートフォン対応：ここから */
+function db_common_commu_common_commu_list_all4c_member_id($target_c_member_id, $u, $page, $page_size)
+{
+
+    $common_commu_id_list = db_common_commu_common_commu_id4c_member_id($target_c_member_id, $u);
+
+    if(is_null($common_commu_id_list)){
+        return null;
+    }
+
+    $common_commu_id_str_list = implode(",", $common_commu_id_list);
+
+    $sql = "SELECT *" .
+            " FROM c_commu" .
+            " WHERE c_commu_id in (".$common_commu_id_str_list.")" .
+            " ORDER BY c_commu_id DESC ";
+
+    $common_commu_list = db_get_all($sql);
+
+    foreach ($common_commu_list as $key => $value) {
+        $common_commu_list[$key]['count_members'] =
+            db_commu_count_c_commu_member_list4c_commu_id($value['c_commu_id']);
+    }
+
+    $pager = array(
+        "total_num" => count($common_commu_id_list),
+        "disp_num"  => count($common_commu_list),
+        "start_num" => 0,
+        "end_num"   => 0,
+        "total_page" => 0,
+        "prev_page" => 0,
+        "next_page" => 0,
+    );
+
+    if ($pager['disp_num'] > 0) {
+        $pager['start_num'] = ($page - 1) * $page_size + 1;
+        $pager['end_num'] = $pager['start_num'] + $pager['disp_num'] - 1;
+    }
+
+    if ($pager['total_num']) {
+        $pager['total_page'] = ceil($pager['total_num'] / $page_size);
+
+        if ($page < $pager['total_page']) {
+            $pager['next_page'] = max($page + 1, 1);
+        }
+        if ($page > 1) {
+            $pager['prev_page'] = min($page - 1, $pager['total_page']);
+        }
+    }
+
+    return array($common_commu_list, $pager);
+
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
+
 /**
  * コミュニティ参加要請IDを取得
  */
