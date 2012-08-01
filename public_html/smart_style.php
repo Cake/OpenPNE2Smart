@@ -628,6 +628,8 @@ ul.pictureIconList li.commentList .commentListFooter span {
 
 .manageListAcion {
 	display: none;
+	width: 90%;
+	margin-top: 15px;
 }
 
 /*==============================================================================

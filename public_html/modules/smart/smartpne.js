@@ -133,6 +133,7 @@ function submitPagerPageSend(url, order, element, pagerId, totalPageNum, isListv
 			if (isListview) {
 				$(element).parent().listview('refresh');
 			}
+			$("a").filter(".addButton").buttonMarkup('refresh');
 
 			// 出力完了
 			$.mobile.hidePageLoadingMsg();
