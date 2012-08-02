@@ -379,7 +379,7 @@ show_flash('flash/list.swf', '({$flashvars})');
 
 ({if $inc_entry_point[9]})({$inc_entry_point[9]|smarty:nodefaults|t_url2cmd:'entry_point'|t_cmd:'entry_point'})({/if})
 
-({if $c_diary_friend_list || $c_rss_cache_list || $c_diary_my_comment_list || $c_commu_topic_comment_list || $c_friend_review_list})
+({if $c_diary_friend_list || $c_rss_cache_list || $c_diary_my_comment_list || $c_commu_topic_comment_list})
 ({* {{{ homeMainTable *})
 <div class="dparts homeMainTable"><div class="parts">
 <div class="partsHeading"><h3>最新情報</h3></div>
@@ -429,18 +429,6 @@ show_flash('flash/list.swf', '({$flashvars})');
 </ul>
 <div class="moreInfo"><ul class="moreInfo">
 <li><a href="({t_url m=pc a=page_h_com_comment_list})">もっと読む</a></li>
-</ul></div>
-</td></tr>
-({/if})
-({if $c_friend_review_list})
-<tr class="myFriendRecentReview"><th>({$WORD_MY_FRIEND})<br />最新レビュー</th><td>
-<ul class="articleList">
-({foreach from=$c_friend_review_list item=item})
-<li><span class="date">({$item.r_datetime|date_format:"%m月%d日"})</span><a href="({t_url m=pc a=page_h_review_list_product})&amp;c_review_id=({$item.c_review_id})">({$item.title|t_truncate:30})</a> (({$item.nickname}))</li>
-({/foreach})
-</ul>
-<div class="moreInfo"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_h_friend_review_list})">もっと読む</a></li>
 </ul></div>
 </td></tr>
 ({/if})
@@ -543,26 +531,6 @@ show_flash('flash/list.swf', '({$flashvars})');
 <div class="moreInfo"><ul class="moreInfo">
 <li><a href="({t_url m=pc a=page_fh_diary_list})#blog">もっと読む</a></li>
 </ul></div>
-</td></tr>
-({/if})
-({if $c_review_list})
-<tr class="myRecentReview"><th>最新レビュー</th><td>
-<ul class="articleList">
-({foreach from=$c_review_list item=item})
-<li><span class="date">({$item.r_datetime|date_format:"%m月%d日"})</span><a href="({t_url m=pc a=page_h_review_list_product})&amp;c_review_id=({$item.c_review_id})">({$item.title|t_truncate:30})</a></li>
-({/foreach})
-</ul>
-<div class="moreInfo"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_fh_review_list_member})">もっと読む</a></li>
-<li><a href="({t_url m=pc a=page_h_review_add})">レビューを書く</a></li>
-</ul></div>
-</td></tr>
-({/if})
-({if !$c_diary_list || !$c_review_list})
-<tr><td class="halfway" colspan="2"><ul class="moreInfo">
-({if !$c_diary_list})<li><a href="({t_url m=pc a=page_h_diary_add})">({$WORD_DIARY})を書く</a></li>({/if})
-({if !$c_review_list})<li><a href="({t_url m=pc a=page_h_review_add})">レビューを書く</a></li>({/if})
-</ul>
 </td></tr>
 ({/if})
 </table>

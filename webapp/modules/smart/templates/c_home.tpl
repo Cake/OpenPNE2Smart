@@ -183,19 +183,6 @@ show_flash('flash/list.swf', '({$flashvars})');
 </ul></div>
 </td></tr>
 ({/if})
-({if $new_commu_review})
-<tr class="communityReview"><th>新着の<br />おすすめ<br />レビュー</th><td>
-<ul class="articleList">
-({foreach from=$new_commu_review item=item})
-<li><span class="date">({$item.r_datetime|date_format:"%m月%d日"})</span><a href="({t_url m=pc a=page_h_review_list_product})&amp;c_review_id=({$item.c_review_id})">({$item.title|t_truncate:30})</a></li>
-({/foreach})
-</ul>
-<div class="moreInfo"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_member_review})&amp;target_c_commu_id=({$c_commu.c_commu_id})">もっと読む</a></li>
-<li><a href="({t_url m=pc a=page_c_member_review_add})&amp;target_c_commu_id=({$c_commu.c_commu_id})">レビューを掲載</a></li>
-</ul></div>
-</td></tr>
-({/if})
 ({/if})
 ({if ($is_c_commu_member && (!$new_topic_comment || !$new_topic_comment_event || $is_c_commu_admin)) || ($c_commu.is_topic == 'public')})
 <tr><td class="halfway" colspan="2"><ul class="moreInfo">
