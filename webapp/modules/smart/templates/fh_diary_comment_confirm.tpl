@@ -3,30 +3,22 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl" msg="下記のコメントを書き込みますか？"})
 
-({* {{{ formTable *})<table>
-<tr>
-<th>本文</th>
-<td>({$form_val.body|t_url2a|nl2br|t_decoration})</td>
-</tr>
+({* {{{ formTable *})<dl>
+<dt>本文</dt>
+<dd>({$form_val.body|t_url2a|nl2br|t_decoration})</dd>
 ({if $form_val.upfile_1.name})
-<tr>
-<th>写真1</th>
-<td>({$form_val.upfile_1.name})</td>
-</tr>
+<dt>写真1</dt>
+<dd>({$form_val.upfile_1.name})</dd>
 ({/if})
 ({if $form_val.upfile_2.name})
-<tr>
-<th>写真2</th>
-<td>({$form_val.upfile_2.name})</td>
-</tr>
+<dt>写真2</dt>
+<dd>({$form_val.upfile_2.name})</dd>
 ({/if})
 ({if $form_val.upfile_3.name})
-<tr>
-<th>写真3</th>
-<td>({$form_val.upfile_3.name})</td>
-</tr>
+<dt>写真3</dt>
+<dd>({$form_val.upfile_3.name})</dd>
 ({/if})
-</table>
+</dl>
 <div class="operation">
 ({t_form_block m=pc a=do_fh_diary_insert_c_diary_comment _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$form_val.target_c_diary_id})" />

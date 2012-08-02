@@ -1,9 +1,9 @@
 <script language="JavaScript">
 <!--
-var is_comment_input = "({$requests.is_comment_input})";
+var is_comment_input = ({$requests.is_comment_input});
 
 $('#h_diary_add').live('pageinit',function(event){
-	$("select#is_comment_input").val(is_comment_input)
+	$("select#is_comment_input").prop("selectedIndex", is_comment_input);
 	$("select#is_comment_input").slider("refresh");
 });
 //-->
@@ -13,8 +13,7 @@ $('#h_diary_add').live('pageinit',function(event){
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ formTable *})
-<section class="diaryForm" id="diaryAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="diaryForm" id="diaryAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_DIARY})を書く</h3>
 ({t_form_block _enctype=file m=pc a=page_h_diary_add_confirm  _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
@@ -79,8 +78,7 @@ $('#h_diary_add').live('pageinit',function(event){
 <input type="submit" class="input_submit" value="確認画面" />
 </div>
 ({/t_form_block})
-</section>
-({* }}} *})
+</section>({* formTable }}} *})
 
 <section class="formTable" id="diaryAddMail">
 ({t_mail_post mailto=$mail_address _type=button})

@@ -3,42 +3,29 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl" msg="以下の内容でよろしいですか？"})
 
-({* {{{ formTable *})<table>
-<tr>
-<th>タイトル</th>
-<td>({$form_val.subject})</td>
-</tr>
-<tr>
-<th>本文</th>
-<td>({$form_val.body|t_url2a|nl2br|t_decoration})</td>
-</tr>
+({* {{{ formTable *})<dl>
+<dt>タイトル</dt>
+<dd>({$form_val.subject})</dd>
+<dt>本文</dt>
+<dd>({$form_val.body|t_url2a|nl2br|t_decoration})</dd>
 ({if $form_val.upfile_1.name})
-<tr>
-<th>写真1</th>
-<td>({$form_val.upfile_1.name})</td>
-</tr>
+<dt>写真1</dt>
+<dd>({$form_val.upfile_1.name})</dd>
 ({/if})
 ({if $form_val.upfile_2.name})
-<tr>
-<th>写真2</th>
-<td>({$form_val.upfile_2.name})</td>
-</tr>
+<dt>写真2</dt>
+<dd>({$form_val.upfile_2.name})</dd>
 ({/if})
 ({if $form_val.upfile_3.name})
-<tr>
-<th>写真3</th>
-<td>({$form_val.upfile_3.name})</td>
-</tr>
+<dt>写真3</dt>
+<dd>({$form_val.upfile_3.name})</dd>
 ({/if})
 ({if $form_val.category})
-<tr>
-<th>カテゴリ</th>
-<td>({$form_val.category})</td>
-</tr>
+<dt>カテゴリ</dt>
+<dd>({$form_val.category})</dd>
 ({/if})
-<tr>
-<th>公開範囲</th>
-<td>
+<dt>公開範囲</dt>
+<dd>
 ({if $form_val.public_flag == "public"})
 全員に公開
 ({elseif $form_val.public_flag == "friend"})
@@ -46,21 +33,18 @@
 ({elseif $form_val.public_flag == "private"})
 公開しない
 ({/if})
-</td>
-</tr>
+</dd>
 ({if $smarty.const.OPENPNE_USE_DIARY_COMMENT})
-<tr>
-<th>コメント許可</th>
-<td>
+<dt>コメント許可</dt>
+<dd>
 ({if $form_val.is_comment_input})
 コメント許可する
 ({else})
 コメント許可しない
 ({/if})
-</td>
-</tr>
+</dd>
 ({/if})
-</table>
+</dl>
 <div class="operation">
 ({t_form_block m=pc a=do_h_diary_add_insert_c_diary _attr='data-ajax="false"'})
 <input type="hidden" name="subject" value="({$form_val.subject})" />
