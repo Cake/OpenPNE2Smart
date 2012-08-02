@@ -35,11 +35,6 @@ function pne_mce_editor_get_config()
             isEnabled : ({$INC_HEADER_decoration_config.op_color}),
             imageURL : "({t_img_url_skin filename=deco_op_color})"
         },
-        op_image : {
-            isEnabled : ({$smarty.const.OPENPNE_USE_ALBUM}),
-            imageURL : "({t_img_url_skin filename=deco_op_image})",
-            contentURL : "({t_url m=pc a=page_h_album_insert_dialog})"
-        },
         op_emoji_docomo : {
             isEnabled : 1,
             imageURL : "({t_img_url_skin filename=deco_op_emoji_docomo})"
@@ -69,9 +64,6 @@ function pne_mce_editor_get_config()
 <a id="mce_textmode_button_({$key})" href="#" onclick="pne_mce_insert_tagname('mce_editor_textarea', '({$key|replace:"_":":"})'); return false;"><img src="({t_img_url_skin filename=deco_`$key`})" alt="" /></a>
 ({/if})
 ({/foreach})
-({if $smarty.const.OPENPNE_USE_ALBUM})
-<a id="mce_textmode_button_op_image" href="#" onclick="window.open('({t_url m=pc a=page_h_album_insert_dialog})', '', 'width=600,height=550,toolbar=no,scrollbars=yes,left=10,top=10'); return false;"><img src="({t_img_url_skin filename=deco_op_image})" alt="" /></a>
-({/if})
 ({if $smarty.const.OPENPNE_EMOJI_DOCOMO_FOR_PC})
 <a id="mce_textmode_button_op_emoji_docomo" href="#" onclick="togglePallet('epDocomo'); return false;"><img src="({t_img_url_skin filename=deco_op_emoji_docomo})" alt="" /></a>
 ({else})

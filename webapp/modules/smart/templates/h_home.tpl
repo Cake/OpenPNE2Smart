@@ -379,7 +379,7 @@ show_flash('flash/list.swf', '({$flashvars})');
 
 ({if $inc_entry_point[9]})({$inc_entry_point[9]|smarty:nodefaults|t_url2cmd:'entry_point'|t_cmd:'entry_point'})({/if})
 
-({if $c_diary_friend_list || $c_rss_cache_list || $c_diary_my_comment_list || $c_commu_topic_comment_list || $c_friend_review_list || $c_friend_album_list})
+({if $c_diary_friend_list || $c_rss_cache_list || $c_diary_my_comment_list || $c_commu_topic_comment_list || $c_friend_review_list})
 ({* {{{ homeMainTable *})
 <div class="dparts homeMainTable"><div class="parts">
 <div class="partsHeading"><h3>最新情報</h3></div>
@@ -444,21 +444,6 @@ show_flash('flash/list.swf', '({$flashvars})');
 </ul></div>
 </td></tr>
 ({/if})
-({if $c_friend_album_list})
-<tr class="myFriendRecentAlbum"><th>({$WORD_MY_FRIEND})<br />最新アルバム</th><td>
-<ul class="articleList">
-({foreach from=$c_friend_album_list item=item})
-<li><span class="date">({$item.u_datetime|date_format:"%m月%d日"})</span><a href="({t_url m=pc a=page_fh_album})&amp;target_c_album_id=({$item.c_album_id})">({$item.subject|t_truncate:30})</a> (({$item.nickname}))</li>
-({/foreach})
-</ul>
-<div class="moreInfo"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_h_album_list_friend})">もっと読む</a></li>
-</ul></div>
-</td></tr>
-({/if})
-</table>
-</div></div>
-({* }}} *})
 ({/if})
 
 ({if $c_diary_list_all || $c_topic_list_all})
@@ -573,24 +558,10 @@ show_flash('flash/list.swf', '({$flashvars})');
 </ul></div>
 </td></tr>
 ({/if})
-({if $c_album_list})
-<tr class="myRecentAlbum"><th>最新アルバム</th><td>
-<ul class="articleList">
-({foreach from=$c_album_list item=item})
-<li><span class="date">({$item.u_datetime|date_format:"%m月%d日"})</span><a href="({t_url m=pc a=page_fh_album})&amp;target_c_album_id=({$item.c_album_id})">({$item.subject|t_truncate:30})</a></li>
-({/foreach})
-</ul>
-<div class="moreInfo"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_fh_album_list})">もっと読む</a></li>
-<li><a href="({t_url m=pc a=page_h_album_add})">アルバムを追加</a></li>
-</ul></div>
-</td></tr>
-({/if})
-({if !$c_diary_list || !$c_review_list || (!$c_album_list && $smarty.const.OPENPNE_USE_ALBUM)})
+({if !$c_diary_list || !$c_review_list})
 <tr><td class="halfway" colspan="2"><ul class="moreInfo">
 ({if !$c_diary_list})<li><a href="({t_url m=pc a=page_h_diary_add})">({$WORD_DIARY})を書く</a></li>({/if})
 ({if !$c_review_list})<li><a href="({t_url m=pc a=page_h_review_add})">レビューを書く</a></li>({/if})
-({if !$c_album_list && $smarty.const.OPENPNE_USE_ALBUM})<li><a href="({t_url m=pc a=page_h_album_add})">アルバムを追加</a></li>({/if})
 </ul>
 </td></tr>
 ({/if})
