@@ -94,7 +94,7 @@ pne_mce_editor_init();
 
 ({/if})
 
-<div data-role="fieldcontain" class="ui-hide-label">
-<label for="body">本文</label>
-<textarea id="mce_editor_textarea" name="({$_name|default:'body'})" rows="({$_rows|default:'15'})" cols="({$_cols|default:'50'})" placeholder="本文">({$_body})</textarea>
+<div data-role="fieldcontain"({if !$_show_label}) class="ui-hide-label"({/if})>
+<label for="body" class="({$_label_class|default:''})">({$_title|default:'本文'})</label>
+<textarea id="mce_editor_textarea" name="({$_name|default:'body'})" rows="({$_rows|default:'15'})" cols="({$_cols|default:'50'})" placeholder="({if !$_show_label})({$_title|default:'本文'})({/if})">({$_body})</textarea>
 </div>
