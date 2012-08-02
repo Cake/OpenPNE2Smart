@@ -1,44 +1,32 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="下記の書き込みを削除しますか？"})
 
-({* {{{ formTable *})
-<div class="dparts formTable"><div class="parts">
-<div class="partsHeading"><h3>下記の書き込みを削除しますか？</h3></div>
+({* {{{ commentList *})
+<section class="topicWriteDeleteListBox commentListBox" id="topicWrite({$c_commu_topic_comment.c_commu_topic_comment_id})DeleteListBox" data-role="collapsible-set">
+<ul id="topicWrite({$c_commu_topic_comment.c_commu_topic_comment_id})DeleteList" class="pictureIconList commentList" data-role="listview" data-inset="false"> 
+({ext_include file="inc_c_bbs_write.tpl" item=$c_commu_topic_comment noButton=true})
+</ul>
+</section>({* commentList }}} *})
 
-<table>
-<tr><th></th><td><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_member.c_member_id})">({$c_member.nickname})</a><br />
-({if $c_commu_topic_comment.image_filename1 || $c_commu_topic_comment.image_filename2 || $c_commu_topic_comment.image_filename3 })<br />
-({if $c_commu_topic_comment.image_filename1})<img src="({t_img_url filename=$c_commu_topic_comment.image_filename1 w=120 h=120})" alt="" />({/if})
-({if $c_commu_topic_comment.image_filename2})<img src="({t_img_url filename=$c_commu_topic_comment.image_filename2 w=120 h=120})" alt="" />({/if})
-({if $c_commu_topic_comment.image_filename3})<img src="({t_img_url filename=$c_commu_topic_comment.image_filename3 w=120 h=120})" alt="" />({/if})
-<br />({/if})<br />
-({$c_commu_topic_comment.body|nl2br|t_url2cmd:'community':$c_member.c_member_id|t_cmd:'community'})
-</td></tr>
-({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
-({if $c_commu_topic_comment.filename})
-<tr><th>ファイル</th><td><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_comment_id=({$c_commu_topic_comment.c_commu_topic_comment_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})">({$c_commu_topic_comment.original_filename})</a></td></tr>
-({/if})
-({/if})
-</table>
-
-<div class="operation">
-<ul class="moreInfo button">
-<li>
-({t_form_block m=pc a=do_c_bbs_delete_c_commu_topic_comment})
+({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
+<ul class="ui-grid-a">
+<li class="ui-block-a">
+({t_form_block m=pc a=do_c_bbs_delete_c_commu_topic_comment  _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_comment_id" value="({$c_commu_topic_comment.c_commu_topic_comment_id})" />
-<input type="submit" class="input_submit" value="　は　い　" />
+<input type="submit" class="input_submit" value="はい" />
 ({/t_form_block})
-</li><li>
+</li>
+<li class="ui-block-b">
 ({t_form_block _method=get m=pc a=page_c_topic_detail})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
-<input type="submit" class="input_submit" value="　いいえ　" />
+<input type="submit" class="input_submit" value="いいえ" />
 ({/t_form_block})
 </li>
 </ul>
-</div>
+</div>({* yesNoButtonBox }}} *})
 
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

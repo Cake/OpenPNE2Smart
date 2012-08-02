@@ -28,12 +28,17 @@ class pc_page_c_topic_write_delete_confirm extends OpenPNE_Action
         //---
 
         $c_commu_topic_comment['original_filename'] = db_file_original_filename4filename($c_commu_topic_comment['filename']);
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $c_member = db_member_c_member4c_member_id($c_commu_topic_comment['c_member_id']);
+        $c_commu_topic_comment['image_filename'] = $c_member['image_filename'];
+        $this->set("c_member", $c_member);
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         $this->set('inc_navi', fetch_inc_navi("c", $c_commu_id));
         $this->set('c_commu_id', $c_commu_id);
         $this->set('c_commu_topic_id', $c_commu_topic_id);
         $this->set('c_commu_topic_comment', $c_commu_topic_comment);
-        $this->set("c_member", db_member_c_member4c_member_id($c_commu_topic_comment['c_member_id']));
+//        $this->set("c_member", db_member_c_member4c_member_id($c_commu_topic_comment['c_member_id']));
         return 'success';
     }
 }

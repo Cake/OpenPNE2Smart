@@ -14,7 +14,9 @@
 ({if $item.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="false"><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_topic.original_filename})</a></div>({/if})
 <div class="commentListFooter">
 <time datetime="({$item.r_datetime})" id="topicWrite({$item.c_commu_topic_comment_id})Datetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
+({if !isset($noButton) || !$noButton})
 ({if $is_c_commu_member && $is_writable_comment && $smarty.const.USE_RESPONSE_COMMENT})<a title="返信" data-icon="smart-write" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');response_comment_format($('#comment-({$item.number})-member').attr('title'), '({$item.number})', 'comment_box');$('#comment_box').focus();return false;">返信</a>({/if})
 ({if $c_member_id == $item.c_member_id || $c_member_id == $c_commu.c_member_id_admin || $c_member_id == $c_commu.c_member_id_sub_admin})<a title="削除" data-icon="delete" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="({if !$c_topic.event_flag})({t_url m=pc a=page_c_topic_write_delete_confirm})({else})({t_url m=pc a=page_c_event_write_delete_confirm})({/if})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})" data-role="button" data-iconpos="notext">削除</a>({/if})
+({/if})
 </div></div>
 </li>

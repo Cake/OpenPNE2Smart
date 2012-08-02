@@ -1,3 +1,12 @@
+<script language="JavaScript">
+<!--
+({if $body})
+$('#topicWriteForm').ready(function(){
+	jump_to('comment_box','comment_box');
+});
+({/if})
+//-->
+</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
