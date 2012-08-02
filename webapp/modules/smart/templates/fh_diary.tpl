@@ -4,9 +4,9 @@
 $('#diarycommentForm').ready(function(){
 	jump_to('diaryComment({$comment_count})','diaryCommentList');
 });
-({elseif $flg})
+({elseif $requests.body})
 $('#diarycommentForm').ready(function(){
-	jump_to('({$flg})','({$flg})');
+	jump_to('comment_box','comment_box');
 });
 ({/if})
 //-->

@@ -162,9 +162,6 @@ function openpne_forward($module, $type = '', $action = '', $errors = array())
                 $smarty->templates_dir = 'smart' . '/templates';
             }
         }
-
-        $smarty->assign('comment_count', get_request_var('comment_count'));
-        $smarty->assign('flg', get_request_var('flg'));
         /* OpenPNE2 スマートフォン対応：ここまで追加 */
 
         $smarty->assign('requests', $requests);

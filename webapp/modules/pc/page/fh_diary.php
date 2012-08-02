@@ -151,6 +151,9 @@ class pc_page_fh_diary extends OpenPNE_Action
         $this->set('pager', $pager);
 
         /* OpenPNE2 スマートフォン対応：ここから */
+        // コメント番号
+        $this->set('comment_count', get_request_var('comment_count'));
+
         // メール投稿
         $this->set('is_apple', $smartPhone->is_apple);
         $mail_address = null;

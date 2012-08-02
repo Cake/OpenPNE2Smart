@@ -31,7 +31,6 @@
 ({/t_form_block})
 ({t_form_block _enctype=file m=pc a=page_fh_diary _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$form_val.target_c_diary_id})" />
-<input type="hidden" name="flg" value="comment_box" />
 <input type="hidden" name="target_c_diary_id" value="({$form_val.target_c_diary_id})" />
 <input type="hidden" name="body" value="({$form_val.body})" />
 <input type="submit" class="input_submit" value="修正" />
