@@ -1,13 +1,13 @@
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="下記のコメントを削除しますか？"})
 
 ({* {{{ commentList *})
 <section class="diaryCommentDeleteListBox commentListBox" id="diaryCommentDeleteListBox" data-role="collapsible-set">
-<h3>下記のコメントを削除しますか？</h3>
-<ul id="diaryCommentDeleteList" class="pictureIconList commentList" data-role="listview" data-inset="false"> 
+<ul id="diary({$target_diary.c_diary_id})CommentDeleteList" class="pictureIconList commentList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})
-({ext_include file="inc_fh_diary_comment.tpl" _dialog=true})
+({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})
 </ul>
 </section>({* commentList }}} *})
