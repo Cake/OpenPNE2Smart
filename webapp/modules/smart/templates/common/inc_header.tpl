@@ -31,6 +31,8 @@
 	|| $INC_HEADER_page_name == 'c_edit_member'
 	|| $INC_HEADER_page_name == 'c_event_add'
 	|| $INC_HEADER_page_name == 'c_event_detail'
+	|| $INC_HEADER_page_name == 'c_event_invite'
+	|| $INC_HEADER_page_name == 'c_event_invite_end'
 	|| $INC_HEADER_page_name == 'c_event_list'
 	|| $INC_HEADER_page_name == 'c_event_member_list'
 	|| $INC_HEADER_page_name == 'c_member_list'
