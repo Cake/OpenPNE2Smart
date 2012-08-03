@@ -14,7 +14,6 @@
 <li class="ui-block-b">
 ({t_form_block m=pc a=page_c_topic_edit})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
 <input type="submit" class="input_submit" value="いいえ" />
 ({/t_form_block})
 </li>

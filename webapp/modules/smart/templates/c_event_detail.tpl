@@ -79,7 +79,7 @@
 <div class="operation"><a href="({t_url m=pc a=page_c_event_mail})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">参加者へ一括メッセージ送信</a></div>
 ({/if})
 
-({if $is_c_commu_admin || ($is_c_topic_admin && $c_commu.is_topic !== 'admin_only')})
+({if $is_c_commu_admin || ($is_c_event_admin && $c_commu.is_topic !== 'admin_only')})
 ({if $is_c_commu_member || $c_commu.is_topic == 'public'})
 <div class="operation">
 <a href="({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})" data-role="button">編集</a>
