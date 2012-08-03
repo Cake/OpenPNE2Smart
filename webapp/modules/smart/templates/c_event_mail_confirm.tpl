@@ -1,27 +1,20 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="以下の内容で送りますか？"})
 
-({* {{{ formTable *})
-<div class="dparts formTable"><div class="parts">
-<div class="partsHeading"><h3>一括メッセージを送る</h3></div>
-<table>
-<tr><th>送信先</th><td>
-<div class="checkList">
+({* {{{ formTable *})<dl>
+<dt>送信先</dt>
 ({foreach from=$c_mail_member item=item})
 ({counter assign=_cnt})
-({if $_cnt % 3 == 1})<ul>({/if})
-<li><div class="item">({$item.nickname})</div></li>
-({if $_cnt % 3 == 0})</ul>({/if})
+<dd>({$item.nickname})</dd>
 ({/foreach})
-({if $_cnt % 3 != 0})</ul>({/if})
-</div>
-</td></tr>
-<tr><th>メッセージ</th><td>({$body|nl2br|t_url2cmd:'message':$u|t_cmd:'message'})</td></tr>
-</table>
+
+<dt>メッセージ</dt>
+<dd>({$body|t_url2a|nl2br|t_decoration})</dd>
+</dl>
 <div class="operation">
-<ul class="moreInfo button">
-<li>
-({t_form_block m=pc a=do_c_event_mail})
+({t_form_block m=pc a=do_c_event_mail _attr='data-ajax="false"'})
 <input type="hidden" name="c_commu_id" value="({$c_commu_id})" />
 <input type="hidden" name="c_commu_topic_id" value="({$c_commu_topic_id})" />
 <input type="hidden" name="c_member_ids" value="({$c_member_ids})" />
@@ -29,25 +22,14 @@
 ({foreach from=$c_mail_member item=c_member})
 <input type="hidden" name="c_member_ids[]" value="({$c_member.c_member_id})" />
 ({/foreach})
-<input type="submit" class="input_submit" value="　送　信　" />
+<input type="submit" class="input_submit" value="送信" />
 ({/t_form_block})
-</li>
-<li>
-({t_form_block _method=get m=pc a=page_c_event_mail})
+({t_form_block m=pc a=page_c_event_mail _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
 <input type="submit" class="input_submit" value="キャンセル" />
 ({/t_form_block})
-</li>
-</ul>
-</div>
-</div></div>
-({* }}} *})
+</div>({* formTable }}} *})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_event_detail})&amp;target_c_commu_topic_id=({$c_commu_topic_id})">イベントページへ戻る</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

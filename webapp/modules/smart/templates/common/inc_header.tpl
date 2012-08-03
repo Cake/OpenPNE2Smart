@@ -33,6 +33,8 @@
 	|| $INC_HEADER_page_name == 'c_event_detail'
 	|| $INC_HEADER_page_name == 'c_event_invite'
 	|| $INC_HEADER_page_name == 'c_event_invite_end'
+	|| $INC_HEADER_page_name == 'c_event_mail'
+	|| $INC_HEADER_page_name == 'c_event_mail_end'
 	|| $INC_HEADER_page_name == 'c_event_list'
 	|| $INC_HEADER_page_name == 'c_event_member_list'
 	|| $INC_HEADER_page_name == 'c_member_list'
