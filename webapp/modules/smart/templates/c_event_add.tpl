@@ -3,7 +3,7 @@
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ formTable *})<section class="topicForm" id="topicAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="formTable" id="topicAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>イベントを作成する</h3>
 ({t_form_block _enctype=file m=pc a=page_c_event_add_confirm  _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />

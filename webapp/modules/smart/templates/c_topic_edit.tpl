@@ -3,7 +3,7 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ formTable *})<section class="topicForm" id="topicEditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="formTable" id="topicEditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>トピックを編集する</h3>
 ({t_form_block _enctype=file m=pc a=do_c_topic_edit_update_c_commu_topic  _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />

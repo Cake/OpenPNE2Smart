@@ -13,7 +13,7 @@ $('#h_diary_add').live('pageinit',function(event){
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ formTable *})<section class="diaryForm" id="diaryAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="formTable" id="diaryAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_DIARY})を書く</h3>
 ({t_form_block _enctype=file m=pc a=page_h_diary_add_confirm  _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
