@@ -54,7 +54,7 @@
 <p>({t_mail_post mailto=$mail_address _linktxt=写真をメールで投稿})<br>
 ({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 1回のメールで登録できる画像は1枚までです。<br>
-タイトルと本文は反映されません。。<br>
+タイトルと本文は反映されません。<br>
 </p>
 ({else})
 ({if !$c_topic.image_filename1})
@@ -96,7 +96,7 @@
 ({/t_form_block})
 </section>({* formTable }}} *})
 
-({* {{{ formTable *})<section class="topicForm" id="topic({$c_topic.c_commu_topic_id})DeleteForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="formTable" id="topic({$c_topic.c_commu_topic_id})DeleteForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>上記のトピックと書き込みを削除する</h3>
 ({t_form_block m=pc a=page_c_topic_delete_confirm})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />

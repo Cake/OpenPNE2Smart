@@ -132,7 +132,7 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({/t_form_block})
 </section>({* formTable }}} *})
 
-({* {{{ formTable *})<section class="diaryForm" id="diary({$diary.c_diary_id})DeleteForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ formTable *})<section class="formTable" id="diary({$diary.c_diary_id})DeleteForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_DIARY})を削除する</h3>
 <p>({$WORD_DIARY})を削除するとこの({$WORD_DIARY})に書かれたコメントもすべて削除されます。</p>
 ({t_form_block m=pc a=page_h_delete_diary})
