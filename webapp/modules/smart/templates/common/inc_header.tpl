@@ -38,6 +38,8 @@
 	|| $INC_HEADER_page_name == 'c_event_mail_end'
 	|| $INC_HEADER_page_name == 'c_event_list'
 	|| $INC_HEADER_page_name == 'c_event_member_list'
+	|| $INC_HEADER_page_name == 'c_join_commu'
+	|| $INC_HEADER_page_name == 'c_join_commu_2'
 	|| $INC_HEADER_page_name == 'c_member_list'
 	|| $INC_HEADER_page_name == 'c_topic_add'
 	|| $INC_HEADER_page_name == 'c_topic_detail'

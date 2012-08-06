@@ -1,21 +1,13 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>この({$WORD_COMMUNITY})に参加</h3></div>
-<div class="block">
+({* {{{ simpleBox *})<section class="simpleBox" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>この({$WORD_COMMUNITY})に参加</h3>
 <p>この({$WORD_COMMUNITY})に参加しました。</p>
-</div>
-</div></div>
-({* }}} *})
+</section>({* simpleBox }}} *})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$target_c_commu_id})">[({$c_commu.name})]({$WORD_COMMUNITY})トップへ</a><br /></li>
-<li><a href="({t_url m=pc a=page_h_home})">ホームに戻る</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
