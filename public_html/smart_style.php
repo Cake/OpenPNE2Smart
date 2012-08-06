@@ -57,11 +57,6 @@ h1#pageTitle {
 	margin: 0.6em 10% 0.8em;
 }
 
-ul li a.ui-btn {
-	margin: 0;
-	display: block !important;
-}
-
 /* メニュー */
 div#menu {
 	overflow: hidden;
@@ -75,11 +70,17 @@ div#menu {
 div#menu ul {
 	margin: 0;
 }
+
+div#menu ul li a.ui-btn {
+	margin: 0;
+	display: block !important;
+}
+
 div#menu ul li a.ui-btn span {
 	text-overflow: clip;
 }
 
-div#menu .ui-header .ui-btn {
+div#div#menu .ui-header .ui-btn {
 	z-index: 100;
 }
 
