@@ -28,6 +28,7 @@
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'c_home'
+	|| $INC_HEADER_page_name == 'c_edit'
 	|| $INC_HEADER_page_name == 'c_edit_member'
 	|| $INC_HEADER_page_name == 'c_event_add'
 	|| $INC_HEADER_page_name == 'c_event_detail'
