@@ -3,7 +3,11 @@
 <head>
 <title>({$INC_HEADER_title})</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+({if $is_apple})
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+({else})
+<meta name="viewport" content="width=device-width;target-densitydpi=device-dpi">
+({/if})
 <link rel="stylesheet" href="./modules/smart/jquermobile/1.1/jquery.mobile.min.css">
 <link rel="stylesheet" href="./modules/smart/photoswipe/photoswipe.css">
 <script type="text/javascript" src="./modules/smart/jquery/1.7.2/jquery.min.js"></script>
