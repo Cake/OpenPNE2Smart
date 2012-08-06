@@ -39,7 +39,7 @@ small {
 	margin-top: 93px;
 }
 
-/* ヘッダー */
+/* ヘッダー
 div#mainHeader {
 	position: fixed;
 	top: 0px;
@@ -53,6 +53,7 @@ div#mainHeader #headerHomeButton {
 div#mainHeader .ui-header .ui-title {
 	margin-top: -0.8em;
 }
+ */
 h1#pageTitle {
 	margin: 0.6em 10% 0.8em;
 }
