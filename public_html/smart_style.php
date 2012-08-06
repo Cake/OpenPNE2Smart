@@ -39,7 +39,7 @@ small {
 	margin-top: 93px;
 }
 
-/* ヘッダー
+/* ヘッダー */
 div#mainHeader {
 	position: fixed;
 	top: 0px;
@@ -53,9 +53,13 @@ div#mainHeader #headerHomeButton {
 div#mainHeader .ui-header .ui-title {
 	margin-top: -0.8em;
 }
- */
 h1#pageTitle {
 	margin: 0.6em 10% 0.8em;
+}
+
+ul li a.ui-btn {
+	margin: 0;
+	display: block !important;
 }
 
 /* メニュー */
@@ -71,14 +75,11 @@ div#menu {
 div#menu ul {
 	margin: 0;
 }
-div#menu ul li a.ui-btn {
-	margin: 0;
-}
 div#menu ul li a.ui-btn span {
 	text-overflow: clip;
 }
 
-div#div#menu .ui-header .ui-btn {
+div#menu .ui-header .ui-btn {
 	z-index: 100;
 }
 
