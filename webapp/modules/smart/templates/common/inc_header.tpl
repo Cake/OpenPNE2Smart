@@ -45,6 +45,7 @@
 ({if 
 	$INC_HEADER_page_name == 'c_com_topic_find'
 	|| ($INC_HEADER_page_name == 'fh_com_list' && (!$requests.c_member_id || $requests.c_member_id == $u))
+	|| $INC_HEADER_page_name == 'h_com_add'
 	|| $INC_HEADER_page_name == 'h_com_comment_list'
 	|| $INC_HEADER_page_name == 'h_com_find_all'
 	|| $INC_HEADER_page_name == 'h_com_topic_find_all'
