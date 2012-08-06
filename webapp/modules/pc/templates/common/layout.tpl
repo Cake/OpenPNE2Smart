@@ -4,11 +4,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 ({if $INC_HEADER_inc_html_head})({$INC_HEADER_inc_html_head|smarty:nodefaults})({/if})
-({if $is_apple})
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-({else})
-<meta name="viewport" content="width=device-width;target-densitydpi=device-dpi">
-({/if})
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <title>({$INC_HEADER_title})</title>
