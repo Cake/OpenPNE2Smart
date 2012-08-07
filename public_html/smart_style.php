@@ -54,7 +54,7 @@ div#mainHeader .ui-header .ui-title {
 	margin-top: -0.8em;
 }
 h1#pageTitle {
-	margin: 0.6em 10% 0.8em;
+	margin: 0.6em 36px 0.8em;
 }
 
 /* メニュー */
