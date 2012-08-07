@@ -4,6 +4,7 @@
 <title>({$INC_HEADER_title})</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
 <link rel="stylesheet" href="./modules/smart/jquermobile/1.1/jquery.mobile.min.css">
 <link rel="stylesheet" href="./modules/smart/photoswipe/photoswipe.css">
 <script type="text/javascript" src="./modules/smart/jquery/1.7.2/jquery.min.js"></script>
@@ -62,7 +63,7 @@
 	//-->
 </script>
 
-	<script type="text/javascript" src="./modules/smart/jquermobile/1.1/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="./modules/smart/jquermobile/1.1/jquery.mobile.min.js"></script>
 ({t_url_smart_style})
 </head>
 <body id="pc_page_({$INC_HEADER_page_name})" class="Body">
