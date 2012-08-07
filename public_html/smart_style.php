@@ -643,6 +643,10 @@ ul.pictureIconList li.commentList .commentListFooter span {
 	margin-top: 35px;
 }
 
+#c_edit_member_delete_c_commu_member .ui-li-thumb {
+	position: relative !important;
+}
+
 /*==============================================================================
  * 36. homeNineTable（ホーム9面テーブル）
  * 37. photoTable（写真テーブル）

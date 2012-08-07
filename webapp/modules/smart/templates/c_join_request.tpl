@@ -1,27 +1,20 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ formTable *})
-<div class="dparts formTable"><div class="parts">
-<div class="partsHeading"><h3>この({$WORD_COMMUNITY})に参加</h3></div>
-
-({t_form_block m=pc a=do_c_join_request_insert_c_commu_member_confirm})
+({* {{{ formTable *})<section class="formTable" id="communitySubAdminRequestForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>この({$WORD_COMMUNITY})に参加</h3>
+({t_form_block _enctype=file m=pc a=do_c_join_request_insert_c_commu_member_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="c_member_id" value="({$member.c_member_id})" />
 <input type="hidden" name="target_c_commu_id" value="({$c_commu_id})" />
-
-<table>
-<tr><th>メッセージ (任意)</th><td><textarea name="body" rows="6" cols="50">({$body})</textarea></td></tr>
-</table>
-
-<div class="operation">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="参加を希望する" /></li>
-</ul>
+({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _title="メッセージ (任意)" _body=$body|smarty:nodefaults})
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="送信する" />
 </div>
-
 ({/t_form_block})
-</div></div>
-({* }}} *})
+</section>({* formTable }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
