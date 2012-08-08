@@ -63,6 +63,8 @@
 	|| $INC_HEADER_page_name == 'h_com_comment_list'
 	|| $INC_HEADER_page_name == 'h_com_find_all'
 	|| $INC_HEADER_page_name == 'h_com_topic_find_all'
+	|| $INC_HEADER_page_name == 'h_err_c_commu_add'
+	|| $INC_HEADER_page_name == 'h_err_c_home'
 	|| $INC_HEADER_page_name == 'h_manage_commu'
 })({ext_include file="common/inc_header_nav_h_com.tpl"})({/if})
 ({if 

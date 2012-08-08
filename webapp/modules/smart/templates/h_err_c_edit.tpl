@@ -1,14 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$WORD_COMMUNITY|string_format:"現在%sの設定を変更することは出来ません。"})
 
-({* {{{ alertBox *})
-<div class="dparts alertBox"><div class="parts">
-<table><tr>
-<th><img src="({t_img_url_skin filename=icon_alert_l})" alt="警告" /></th>
-<td>現在({$WORD_COMMUNITY})の設定を変更することは出来ません。</td>
-</tr></table>
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
