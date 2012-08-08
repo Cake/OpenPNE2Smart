@@ -138,15 +138,17 @@
 ({/if})
 ({/if})
 </fieldset>({/strip})
-({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
+({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $event.original_filename)})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="uploadfile">ファイル</label>
 ({if $event.filename})
 ({$event.original_filename})
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})FileConfirm'); openDialog('deleteEvent({$event.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 ({else})
+({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40" />
 <p class="caution">※({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})の(({$allowed_extensions}))({/if})ファイルのみアップロードできます。</p>
+({/if})
 ({/if})
 </div>
 ({/if})

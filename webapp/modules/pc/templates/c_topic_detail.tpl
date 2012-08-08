@@ -166,7 +166,6 @@
 <th>写真3</th>
 <td><input type="file" class="input_file" name="image_filename3" size="40" /></td>
 </tr>
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <tr>
 <th>ファイル</th>
@@ -176,6 +175,7 @@
 </td>
 </tr>
 ({/if})
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </table>
 <div class="operation">
 <ul class="moreInfo button">

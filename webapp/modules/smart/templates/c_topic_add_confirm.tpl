@@ -19,11 +19,11 @@
 ({if $c_topic.image_filename3})
 <dt>写真3</dt>
 <dd>({$c_topic.image_filename3})</dd>
-({/if})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 ({if $c_topic.filename4_original_filename})
 <dt>ファイル</dt>
 <dd>({$c_topic.filename4_original_filename})</dd>
+({/if})
 ({/if})
 ({/if})
 </dl>

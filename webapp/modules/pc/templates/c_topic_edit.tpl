@@ -66,7 +66,7 @@
 </ul>
 </td></tr>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
-({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
+({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $c_topic.original_filename)})
 <tr>
 <th>ファイル</th>
 <td>
@@ -76,8 +76,11 @@
 <a href="({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40" />
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 ({/if})

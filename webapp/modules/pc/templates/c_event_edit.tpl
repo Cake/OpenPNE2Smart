@@ -84,20 +84,19 @@
 <tr><th>写真追加</th><td>
 <div class="operation">
 <ul class="" style="padding-left: 50px;">
-<li>({$SNS_NAME})に登録したメールアドレスから、写真を添付して投稿してください。<br></li>
-<li>1回のﾒｰﾙで登録できる画像は1枚までです。<br></li>
-<li>タイトルと本文は反映されません。<br></li>
 ({if $event.image_filename1 && $event.image_filename2 && $event.image_filename3})
 <li>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</li>
 ({else})
-({t_mail_post mailto=$mail_address _type=button})
+<li>({t_mail_post mailto=$mail_address})</li>
 ({/if})
+<li>({$SNS_NAME})に登録したメールアドレスから、写真を添付して投稿してください。<br></li>
+<li>1回のﾒｰﾙで登録できる画像は1枚までです。<br></li>
+<li>タイトルと本文は反映されません。<br></li>
 </ul>
-</p>
 </div>
 </td></tr>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
-({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
+({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $event.original_filename)})
 <tr>
 <th>ファイル</th>
 <td>
@@ -107,8 +106,11 @@
 <a href="({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40" />
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 ({/if})
