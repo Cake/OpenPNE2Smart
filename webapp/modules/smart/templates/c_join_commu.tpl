@@ -1,7 +1,7 @@
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
-({ext_include file="common/inc_msg.tpl" msg=$c_commu.name|string_format:"%sに本当に参加しますか?"})
+({ext_include file="common/inc_msg.tpl" msg=$c_commu.name|string_format:"%sに本当に参加しますか？"})
 
 ({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
 <ul class="ui-grid-a">
