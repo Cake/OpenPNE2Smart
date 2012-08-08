@@ -48,6 +48,7 @@
 	|| $INC_HEADER_page_name == 'c_join_request'
 	|| $INC_HEADER_page_name == 'c_leave_commu'
 	|| $INC_HEADER_page_name == 'c_member_list'
+	|| $INC_HEADER_page_name == 'c_send_message'
 	|| $INC_HEADER_page_name == 'c_sub_admin_request'
 	|| $INC_HEADER_page_name == 'c_sub_admin_request_confirm'
 	|| $INC_HEADER_page_name == 'c_taikai_err_admin'
