@@ -30,6 +30,7 @@
 	$INC_HEADER_page_name == 'c_home'
 	|| $INC_HEADER_page_name == 'c_admin_request'
 	|| $INC_HEADER_page_name == 'c_edit'
+	|| $INC_HEADER_page_name == 'c_edit_delete_c_commu_confirm'
 	|| $INC_HEADER_page_name == 'c_edit_member'
 	|| $INC_HEADER_page_name == 'c_edit_member_delete_c_commu_member'
 	|| $INC_HEADER_page_name == 'c_event_add'
