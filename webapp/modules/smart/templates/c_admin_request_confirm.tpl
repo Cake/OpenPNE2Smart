@@ -1,6 +1,6 @@
 <div class="page" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
-<div class="menu-content" data-role="content">({* {{{ content *})
+<div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl" msg=$target_c_member.nickname|string_format:"%sさんに管理者交代依頼メッセージを送信します。よろしいですか？"})
 
 ({* {{{ formTable *})<dl>

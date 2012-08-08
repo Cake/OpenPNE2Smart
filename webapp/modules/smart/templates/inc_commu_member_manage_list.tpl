@@ -8,7 +8,7 @@
 </div>
 </section>
 <div class="manageListAcion" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Manage">
-({if !$c_member.is_c_commu_admin})
+({if !$item.is_c_commu_admin})
 <a href="({t_url m=pc a=page_c_edit_member_delete_c_commu_member})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;target_c_member_id=({$item.c_member_id})" class="addButton" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Delete" data-role="button" data-inline="false" data-ajax="true">退会させる</a>
 ({/if})
 ({if !$item.is_c_commu_admin
