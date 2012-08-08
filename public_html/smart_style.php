@@ -388,19 +388,23 @@ ul.ui-listview + .descriptionBox  {
  * 8. diaryDetailBox（日記詳細ボックス）
  * 9. topicDetailBox（トピック詳細ボックス） 
  * 10. eventDetailBox（イベント詳細ボックス）
+ * 14. messageDetailBox（メッセージ詳細ボックス）
  *----------------------------------------------------------------------------*/
 .diaryDetailBox .photo48,
-.topicDetailBox .photo48 {
+.topicDetailBox .photo48,
+.messageDetailBox .photo48 {
 	height: 53px;
 	float: left;
 }
 .diaryDetailBox .photo48 + .itemData,
-.topicDetailBox .photo48 + .itemData {
+.topicDetailBox .photo48 + .itemData,
+.messageDetailBox .photo48 + .itemData {
 	width: 80%;
 }
 
 .diaryDetailBox .itemBody,
-.topicDetailBox .itemBody {
+.topicDetailBox .itemBody,
+.messageDetailBox .itemBody {
 	margin: 0;
 	max-height: 3.6em;
 	text-overflow: ellipsis;
@@ -432,7 +436,8 @@ ul.ui-listview + .descriptionBox  {
 }
 
 .diaryDetailBox time,
-.topicDetailBox time {
+.topicDetailBox time,
+.messageDetailBox time {
 	font-size: 80% !important;
 }
 

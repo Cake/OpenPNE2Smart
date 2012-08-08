@@ -70,7 +70,9 @@
 	|| $INC_HEADER_page_name == 'h_manage_commu'
 })({ext_include file="common/inc_header_nav_h_com.tpl"})({/if})
 ({if 
-	$INC_HEADER_page_name == 'h_message_box'
+	$INC_HEADER_page_name == 'h_message'
+	|| $INC_HEADER_page_name == 'h_message_box'
+	|| $INC_HEADER_page_name == 'h_reply_message'
 })({ext_include file="common/inc_header_nav_message.tpl"})({/if})
 
 ({/strip})({* Menu }}} *})

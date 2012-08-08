@@ -82,6 +82,11 @@ class pc_page_f_message_send extends OpenPNE_Action
         // 許可されている拡張子のリスト
         $this->set('allowed_extensions', util_get_file_allowed_extensions('string'));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_apple', $smartPhone->is_apple);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         return 'success';
     }
 }

@@ -1,3 +1,6 @@
+({if $INC_HEADER_page_name == 'f_home'})
+({assign var=target_member value=$target_c_member})
+({/if})
 ({* {{{ navFriend *})<div id="navFriend" class="topNav" data-theme="e">
 <ul class="ui-grid-b" data-role="">
 <li id="navFriendDiary" class="ui-block-a"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" class="({if $INC_HEADER_page_name == 'fh_diary_list'}) ui-btn-active({/if})" data-role="button" data-corners="false" data-mini="true">({$WORD_DIARY})</a></li>

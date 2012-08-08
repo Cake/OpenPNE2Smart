@@ -1,27 +1,13 @@
-({assign var=no_use_alert value=true})
-<div id="LayoutC">
-<div id="Center">
-
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>({if $msg == 1})メッセージを送る({elseif $msg == 2})メッセージを下書き保存({else})&nbsp;({/if})</h3></div>
-<div class="block">
-<p>({if $msg == 1})送信完了しました。({if $inc_entry_point[3]})({$inc_entry_point[3]|smarty:nodefaults|t_url2cmd:'entry_point'|t_cmd:'entry_point'})({/if})
-({elseif $msg == 2})下書きメッセージを保存しました。
-({else})&nbsp;({/if})</p>
-</div>
-</div></div>
-({* }}} *})
-
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
 ({if $msg == 1})
-<li><a href="({t_url m=pc a=page_h_message_box})&amp;box=outbox">送信済みメッセージ一覧</a></li>
+({assign var=_msg value="送信完了しました。"})
 ({elseif $msg == 2})
-<li><a href="({t_url m=pc a=page_h_message_box})&amp;box=savebox">下書きメッセージ一覧</a></li>
+({assign var=_msg value="下書きメッセージを保存しました。"})
 ({/if})
-</ul></div>
-({* }}} *})
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$_msg})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
