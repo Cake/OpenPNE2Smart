@@ -18,7 +18,9 @@
  &&   $c_commu.c_member_id_sub_admin != $u
 })
 <a href="({t_url m=pc a=page_c_sub_admin_request})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;target_c_member_id=({$item.c_member_id})" class="addButton" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Subadmin" data-role="button" data-inline="false" data-ajax="true">副管理者に指名</a>
- ({/if})
+({elseif $item.is_c_commu_sub_admin && $c_commu.c_member_id_sub_admin != $u })
+<a href="({t_url m=pc a=page_c_sub_admin_delete})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;target_c_member_id=({$item.c_member_id})" class="addButton" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})SubadminDelete" data-role="button" data-inline="false" data-ajax="true">副管理者から降格</a>
+({/if})
 ({if !($item.is_c_commu_admin && !$item.is_c_commu_sub_admin)
  &&   $item.c_commu_admin_confirm_id <= 0
  &&   $item.c_commu_sub_admin_confirm_id <= 0
