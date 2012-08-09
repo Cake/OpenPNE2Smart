@@ -466,6 +466,12 @@ ul.ui-listview + .descriptionBox  {
 	height: 135px;
 }
 
+
+#f_bookmark_add .homePhotoBox {
+	min-height: 135px;
+	height: auto;
+}
+
 .homePhotoBox .photo120 {
 	display: table-cell;
 	width: 125px;
@@ -476,15 +482,20 @@ ul.ui-listview + .descriptionBox  {
 }
 
 .homePhotoBox .photo120 + .itemData {
-	margin-left: 140px !important;
-	position: absolute;
-	top: 125px;
+	display: table-cell;
+	padding-left: 15px;
 }
 
+#f_bookmark_add .homePhotoBox .itemBody,
 .homePhotoBox .prof_textarea {
 	max-height: 3.6em;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+#f_bookmark_add .homePhotoBox .itemBody {
+	font-size: 80%;
+	padding: 5px 0;
 }
 
 .homePhotoBox .commentListFooter {

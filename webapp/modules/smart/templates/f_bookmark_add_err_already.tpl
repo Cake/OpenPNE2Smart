@@ -1,14 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$bookmark_member.nickname|string_format:"%sさんは、既にお気に入りに登録済みです。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>お気に入りに追加</h3></div>
-<div class="block">
-<p>({$bookmark_member.nickname}) さんは、既にお気に入りに登録済みです。</p>
-</div>
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

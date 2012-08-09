@@ -20,6 +20,7 @@
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'f_home'
+	|| $INC_HEADER_page_name == 'f_bookmark_add'
 	|| $INC_HEADER_page_name == 'f_com_list_common'
 	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
