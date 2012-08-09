@@ -15,6 +15,8 @@
 	|| $INC_HEADER_page_name == 'h_diary_comment_list'
 	|| $INC_HEADER_page_name == 'h_diary_list_friend'
 	|| $INC_HEADER_page_name == 'h_diary_list_all'
+	|| $INC_HEADER_page_name == 'h_err_diary_access'
+	|| $INC_HEADER_page_name == 'h_err_fh_diary'
 	|| $INC_HEADER_page_name == 'h_manage_friend'
 	|| $INC_HEADER_page_name == 'h_prof'
 })({ext_include file="common/inc_header_nav_diary.tpl"})({/if})
