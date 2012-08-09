@@ -523,6 +523,7 @@ ul.ui-listview + .descriptionBox  {
  * 22. commentList（コメントリスト）
  * 23. searchResultList（検索結果リスト）
  * 25. recentList（最新書き込みリスト）
+ * 26. friendIntroList（フレンド紹介文リスト）
  * 27. manageList（管理リスト）
  * 29. messageList（メッセージリスト）
  * 30. ashiatoList（あしあとリスト）

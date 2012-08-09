@@ -1,28 +1,25 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="本当に削除しますか？"})
 
-({* {{{ yesNoButtonBox *})
-<div class="dparts yesNoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>本当に削除しますか？</h3></div>
-
-<div class="block">
-<ul class="moreInfo button">
-<li>
-({t_form_block m=pc a=do_f_intro_delete})
+({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
+<ul class="ui-grid-a">
+<li class="ui-block-a">
+({t_form_block m=pc a=do_f_intro_delete  _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_member_id" value="({$target_c_member_id})" />
-<input type="submit" class="input_submit" value="　は　い　" />
+<input type="submit" class="input_submit" value="はい" />
 ({/t_form_block})
-</li><li>
-({t_form_block _method=get m=pc a=page_fh_intro})
+</li>
+<li class="ui-block-b">
+({t_form_block m=pc a=page_fh_intro})
 <input type="hidden" name="target_c_member_id" value="({$target_c_member_id})" />
-<input type="submit" class="input_submit" value="　いいえ　" />
+<input type="submit" class="input_submit" value="いいえ" />
 ({/t_form_block})
 </li>
 </ul>
-</div>
+</div>({* yesNoButtonBox }}} *})
 
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

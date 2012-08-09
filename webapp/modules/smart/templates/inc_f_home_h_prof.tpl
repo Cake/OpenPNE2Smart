@@ -228,18 +228,17 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 
 ({if $c_friend_comment_list})
-({* {{{ friendIntroList *})
-({* {{{ homeMainTable *})<section class="homeMainTable introListBox" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+({* {{{ friendIntroList *})<section class="homeMainTable friendIntroList" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_FRIEND})からの紹介文</h3>
-
-<ul class="pictureIconList" id="({$id_header})friendRecentDiary" data-role="listview" data-inset="false">
+<ul class="pictureIconList" id="({$id_header})Intro" data-role="listview" data-inset="false">
 ({foreach from=$c_friend_comment_list item=item})
-<li id="member({$item.c_member_id})Intro({$target_c_member.c_member_id})" class="commentList">
-<a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><section class="authorBar">
+<li class="commentList">
+<a href="javascript:void(0);" id="member({$item.c_member_id})Intro({$target_c_member.c_member_id})" onclick="readMore('#member({$item.c_member_id})Intro({$target_c_member.c_member_id}) .authorBar .itemData'); return false;">
+<section class="authorBar">
 <div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title authorData" id="member({$item.c_member_id})Name">({$item.nickname})</div>
-<div class="itemBody">({$item.intro})</div>
+<div class="itemBody">({$item.intro|t_url2a|nl2br})</div>
 <div class="commentListFooter">
 </div></div>
 </section></a>
@@ -253,8 +252,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 ({/if})
 </div>
-</section>
-({* }}} *})
+</section>({* friendIntroList }}} *})
 ({/if})
 
 </div>({* {{{ content *})
