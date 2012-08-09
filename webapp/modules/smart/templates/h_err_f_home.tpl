@@ -1,14 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="該当するメンバーが見つかりません。"})
 
-({* {{{ alertBox *})
-<div class="dparts alertBox"><div class="parts">
-<table><tr>
-<th><img src="({t_img_url_skin filename=icon_alert_l})" alt="警告" /></th>
-<td>該当するメンバーが見つかりません。</td>
-</tr></table>
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
