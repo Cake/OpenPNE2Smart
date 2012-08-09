@@ -28,6 +28,7 @@
 	|| $INC_HEADER_page_name == 'f_link_request_err_already'
 	|| $INC_HEADER_page_name == 'f_link_request_err_wait'
 	|| $INC_HEADER_page_name == 'f_link_request_err_yet'
+	|| $INC_HEADER_page_name == 'f_show_image'
 	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
