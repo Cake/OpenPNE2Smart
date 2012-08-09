@@ -1,27 +1,24 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$WORD_MY_FRIEND|string_format:"本当に%sから外しますか？"})
 
-({* {{{ yesNoButtonBox *})
-<div class="dparts yesNoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>本当に({$WORD_MY_FRIEND})から外しますか？</h3></div>
-
-<div class="block">
-<ul class="moreInfo button">
-<li>
-({t_form_block m=pc a=do_fh_friend_list_delete_c_friend})
+({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
+<ul class="ui-grid-a">
+<li class="ui-block-a">
+({t_form_block m=pc a=do_fh_friend_list_delete_c_friend  _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_member_id" value="({$target_c_member_id})" />
-<input type="submit" class="input_submit" value="　外　す　" />
+<input type="submit" class="input_submit" value="はい" />
 ({/t_form_block})
-</li><li>
-({t_form_block _method=get m=pc a=page_h_manage_friend})
-<input type="submit" class="input_submit" value="キャンセル" />
+</li>
+<li class="ui-block-b">
+({t_form_block m=pc a=page_h_manage_friend})
+<input type="submit" class="input_submit" value="いいえ" />
 ({/t_form_block})
 </li>
 </ul>
-</div>
+</div>({* yesNoButtonBox }}} *})
 
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

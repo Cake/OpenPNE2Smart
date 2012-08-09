@@ -24,10 +24,15 @@
 	$INC_HEADER_page_name == 'f_home'
 	|| $INC_HEADER_page_name == 'f_bookmark_add'
 	|| $INC_HEADER_page_name == 'f_com_list_common'
+	|| $INC_HEADER_page_name == 'f_link_request'
+	|| $INC_HEADER_page_name == 'f_link_request_err_already'
+	|| $INC_HEADER_page_name == 'f_link_request_err_wait'
+	|| $INC_HEADER_page_name == 'f_link_request_err_yet'
 	|| ($INC_HEADER_page_name == 'fh_com_list' && $requests.c_member_id && $requests.c_member_id != $u)
 	|| ($INC_HEADER_page_name == 'fh_diary' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_friend_list' && $type == "f")
+	|| $INC_HEADER_page_name == 'fh_friend_list_delete_c_friend_confilm'
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'c_home'

@@ -1,14 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$WORD_FRIEND|string_format:"%s登録されていないメンバーの紹介文を書くことはできません。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>紹介文を編集</h3></div>
-<div class="block">
-<p>({$WORD_MY_FRIEND})登録されていないメンバーの紹介文を書くことはできません。</p>
-</div>
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

@@ -1,14 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="menu-content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$WORD_FRIEND|string_format:"現在、このメンバーからの%sリンク承認待ちです。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>({$WORD_MY_FRIEND})に追加</h3></div>
-<div class="block">
-<p>現在、このメンバーからの({$WORD_FRIEND})リンク承認待ちです。</p>
-</div>
-</div></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

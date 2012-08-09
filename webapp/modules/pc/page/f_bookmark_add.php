@@ -42,18 +42,6 @@ class pc_page_f_bookmark_add extends OpenPNE_Action
 
         $this->set('inc_navi', fetch_inc_navi('f', $target_c_member_id));
         $c_member = db_member_c_member_with_profile($target_c_member_id);
-        /* OpenPNE2 スマートフォン対応：ここから */
-        // 自己紹介省略フラグ
-        if (isset($c_member['profile']['self_intro']['value'])) {
-            $c_member['profile']['self_intro']['isShorten'] = false;
-            if(substr_count($c_member['profile']['self_intro']['value'], "\n") >= 3
-                || substr_count("\n", $c_member['profile']['self_intro']['value']) >= 3) {
-                $c_member['profile']['self_intro']['isShorten'] = "over 3 lines";
-            } elseif (strlen($c_member['profile']['self_intro']['value']) >= 118) {
-                $c_member['profile']['self_intro']['isShorten'] = "over 118 letters.";
-            }
-        }
-        /* OpenPNE2 スマートフォン対応：ここまで */
         $c_member['last_login'] = p_f_home_last_login4access_date($c_member['access_date']);
         $this->set('c_member', $c_member);
 

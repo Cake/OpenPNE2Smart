@@ -523,11 +523,15 @@ ul.ui-listview + .descriptionBox  {
  * 29. messageList（メッセージリスト）
  * 30. ashiatoList（あしあとリスト）
  *----------------------------------------------------------------------------*/
+#diaryAuthor .photo48,
+#communityInfo .photo48 {
+	display: table-cell;
+}
+
 #diaryAuthor .photo48 + .itemData,
 #communityInfo .photo48 + .itemData {
-	position: absolute;
-	top: 105px;
-	width: 80%;
+	display: table-cell;
+	padding-left: 10px;
 }
 
 .commentListBox {
