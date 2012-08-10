@@ -24,6 +24,7 @@
 	$INC_HEADER_page_name == 'f_home'
 	|| $INC_HEADER_page_name == 'f_bookmark_add'
 	|| $INC_HEADER_page_name == 'f_com_list_common'
+	|| $INC_HEADER_page_name == 'f_invite'
 	|| $INC_HEADER_page_name == 'f_link_request'
 	|| $INC_HEADER_page_name == 'f_link_request_err_already'
 	|| $INC_HEADER_page_name == 'f_link_request_err_wait'

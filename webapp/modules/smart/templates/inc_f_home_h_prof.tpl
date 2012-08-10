@@ -60,6 +60,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 </span>
 <span><a href="({t_url m=pc a=page_f_bookmark_add})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="true" data-mini="true" data-ajax="true">お気に入り追加</a></span>
+<span><a href="({t_url m=pc a=page_f_invite})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="true" data-mini="true" data-ajax="true">({$WORD_MY_FRIEND})に紹介</a></span>
 </div>
 </section>({* simpleBox }}} *})
 
