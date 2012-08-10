@@ -11,7 +11,6 @@
 <div class="itemData">
 <div class="title">
 <h2>({$c_message.subject})</h2>
-<span class="public">({t_public_flag public_flag=$c_message.public_flag})</span>
 </div>
 </div>
 </div>
@@ -22,6 +21,7 @@
 
 <article class="detailBody">
 <p class="itemBody" id="message({$c_message.c_message_id})body">({$c_message.body|t_url2a|nl2br|t_decoration})</p>
+({if $c_message.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="message({$c_message.c_message_id})gallery">
 ({if $c_message.image_filename_1 || $c_message.image_filename_2 || $c_message.image_filename_3})
 ({if $c_message.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$c_message.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
