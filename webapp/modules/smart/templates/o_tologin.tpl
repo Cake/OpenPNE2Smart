@@ -3,11 +3,9 @@
 <div data-role="content">({* {{{ Page content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ linkLine *})
-<section class="parts linkLine"><ul class="moreInfo">
-<li><a href="({$login_url})" data-ajax="false">ログインページへ</a></li>
-</ul></section>
-({* }}} *})
+({* {{{ linkLine *})<section class="linkLine">
+<a href="({$login_url})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">ログインページへ</a>
+</section>({* }}} *})
 
 </div>({* Page content}}} *})
 ({ext_include file="common/inc_footer.tpl"})
