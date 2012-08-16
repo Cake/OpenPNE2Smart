@@ -13,7 +13,7 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>カテゴリ</legend>
+<legend><span class="required">カテゴリ</span></legend>
 <select name="c_commu_category_id" id="c_commu_category_id" data-mini="false">
 <option value="">選択してください</option>
 ({foreach from=$c_commu_category_list item=item})
@@ -24,7 +24,7 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>参加条件</legend>
+<legend><span class="required">参加条件</span></legend>
 <input type="radio" class="input_radio" name="is_admit" id="is_admit_public" value="public"({if $form_val.is_admit=="public" || !$form_val.is_admit}) checked="checked"({/if}) />
 <label for="is_admit_public">誰でも参加可能</label>
 <input type="radio" class="input_radio" name="is_admit" id="is_admit_auth" value="auth"({if $form_val.is_admit=="auth"}) checked="checked"({/if}) />
@@ -33,7 +33,7 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>公開範囲</legend>
+<legend><span class="required">公開範囲</span></legend>
 <input type="radio" class="input_radio" name="is_open" id="is_open_public" value="public"({if $form_val.is_open=="public" || !$form_val.is_open}) checked="checked"({/if}) /><label for="is_open_public">全員に公開</label>
 <input type="radio" class="input_radio" name="is_open" id="is_open_member" value="member"({if $form_val.is_open=="member"}) checked="checked"({/if}) /><label for="is_open_member">({$WORD_COMMUNITY})参加者にのみ公開</label>
 </fieldset>

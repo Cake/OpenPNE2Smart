@@ -20,7 +20,7 @@ $('#h_diary_add').live('pageinit',function(event){
 <label for="subject">タイトル</label>
 <input type="text" name="subject" id="subject" value="({$form_val.subject})" placeholder="タイトル"/>
 </div>
-({ext_include file="inc_tinymce_textarea.tpl" _name="body" _body=$form_val.body|smarty:nodefaults})
+({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="required" _body=$form_val.body|smarty:nodefaults})
 
 ({if ($is_apple)})
 <div data-role="fieldcontain" class="ui-hide-label">
@@ -56,7 +56,7 @@ $('#h_diary_add').live('pageinit',function(event){
 ({/if})
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>公開範囲</legend>
+<legend><span class="required">公開範囲</span></legend>
 <input type="radio" name="public_flag" id="public_flag_public" value="public"({if $form_val.public_flag == "public"}) checked="checked"({/if}) />
 	<label for="public_flag_public">全員に公開</label>
 	<input type="radio" name="public_flag" id="public_flag_friend" value="friend"({if $form_val.public_flag == "friend"}) checked="checked"({/if}) />
@@ -67,7 +67,7 @@ $('#h_diary_add').live('pageinit',function(event){
 </div>
 ({if $smarty.const.OPENPNE_USE_DIARY_COMMENT})
 <div data-role="containing-element">
-<label for="is_comment_input">コメント許可</label>
+<label for="is_comment_input" class="required">コメント許可</label>
 <select name="is_comment_input" id="is_comment_input" data-role="slider">
 	<option value="0"({if !$form_val.is_comment_input}) checked="checked"({/if})>許可しない</option>
 	<option value="1"({if $form_val.is_comment_input}) checked="checked"({/if})>許可する</option>

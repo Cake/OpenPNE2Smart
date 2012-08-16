@@ -16,7 +16,7 @@
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>送信先</legend>
+<legend><span class="required">送信先</span></legend>
 ({foreach from=$c_event_member_list item=item})
 <input type="checkbox" class="input_checkbox" id="m({$item.c_member_id})" name="c_member_id[]" value="({$item.c_member_id})" checked="checked" />
 <label for="m({$item.c_member_id})">({$item.nickname})</label>

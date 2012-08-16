@@ -18,7 +18,7 @@
 <input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})" />
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>紹介先</legend>
+<legend><span class="required">紹介先</span></legend>
 ({foreach from=$f_invite_list item=c_invite})
 <input type="checkbox" class="input_checkbox" id="m({$c_invite.c_member_id})" name="c_member_id_list[]" value="({$c_invite.c_member_id})" />
 <label for="m({$c_invite.c_member_id})">({$c_invite.nickname})</label>

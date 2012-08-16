@@ -13,7 +13,7 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>カテゴリ</legend>
+<legend><span class="required">カテゴリ</span></legend>
 <select name="c_commu_category_id">
 ({foreach from=$c_commu_category_list item=item})
 <option value="({$item.c_commu_category_id})"({if $item.c_commu_category_id == $c_commu.c_commu_category_id}) selected="selected"({/if})>({$item.name})</option>
@@ -23,21 +23,21 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>参加条件</legend>
+<legend><span class="required">参加条件</span></legend>
 <input type="radio" class="input_radio" name="is_admit" id="is_admit_public" value="public"({if $c_commu.is_admit == 'public'}) checked="checked"({/if}) /><label for="is_admit_public">誰でも参加可能</label>
 <input type="radio" class="input_radio" name="is_admit" id="is_admit_auth" value="auth"({if $c_commu.is_admit == 'auth'}) checked="checked"({/if}) /><label for="is_admit_auth">管理人の承認が必要</label>
 </fieldset>
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>公開範囲</legend>
+<legend><span class="required">公開範囲</span></legend>
 <input type="radio" class="input_radio" name="is_open" id="is_open_public" value="public"({if $c_commu.is_open == 'public'}) checked="checked"({/if}) /><label for="is_open_public">全員に公開</label>
 <input type="radio" class="input_radio" name="is_open" id="is_open_member" value="member"({if $c_commu.is_open == 'member'}) checked="checked"({/if}) /><label for="is_open_member">({$WORD_COMMUNITY})参加者にのみ公開</label>
 </fieldset>
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>トピック作成権限</legend>
+<legend><span class="required">トピック作成権限</span></legend>
 <input type="radio" class="input_radio" name="is_topic" id="is_topic_member" value="member"({if $c_commu.is_topic == 'member'}) checked="checked"({/if}) /><label for="is_topic_member">({$WORD_COMMUNITY})参加者が作成可能</label>
 <li><input type="radio" class="input_radio" name="is_topic" id="is_topic_admin_only" value="admin_only"({if $c_commu.is_topic == 'admin_only'}) checked="checked"({/if}) /><label for="is_topic_admin_only">({$WORD_COMMUNITY})管理者のみが作成可能</label></li>
 <input type="radio" class="input_radio" name="is_topic" id="is_topic_public" value="public"({if $c_commu.is_topic == 'public'}) checked="checked"({/if}) /><label for="is_topic_public">誰でも作成可能</label></li>
@@ -45,7 +45,7 @@
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
-<legend>コメント作成権限</legend>
+<legend><span class="required">コメント作成権限</span></legend>
 <input type="radio" class="input_radio" name="is_comment" id="is_comment_member" value="member"({if $c_commu.is_comment == 'member'}) checked="checked"({/if}) /><label for="is_comment_member">({$WORD_COMMUNITY})参加者のみ可能</label>
 <input type="radio" class="input_radio" name="is_comment" id="is_comment_public" value="public"({if $c_commu.is_comment == 'public'}) checked="checked"({/if}) /><label for="is_comment_public">誰でもコメント可能</label>
 </div>
