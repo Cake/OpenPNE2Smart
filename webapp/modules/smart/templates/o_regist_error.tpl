@@ -1,15 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
-({* {{{ formTable *})
-<div class="dparts formTable"><div class="parts">
-<div class="partsHeading"><h3>登録できません</h3></div>
-<div class="partsInfo">
-<p>
-現在、スマートフォンでの登録はできません。
-</p>
-</div>
-</div></div>
-({* }}} *})
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="現在、スマートフォンでの登録はできません。"})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

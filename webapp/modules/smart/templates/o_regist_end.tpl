@@ -1,16 +1,13 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="登録が完了しました。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>登録完了</h3></div>
-<div class="block">
-<p>登録が完了しました。<br />以下のページからログインしてください。<br /><br /><a href="({$login_url})">ログインページへ</a></p>
-</div>
-</div></div>
-({* }}} *})
+({* {{{ simpleBox *})<section class="simpleBox" id="registEnd" data-role="">
+<p>以下のページからログインしてください。</p>
+<a href="({$login_url})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">ログインページへ</a>
+</section>({* simpleBox }}} *})
 
-({$aftag|smarty:nodefaults})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
