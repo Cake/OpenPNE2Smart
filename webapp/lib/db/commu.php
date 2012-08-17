@@ -1303,6 +1303,8 @@ function db_commu_c_commu_topic_comment_list4c_member_id_2($c_member_id, $limit,
         $c_commu_topic_list[$key]['c_commu_name'] = $c_commu_name;
 
 /* OpenPNE2 スマートフォン対応：ここから */
+        $c_commu_topic_list[$key]['body'] = $temp['body'];
+
         $sql = 'SELECT image_filename AS c_commu_name FROM c_commu WHERE c_commu_id = ?';
         $c_commu_image_filename = db_get_one($sql, $value['c_commu_id']);
         $c_commu_topic_list[$key]['c_commu_image_filename'] = $c_commu_image_filename;
