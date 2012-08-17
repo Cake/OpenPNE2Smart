@@ -12,6 +12,7 @@ class pc_page_c_event_detail_ajax extends OpenPNE_Action
 
         // --- リクエスト変数
         $c_commu_topic_id = $requests['target_c_commu_topic_id'];
+        $page = $requests['page'];
         $total_num = $requests['total_num'];
         // ----------
 
@@ -39,12 +40,15 @@ class pc_page_c_event_detail_ajax extends OpenPNE_Action
         $c_topic = db_commu_c_topic4c_commu_topic_id_2($c_commu_topic_id);
 
         //書き込み一覧部分
-        $page = 1;
-        $page_size = $total_num - 2;
+        $page_size = 20;
         // 順番
-        $desc = false;
+        $desc = true;
 
         list($c_topic_write, $pager) = db_commu_c_topic_write4c_commu_topic_id($c_commu_topic_id, $page, $page_size, $desc);
+
+        if ($desc) {
+            $c_topic_write = array_reverse($c_topic_write);
+        }
 
         foreach ($c_topic_write as $key => $value) {
             if ($value['filename']) {

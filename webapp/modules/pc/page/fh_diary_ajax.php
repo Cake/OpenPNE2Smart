@@ -13,6 +13,7 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
 
         // --- リクエスト変数
         $target_c_diary_id = $requests['target_c_diary_id'];
+        $page = $requests['page'];
         $total_num = $requests['total_num'];
         // ----------
 
@@ -50,10 +51,9 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
 
         // 日記コメント
         // コメント取得件数
-        $page = 1;
-        $page_size = $total_num - 5;
+        $page_size = 20;
         // 順番
-        $desc = false;
+        $desc = true;
 
         list($c_diary_comment_list, $is_prev, $is_next, $total_num, $total_page_num)
             = k_p_fh_diary_c_diary_comment_list4c_diary_id($target_c_diary_id, $page_size, $page, $desc);
@@ -61,10 +61,6 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
         if (empty($c_diary_comment_list)) {
             echo array2json(array('msg' => 'コメントはありません。'));
             return false;
-        }
-
-        if ($desc) {
-            $c_diary_comment_list = array_reverse($c_diary_comment_list);
         }
 
         // コメント省略フラグ

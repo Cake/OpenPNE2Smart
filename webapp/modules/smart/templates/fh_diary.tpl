@@ -94,16 +94,16 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </section>({*  diaryDetailBox }}} *})
 
 ({if $target_diary_comment_list})
-({* {{{ commentList *})
-<section class="commentListBox" id="diaryCommentList">
-({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})<h3><span id="diaryComment({$target_diary.c_diary_id})NextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.commentList', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_num})', true);return false;" data-ajax="true">コメント({$total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
+({* {{{ commentList *})<section class="commentListBox" id="diaryCommentList">
 <ul id="diary({$target_diary.c_diary_id})CommentList" class="pictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})
 ({ext_include file="inc_fh_diary_comment.tpl"})
 ({/foreach})
 </ul>
-</section>
-({* commentList }}} *})
+</section>({* commentList }}} *})
+({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})
+<div class="pagerRelative" id="diaryComment({$target_diary.c_diary_id})NextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'asc', 'li.commentList', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
+({/if})({* Pager }}} *})
 ({/if})
 
 ({if !$smarty.const.OPENPNE_USE_DIARY_COMMENT or $is_comment_input})

@@ -1,5 +1,7 @@
 <script language="JavaScript">
 <!--
+var page=2;
+
 ({if $body})
 $('#topicWriteForm').ready(function(){
 	jump_to('comment_box','comment_box');
@@ -66,13 +68,15 @@ $('#topicWriteForm').ready(function(){
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
 ({* {{{ commentList *})<section class="commentListBox" id="topicWriteList">
-({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.page_prev})<h3><span id="topic({$c_topic.c_topic_id})WriteNextPager"><a href="javascript:void(0);" onclick="submitPagerAll('({t_url m=pc a=page_c_topic_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', 'li.commentList', 'topic({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_num})', true);return false;" data-ajax="true">コメント({$pager.total_num})件を全て見る</a></span></h3>({/if})({* Pager }}} *})
 <ul id="topic({$c_topic.c_topic_id})WriteList" class="pictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$c_topic_write item=item})
 ({ext_include file="inc_c_bbs_write.tpl"})
 ({/foreach})
 </ul>
 </section>({* commentList }}} *})
+({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.page_prev})
+<div class="pagerRelative" id="topic({$c_topic.c_topic_id})WriteNextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_topic_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'asc', 'li.commentList', 'topic({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
+({/if})({* Pager }}} *})
 ({/if})
 ({/if})
 

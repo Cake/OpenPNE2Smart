@@ -88,7 +88,7 @@ class pc_page_fh_diary extends OpenPNE_Action
         $smartPhone = new OpenPNE_SmartPhoneUA();
         if ($smartPhone->is_smart) {
              // コメント取得件数
-             $page_size = 5;
+             $page_size = 20;
             // 順番 : desc
             $desc = true;
         }
@@ -96,9 +96,11 @@ class pc_page_fh_diary extends OpenPNE_Action
 
         list($c_diary_comment_list, $is_prev, $is_next, $total_num, $total_page_num)
             = k_p_fh_diary_c_diary_comment_list4c_diary_id($target_c_diary_id, $page_size, $page, $desc);
-        if ($desc) {
+        /* OpenPNE2 スマートフォン対応：ここから */
+        if ($desc && !$smartPhone->is_smart) {
             $c_diary_comment_list = array_reverse($c_diary_comment_list);
         }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         /* OpenPNE2 スマートフォン対応：ここから */
         // コメント省略フラグ
