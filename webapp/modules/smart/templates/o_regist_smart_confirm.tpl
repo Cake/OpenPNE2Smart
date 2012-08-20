@@ -1,52 +1,33 @@
-<div id="LayoutC">
-<div id="Center">
-
-({* {{{ formTable *})
-<div class="dparts formTable"><div class="parts">
-<div class="partsHeading"><h3>プロフィール確認</h3></div>
-<div class="partsInfo">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
 ({if $smarty.const.IS_SNS_ENTRY_CONFIRM})
-<p>以下の内容で管理者に申請します。確認のうえ、参加申請ボタンをクリックしてください。</p>
+({assign var=confirmMsg value="以下の内容で管理者に申請します。確認のうえ、参加申請ボタンをクリックしてください。"})
 ({else})
-<p>以下の内容で登録します。確認のうえ、登録ボタンをクリックしてください。</p>
+({assign var=confirmMsg value="以下の内容で登録します。確認のうえ、登録ボタンをクリックしてください。"})
 ({/if})
-</div>
-<table>
+({ext_include file="common/inc_msg.tpl" msg=$confirmMsg})
+
+({* {{{ formTable *})<dl id="registProfConfirm">
 ({if $smarty.const.OPENPNE_AUTH_MODE == 'pneid'})
-<tr>
-<th>ログインID <strong>※</strong></th>
-<td>({$prof.login_id})</td>
-</tr>
+<dt class="required">ログインID</dt>
+<dd>({$prof.login_id})</dd>
 ({/if})
 ({capture name="nick"})
-<tr>
-<th>({$WORD_NICKNAME}) <strong>※</strong></th>
-<td>({$prof.nickname})</td>
-</tr>
+<dt class="required">({$WORD_NICKNAME})</dt>
+<dd>({$prof.nickname})</dd>
 ({/capture})
 ({capture name="birth"})
-<tr>
-<th>生まれた年 <strong>※</strong></th>
-<td>
-({$prof.birth_year})年
-({if $prof.public_flag_birth_year == 'friend'})
-（({$WORD_MY_FRIEND})まで公開）
-({elseif $prof.public_flag_birth_year == 'private'})
-（公開しない）
+<dt class="required">生まれた年</dt>
+<dd>({$prof.birth_year})</dd>
+({if $prof.public_flag_birth_year == 'friend' || $prof.public_flag_birth_year == 'private'})
+<dd>({if $prof.public_flag_birth_year == 'friend'})（({$WORD_MY_FRIEND})まで公開）({elseif $prof.public_flag_birth_year == 'private'})（公開しない）({/if})</dd>
 ({/if})
-</td>
-</tr>
-<tr>
-<th>誕生日 <strong>※</strong></th>
-<td>
-({$prof.birth_month})月({$prof.birth_day})日
-({if $prof.public_flag_birth_month_day == 'friend'})
-（({$WORD_MY_FRIEND})まで公開）
-({elseif $prof.public_flag_birth_month_day == 'private'})
-（公開しない）
+<dt class="required">誕生日</dt>
+<dd>({$prof.birth_month})月({$prof.birth_day})日</dd>
+({if $prof.public_flag_birth_month_day == 'friend' || $prof.public_flag_birth_month_day == 'private'})
+<dd>({if $prof.public_flag_birth_month_day == 'friend'})({$WORD_MY_FRIEND})まで公開）({elseif $prof.public_flag_birth_month_day == 'private'})（公開しない）({/if})</dd>
 ({/if})
-</td>
-</tr>
 ({/capture})
 ({foreach from=$profile_list item=profile})
 ({strip})
@@ -76,11 +57,9 @@
 
 ({/strip})
 ({if $profile.disp_regist})
-<tr>
-<th>({$profile.caption})({if $profile.is_required}) <strong>※</strong>({/if})</th>
-<td>
-({if $prof.profile[$profile.name].value})
-
+<dt({if $profile.is_required}) class="required"({/if})>({$profile.caption})</dt>
+<dd>({if $prof.profile[$profile.name].value})
+({strip})
 ({if $profile.form_type == 'textarea'})
     ({$prof.profile[$profile.name].value|nl2br|t_url2cmd:'profile'|t_cmd:'profile'})
 ({elseif $profile.form_type == 'checkbox'})
@@ -88,16 +67,12 @@
 ({else})
     ({$prof.profile[$profile.name].value})
 ({/if})
-
-({if $prof.profile[$profile.name].public_flag == 'friend'})
-（({$WORD_MY_FRIEND})まで公開）
-({elseif $prof.profile[$profile.name].public_flag == 'private'})
-（公開しない）
+({/strip})
 ({/if})
-
+</dd>
+({if $prof.profile[$profile.name].public_flag == 'friend' || $prof.profile[$profile.name].public_flag == 'private'})
+<dd>({if $prof.profile[$profile.name].public_flag == 'friend'})（({$WORD_MY_FRIEND})まで公開）({elseif $prof.profile[$profile.name].public_flag == 'private'})（公開しない）({/if})</dd>
 ({/if})
-</td>
-</tr>
 ({/if})
 ({/foreach})
 ({if !$_cnt_nick && !$_cnt_birth})
@@ -112,49 +87,34 @@
 ({if !$_cnt_nick})({$smarty.capture.nick|smarty:nodefaults})({/if})
 ({if !$_cnt_birth})({$smarty.capture.birth|smarty:nodefaults})({/if})
 ({/if})
-<tr>
-<th>メールアドレス <strong>※</strong></th>
-<td>({$ktai_address})</td>
-</tr>
-<tr>
-<th>パスワード <strong>※</strong></th>
-<td>（表示しません）</td>
-</tr>
+<dt class="required">メールアドレス</dt>
+<dd>({$ktai_address})</dd>
+<dt class="required">パスワード</dt>
+<dd>（表示しません）</dd>
 ({if $smarty.const.IS_PASSWORD_QUERY_ANSWER})
-<tr>
-<th>秘密の質問 <strong>※</strong></th>
-<td>({$password_query_name})</td>
-</tr>
-<tr>
-<th>質問の答え <strong>※</strong></th>
-<td>({$prof.c_password_query_answer})</td>
-</tr>
+<dt class="required">秘密の質問</dt>
+<dd>({$password_query_name})</dd>
+<dt class="required">質問の答え</dt>
+<dd>({$prof.c_password_query_answer})</dd>
 ({/if})
-</table>
+</dl>
 <div class="operation">
-<ul class="moreInfo button">
-<li>
-({t_form_block m=pc a=do_o_regist_smart_prof})
+({t_form_block m=pc a=do_o_regist_smart_prof _attr='data-ajax="false"'})
 <input type="hidden" name="mode" value="register" />
 <input type="hidden" name="ses" value="({$ses})" />
 ({if $smarty.const.IS_SNS_ENTRY_CONFIRM })
-<input type="submit" class="input_submit" value="　参加申請　" />
+<input type="submit" class="input_submit" value="参加申請" />
 ({else})
-<input type="submit" class="input_submit" value="　登　録　" />
+<input type="submit" class="input_submit" value="登録" />
 ({/if})
 ({/t_form_block})
-</li>
-<li>
-({t_form_block m=pc a=do_o_regist_smart_prof})
+({t_form_block m=pc a=do_o_regist_smart_prof _attr='data-ajax="false"'})
 <input type="hidden" name="mode" value="input" />
 <input type="hidden" name="ses" value="({$ses})" />
-<input type="submit" class="input_submit" value="　修　正　" />
+<input type="submit" class="input_submit" value="修正" />
 ({/t_form_block})
-</li>
-</ul>
-</div>
-</div></div>
-({* }}} *})
+</div>({* formTable }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
