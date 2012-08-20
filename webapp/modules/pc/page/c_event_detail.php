@@ -68,19 +68,13 @@ class pc_page_c_event_detail extends OpenPNE_Action
         $smartPhone = new OpenPNE_SmartPhoneUA();
         if ($smartPhone->is_smart) {
              // コメント取得件数
-             $page_size = 20;
+             $page_size = 5;
             // 順番 : desc
             $desc = true;
         }
         /* OpenPNE2 スマートフォン対応：ここまで */
 
         list($c_topic_write, $pager) = db_commu_c_topic_write4c_commu_topic_id($c_commu_topic_id, $page, $page_size, $desc);
-
-        /* OpenPNE2 スマートフォン対応：ここから */
-        if ($desc && $smartPhone->is_smart) {
-            $c_topic_write = array_reverse($c_topic_write);
-        }
-        /* OpenPNE2 スマートフォン対応：ここまで */
 
         foreach ($c_topic_write as $key => $value) {
             if ($value['filename']) {

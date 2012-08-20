@@ -206,6 +206,7 @@ foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 .pagerRelative {
 	text-align: center;
 	margin-top: 25px;
+	margin-bottom: 25px;
 }
 .pagerRelative span {
 }
