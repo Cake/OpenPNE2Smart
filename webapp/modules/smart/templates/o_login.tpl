@@ -1,7 +1,6 @@
 <div data-role="page" id="pc_page_({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div data-role="content">({* {{{ Page content *})
-({ext_include file="common/inc_msg.tpl"})
 
 <section id="loginForm">
 ({t_form_block _attr='name="login" id="login"' m=pc a=do_o_login _attr='data-ajax="false"'})
