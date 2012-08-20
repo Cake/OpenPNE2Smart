@@ -1,27 +1,24 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>会員登録</h3></div>
-<div class="block">
-<p>サービスを利用するには、以下の規約を遵守してください。<br />利用者ご本人により会員規約に同意のうえ、登録手続きを進めてください。</p>
-</div>
-</div></div>
-({* }}} *})
+({* {{{ simpleBox *})<section class="simpleBox" id="registProfIntro" data-role="" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>会員登録</h3>
+<p>サービスを利用するには、以下の規約を遵守してください。<br />
+利用者ご本人により会員規約に同意のうえ、登録手続きを進めてください。</p>
+</section>({* simpleBox }}} *})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>利用規約</h3></div>
-<div class="block">
+({* {{{ descriptionBox *})<section class="descriptionBox" id="registIntroSiteadmin" data-role="" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>利用規約</h3>
+<p>
 ({if $c_siteadmin != ""})
-<p>({$c_siteadmin|t_url2a|nl2br})</p>
+({$c_siteadmin|t_url2a|nl2br})
 ({else})
-<p>利用規約は、ただいま準備中です。</p>
+利用規約は、ただいま準備中です。
 ({/if})
-</div>
-</div></div>
-({* }}} *})
+</p>
+</section>({* descriptionBox }}} *})
 
 ({* {{{ buttonLine *})
 <div class="parts buttonLine">
@@ -32,5 +29,6 @@
 </div>
 ({* }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

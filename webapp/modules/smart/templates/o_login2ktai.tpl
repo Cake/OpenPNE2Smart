@@ -1,24 +1,30 @@
-({$inc_ktai_header|smarty:nodefaults})
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-<table width="100%"><tr><td align="center" bgcolor="#({$ktai_color_config.bg_02})">
-<font color="#({$ktai_color_config.font_05})"><a name="top">ﾒｰﾙｱﾄﾞﾚｽ登録</a></font><br>
-</td></tr></table>
-
-({if $msg})
-<font color="#({$ktai_color_config.font_09})">({$msg})</font><br>
-<br>
-({/if})
-ﾊﾟｽﾜｰﾄﾞを入力してください。<br>
-<br>
-({t_form _attr='utn' m=ktai a=do_o_update_ktai_address})
+({* {{{ formTable *})<section class="formTable" id="registktaiMailConfirmForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>メールアドレス登録</h3>
+({t_form_block m=pc a=do_o_update_ktai_address _attr='data-ajax="false"'})
 <input type="hidden" name="ses" value="({$ses})">
-<font color="#({$ktai_color_config.font_06})">携帯ﾒｰﾙｱﾄﾞﾚｽ：</font><br>
-({$pre.ktai_address})<br>
-<font color="#({$ktai_color_config.font_06})">ﾊﾟｽﾜｰﾄﾞ：</font><br>
-<input name="password" type="text" istyle="3" mode="alphabet" value=""><br>
-<center>
-<input name="submit" value="送信" type="submit">
-</center>
-</form>
+<p>メールアドレスの登録をおこないます。<br />パスワードを入力してください。</p>
 
-({$inc_ktai_footer|smarty:nodefaults})
+<div data-role="fieldcontain">
+<label for="pc_address" class="required">メールアドレス</label>
+({$pre.ktai_address})
+<p class="caution">※他のメンバーには公開されません</p>
+</div>
+<div data-role="fieldcontain" class="ui-hide-label">
+<label for="password" class="required">パスワード</label>
+<input type="password" class="input_password" name="password" value="" placeholder="パスワード" autocapitalize="off" />
+</div>
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="登録" />
+</div>
+({/t_form_block})
+</section>({* formTable }}} *})
+
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
+
