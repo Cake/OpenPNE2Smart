@@ -119,18 +119,6 @@
 </td>
 </tr>
 ({/if})
-({if $smarty.const.DISPLAY_SCHEDULE_HOME})
-<tr>
-<th>週間カレンダー</th>
-<td>
-<ul>
-<li><input type="radio" class="input_radio" name="schedule_start_day" id="schedule_start_day_0" value="0"({if $c_member.schedule_start_day == 0}) checked="checked"({/if}) /><label for="schedule_start_day_0">日曜始まり</label></li>
-<li><input type="radio" class="input_radio" name="schedule_start_day" id="schedule_start_day_1" value="1"({if $c_member.schedule_start_day == 1}) checked="checked"({/if}) /><label for="schedule_start_day_1">月曜始まり</label></li>
-<li><input type="radio" class="input_radio" name="schedule_start_day" id="schedule_start_day_2" value="2"({if $c_member.schedule_start_day == 2}) checked="checked"({/if}) /><label for="schedule_start_day_2">本日始まり</label></li>
-</ul>
-</td>
-</tr>
-({/if})
 <tr>
 <th>メール受信設定</th>
 <td>
@@ -219,24 +207,12 @@
 </div></div>
 ({* }}} *})
 
-({if $smarty.const.DISPLAY_NEWDIARYTOPIC_HOME || $smarty.const.USE_BOOKMARK_FEED || $smarty.const.DISPLAY_SCHEDULE_HOME})
+({if $smarty.const.DISPLAY_NEWDIARYTOPIC_HOME || $smarty.const.USE_BOOKMARK_FEED})
 ({* {{{ formTable *})
 <div class="dparts formTable"><div class="parts">
 <div class="partsHeading"><h3>マイホーム最新情報表示変更</h3></div>
 ({t_form_block m=pc a=do_h_member_config_update_display_home})
 <table>
-({if $smarty.const.DISPLAY_SCHEDULE_HOME})
-<tr>
-<th>週間スケジュール</th>
-<td>
-<ul>
-<li><input type="radio" class="input_radio" name="IS_DISPLAY_SCHEDULE_HOME" id="is_display_schedule_home_0" value="1"({if $C_MEMBER_CONFIG.IS_DISPLAY_SCHEDULE_HOME}) checked="checked"({/if}) /><label for="is_display_schedule_home_0">表示する</label></li>
-<li><input type="radio" class="input_radio" name="IS_DISPLAY_SCHEDULE_HOME" id="is_display_schedule_home_1" value="0"({if !$C_MEMBER_CONFIG.IS_DISPLAY_SCHEDULE_HOME}) checked="checked"({/if}) /><label for="is_display_schedule_home_1">表示しない</label></li>
-</ul>
-<p>※マイホームに週間スケジュールを表示します。</p>
-</td>
-</tr>
-({/if})
 ({if $smarty.const.DISPLAY_NEWDIARYTOPIC_HOME})
 <tr>
 <th>全体の最新({$WORD_DIARY})</th>
