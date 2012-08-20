@@ -162,7 +162,7 @@ class pc_do_o_regist_smart_prof extends OpenPNE_Action
                     'regist_address' => $pre['ktai_address'],
                     'is_sns_entry_confirm' => 1,
                 );
- 
+
                 // 仮登録IDを割り出す
                 $c_member_pre_id = db_member_insert_c_member_pre_from_ktai(
                                                     $prof['c_member_id_invite']
@@ -177,7 +177,10 @@ class pc_do_o_regist_smart_prof extends OpenPNE_Action
                     $c_member_pre_secure['login_id'] = $prof['login_id'];
                 }
 
-                db_member_update_c_member_pre4c_member_pre_id($pre['c_member_pre_id'], $c_member_pre_secure);
+                // 登録
+                db_member_update_c_member_pre4c_member_pre_id($c_member_pre_id, $c_member_pre_secure);
+                // delete c_member_ktai_pre
+                db_member_delete_c_member_ktai_pre4id($pre['c_member_ktai_pre_id']);
 
                 openpne_redirect('pc', 'page_o_regist_wait', array('c_member_id' => $u));
             }
