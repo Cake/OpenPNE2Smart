@@ -1,83 +1,68 @@
-<div id="LayoutC">
-<div id="Center">
+<script language="JavaScript">
+<!--
+$('#({$INC_HEADER_page_name})').live('pageinit',function(event){
+({if $pager.total_page > 5})({literal})
+	$("#image_({$c_member.image_filename})").button('disable');
+({/literal})({/if})
+});
+//-->
+</script>
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ photoUploadFormBox *})
-<div class="dparts photoUploadFormBox"><div class="parts">
-<div class="partsHeading"><h3>写真を編集する</h3></div>
-<table>
-<tr>
-<td>
+({* {{{ photoUploadFormBox *})<section class="photoUploadFormBox" id="configProfileImages" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>写真を編集する</h3>
+<ul class="" id="configProfileImageGallery">
 ({if $c_member.image_filename_1})
-<img src="({t_img_url filename=$c_member.image_filename_1 w=180 h=180})" alt="" /><br />
-[ <a href="({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})">削除</a> |
-({if $c_member.image_filename_1==$c_member.image_filename})
-メイン写真
-({else})
-<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})">メイン写真</a>
-({/if}) ]
-({else})
-<img src="({t_img_url_skin filename=no_image w=180 h=180})" alt="" />
+<li>
+<img src="({t_img_url filename=$c_member.image_filename_1 w=240 h=320})" alt="" />
+<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image1Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image1Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})" id="image_({$c_member.image_filename_1})" data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_1==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
+</li>
 ({/if})
-</td>
-<td>
 ({if $c_member.image_filename_2})
-<img src="({t_img_url filename=$c_member.image_filename_2 w=180 h=180})" alt="" /><br />
-[ <a href="({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})">削除</a> |
-({if $c_member.image_filename_2==$c_member.image_filename})
-メイン写真
-({else})
-<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})">メイン写真</a>
-({/if}) ]
-({else})
-<img src="({t_img_url_skin filename=no_image w=180 h=180})" alt="" />
+<li>
+<img src="({t_img_url filename=$c_member.image_filename_2 w=240 h=320})" alt="" />
+<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image2Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image2Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})" id="image_({$c_member.image_filename_2})" data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_2==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
+</li>
 ({/if})
-</td>
-<td>
 ({if $c_member.image_filename_3})
-<img src="({t_img_url filename=$c_member.image_filename_3 w=180 h=180})" alt="" /><br />
-[ <a href="({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})">削除</a> |
-({if $c_member.image_filename_3==$c_member.image_filename})
-メイン写真
-({else})
-<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})">メイン写真</a>
-({/if}) ]
-({else})
-<img src="({t_img_url_skin filename=no_image w=180 h=180})" alt="" />
+<li>
+<img src="({t_img_url filename=$c_member.image_filename_3 w=240 h=320})" alt="" />
+<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image3Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image3Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})" id="image_({$c_member.image_filename_3})" data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_3==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
+</li>
 ({/if})
-</td>
-</tr>
-</table>
-
-<div class="block">
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if (!$is_apple)})
-({t_form_block _enctype=file m=pc a=do_h_config_image})
-<p><input name="upfile" type="file" value=" 参 照 " /></p>
-<p><input type="submit" class="input_submit" name="submit" value="写真をアップロードする" /></p>
-({/t_form_block})
-({/if})
-<ul ({if ($is_apple)})style="margin: 15px; list-style: none;"({/if})>
-<li>写真は最大3枚までアップロードできます。</li>
-({if ($is_apple)})
-({if $c_member.image_filename_1&&$c_member.image_filename_2&&$c_member.image_filename_3})
-<li>新しく登録する場合は登録した写真を削除してください。</li>
-({else})
-<li>({t_mail_post mailto=$mail_address _linktxt=写真をアップロードする})</li>
-<li>({$SNS_NAME})に登録したメールアドレスから投稿してください。</li>
-({/if})
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
-<li>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください。</li>
-<li>著作権や肖像権の侵害にあたる写真、暴力的・卑猥な写真、他のメンバーが見て不快に感じる写真の掲載は禁止しております。掲載はご自身の責任でお願いいたします。</li>
 </ul>
+</section>
+
+({* {{{ formTable *})<section class="formTable" id="profileImageAddMail" data-role="collapsible" data-collapsed="false" data-content-theme="c">
+<h3>写真をアップロードする</h3>
+({if $c_member.image_filename_1&&$c_member.image_filename_2&&$c_member.image_filename_3})
+<p>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</p>
+({else})
+({if (!$is_apple)})
+({t_form_block _enctype=file m=pc a=do_h_config_image _attr='data-ajax="false"'})
+<div data-role="fieldcontain">
+<label for="upfile">写真を選択</label>
+<input type="file" class="input_file" name="upfile" />
+<div data-role="fieldcontain">
+<input type="submit" class="input_submit" value="アップロード" />
 </div>
-</div></div>
-({* }}} *})
+({/t_form_block})
+({else})
+({t_mail_post mailto=$mail_address _linktxt=メールでアップロード})
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。</p>
+({/if})
+<p>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください<br />
+著作権や肖像権の侵害にあたる写真、暴力的・卑猥な写真、他のメンバーが見て不快に感じる写真の掲載は禁止しております。掲載はご自身の責任でお願いいたします。
+</p>
+({/if})
+</section>
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_h_home})">ホームに戻る</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

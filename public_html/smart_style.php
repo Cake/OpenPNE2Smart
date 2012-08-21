@@ -135,6 +135,11 @@ div.topNav ul li a.ui-btn span {
 	z-index: 200;
 }
 
+.ui-dialog .ui-header .ui-title {
+	margin: 0.6em 20% 0.8em;
+	white-space: normal;
+}
+
 .ui-dialog-contain .topNav,
 .ui-dialog-contain #Footer {
 	display: none;
