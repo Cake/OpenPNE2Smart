@@ -815,3 +815,7 @@ section.homeTab .homeMainTable div:first-child {
 #h_diary_edit div.ui-slider-switch {
 	width: 9em!important;
 }
+
+#h_config_prof div.ui-slider-switch {
+	width: 9em!important;
+}
