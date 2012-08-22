@@ -14,6 +14,13 @@ class pc_do_h_delete_ktai extends OpenPNE_Action
             handle_kengen_error();
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            handle_kengen_error();
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         db_member_update_ktai_address($u, '');
         openpne_redirect('pc', 'page_h_ktai_delete_end');
     }
