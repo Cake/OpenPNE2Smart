@@ -15,7 +15,7 @@
 ({t_form_block m=pc a=page_h_invite_confirm  _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class=">
 <label for="mail">招待するアドレス</label>
-<input type="text" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off" />
+<input type="email" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off" />
 ({if $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_PC})
 <p class="caution">※携帯メールアドレスには招待を送ることができません。</p>
 ({elseif $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_KTAI})
@@ -45,7 +45,7 @@
 ({* {{{ recentList *})
 <section class="commentListBox recentListBox" id="inviteListBox"  data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>招待中メールアドレス一覧</h3>
-({t_form_block m=pc a=do_h_invite_delete_member  _attr='data-ajax="false"'})
+({t_form_block m=pc a=do_h_invite_delete_member _attr='data-ajax="false"'})
 <input type="hidden" name="c_member_id[]" value="({$item.c_member_pre_id})" />
 <div data-role="fieldcontain">
 ({foreach from=$inviting_member item=item})
