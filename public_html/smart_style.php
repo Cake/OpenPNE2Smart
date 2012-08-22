@@ -811,6 +811,11 @@ section.homeTab .homeMainTable div:first-child {
 	margin-top: 15px;
 }
 
+.width_60 {
+	width: 60px !important;
+	display: inline !important;
+}
+
 #h_diary_add div.ui-slider-switch,
 #h_diary_edit div.ui-slider-switch {
 	width: 9em!important;
@@ -819,3 +824,4 @@ section.homeTab .homeMainTable div:first-child {
 #h_config_prof div.ui-slider-switch {
 	width: 9em!important;
 }
+
