@@ -1,14 +1,12 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="入力されたメールアドレスにメールを送信しました。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>登録メールアドレス変更</h3></div>
-<div class="block">
-<p>入力されたメールアドレスにメールを送信しました。<br />メール内のＵＲＬをクリックしてログインしてください。（パスワードは現在登録のものをご使用ください。）</p>
-</div>
-</div></div>
-({* }}} *})
+({* {{{ simpleBox *})<section class="simpleBox" id="registEnd" data-role="">
+<p>メール内のＵＲＬをクリックしてログインしてください。（パスワードは現在登録のものをご使用ください。）</p>
+</section>({* simpleBox }}} *})
 
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})

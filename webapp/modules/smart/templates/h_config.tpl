@@ -4,27 +4,27 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ formTable *})<section class="formTable" id="changeAddressForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
-<h3>メールアドレス変更</h3>
+<h3>PCメールアドレス設定/変更</h3>
 ({t_form_block m=pc a=do_h_config_1 _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="pc_address">メールアドレス</label>
-<input type="email" class="input_text" name="pc_address" id="pc_address" value="" placeholder="メールアドレス" autocapitalize="off" />
+<label for="pc_address">PCメールアドレス</label>
+<input type="email" class="input_text" name="pc_address" id="pc_address" value="" placeholder="PCメールアドレス" autocapitalize="off" />
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="pc_address2">メールアドレス(確認)</label>
-<input type="email" class="input_text" name="pc_address2" id="pc_address2" value="" placeholder="メールアドレス(確認)" autocapitalize="off" />
+<label for="pc_address2">PCメールアドレス(確認)</label>
+<input type="email" class="input_text" name="pc_address2" id="pc_address2" value="" placeholder="PCメールアドレス(確認)" autocapitalize="off" />
 <p>※メールアドレスは公開されません。
 ({if $smarty.const.OPENPNE_AUTH_MODE == 'slavepne' && !$smarty.const.IS_SLAVEPNE_EMAIL_REGIST})
-<br />※初期設定ではメールアドレスが登録されておりません。新着情報などご希望の際は下からご登録ください。
+<br />※初期設定ではメールアドレスが登録されておりません。新着情報などご希望の際はご登録ください。
 ({/if})
 </p>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="メールアドレス変更" />
+<input type="submit" class="input_submit" value="メールアドレス設定/変更" />
 </div>
 ({/t_form_block})
 ({if $smarty.const.OPENPNE_ENABLE_KTAI})
-<p>※携帯メールアドレスは以下から設定してください。登録すると、携帯アドレスでログインすることができます。フィーチャーフォン(従来型携帯)でも利用できます。<br />
+<p>※携帯メールアドレスは以下から設定/変更してください。登録すると、携帯アドレスでログインすることができます。フィーチャーフォン(従来型携帯)でも利用できます。<br />
 <a href="({t_url m=pc a=page_h_config_ktai})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">携帯メールアドレス設定ページへ</a>
 </p>
 ({/if})
