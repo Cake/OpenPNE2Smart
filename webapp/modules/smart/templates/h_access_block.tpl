@@ -1,20 +1,9 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg="申し訳ございませんがこのメンバーのページにはアクセスできません。"})
 
-({* {{{ simpleBox *})
-<div class="dparts simpleBox"><div class="parts">
-<div class="partsHeading"><h3>アクセスできません</h3></div>
-<div class="block">
-<p>申し訳ございませんがこのメンバーのページにはアクセスできません。</p>
-</div>
-</div></div>
-({* }}} *})
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
 
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_h_home})">ホームに戻る</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->

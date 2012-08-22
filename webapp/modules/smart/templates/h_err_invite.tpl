@@ -1,17 +1,8 @@
-<div id="LayoutC">
-<div id="Center">
+<div class="page" data-role="page" id="({$INC_HEADER_page_name})">
+({ext_include file="common/inc_header.tpl"})
+<div class="content" data-role="content">({* {{{ content *})
+({ext_include file="common/inc_msg.tpl" msg=$smarty.const.SNS_NAME|string_format:"%sでは、メンバーによる招待はおこなえません。"})
 
-({* {{{ descriptionBox *})
-<div class="dparts descriptionBox"><div class="parts">
-<p>({$smarty.const.SNS_NAME}) では、メンバーによる招待はおこなえません。</p>
-</div></div>
-({* }}} *})
-
-({* {{{ linkLine *})
-<div class="parts linkLine"><ul class="moreInfo">
-<li><a href="({t_url m=pc a=page_h_home})">ホームに戻る</a></li>
-</ul></div>
-({* }}} *})
-
-</div><!-- Center -->
-</div><!-- LayoutC -->
+</div>({* {{{ content *})
+({ext_include file="common/inc_footer.tpl"})
+</div>({* page }}} *})
