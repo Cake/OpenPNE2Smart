@@ -54,6 +54,12 @@ class pc_do_o_password_query extends OpenPNE_Action
         //--- 権限チェック
         if (IS_PASSWORD_QUERY_ANSWER) {
             $c_member_id = db_member_is_password_query_complete($pc_address, $q_id, $q_answer);
+            /* OpenPNE2 スマートフォン対応：ここから */
+            $smartPhone = new OpenPNE_SmartPhoneUA();
+            if ($smartPhone->is_smart && is_ktai_mail_address($pc_address)) {
+                $c_member_id = db_ktai_is_password_query_complete($pc_address, $q_id, $q_answer);
+            }
+            /* OpenPNE2 スマートフォン対応：ここまで */
             $msg = '正しい値を入力してください';
             if (!$c_member_id) {
                 $p = array('msg' => $msg);
@@ -61,6 +67,12 @@ class pc_do_o_password_query extends OpenPNE_Action
             }
         } else {
             $c_member_id = db_member_c_member_id4pc_address($pc_address);
+            /* OpenPNE2 スマートフォン対応：ここから */
+            $smartPhone = new OpenPNE_SmartPhoneUA();
+            if ($smartPhone->is_smart && is_ktai_mail_address($pc_address)) {
+                $c_member_id = db_member_c_member_id4ktai_address($pc_address);
+            }
+            /* OpenPNE2 スマートフォン対応：ここまで */
             if (!$c_member_id) {
                 openpne_redirect('pc', 'page_o_password_query_end');
             }
