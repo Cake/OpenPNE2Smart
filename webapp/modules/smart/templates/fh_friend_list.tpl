@@ -75,6 +75,8 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 </section>({* simpleBox }}} *})
 ({/if})
 
+<div class="pagerRelative"><a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a></div>
+
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
 </div>({* page }}} *})

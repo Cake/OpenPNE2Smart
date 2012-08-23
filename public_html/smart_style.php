@@ -683,6 +683,10 @@ ul.pictureIconList li.commentList .commentListFooter span {
 }
 
 /*==============================================================================
+ * 28. searchCategoryList（検索項目リスト）
+ *----------------------------------------------------------------------------*/
+
+/*==============================================================================
  * 36. homeNineTable（ホーム9面テーブル）
  * 37. photoTable（写真テーブル）
  *----------------------------------------------------------------------------*/
@@ -811,8 +815,18 @@ section.homeTab .homeMainTable div:first-child {
 	margin-top: 15px;
 }
 
+.width_40 {
+	width: 40px !important;
+	display: inline !important;
+}
+
 .width_60 {
 	width: 60px !important;
+	display: inline !important;
+}
+
+.width_80 {
+	width: 80px !important;
 	display: inline !important;
 }
 
