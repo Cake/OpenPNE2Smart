@@ -118,6 +118,21 @@ class pc_do_h_config_3 extends OpenPNE_Action
             db_member_update_c_member_config($u, 'SEND_RANK_UP_MAIL_PC', $requests['SEND_RANK_UP_MAIL_PC']);
         }
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        if ($smartPhone->is_smart) {
+            // メール受信設定(携帯メールアドレス)
+            $is_receive_ktai_mail = $requests['is_receive_ktai_mail'];
+
+            db_member_update_mail_receive($u, $is_receive_ktai_mail);
+
+            // ランクアップメール設定(携帯メールアドレス)
+            if (!util_is_unused_mail('m_ktai_rank_up')) {
+                 db_member_update_c_member_config($u, 'SEND_RANK_UP_MAIL_KTAI', $requests['SEND_RANK_UP_MAIL_KTAI']);
+            }
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         openpne_redirect('pc', 'page_h_home');
     }
 }

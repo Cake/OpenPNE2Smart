@@ -88,6 +88,7 @@
 <label for="is_receive_daily_news_0">受け取らない</label>
 </fieldset>
 <p>※({$SNS_NAME})の最新情報をメールでお届けします。</p>
+<p>※携帯メールアドレスにはお届けできません。</p>
 </div>
 ({/if})
 <div data-role="fieldcontain">
@@ -98,6 +99,13 @@
 <input type="radio" class="input_radio" name="is_receive_mail" id="is_receive_mail_0" value="0"({if !$c_member.is_receive_mail}) checked="checked"({/if}) />
 <label for="is_receive_mail_0">受け取らない</label>
 </fieldset>
+<fieldset data-role="controlgroup">
+<legend>メール受信設定(携帯メールアドレス)</legend>
+<input type="radio" class="input_radio" name="is_receive_ktai_mail" id="is_receive_ktai_mail_1" value="1"({if $c_member.is_receive_ktai_mail}) checked="checked"({/if}) />
+<label for="is_receive_ktai_mail_1">受け取る</label>
+<input type="radio" class="input_radio" name="is_receive_ktai_mail" id="is_receive_ktai_mail_0" value="0"({if !$c_member.is_receive_ktai_mail}) checked="checked"({/if}) />
+<label for="is_receive_ktai_mail_0">受け取らない</label>
+</fieldset>
 <p>※新着メッセージの通知などをメールでお届けします。</p>
 </div>
 ({if !$is_unused_ashiato})
@@ -105,6 +113,7 @@
 <label for="ashiato_mail_num">あしあとお知らせメール</label>
 <input type="number" class="input_text width_60" name="ashiato_mail_num" id="ashiato_mail_num" value="({$c_member.ashiato_mail_num})" placeholder="" autocapitalize="off" />アクセス目にメールを受け取る
 <p>※ここで指定したアクセス数に達したとき、お知らせメールが届きます。</p>
+<p>※PCメールアドレス/携帯メールアドレスの両方に届きます。</p>
 </div>
 ({/if})
 ({if $smarty.const.OPENPNE_USE_POINT_RANK && !$is_unused_rank_up})
@@ -114,6 +123,12 @@
 <input type="radio" class="input_radio" name="SEND_RANK_UP_MAIL_PC" id="send_rank_up_mail_pc_1" value="1"({if $C_MEMBER_CONFIG.SEND_RANK_UP_MAIL_PC}) checked="checked"({/if}) />
 <label for="send_rank_up_mail_pc_1">受け取る</label><input type="radio" class="input_radio" name="SEND_RANK_UP_MAIL_PC" id="send_rank_up_mail_pc_0" value="0"({if !$C_MEMBER_CONFIG.SEND_RANK_UP_MAIL_PC}) checked="checked"({/if}) />
 <label for="send_rank_up_mail_pc_0">受け取らない</label>
+</fieldset>
+<fieldset data-role="controlgroup">
+<legend>ランクアップメール(携帯メールアドレス)</legend>
+<input type="radio" class="input_radio" name="SEND_RANK_UP_MAIL_KTAI" id="send_rank_up_mail_ktai_1" value="1"({if $C_MEMBER_CONFIG.SEND_RANK_UP_MAIL_KTAI}) checked="checked"({/if}) />
+<label for="send_rank_up_mail_ktai_1">受け取る</label><input type="radio" class="input_radio" name="SEND_RANK_UP_MAIL_KTAI" id="send_rank_up_mail_ktai_0" value="0"({if !$C_MEMBER_CONFIG.SEND_RANK_UP_MAIL_KTAI}) checked="checked"({/if}) />
+<label for="send_rank_up_mail_ktai_0">受け取らない</label>
 </fieldset>
 <p>※ランク変更時に登録されているメールにお知らせします。</p>
 </div>
