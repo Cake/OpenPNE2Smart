@@ -12,6 +12,11 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', strtotime('+10 years')) . ' GMT');
 /**=============================================================================
  * レイアウト設定
  *----------------------------------------------------------------------------*/
+body {
+	font-size: 14px;
+	-webkit-text-size-adjust: none;
+	font-family: ArialMT, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", メイリオ, sans-serif;  
+}
 
 /*==============================================================================
  * デフォルトスタイルシートの上書き
@@ -412,7 +417,7 @@ ul.ui-listview + .descriptionBox  {
 .topicDetailBox .itemBody,
 .messageDetailBox .itemBody {
 	margin: 0;
-	max-height: 3.6em;
+	max-height: 3.4em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
@@ -494,7 +499,7 @@ ul.ui-listview + .descriptionBox  {
 
 #f_bookmark_add .homePhotoBox .itemBody,
 .homePhotoBox .prof_textarea {
-	max-height: 3.6em;
+	max-height: 3.4em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
@@ -773,7 +778,7 @@ ul.photoTable + * {
  * 38. homeMainTable（ホームメインテーブル）
  *----------------------------------------------------------------------------*/
 .homeMainTable .itemBody {
-	max-height: 3.6em;
+	max-height: 3.4em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
