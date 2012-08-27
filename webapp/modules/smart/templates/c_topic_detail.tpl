@@ -46,7 +46,7 @@ $('#topicWriteForm').ready(function(){
 ({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
 ({if $is_writable_comment})
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a href="javascript:void(0);" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus(); return false;" ><img src="({t_img_url_skin filename=button_comment})" alt="コメント返信ボタン" /></a></p>
+<p class="commentWriteButton"><a title="返信" data-icon="smart-write" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
 </div>
 ({/if})
 ({/if})
