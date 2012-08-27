@@ -10,8 +10,11 @@ function readMore(element) {
 function setDiaryIdparams(diaryId) {
 	return '&target_c_diary_id='+diaryId;
 }
-function changePage(url, params) {
-	$.mobile.changePage(url+params, { transition: "slide"} );
+function changePage(url, params, direction) {
+	$.mobile.changePage(url+params,{ 
+		transition: "slide",
+		reverse: direction
+	});
 }
 
 function submitPagerAll(url, order, element, pagerId, totalNum, isListview) {

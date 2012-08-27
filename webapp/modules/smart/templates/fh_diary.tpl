@@ -25,14 +25,14 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 	prevDiaryId = '({$c_diary_id_prev})';
 	$("#({$INC_HEADER_page_name})({$target_diary.c_diary_id})").bind("swiperight", function(){
 		var params = setDiaryIdparams(prevDiaryId);
-		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params);
+		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params, true);
 	});
 ({/if})
 ({if $c_diary_id_next})	// 次の日記
 	nextDiaryId = '({$c_diary_id_next})';
 	$("#({$INC_HEADER_page_name})({$target_diary.c_diary_id})").bind("swipeleft", function(){
 		var params = setDiaryIdparams(nextDiaryId);
-		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params);
+		changePage('({t_url m=pc a=page_fh_diary _html=false _absolute=true})', params, false);
 	});
 ({/if})
 ({/if})
