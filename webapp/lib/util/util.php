@@ -1140,4 +1140,27 @@ function util_do_post_interval_ok($module, $action, $u)
     return true;
 }
 
+/* OpenPNE2 スマートフォン対応：ここから */
+/**
+ * 長文を省略表示するか判断する
+ *
+ * @param string $str
+ * @param int $width
+ * @param int $max_lines
+ */
+function util_check_is_shorten($str, $width = 40, $max_lines = 3)
+{
+    $tmp_string = str_replace(array("\r\n","\r","\n"), '', $str);
+    $tmp_string = wordwrap($str, $width, "\n", true); // カウントだけなので、文字化け対策しない
+    $lines = explode("\n", $tmp_string, $max_lines + 1);
+
+    if (substr_count($tmp_string, "\n") >= $max_lines) {
+    // $max_lines行を超える
+        return true;
+    } else {
+        return false;
+    }
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
+
 ?>

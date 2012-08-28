@@ -57,13 +57,7 @@ class pc_page_h_message extends OpenPNE_Action
 
         /* OpenPNE2 スマートフォン対応：ここから */
         // 本文省略フラグ
-        $c_message['isShorten'] = false;
-        if(substr_count($c_message['body'], "\n") >= 3
-                    || substr_count("\n", $c_message['body']) >= 3) {
-            $c_message['isShorten'] = "over 3 lines";
-        } elseif (strlen($c_message['body']) >= 118) {
-            $c_message['isShorten'] = "over 118 letters.";
-        }
+        $c_message['isShorten'] = util_check_is_shorten($c_message['body']);
         /* OpenPNE2 スマートフォン対応：ここまで */
 
         // メッセージデータ

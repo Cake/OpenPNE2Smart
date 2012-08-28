@@ -45,13 +45,7 @@ class pc_page_c_topic_detail extends OpenPNE_Action
 
         /* OpenPNE2 スマートフォン対応：ここから */
         // 本文省略フラグ
-        $c_topic['isShorten'] = false;
-        if(substr_count($c_topic['body'], "\n") >= 3
-                    || substr_count("\n", $c_topic['body']) >= 3) {
-            $c_topic['isShorten'] = "over 3 lines";
-        } elseif (strlen($c_topic['body']) >= 118) {
-            $c_topic['isShorten'] = "over 118 letters.";
-        }
+        $c_topic['isShorten'] = util_check_is_shorten($c_topic['body']);
         /* OpenPNE2 スマートフォン対応：ここまで */
 
         //詳細部分
@@ -87,13 +81,7 @@ class pc_page_c_topic_detail extends OpenPNE_Action
             }
             /* OpenPNE2 スマートフォン対応：ここから */
             // 本文省略フラグ
-            $c_topic['isShorten'] = false;
-            if(substr_count($c_topic_write[$key]['body'], "\n") >= 3
-                || substr_count("\n", $c_topic_write[$key]['body']) >= 3) {
-                $c_topic_write[$key]['isShorten'] = "over 3 lines";
-            } elseif (strlen($c_topic_write[$key]['body']) >= 118) {
-                $c_topic_write[$key]['isShorten'] = "over 118 letters.";
-            }
+            $c_topic_write[$key]['isShorten'] = util_check_is_shorten($value['body']);
             /* OpenPNE2 スマートフォン対応：ここまで */
         }
 
