@@ -88,7 +88,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 
 ({if $type == "h"})
 <section class="operation">
-<a href="({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$target_diary.c_diary_id})" data-role="button">編集</a>
+<a href="({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$target_diary.c_diary_id})" data-role="button" data-inline="false" data-mini="true" data-ajax="false">編集</a>
 </section>
 ({/if})
 </section>({*  diaryDetailBox }}} *})

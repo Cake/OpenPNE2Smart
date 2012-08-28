@@ -24,7 +24,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="true">プロフィールを変更する</a>({/if})({/capture})
+({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="false">プロフィールを変更する</a>({/if})({/capture})
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="({$id_header})PhotoBox">
 <div class="photo120">
@@ -154,7 +154,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({if !$_cnt_birth})({$smarty.capture.birth|smarty:nodefaults})({/if})
 ({/if})
 </dl>
-({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">プロフィール変更</a>({/if})
+({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">プロフィール変更</a>({/if})
 </section>({* }}} *})
 
 
