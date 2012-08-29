@@ -1150,6 +1150,10 @@ function util_do_post_interval_ok($module, $action, $u)
  */
 function util_check_is_shorten($str, $width = 40, $max_lines = 3)
 {
+   if (!$str) {
+        return false;
+   }
+
     $tmp_string = str_replace(array("\r\n","\r","\n"), '', $str);
     $tmp_string = wordwrap($str, $width, "\n", true); // カウントだけなので、文字化け対策しない
     $lines = explode("\n", $tmp_string, $max_lines + 1);

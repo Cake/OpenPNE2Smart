@@ -45,17 +45,7 @@ function db_member_c_member4c_member_id($c_member_id, $is_secure = false, $with_
 
         /* OpenPNE2 スマートフォン対応：ここから */
         foreach ($c_member['profile'] as $k => $v) {
-            $c_member['profile'][$k]['isShorten'] = false;
-            if ($v['form_type'] == 'textarea') {
-                if(substr_count($v['value'], "\n") >= 3
-                    || substr_count("\n", $v['value']) >= 3) {
-                        $c_member['profile'][$k]['isShorten'] = true;
-                } else {
-                    if (strlen($v['value']) >= 210) {
-                        $c_member['profile'][$k]['isShorten'] = true;
-                    }
-                }
-            }
+            $c_member['profile'][$k]['isShorten'] = util_check_is_shorten($v['value']);
         }
         /* OpenPNE2 スマートフォン対応：ここまで */
 
