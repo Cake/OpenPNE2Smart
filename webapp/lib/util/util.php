@@ -1150,7 +1150,7 @@ function util_do_post_interval_ok($module, $action, $u)
  */
 function util_check_is_shorten($str, $width = 40, $max_lines = 3)
 {
-   if (!$str) {
+   if (empty($str) || !is_string($str)) {
         return false;
    }
 

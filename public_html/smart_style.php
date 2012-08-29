@@ -221,6 +221,14 @@ foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 .pagerRelative span {
 }
 
+.moreInfo {
+	text-align: center;
+	margin-top: 25px;
+}
+.photoTable + .moreInfo {
+	padding-top: 25px;
+}
+
 div.operation ul {
 	text-align: center;
 }
@@ -474,7 +482,7 @@ ul.ui-listview + .descriptionBox  {
  * 11. homePhotoBox（ホーム写真ボックス）
  *----------------------------------------------------------------------------*/
 .homePhotoBox {
-	height: 135px;
+	height: auto;
 }
 
 
@@ -483,16 +491,16 @@ ul.ui-listview + .descriptionBox  {
 	height: auto;
 }
 
-.homePhotoBox .photo120 {
+.homePhotoBox .photo76 {
 	display: table-cell;
-	width: 125px;
-	height: 125px;
+	width: 81px;
+	height: 81px;
 	margin: 0 auto;
 	text-align: center;
 	vertical-align: middle;
 }
 
-.homePhotoBox .photo120 + .itemData {
+.homePhotoBox .photo76 + .itemData {
 	display: table-cell;
 	padding-left: 15px;
 }

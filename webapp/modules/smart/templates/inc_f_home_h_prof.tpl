@@ -27,14 +27,18 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="false">プロフィールを変更する</a>({/if})({/capture})
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="({$id_header})PhotoBox">
-<div class="photo120">
-<img class="" src="({t_img_url filename=$target_c_member.image_filename w=120 h=120 noimg=no_image})" alt="プロフィール写真">
+<div class="photo76">
+<img class="" src="({t_img_url filename=$target_c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真">
 ({if !$is_h_prof && ($is_friend || $friend_path)})
 ({/if})
 </div>
 <div class="itemData">
 <div class="title authorData" id="({$id_header})Name">({$target_c_member.nickname})さん (({$c_friend_count}))</div>
 <div class="itemBody">
+</div>
+<div class="commentListFooter">
+<span>最終ログイン</span>:<time datetime="({$target_c_member.last_login})" id="({$id_header})LastLoginDatetime" class="datetime">({$target_c_member.last_login})</time>
+</div>
 <div class="link">
 ({if $target_c_member.image_filename})
 ({if $is_h_prof})
@@ -44,14 +48,11 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 ({/if})
 </div>
-</div>
-<div class="commentListFooter">
-<span>最終ログイン</span>:<time datetime="({$target_c_member.last_login})" id="({$id_header})LastLoginDatetime" class="datetime">({$target_c_member.last_login})</time>
-</div>
 </section>({* homePhotoBox }}} *})
 
 
-({* {{{ simpleBox *})<section class="simpleBox" id="member({if !$is_h_prof})({$target_c_member.c_member_id})({/if})homeLinkBox" data-role="">
+({if !$is_h_prof})
+({* {{{ simpleBox *})<section class="simpleBox" id="member({$target_c_member.c_member_id})homeLinkBox" data-role="">
 <span>
 ({if !$is_friend})
 <a href="({t_url m=pc a=do_f_link_request})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;sessid=({$PHPSESSID})" data-role="button" data-inline="true" data-mini="true" data-ajax="false">({$WORD_MY_FRIEND})追加</a>
@@ -63,11 +64,11 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 <span><a href="({t_url m=pc a=page_f_invite})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="true" data-mini="true" data-ajax="true">({$WORD_MY_FRIEND})に紹介</a></span>
 </div>
 </section>({* simpleBox }}} *})
+({/if})
 
 ({if $is_h_prof})({* {{{ URL *})
 ({* {{{ descriptionBox *})<section class="descriptionBox" id="({$id_header})Url">
 <p>※他のメンバーから見たあなたのページはこのようになります。</p>
-({$smarty.capture.change_prof|smarty:nodefaults})
 <p>他のメンバーにあなたのページを教える場合には、以下のURLを使ってください。</p>
 <p class="url">({t_url _absolute=1 m=pc a=page_f_home})&amp;target_c_member_id=({$target_c_member_id})</p>
 </section>({* descriptionBox }}} *})
@@ -177,7 +178,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({ext_include file="inc_fh_diary_list.tpl"})
 ({/foreach})
 </ul>
-<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></div>
+<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
 </div>
 ({/if})
 ({if $c_rss_cache_list})
@@ -187,7 +188,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({ext_include file="inc_blog_list.tpl"})
 ({/foreach})
 </ul>
-<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})#blog" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></div>
+<div class="moreInfo"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member_id})#blog" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
 </div>
 </section>({* homeMainTable }}} *})
 ({/if})
@@ -210,7 +211,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 <ul id="({$id_header})FriendPhotoTablecontent" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_member_table.tpl" member=$c_friend_list _start=$key*9})
 </ul>
-<div><a href="({t_url m=pc a=page_fh_friend_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全てを見る(({$c_friend_count})人)</a></div>
+<div class="moreInfo"><a href="({t_url m=pc a=page_fh_friend_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全て見る(({$c_friend_count})人)</a></div>
 </div>({* homeNineTable }}} *})
 ({/if})
 ({if $c_commu_list})
@@ -219,7 +220,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({ext_include file="inc_com_table.tpl" com_list=$c_commu_list _start=$key*9})
 </ul>
 <div class="moreInfo">
-<a href="({t_url m=pc a=page_fh_com_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全てを見る(({$user_count}))</a>
+<a href="({t_url m=pc a=page_fh_com_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全て見る(({$user_count}))</a>
 ({if $common_commu_count})<a href="({t_url m=pc a=page_f_com_list_common})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">共通({$WORD_COMMUNITY})(({$common_commu_count}))</a>({/if})
 </div>({* homeNineTable }}} *})
 ({/if})
@@ -228,10 +229,10 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 </section>({* homeTab }}} *})
 ({/if})
 
-({if $c_friend_comment_list})
 ({* {{{ friendIntroList *})<section class="homeMainTable friendIntroList" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_FRIEND})からの紹介文</h3>
 <ul class="pictureIconList" id="({$id_header})Intro" data-role="listview" data-inset="false">
+({if $c_friend_comment_list})
 ({foreach from=$c_friend_comment_list item=item})
 <li class="commentList">
 <a href="javascript:void(0);" id="member({$item.c_member_id})Intro({$target_c_member.c_member_id})" onclick="readMore('#member({$item.c_member_id})Intro({$target_c_member.c_member_id}) .authorBar .itemData'); return false;">
@@ -245,16 +246,17 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 </section></a>
 </li>
 ({/foreach})
+({/if})
 </ul>
 <div class="pagerRelative">
+({if $c_friend_comment_list})
 <a href="({t_url m=pc a=page_fh_intro})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全て見る</a>
+({/if})
 ({if !$is_h_prof})({if $is_friend})
 <a href="({t_url m=pc a=page_f_intro_edit})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">紹介文を({if $my_friend_intro==''})書く({else})編集({/if})</a>
-({/if})
-({/if})
+({/if})({/if})
 </div>
 </section>({* friendIntroList }}} *})
-({/if})
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
