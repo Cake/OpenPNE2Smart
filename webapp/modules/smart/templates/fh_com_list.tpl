@@ -68,11 +68,17 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 
 ({$smarty.capture.pager|smarty:nodefaults})
 
+({if $target_member.c_member_id == $u})<a href="({t_url m=pc a=page_h_manage_commu})" data-role="button" data-inline="false" data-ajax="true">({$WORD_COMMUNITY})管理</a>({/if})
+
 ({else})
 ({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
 <p>参加している({$WORD_COMMUNITY})はありません。</p>
 </section>({* simpleBox }}} *})
 ({/if})
+
+<div class="pagerRelative">
+<a href="({t_url m=pc a=page_h_com_find_all})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">({$WORD_COMMUNITY})検索</a>
+</div>
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})

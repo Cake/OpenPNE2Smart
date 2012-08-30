@@ -709,6 +709,7 @@ ul.pictureIconList li.commentList .commentListFooter span {
  *----------------------------------------------------------------------------*/
 #c_event_member_list .ui-content,
 #c_member_list .ui-content,
+#c_home .ui-content,
 #f_com_list_common .ui-content,
 #fh_com_list .ui-content,
 #fh_friend_list .ui-content {

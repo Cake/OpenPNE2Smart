@@ -1869,6 +1869,12 @@ function db_commu_c_commu_topic_comment_list4c_member_id_3($c_member_id, $page_s
         $sql = 'SELECT name AS c_commu_name FROM c_commu WHERE c_commu_id = ?';
         $c_commu_name = db_get_one($sql, $value['c_commu_id']);
 
+/* OpenPNE2 スマートフォン対応：ここから */
+        $sql = 'SELECT image_filename AS c_commu_name FROM c_commu WHERE c_commu_id = ?';
+        $c_commu_image = db_get_one($sql, $value['c_commu_id']);
+        $c_commu_topic_list[$key]['c_commu_image'] = $c_commu_image;
+/* OpenPNE2 スマートフォン対応：ここまで */
+
         $c_commu_topic_list[$key]['number'] = db_commu_get_max_c_commu_topic_comment_number4c_topic_id($value['c_commu_topic_id']);
         $c_commu_topic_list[$key]['c_commu_name'] = $c_commu_name;
     }
