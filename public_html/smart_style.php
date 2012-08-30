@@ -225,8 +225,8 @@ foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 	text-align: center;
 	margin-top: 25px;
 }
-.photoTable + .moreInfo {
-	padding-top: 25px;
+.homeNineTable .moreInfo {
+	padding: 10px 25px 0 10px;
 }
 
 div.operation ul {

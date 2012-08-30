@@ -29,8 +29,6 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="({$id_header})PhotoBox">
 <div class="photo76">
 <img class="" src="({t_img_url filename=$target_c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真">
-({if !$is_h_prof && ($is_friend || $friend_path)})
-({/if})
 </div>
 <div class="itemData">
 <div class="title authorData" id="({$id_header})Name">({$target_c_member.nickname})さん (({$c_friend_count}))</div>
@@ -49,7 +47,6 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 </div>
 </section>({* homePhotoBox }}} *})
-
 
 ({if !$is_h_prof})
 ({* {{{ simpleBox *})<section class="simpleBox" id="member({$target_c_member.c_member_id})homeLinkBox" data-role="">
@@ -158,9 +155,8 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">プロフィール変更</a>({/if})
 </section>({* }}} *})
 
-
 ({if $c_diary_list || $c_rss_cache_list})
-({* homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-inset="true" data-content-theme="c">
+({* homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({if $c_diary_list && $c_rss_cache_list})最新情報({elseif $c_diary_list})最新({$WORD_DIARY})({elseif $c_rss_cache_list})最新Blog({/if})</h3>
 <div class="homeMainTableTabs" id="({$id_header})RelationTableTabs">
 ({if $c_diary_list && $c_rss_cache_list})
@@ -197,7 +193,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({/if})
 
 ({if $c_friend_list || $c_commu_list})
-({* {{{ homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-inset="true" data-content-theme="c">
+({* {{{ homeTab *})<section class="homeTab" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({if $c_friend_list && $c_commu_list})({$WORD_FRIEND_HALF})・({$WORD_COMMUNITY_HALF})({elseif $c_friend_list})({$WORD_FRIEND})({elseif $c_commu_list})({$WORD_COMMUNITY})({/if})</h3>
 <div class="homeMainTableTabs" id="({$id_header})RelationTableTabs">
 ({if $c_friend_list && $c_commu_list})
@@ -222,6 +218,7 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 <div class="moreInfo">
 <a href="({t_url m=pc a=page_fh_com_list})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">全て見る(({$user_count}))</a>
 ({if $common_commu_count})<a href="({t_url m=pc a=page_f_com_list_common})&amp;target_c_member_id=({$target_c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">共通({$WORD_COMMUNITY})(({$common_commu_count}))</a>({/if})
+</div>
 </div>({* homeNineTable }}} *})
 ({/if})
 </section>({* homeMainTable }}} *})
