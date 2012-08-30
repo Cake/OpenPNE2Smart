@@ -68,6 +68,8 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 
 ({$smarty.capture.pager|smarty:nodefaults})
 
+({if $type == 'h'})<a href="({t_url m=pc a=page_h_manage_friend})" data-role="button" data-mini="false" data-ajax="true">({$WORD_MY_FRIEND})管理</a>({/if})
+
 ({else})
 ({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
 <h3>({$WORD_MY_FRIEND})一覧</h3>
@@ -75,7 +77,10 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 </section>({* simpleBox }}} *})
 ({/if})
 
-<div class="pagerRelative"><a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a></div>
+<div class="pagerRelative">
+<a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
+<a href="({t_url m=pc a=page_h_invite})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">友達を誘う</a>
+</div>
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
