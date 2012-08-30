@@ -13,7 +13,7 @@
 ({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
 <ul class="ui-grid-a">
 <li class="ui-block-a">
-({t_form_block m=pc a=do_c_bbs_delete_c_commu_topic_comment  _attr='data-ajax="false"'})
+({t_form_block m=pc a=do_c_bbs_delete_c_commu_topic_comment _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_comment_id" value="({$c_commu_topic_comment.c_commu_topic_comment_id})" />
 <input type="submit" class="input_submit" value="はい" />
 ({/t_form_block})

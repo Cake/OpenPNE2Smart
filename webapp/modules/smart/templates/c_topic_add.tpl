@@ -5,7 +5,7 @@
 
 ({* {{{ formTable *})<section class="formTable" id="topicAddForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>トピックを作成する</h3>
-({t_form_block _enctype=file m=pc a=page_c_topic_add_confirm  _attr='data-ajax="false"'})
+({t_form_block _enctype=file m=pc a=page_c_topic_add_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="title">タイトル</label>

@@ -15,7 +15,7 @@ $('#h_diary_edit').live('pageinit',function(event){
 
 ({* {{{ formTable *})<section class="formTable" id="diary({$diary.c_diary_id})EditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_DIARY})を編集する</h3>
-({t_form_block _enctype=file m=pc a=page_h_diary_edit_confirm  _attr='data-ajax="false"'})
+({t_form_block _enctype=file m=pc a=page_h_diary_edit_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_id" value="({$diary.c_diary_id})" />
 <input type="hidden" name="del_img" value="({$del_img})" />
 <div data-role="fieldcontain" class="ui-hide-label">

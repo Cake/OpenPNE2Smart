@@ -5,7 +5,7 @@
 
 ({* {{{ formTable *})<section class="formTable" id="topicEditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>トピックを編集する</h3>
-({t_form_block _enctype=file m=pc a=do_c_topic_edit_update_c_commu_topic  _attr='data-ajax="false"'})
+({t_form_block _enctype=file m=pc a=do_c_topic_edit_update_c_commu_topic _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="title">タイトル</label>

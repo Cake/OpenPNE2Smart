@@ -6,7 +6,7 @@
 ({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
 <ul class="ui-grid-a">
 <li class="ui-block-a">
-({t_form_block m=pc a=do_inc_join_c_commu  _attr='data-ajax="false"'})
+({t_form_block m=pc a=do_inc_join_c_commu _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
 <input type="submit" class="input_submit" value="はい" />
 ({/t_form_block})

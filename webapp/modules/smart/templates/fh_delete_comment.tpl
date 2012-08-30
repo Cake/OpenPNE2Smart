@@ -15,7 +15,7 @@
 ({* {{{ yesNoButtonBox *})<div class="operation yesNoButtonBox">
 <ul class="ui-grid-a">
 <li class="ui-block-a">
-({t_form_block m=pc a=do_fh_diary_delete_c_diary_comment  _attr='data-ajax="false"'})
+({t_form_block m=pc a=do_fh_diary_delete_c_diary_comment _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_diary_comment_id" value="({$target_c_diary_comment_id})" />
 ({foreach from=$target_diary_comment_list item=target_diary_comment})
 <input type="hidden" name="target_c_diary_comment_id[]" value="({$target_diary_comment.c_diary_comment_id})" />

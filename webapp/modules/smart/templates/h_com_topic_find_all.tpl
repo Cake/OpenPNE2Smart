@@ -10,14 +10,6 @@ var page=2;
 
 ({capture name="keyword_url"})({$keyword|escape:url|smarty:nodefaults})({/capture})
 
-<section class="authorBar" id="communityInfo">
-<div class="itemData">
-<div class="title">
-<h2><span>全({$WORD_COMMUNITY})</span></h2>
-</div>
-</div>
-</section>
-
 ({* {{{ searchFormBox *})
 ({* {{{ searchFormLine *})
 <section class="searchFormBox" id="searchTopicAllFormBox" data-role="collapsible" data-collapsed="({if $keyword || $requests.type != 'all'})false({else})true({/if})" data-content-theme="c">

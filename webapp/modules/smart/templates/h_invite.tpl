@@ -12,7 +12,7 @@
 <div class="partsInfo">
 <p>「({$smarty.const.SNS_NAME})」に招待したい方のメールアドレスを記入してください。</p>
 </div>
-({t_form_block m=pc a=page_h_invite_confirm  _attr='data-ajax="false"'})
+({t_form_block m=pc a=page_h_invite_confirm _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class=">
 <label for="mail">招待するアドレス</label>
 <input type="email" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off" />
