@@ -18,6 +18,14 @@ class pc_page_f_home extends OpenPNE_Action
         // - IDが自分の場合
         // は h_home へリダイレクト
         if (!$target_c_member_id || $target_c_member_id == $u) {
+            /* OpenPNE2 スマートフォン対応：ここから */
+            // h_profに遷移
+            $smartPhone = new OpenPNE_SmartPhoneUA();
+            if ($smartPhone->is_smart) {
+                openpne_redirect('pc', 'page_h_prof');
+            }
+            /* OpenPNE2 スマートフォン対応：ここまで */
+
             openpne_redirect('pc', 'page_h_home');
         }
 
