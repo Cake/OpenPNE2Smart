@@ -152,7 +152,10 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 ({if !$_cnt_birth})({$smarty.capture.birth|smarty:nodefaults})({/if})
 ({/if})
 </dl>
-({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">プロフィール変更</a>({/if})
+({if $is_h_prof})
+<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">プロフィール変更</a>
+<a href="({t_url m=pc a=page_h_config})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">設定変更</a>
+({/if})
 </section>({* }}} *})
 
 ({if $c_diary_list || $c_rss_cache_list})
@@ -201,7 +204,8 @@ $('.inc_f_home_h_prof').live('pageinit',function(event){
 <li class="ui-btn-up-b" id="relationTable-1-({$target_c_member_id})">({$WORD_FRIEND})</li>
 <li class="ui-btn-up-c" id="relationTable-2-({$target_c_member_id})">({$WORD_COMMUNITY})</li>
 </ul>
-({/if})({* {{{ homeMainTable *})<section class="photoTableBox homeMainTable" id="({$id_header})photoTable">
+({/if})
+({* {{{ homeMainTable *})<section class="photoTableBox homeMainTable" id="({$id_header})photoTable">
 ({if $c_friend_list})
 ({* {{{ homeNineTable *})<div class="homeNineTable" id="relationTable-1-({$target_c_member_id})-Content">
 <ul id="({$id_header})FriendPhotoTablecontent" class="photoTable" data-role="listview" data-inset="false">
