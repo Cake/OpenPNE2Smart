@@ -18,6 +18,7 @@
 <a href="({t_url m=pc a=page_c_join_commu})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">({$WORD_COMMUNITY})に参加</a>
 </div>
 ({/if})
+</div>
 </section>({* homePhotoBox }}} *})
 
 ({* {{{ homeMainTable *})<section class="homeMainTable homeProfileBox" data-role="collapsible" data-collapsed="false" data-content-theme="c">
