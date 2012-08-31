@@ -4,8 +4,7 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="homePhotoBox">
-<div class="photo76"><a href="({t_url m=pc a=page_h_prof})"><img class="" src="({t_img_url filename=$c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真"></a>
-</div>
+<div class="photo76"><a href="({t_url m=pc a=page_h_prof})"><img class="" src="({t_img_url filename=$c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title authorData" id="homeName">({$c_member.nickname})</div>
 <div class="itemBody">
@@ -44,6 +43,7 @@
 ({/if})
 ({/if})
 </div>
+</div>
 </section>({* homePhotoBox }}} *})
 
 ({if $birthday_flag})
@@ -69,6 +69,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_diary_list_friend})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -82,6 +83,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_diary_list_friend})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -95,6 +97,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_diary_comment_list})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -108,6 +111,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_diary_list_all})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -121,6 +125,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_bookmark_diary_blog_list})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -134,6 +139,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_bookmark_diary_blog_list})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -147,6 +153,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_com_comment_list})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
@@ -160,6 +167,7 @@
 ({/foreach})
 </ul>
 <div class="moreInfo"><a href="({t_url m=pc a=page_h_com_topic_find_all})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></div>
+</div>
 </section>({* homeMainTable }}} *})
 ({/if})
 
