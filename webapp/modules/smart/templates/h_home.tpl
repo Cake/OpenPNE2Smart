@@ -47,8 +47,10 @@
 </section>({* homePhotoBox }}} *})
 
 ({if $birthday_flag})
-<div class="parts homeBirthdayBox">
-<img src="({t_img_url_skin filename=birthday_h w=240})" alt="Happy Birthday!" />
+<div class="ui-btn ui-btn-corner-all ui-fullsize ui-btn-block ui-btn-up-e" style="cursor: auto;">
+<span class="ui-btn-inner ui-btn-corner-all">
+<span class="ui-btn-text">Happy Birthday!</span>
+</span>
 </div>
 ({/if})
 
