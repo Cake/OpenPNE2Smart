@@ -59,7 +59,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </div>
 </div>
 <div class="authorData">
-<span class="author diaryAuthorName"><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})</a>({if $type == "f"})さん({/if})</span>
+<span class="author diaryAuthorName"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})" id="diaryAuthor">({$target_member.nickname})</a>({if $type == "f"})さん({/if})</span>
 </div>
 <time datetime="({$target_diary.r_datetime})" id="diary({$target_diary.c_diary_id})Datetime" class="datetime">({$target_diary.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 
