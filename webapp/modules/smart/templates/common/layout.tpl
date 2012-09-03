@@ -45,6 +45,19 @@
 					}
 					return true;
 */
+
+// タブ
+					$(".tab li").click(function() {
+						var id = $(this).attr('id');
+						var content = $("#"+id+"-Content");
+
+						content.siblings().hide();
+						content.show();
+						$(this).siblings().attr('class', 'ui-btn-up-c');
+						$(this).attr('class', 'ui-btn-up-b')
+					});
+
+
 				})
 				.live('pageremove', function(e){
 /* 日記～全コメント一括スライドショー

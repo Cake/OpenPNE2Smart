@@ -5,21 +5,9 @@
 ({/if})
 <script language="JavaScript">
 <!--
-// タブ
-$('.inc_f_home_h_prof').live('pageinit',function(event){
-	$(".tab li").click(function() {
-		var id = $(this).attr('id');
-		var content = $("#"+id+"-Content");
-
-		content.siblings().hide();
-		content.show();
-		$(this).siblings().attr('class', 'ui-btn-up-c');
-		$(this).attr('class', 'ui-btn-up-b')
-	});
-});
 //-->
 </script>
-<div class="page inc_f_home_h_prof" data-role="page" id="({$INC_HEADER_page_name})">
+<div class="page inc_f_home_h_prof" data-role="page" id="({$INC_HEADER_page_name})({$target_c_member_id})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
