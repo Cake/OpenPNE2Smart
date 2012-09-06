@@ -34,6 +34,7 @@
 ({/if})
 ({/if})
 </div>
+</div>
 </section>({* homePhotoBox }}} *})
 
 ({if !$is_h_prof})
