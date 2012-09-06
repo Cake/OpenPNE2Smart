@@ -1252,6 +1252,10 @@ function db_commu_c_commu_topic_comment_list4c_member_id($c_member_id, $limit, $
 
         $sql = 'SELECT name AS c_commu_name FROM c_commu WHERE c_commu_id = ?';
         $c_commu_name = db_get_one($sql, $value['c_commu_id']);
+/* OpenPNE2 スマートフォン対応：ここから */
+        $sql = 'SELECT image_filename FROM c_commu WHERE c_commu_id = ?';
+                $c_commu_topic_list[$key]['c_commu_image'] = db_get_one($sql, $value['c_commu_id']);
+/* OpenPNE2 スマートフォン対応：ここまで */
 
         //最新の書き込み番号
         $number = db_commu_get_max_c_commu_topic_comment_number4c_topic_id($value['c_commu_topic_id']);
@@ -3571,6 +3575,9 @@ function db_commu_search_c_commu_topic(
 function p_h_home_c_topic_all_list($limit)
 {
     $sql = 'SELECT ct.*,c.name as c_commu_name, c.c_commu_id'
+/* OpenPNE2 スマートフォン対応：ここから */
+          . ', c.image_filename as c_commu_image'
+/* OpenPNE2 スマートフォン対応：ここまで */
           . ' FROM c_commu_topic as ct'
           . ' INNER JOIN c_commu as c USING(c_commu_id)'
           . ' WHERE c.is_open = \'public\''

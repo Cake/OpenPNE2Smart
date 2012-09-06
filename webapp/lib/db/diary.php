@@ -317,6 +317,9 @@ function db_diary_get_c_diary_comment_list4id_list($id_list, $page = 1, $page_si
     foreach ($c_diary_comment_list as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
         $c_diary_comment_list[$key]['nickname'] = $c_member['nickname'];
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $c_diary_comment_list[$key]['image_filename'] = $c_member['image_filename'];
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
 
     $sql = 'SELECT COUNT(*) FROM c_diary_comment' .
@@ -511,6 +514,9 @@ function p_h_home_c_diary_friend_list4c_member_id($c_member_id, $limit, $use_is_
     foreach ($c_diary_friend_list as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
         $c_diary_friend_list[$key]['nickname'] = $c_member['nickname'];
+/* OpenPNE2 スマートフォン対応：ここから */
+        $c_diary_friend_list[$key]['image_filename'] = $c_member['image_filename'];
+/* OpenPNE2 スマートフォン対応：ここまで */
         $c_diary_friend_list[$key]['count_comments'] = db_diary_count_c_diary_comment4c_diary_id($value['c_diary_id']);
     }
     return $c_diary_friend_list;
@@ -1215,6 +1221,9 @@ function p_h_home_c_diary_all_list($limit)
     foreach ($c_diary_list_all as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
         $c_diary_list_all[$key]['nickname'] = $c_member['nickname'];
+/* OpenPNE2 スマートフォン対応：ここから */
+        $c_diary_list_all[$key]['image_filename'] = $c_member['image_filename'];
+/* OpenPNE2 スマートフォン対応：ここまで */
         $c_diary_list_all[$key]['count_comments'] = db_diary_count_c_diary_comment4c_diary_id($value['c_diary_id']);
     }
     return $c_diary_list_all;

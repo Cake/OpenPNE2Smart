@@ -80,6 +80,9 @@ function db_bookmark_diary_list($c_member_id, $limit)
     foreach ($diary_list as $key => $value) {
         $c_member = db_member_c_member4c_member_id_LIGHT($value['c_member_id']);
         $diary_list[$key]['nickname'] = $c_member['nickname'];
+/* OpenPNE2 スマートフォン対応：ここから */
+        $diary_list[$key]['image_filename'] = $c_member['image_filename'];
+/* OpenPNE2 スマートフォン対応：ここまで */
         $diary_list[$key]['count_comments'] = db_diary_count_c_diary_comment4c_diary_id($value['c_diary_id']);
     }
     return $diary_list;
