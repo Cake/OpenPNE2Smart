@@ -78,6 +78,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/if})
 
 <div class="pagerRelative">
+<a class="" href="({t_url m=pc a=page_h_bookmark_list})" data-role="button" data-mini="false" data-ajax="true">お気に入り一覧</a>
 <a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
 <a href="({t_url m=pc a=page_h_invite})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">友達を誘う</a>
 </div>
