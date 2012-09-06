@@ -778,7 +778,7 @@ ul.photoTable li.photoCell .ui-li .caption {
 	line-height: 1.4em;
 	height: 4.2em;
 	white-space: normal;
-	text-align: left;
+	text-align: center;
 }
 
 section.photoTableBox + *,
