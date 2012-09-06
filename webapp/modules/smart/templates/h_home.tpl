@@ -4,7 +4,7 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="homePhotoBox">
-<div class="photo76"><a href="({t_url m=pc a=page_h_prof})"><img class="" src="({t_img_url filename=$c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真"></a></div>
+<div class="photo76"><a href="({t_url m=pc a=page_h_prof})"><img class="memberPhoto" src="({t_img_url filename=$c_member.image_filename w=76 h=76 noimg=no_image})" alt="プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title authorData" id="homeName">({$c_member.nickname})</div>
 <div class="itemBody">

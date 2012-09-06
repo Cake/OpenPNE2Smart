@@ -1,7 +1,7 @@
 <li id="diary({$item.c_diary_id})" class="commentList diaryList">
 <a class="listItemLink" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})">
 <section class="authorBar" id="diaryAuthor">
-<div class="memberPhoto36"><img src="({t_img_url filename=$item.c_member.image_filename w=36 h=36 noimg=no_image})" alt=""></div>
+<div class="photo36"><img src="({t_img_url filename=$item.c_member.image_filename w=36 h=36 noimg=no_image})" class="memberPhoto" alt=""></div>
 <div class="itemData">
 ({strip})<div class="title">
 <h3 id="diary({$item.c_diary_id})Title">({$item.subject})</h3>

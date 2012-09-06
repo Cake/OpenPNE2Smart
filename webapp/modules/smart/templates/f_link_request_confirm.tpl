@@ -10,7 +10,7 @@
 ({$WORD_MY_FRIEND})リンク申請メッセージを送信し、承諾を受けてください。<br />
 ※交流の無い方へいきなりリンク申請を送るのは、失礼になる場合もあります。十分に確認して、リンク申請をおこなってください。
 </p>
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt=""></a></div>
 <div class="itemData">
 <div class="title"><span>({$target_member.nickname})さん</span></div>
 </div>

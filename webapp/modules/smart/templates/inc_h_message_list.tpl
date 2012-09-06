@@ -43,7 +43,7 @@
 ({/if})({/strip})
 <li id="message({$item.c_message_id})List" class="commentList messageList({if !$c_message_ru.is_read}) unread({/if})">
 <a class="listItemLink" href="({t_url m=pc a=page_h_message})&amp;target_c_message_id=({$item.c_message_id})({$smarty.capture.params|smarty:nodefaults})" id="message({$item.c_message_id})Link"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title" id="message({$item.c_message_id})Title">({$item.subject})</div>
 ({strip})<div class="authorData">

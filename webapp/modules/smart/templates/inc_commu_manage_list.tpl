@@ -1,6 +1,6 @@
 <li id="community({$item.c_commu_id})ManageList" class="commentList manageList">
 <a class="listItemLink" href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$item.c_commu_id})" id="communityLink({$item.c_commu_id})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title authorData" id="community({$item.c_commu_id})Name">({$item.name})
 </div>

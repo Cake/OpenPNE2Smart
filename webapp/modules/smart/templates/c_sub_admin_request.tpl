@@ -8,7 +8,7 @@
 ({t_form_block _enctype=file m=pc a=page_c_sub_admin_request_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_member_id" value="({$member.c_member_id})" />
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
-<div class="photo76"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$member.c_member_id})"><img src="({t_img_url filename=$member.image_filename w=76 h=76 noimg=no_image})" alt="" /></a></div>
+<div class="photo76"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$member.c_member_id})"><img src="({t_img_url filename=$member.image_filename w=76 h=76 noimg=no_image})" class="memberPhoto" alt="" /></a></div>
 <div class="itemData">
 <p class="nameBody"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$member.c_member_id})">({$member.nickname})</a>さんに管理者交代依頼メッセージを送信します。</p>
 </div>

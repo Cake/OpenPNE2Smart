@@ -4,7 +4,7 @@
 ({ext_include file="common/inc_msg.tpl" msg=$WORD_COMMUNITY|string_format:"このメンバーを%sから退会させます。よろしいですか。"})
 
 <section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$member.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$member.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title authorData" id="member({$member.c_member_id})Name"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$member.c_member_id})">({$member.nickname})</a></div>
 <div class="itemBody">({$member.profile.self_intro.value})</div>

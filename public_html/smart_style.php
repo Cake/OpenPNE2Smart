@@ -579,7 +579,7 @@ ul.ui-listview li.commentList {
 }
 
 ul.ui-listview li.commentList .ui-li-thumb {
-	padding: 4px 4px 4px 0;
+	padding: 0;
 }
 
 ul.ui-listview li.commentList .itemData {
@@ -769,6 +769,10 @@ ul.photoTable li.photoCell .ui-li .photo {
 	height: 80px;
 	vertical-align: middle;
 	text-align: center;
+}
+
+img.memberPhoto {
+	border-radius: 0.4em;
 }
 
 ul.photoTable li.photoCell .ui-li .caption {

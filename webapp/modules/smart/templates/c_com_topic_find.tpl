@@ -11,7 +11,7 @@ var page=2;
 ({capture name="keyword_url"})({$keyword|escape:url|smarty:nodefaults})({/capture})
 
 <section class="authorBar" id="communityInfo">
-<div class="photo48"><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})"><img src="({t_img_url filename=$c_commu.image_filename w=48 h=48 noimg=no_image})" alt=""></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$c_commu.c_commu_id})"><img src="({t_img_url filename=$c_commu.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt=""></a></div>
 <div class="itemData">
 <div class="title">
 <h2><span>({$c_commu.name})</span></h2>

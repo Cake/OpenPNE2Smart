@@ -6,10 +6,10 @@
 <h3>最近のあしあと</h3>
 <div class="item">
 ({if $c_ashiato_list})
-<ul id="ashiatoList({$u})" class="pictureIconList ashiatoList" data-role="listview" data-inset="false">
+<ul id="ashiatoList({$u})" class="pictureIconList" data-role="listview" data-inset="false">
 ({foreach from=$c_ashiato_list item=item})
-<li class="commentList"><a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<li class="commentList ashiatoList"><a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})"><section class="authorBar">
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title authorData">({$item.nickname})</div>
 <div class="commentListFooter">
@@ -19,10 +19,10 @@
 ({/foreach})
 </ul>
 
-<div class="descriptionBox">
+<section class="descriptionBox">
 <p class="strong">総アクセス数: ({$c_ashiato_num})<p>
 <p>({$c_member.nickname})さんのページを訪れた人たちです。</p>
-</div>
+</section>
 
 ({else})
 <p>まだあしあとはありません。</p>
