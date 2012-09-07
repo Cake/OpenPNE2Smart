@@ -81,7 +81,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({/foreach}))
 ({/if})</small></div>
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a title="返信" data-icon="smart-write" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('diarycommentForm', '');$('#comment_box').focus();return false;">返信</a>
+<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('diarycommentForm', '');$('#comment_box').focus();return false;">返信</a>
 </div>
 </p>
 </article>
@@ -130,7 +130,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </div>
 <div class="operation">
 ({t_mail_post mailto=$mail_address _type=button})
-<ul class="">
+<ul>
 <li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
 <li>写真も添付できます。<br></li>
 </ul>
@@ -139,7 +139,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 </section>({* formTable }}} *})
 ({else})
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="diaryNoavailableComment" data-role="">
+<section class="simpleBox" id="diaryNoavailableComment">
 <h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、この({$WORD_DIARY})にはコメントできません。</p>
 </section>({* simpleBox }}} *})

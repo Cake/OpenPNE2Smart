@@ -19,7 +19,7 @@ $('#h_config_prof').live('pageinit',function(event){
 <h3>プロフィール変更</h3>
 ({t_form_block m=pc a=do_h_config_prof _attr='data-ajax="false"'})
 <div data-role="fieldcontain">
-<fieldset data-role="controlgroup" data-type="">
+<fieldset data-role="controlgroup">
 <legend><span class="required">検索設定</span></legend>
 <select name="is_search_result" id="is_search_result" data-role="slider">
 	<option value="0"({if !$c_member.is_search_result})checked="checked" ({/if})>公開しない</option>
@@ -29,13 +29,13 @@ $('#h_config_prof').live('pageinit',function(event){
 ({capture name="nick"})
 <div data-role="fieldcontain">
 <label for="nickname" class="required">({$WORD_NICKNAME})</label>
-<input type="text" class="input_text" name="nickname" id="nickname" value="({$c_member.nickname})" placeholder="">
+<input type="text" class="input_text" name="nickname" id="nickname" value="({$c_member.nickname})">
 </div>
 ({/capture})
 ({capture name="birth"})
 <div data-role="fieldcontain">
 <label for="birth_year" class="required">生まれた年</label>
-<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$c_member.birth_year})" maxlength="4" placeholder="" autocapitalize="off">
+<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$c_member.birth_year})" maxlength="4" autocapitalize="off">
 <select name="public_flag_birth_year">
 ({html_options options=$public_flags selected=$c_member.public_flag_birth_year})
 </select>
@@ -52,7 +52,7 @@ $('#h_config_prof').live('pageinit',function(event){
 </select>
 <label for="birth_day">日</label>
 <select name="birth_day" id="birth_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({foreach from=$day item=item})
 <option value="({$item})"({if $c_member.birth_day==$item}) selected="selected"({/if})>({$item})</option>
 ({/foreach})
@@ -99,13 +99,13 @@ $('#h_config_prof').live('pageinit',function(event){
 	<textarea name="profile[({$profile.name})]"id="profile_({$profile.name})" >({$c_member.profile[$profile.name].value})</textarea>
 ({elseif $profile.form_type == 'select'})
 	<select name="profile[({$profile.name})]"id="profile_({$profile.name})" >
-	<option value="">選択してください</option>
+	<option>選択してください</option>
 	({foreach from=$profile.options item=item})
 		<option value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value == $item.value}) selected="selected"({/if})>({$item.value|default:"--"})</option>
 	({/foreach})
 	</select>
 ({elseif $profile.form_type == 'radio'})
-	<fieldset data-role="controlgroup" data-type="">
+	<fieldset data-role="controlgroup">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options})
 			<input type="radio" class="input_radio" name="profile[({$profile.name})]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value == $item.value}) checked="checked"({/if})>
@@ -113,7 +113,7 @@ $('#h_config_prof').live('pageinit',function(event){
 		({/foreach})
 	</fieldset>
 ({elseif $profile.form_type == 'checkbox'})
-	<fieldset data-role="controlgroup" data-type="">
+	<fieldset data-role="controlgroup">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options name=check})
 			<input type="checkbox" class="input_checkbox" name="profile[({$profile.name})][]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value && in_array($item.value|smarty:nodefaults, $c_member.profile[$profile.name].value)}) checked="checked"({/if})><label for="profile-({$profile.name})-({$item.c_profile_option_id})">({$item.value|default:"--"})</label>

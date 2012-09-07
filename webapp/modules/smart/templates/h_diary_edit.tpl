@@ -29,36 +29,36 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({if $diary.image_filename_1 && !($del_img & 0x01)})
 <li class="ui-block-a">
 <input type="hidden" name="pre_image_filename_1" value="({$diary.image_filename_1})">
-<a href="({t_img_url filename=$diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_1 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_1 w=76 h=76})"></a>
 </li>
 ({/if})
 ({if $diary.image_filename_2 && !($del_img & 0x02)})
 <li class="ui-block-b">
 <input type="hidden" name="pre_image_filename_2" value="({$diary.image_filename_2})">
-<a href="({t_img_url filename=$diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_2 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_2 w=76 h=76})"></a>
 </li>
 ({/if})
 ({if $diary.image_filename_3 && !($del_img & 0x04)})
 <li class="ui-block-c">
 <input type="hidden" name="pre_image_filename_3" value="({$diary.image_filename_3})">
-<a href="({t_img_url filename=$diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_3 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_3 w=76 h=76})"></a>
 </li>
 ({/if})
 </ul>
 <ul class="ui-grid-b" id="diaryEdit({$diary.c_diary_id})operation">
 ({if $diary.image_filename_1 && !($del_img & 0x01)})
 <li class="ui-block-a">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image1Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image1Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $diary.image_filename_2 && !($del_img & 0x02)})
 <li class="ui-block-b">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image2Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image2Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $diary.image_filename_3 && !($del_img & 0x04)})
 <li class="ui-block-c">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image3Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_diary_edit_delete_image})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;del_img=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_diary_edit})&amp;target_c_diary_id=({$diary.c_diary_id})', 'deleteDiary({$diary.c_diary_id})Image3Confirm'); openDialog('deleteDiary({$diary.c_diary_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 </ul>

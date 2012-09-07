@@ -3,7 +3,7 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ simpleBox *})<section class="simpleBox" id="publicInviteEnd" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="publicInviteEnd">
 <p>入力されたメールアドレスにメールを送信しました。メール内のＵＲＬをクリックしてログインしてください。（パスワードは現在登録のものをご使用ください。）</p>
 </section>({* simpleBox }}} *})
 

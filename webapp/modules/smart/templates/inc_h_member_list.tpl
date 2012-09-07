@@ -9,6 +9,6 @@
 </div></div>
 </section></a>
 ({if $_type=="h_bookmark_list"})
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_f_bookmark_delete})&amp;target_c_member_id=({$item.c_member_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_bookmark_list})', 'deletebookmark({$item.c_member_id})Confirm'); openDialog('deletebookmark({$item.c_member_id})Confirm')" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_f_bookmark_delete})&amp;target_c_member_id=({$item.c_member_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_bookmark_list})', 'deletebookmark({$item.c_member_id})Confirm'); openDialog('deletebookmark({$item.c_member_id})Confirm')" data-ajax="true">削除</a>
 ({/if})
 </li>

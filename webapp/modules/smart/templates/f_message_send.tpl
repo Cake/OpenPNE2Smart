@@ -19,7 +19,7 @@
 <input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain">
 <label for="subject">件名</label>
-<input type="text" name="subject" id="subject" value="({$form_val.subject})" placeholder=""/>
+<input type="text" name="subject" id="subject" value="({$form_val.subject})">
 </div>
 <div data-role="fieldcontain">
 <label for="messageBody" class="required">メッセージ</label>

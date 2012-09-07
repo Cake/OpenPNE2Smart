@@ -4,7 +4,7 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if !$c_event_member_list})
-({* {{{ simpleBox *})<section class="simpleBox" id="eventMailNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="eventMailNoavailableComment">
 <h3>参加者へ一括メッセージ</h3>
 <p>送信するメンバーがいません。</p>
 </section>({* simpleBox }}} *})

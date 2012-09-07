@@ -9,7 +9,7 @@ var page=2;
 ({ext_include file="common/inc_msg.tpl"})
 
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="bookmarkBlogListNoData" data-role="">
+<section class="simpleBox" id="bookmarkBlogListNoData">
 <h3>お気に入り最新({$WORD_DIARY})</h3>
 <p>過去30日分のお気に入りの({$WORD_DIARY})を表示します。</p>
 </section>({* simpleBox }}} *})

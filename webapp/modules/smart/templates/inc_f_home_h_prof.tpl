@@ -38,7 +38,7 @@
 </section>({* homePhotoBox }}} *})
 
 ({if !$is_h_prof})
-({* {{{ simpleBox *})<section class="simpleBox" id="member({$target_c_member.c_member_id})homeLinkBox" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="member({$target_c_member.c_member_id})homeLinkBox">
 <span>
 ({if !$is_friend})
 <a href="({t_url m=pc a=do_f_link_request})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;sessid=({$PHPSESSID})" data-role="button" data-inline="true" data-mini="true" data-ajax="false">({$WORD_MY_FRIEND})追加</a>

@@ -17,19 +17,19 @@
 ({t_form_block m=pc a=do_o_password_query _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="pc_address">メールアドレス</label>
-<input type="email" class="input_text" name="pc_address" value="" placeholder="メールアドレス" autocapitalize="off">
+<input type="email" class="input_text" name="pc_address" placeholder="メールアドレス" autocapitalize="off">
 </div>
 ({if $smarty.const.IS_PASSWORD_QUERY_ANSWER})
 <div data-role="fieldcontain">
 <label for="c_password_query_id">秘密の質問</label>
 <select name="c_password_query_id">
-<option value="">選択してください</option>
+<option>選択してください</option>
 ({foreach from=$c_password_query_list key=key item=item})
 <option value="({$key})">({$item})</option>
 ({/foreach})
 </select>
 <label for="c_password_query_answer">秘密の質問の答え</label>
-<input type="text" class="input_text" name="c_password_query_answer" value="" placeholder="">
+<input type="text" class="input_text" name="c_password_query_answer">
 <p class="caution">※変更する場合のみ入力してください。</p>
 </div>
 ({/if})
@@ -38,7 +38,7 @@
 <label for="captcha">確認キーワード</label>
 <p><img src="./cap.php?rand=({math equation="rand(0,99999999)"})" alt="確認キーワード"></p>
 <p>※上に表示されているキーワードをご記入下さい。</p>
-<input type="text" class="input_text" name="captcha" id="captcha" value="" placeholder="" autocapitalize="off">
+<input type="text" class="input_text" name="captcha" id="captcha" autocapitalize="off">
 </div>
 ({/if})
 <div data-role="fieldcontain">

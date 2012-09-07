@@ -13,7 +13,7 @@
 <fieldset data-role="controlgroup">
 <legend><span class="required">紹介先</span></legend>
 ({foreach from=$c_invite_list item=c_invite})
-<input type="checkbox" class="input_checkbox" id="m({$c_invite.c_member_id})" name="c_member_id_list[]" value="({$c_invite.c_member_id})" alt="">
+<input type="checkbox" class="input_checkbox" id="m({$c_invite.c_member_id})" name="c_member_id_list[]" value="({$c_invite.c_member_id})">
 <label for="m({$c_invite.c_member_id})">({$c_invite.nickname})</label>
 ({/foreach})
 </fieldset>

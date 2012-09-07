@@ -9,13 +9,13 @@
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
 <div data-role="fieldcontain">
 <label for="title" class="required">({$WORD_COMMUNITY})名</label>
-<input type="text" class="input_text" name="name" value="({$form_val.name})" placeholder="">
+<input type="text" class="input_text" name="name" value="({$form_val.name})">
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend><span class="required">カテゴリ</span></legend>
 <select name="c_commu_category_id" id="c_commu_category_id" data-mini="false">
-<option value="">選択してください</option>
+<option>選択してください</option>
 ({foreach from=$c_commu_category_list item=item})
 <option value="({$item.c_commu_category_id})"({if $item.c_commu_category_id == $form_val.c_commu_category_id}) selected="selected"({/if})>({$item.name})</option>
 ({/foreach})

@@ -1,5 +1,5 @@
 ({* {{{ menu *})({strip})<div id="menu">
-<ul class="ui-grid-b" data-role="">
+<ul class="ui-grid-b">
 <li id="menuDiary" class="ui-block-a"><a href="({t_url m=pc a=page_fh_diary_list})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-diary" data-iconshadow="true" data-iconpos="bottom">({$WORD_DIARY})</a></li>
 <li id="menuCommunity" class="ui-block-b"><a href="({t_url m=pc a =page_h_com_topic_find_all})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-bbs" data-iconshadow="true" data-iconpos="bottom">掲示板</a></li>
 <li id="menuAshiato" class="ui-block-c"><a href="({t_url m=pc a=page_h_ashiato})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-visitor" data-iconshadow="true" data-iconpos="bottom">あしあと</a></li>

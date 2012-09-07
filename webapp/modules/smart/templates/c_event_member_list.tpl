@@ -58,7 +58,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/strip})({/capture})({* pagerList }}} *})
 
 <h3>イベント参加者一覧</h3>
-({* {{{ photoTable *})<section class="photoTableBox" id="event({$c_topic.c_commu_topic_id})memberPhotoTableBox" data-role="">
+({* {{{ photoTable *})<section class="photoTableBox" id="event({$c_topic.c_commu_topic_id})memberPhotoTableBox">
 ({foreach from=$page_num key=key item=num name=table})
 <ul id="event({$c_topic.c_commu_topic_id})memberPhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_member_table.tpl" member=$c_event_member_list _start=$key*9})
@@ -69,7 +69,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({$smarty.capture.pager|smarty:nodefaults})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>イベント参加者一覧</h3>
 <p>イベントへの参加者がいません。</p>
 </section>({* simpleBox }}} *})

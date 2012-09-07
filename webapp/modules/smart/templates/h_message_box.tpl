@@ -14,12 +14,12 @@ var page=2;
 <p>({t_form_block _method=get m=pc a=page_h_message_box})
 <input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード">
 </div>
 <div data-role="fieldcontain">
 <label for="target_c_member_id">送信者</label>
 <select name="target_c_member_id" id="target_c_member_id">
-<option value="">指定なし</option>
+<option>指定なし</option>
 ({foreach from=$c_message_sender_list item=item})
 <option value="({$item.c_member_id_from})"({if $target_c_member_id == $item.c_member_id_from}) selected="selected"({/if})>({$item.nickname})</option>
 ({/foreach})
@@ -37,12 +37,12 @@ var page=2;
 <p>({t_form_block _method=get m=pc a=page_h_message_box})
 <input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード">
 </div>
 <div data-role="fieldcontain">
 <label for="target_c_member_id">宛先</label>
 <select name="target_c_member_id" id="target_c_member_id">
-<option value="">指定なし</option>
+<option>指定なし</option>
 ({foreach from=$c_message_receiver_list item=item})
 <option value="({$item.c_member_id_to})"({if $target_c_member_id == $item.c_member_id_to}) selected="selected"({/if})>({$item.nickname})</option>
 ({/foreach})

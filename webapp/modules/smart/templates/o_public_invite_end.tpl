@@ -3,7 +3,7 @@
 <div class="content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ simpleBox *})<section class="simpleBox" id="publicInviteEnd" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="publicInviteEnd">
 <p>入力されたメールアドレス宛に ({$SNS_NAME}) の招待状を送信しました。<br>招待状に記載されたURLから登録をおこなってください。</p>
 </section>({* simpleBox }}} *})
 

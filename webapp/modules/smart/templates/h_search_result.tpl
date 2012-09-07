@@ -29,7 +29,7 @@ var page=2;
 ({* {{{ searchResultList *})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>メンバー検索</h3>
 <p>該当するメンバーはいませんでした。</p>
 </section>({* simpleBox }}} *})

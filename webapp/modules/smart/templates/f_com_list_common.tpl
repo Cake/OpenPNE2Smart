@@ -58,7 +58,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/strip})({/capture})({* pagerList }}} *})
 
 <h3>共通({$WORD_COMMUNITY})一覧</h3>
-({* {{{ photoTable *})<section class="photoTableBox" id="commonCommunity({$target_member.c_member_id})dPhotoTableBox" data-role="">
+({* {{{ photoTable *})<section class="photoTableBox" id="commonCommunity({$target_member.c_member_id})dPhotoTableBox">
 ({foreach from=$page_list key=key item=num name=table})
 <ul id="commonCommunity({$target_member.c_member_id})PhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_com_table.tpl" com_list=$common_commu_list _start=$key*9})
@@ -69,7 +69,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({$smarty.capture.pager|smarty:nodefaults})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>共通({$WORD_COMMUNITY})一覧</h3>
 <p>共通の({$WORD_COMMUNITY})はありません。</p>
 </section>({* simpleBox }}} *})

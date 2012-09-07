@@ -9,7 +9,7 @@ var page=2;
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if !$c_members_num})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>お気に入り</h3>
 <p>まだお気に入り登録がありません。</p>
 </section>({* simpleBox }}} *})
@@ -34,7 +34,7 @@ var page=2;
 ({/strip})({* Pager }}} *})
 ({/if})
 
-<div class="pagerRelative"><a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a></div>
+<div class="pagerRelative"><a href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a></div>
 
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})

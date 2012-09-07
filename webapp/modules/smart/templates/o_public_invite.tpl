@@ -14,18 +14,18 @@
 ({t_form_block _enctype=file m=pc a=do_o_public_invite _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="pc_address" class="required">メールアドレス</label>
-<input type="email" class="input_text" name="pc_address" id="pc_address" value="" placeholder="メールアドレス" autocapitalize="off">
+<input type="email" class="input_text" name="pc_address" id="pc_address" placeholder="メールアドレス" autocapitalize="off">
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="pc_address2" class="required">メールアドレス(確認)</label>
-<input type="email" class="input_text" name="pc_address2" id="pc_address2" value="" placeholder="メールアドレス(確認)" autocapitalize="off">
+<input type="email" class="input_text" name="pc_address2" id="pc_address2" placeholder="メールアドレス(確認)" autocapitalize="off">
 </div>
 ({if $smarty.const.OPENPNE_USE_CAPTCHA})
 <div data-role="fieldcontain">
 <label for="captcha" class="required">確認キーワード</label>
 <p><img src="./cap.php?rand=({math equation="rand(0,99999999)"})" alt="確認キーワード"></p>
 <p>※上に表示されているキーワードをご記入下さい。</p>
-<input type="text" class="input_text" name="captcha" id="captcha" value="" placeholder="" autocapitalize="off">
+<input type="text" class="input_text" name="captcha" id="captcha" autocapitalize="off">
 </div>
 ({/if})
 <div data-role="fieldcontain">

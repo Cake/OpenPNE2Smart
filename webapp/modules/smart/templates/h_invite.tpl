@@ -15,7 +15,7 @@
 ({t_form_block m=pc a=page_h_invite_confirm _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class=">
 <label for="mail">招待するアドレス</label>
-<input type="email" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off">
+<input type="email" class="input_text" name="mail" value="({$requests.mail})" autocapitalize="off">
 ({if $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_PC})
 <p class="caution">※携帯メールアドレスには招待を送ることができません。</p>
 ({elseif $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_KTAI})
@@ -27,11 +27,11 @@
 <textarea name="message">({$requests.message})</textarea>
 </div>
 ({if $smarty.const.OPENPNE_USE_CAPTCHA})
-<div data-role="fieldcontain" class="">
+<div data-role="fieldcontain">
 <label for="captcha">確認キーワード</label>
 <p>※下に表示されているキーワードをご記入下さい。</p>
 <p><img src="./cap.php?rand=({math equation="rand(0,99999999)"})" alt="確認キーワード"></p>
-<input type="text" class="input_text" name="captcha" value="" placeholder="" autocapitalize="off">
+<input type="text" class="input_text" name="captcha" autocapitalize="off">
 </div>
 ({/if})
 <div data-role="fieldcontain">

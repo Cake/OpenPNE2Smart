@@ -25,7 +25,7 @@ var page=2;
 ({/if})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>({$WORD_COMMUNITY})管理</h3>
 <p>({$WORD_COMMUNITY})登録がありません。</p>
 </section>({* simpleBox }}} *})

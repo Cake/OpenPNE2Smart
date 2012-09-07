@@ -25,7 +25,7 @@
 ({if !$item.has_intro_by_me})
 <a href="({t_url m=pc a=page_f_intro_edit})&amp;target_c_member_id=({$item.c_member_id})" class="addButton" id="intro({$item.c_member_id})Edit" data-role="button" data-inline="false" data-ajax="false">この({$WORD_MY_FRIEND})を紹介する</a>
 ({/if})
-<a class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_f_intro_from_delete})&amp;target_c_member_id=({$item.c_member_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_fh_intro})', 'deleteIntro({$item.c_member_id})Confirm'); openDialog('deleteIntro({$item.c_member_id})Confirm')" data-role="button" data-mini="false" data-ajax="true">紹介文を削除する</a>
+<a href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_f_intro_from_delete})&amp;target_c_member_id=({$item.c_member_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_fh_intro})', 'deleteIntro({$item.c_member_id})Confirm'); openDialog('deleteIntro({$item.c_member_id})Confirm')" data-role="button" data-mini="false" data-ajax="true">紹介文を削除する</a>
 ({/if})
 ({if $item.c_member_id==$member.c_member_id})
 <a href="({t_url m=pc a=page_f_intro_edit})&amp;target_c_member_id=({$target_member.c_member_id})" class="addButton" id="intro({$target_member.c_member_id})Edit" data-role="button" data-inline="false" data-ajax="false">紹介文を編集する</a>
@@ -33,7 +33,7 @@
 ({/if})
 </div>
 </a>
-<a title="管理" class="" href="javascript:void(0);" onclick="$('#member({$target_member.c_member_id})Intro({$item.c_member_id})Manage').toggle();">管理</a>
+<a title="管理" href="javascript:void(0);" onclick="$('#member({$target_member.c_member_id})Intro({$item.c_member_id})Manage').toggle();">管理</a>
 </li>
 ({/foreach})
 </ul>

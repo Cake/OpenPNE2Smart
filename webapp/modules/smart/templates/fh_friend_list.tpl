@@ -58,7 +58,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/strip})({/capture})({* pagerList }}} *})
 
 <h3>({$WORD_FRIEND})リスト</h3>
-({* {{{ photoTable *})<section class="photoTableBox" id="member({$target_member.c_member_id})friendPhotoTableBox" data-role="">
+({* {{{ photoTable *})<section class="photoTableBox" id="member({$target_member.c_member_id})friendPhotoTableBox">
 ({foreach from=$page_num key=key item=num name=table})
 <ul id="member({$target_member.c_member_id})friendPhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_member_table.tpl" member=$target_friend_list_disp _start=$key*9})
@@ -71,15 +71,15 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({if $type == 'h'})<a href="({t_url m=pc a=page_h_manage_friend})" data-role="button" data-mini="false" data-ajax="true">({$WORD_MY_FRIEND})管理</a>({/if})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>({$WORD_MY_FRIEND})一覧</h3>
 <p>({$WORD_MY_FRIEND})登録がありません。</p>
 </section>({* simpleBox }}} *})
 ({/if})
 
 <div class="pagerRelative">
-<a class="" href="({t_url m=pc a=page_h_bookmark_list})" data-role="button" data-mini="false" data-ajax="true">お気に入り一覧</a>
-<a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
+<a href="({t_url m=pc a=page_h_bookmark_list})" data-role="button" data-mini="false" data-ajax="true">お気に入り一覧</a>
+<a href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
 <a href="({t_url m=pc a=page_h_invite})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">友達を誘う</a>
 </div>
 

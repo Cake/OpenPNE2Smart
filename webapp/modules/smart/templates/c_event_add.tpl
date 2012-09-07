@@ -16,17 +16,17 @@
 <legend><span class="required">開催日時</span></legend>
 <label for="open_date_year">年</label>
 <select name="open_date_year" id="open_date_year" data-mini="false">
-<option value="">年</option>
+<option>年</option>
 ({html_options values=$year selected=$event.open_date_year output=$year})
 </select> 
 <label for="open_date_month">月</label>
 <select name="open_date_month"id="open_date_month" data-mini="false">
-<option value="">月</option>
+<option>月</option>
 ({html_options values=$month selected=$event.open_date_month output=$month})
 </select>
 <label for="open_date_day">日</label>
 <select name="open_date_day" id="open_date_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({html_options values=$day selected=$event.open_date_day output=$day})
 </select> 
 </fieldset>
@@ -49,20 +49,20 @@
 ({ext_include file="inc_tinymce_textarea.tpl" _name="detail" _show_label=true _label_class="required" _title="詳細" _body=$event.detail|smarty:nodefaults})
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
-<legend><span class="">募集期限</span></legend>
+<legend><span>募集期限</span></legend>
 <label for="invite_period_year">年</label>
 <select name="invite_period_year" id="invite_period_year" data-mini="false">
-<option value="">年</option>
+<option>年</option>
 ({html_options values=$year selected=$event.invite_period_year output=$year})
 </select> 
 <label for="invite_period_month">月</label>
 <select name="invite_period_month"id="invite_period_month" data-mini="false">
-<option value="">月</option>
+<option>月</option>
 ({html_options values=$month selected=$event.invite_period_month output=$month})
 </select>
 <label for="invite_period_day">日</label>
 <select name="invite_period_day" id="invite_period_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({html_options values=$day selected=$event.invite_period_day output=$day})
 </select> 
 </fieldset>

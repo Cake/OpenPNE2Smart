@@ -28,7 +28,7 @@ var page=2;
 ({* hCommentRecentListBox }}} *})
 ({else})
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="hCommentRecentListNoMessage" data-role="">
+<section class="simpleBox" id="hCommentRecentListNoMessage">
 <p>まだ({$WORD_COMMUNITY})書き込みがありません。</p>
 </section>({* simpleBox }}} *})
 ({/if})

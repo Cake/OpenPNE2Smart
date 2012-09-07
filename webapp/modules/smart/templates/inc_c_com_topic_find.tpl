@@ -4,7 +4,7 @@
 <p>({t_form_block _method=get m=pc a=page_c_com_topic_find})
 <input type="hidden" name="c_commu_id" value="({$c_commu.c_commu_id})">
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})">
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="category">検索対象</label>

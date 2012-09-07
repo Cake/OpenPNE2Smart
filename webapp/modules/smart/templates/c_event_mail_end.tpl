@@ -3,7 +3,7 @@
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({* {{{ simpleBox *})<section class="simpleBox" id="eventInviteEnd" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="eventInviteEnd">
 <h3>一括メッセージ</h3>
 <p>送信完了しました。</p>
 </section>({* simpleBox }}} *})

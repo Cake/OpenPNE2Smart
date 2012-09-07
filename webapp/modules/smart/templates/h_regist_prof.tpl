@@ -9,13 +9,13 @@
 ({capture name="nick"})
 <div data-role="fieldcontain">
 <label for="nickname" class="required">({$WORD_NICKNAME})</label>
-<input type="text" class="input_text" name="nickname" id="nickname" value="({$profs.nickname})" placeholder="">
+<input type="text" class="input_text" name="nickname" id="nickname" value="({$profs.nickname})">
 </div>
 ({/capture})
 ({capture name="birth"})
 <div data-role="fieldcontain">
 <label for="birth_year" class="required">生まれた年</label>
-<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$profs.birth_year})" maxlength="4" placeholder="" autocapitalize="off">
+<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$profs.birth_year})" maxlength="4" autocapitalize="off">
 <select name="public_flag_birth_year">
 ({html_options options=$public_flags selected=$profs.public_flag_birth_year})
 </select>
@@ -32,7 +32,7 @@
 </select>
 <label for="birth_day">日</label>
 <select name="birth_day" id="birth_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({foreach from=$day_list item=item})
 <option value="({$item})"({if $profs.birth_day==$item}) selected="selected"({/if})>({$item})</option>
 ({/foreach})
@@ -79,13 +79,13 @@
 	<textarea name="profile[({$profile.name})]"id="profile_({$profile.name})" >({$profs.profile[$profile.name].value})</textarea>
 ({elseif $profile.form_type == 'select'})
 	<select name="profile[({$profile.name})]"id="profile_({$profile.name})" >
-	<option value="">選択してください</option>
+	<option>選択してください</option>
 	({foreach from=$profile.options item=item})
 		<option value="({$item.c_profile_option_id})"({if $profs.profile[$profile.name].c_profile_option_id == $item.c_profile_option_id}) selected="selected"({/if})>({$item.value|default:"--"})</option>
 	({/foreach})
 	</select>
 ({elseif $profile.form_type == 'radio'})
-	<fieldset data-role="controlgroup" data-type="">
+	<fieldset data-role="controlgroup">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options})
 			<input type="radio" class="input_radio" name="profile[({$profile.name})]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $profs.profile[$profile.name].c_profile_option_id == $item.c_profile_option_id}) checked="checked"({/if})>
@@ -93,7 +93,7 @@
 		({/foreach})
 	</fieldset>
 ({elseif $profile.form_type == 'checkbox'})
-	<fieldset data-role="controlgroup" data-type="">
+	<fieldset data-role="controlgroup">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options name=check})
 			<input type="checkbox" class="input_checkbox" name="profile[({$profile.name})][]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $profs.profile[$profile.name].c_profile_option_id && in_array($item.c_profile_option_id|smarty:nodefaults, $profs.profile[$profile.name].c_profile_option_id)}) checked="checked"({/if})>

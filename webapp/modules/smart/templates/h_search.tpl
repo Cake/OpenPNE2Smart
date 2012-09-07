@@ -8,14 +8,14 @@
 ({t_form_block _method=get m=pc a=page_h_search_result _attr='data-ajax="false"'})
 <div data-role="fieldcontain">
 <label for="nickname">({$WORD_NICKNAME})</label>
-<input type="text" class="input_text" name="nickname" id="nickname" placeholder="">
+<input type="text" class="input_text" name="nickname" id="nickname">
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
 <legend>生年月日</legend>
-<input type="text" class="input_text width_80" name="birth_year" maxlength="4" maxlength="4" placeholder="" autocapitalize="off"> 年
-<input type="text" class="input_text width_40" name="birth_month" maxlength="2" maxlength="2" placeholder="" autocapitalize="off"> 月
-<input type="text" class="input_text width_40" name="birth_day" maxlength="2" maxlength="2" placeholder="" autocapitalize="off"> 日
+<input type="text" class="input_text width_80" name="birth_year" maxlength="4" maxlength="4" autocapitalize="off"> 年
+<input type="text" class="input_text width_40" name="birth_month" maxlength="2" maxlength="2" autocapitalize="off"> 月
+<input type="text" class="input_text width_40" name="birth_day" maxlength="2" maxlength="2" autocapitalize="off"> 日
 </fieldset>
 </div>
 ({foreach from=$profile_list item=profile})
@@ -60,7 +60,7 @@
 </section>({* formTable }}} *})
 
 <div class="pagerRelative">
-<a class="" href="({t_url m=pc a=page_h_search_list})" data-role="button" data-mini="false" data-ajax="true">検索項目の一覧</a>
+<a href="({t_url m=pc a=page_h_search_list})" data-role="button" data-mini="false" data-ajax="true">検索項目の一覧</a>
 <p>検索項目の一覧と各項目のメンバー数を表示します。</p>
 </div>
 

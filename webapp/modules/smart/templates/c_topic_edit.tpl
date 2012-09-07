@@ -33,17 +33,17 @@
 <ul class="ui-grid-b" id="topicEdit({$c_topic.c_commu_topic_id})operation">
 ({if $c_topic.image_filename1})
 <li class="ui-block-a">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image1Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image1Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_topic.image_filename2})
 <li class="ui-block-b">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image2Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image2Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_topic.image_filename3})
 <li class="ui-block-c">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image3Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})Image3Confirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 </ul>
@@ -83,7 +83,7 @@
 <label for="uploadfile">ファイル</label>
 ({if $c_topic.filename})
 ({$c_topic.original_filename})
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})FileConfirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_topic_edit})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'deleteTopic({$c_topic.c_commu_topic_id})FileConfirm'); openDialog('deleteTopic({$c_topic.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 ({else})
 ({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40">

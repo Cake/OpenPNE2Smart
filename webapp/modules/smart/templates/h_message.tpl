@@ -42,7 +42,7 @@
 <input type="submit" class="input_submit" name="remove" value="削除">
 ({/t_form_block})
 ({else})
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_message_box_delete_message})&amp;c_message_id[]=({$c_message.c_message_id})&amp;box=({$box})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_message})&amp;target_c_message_id=({$c_message.c_message_id})&amp;box=({$box})', 'deleteMessage({$c_message.c_message_id})Confirm'); openDialog('deleteMessage({$c_message.c_message_id})Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_message_box_delete_message})&amp;c_message_id[]=({$c_message.c_message_id})&amp;box=({$box})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_message})&amp;target_c_message_id=({$c_message.c_message_id})&amp;box=({$box})', 'deleteMessage({$c_message.c_message_id})Confirm'); openDialog('deleteMessage({$c_message.c_message_id})Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 ({/if})
 </li>
 <li class="ui-block-b">

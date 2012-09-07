@@ -8,7 +8,7 @@ var page=2;
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-<div class="" id="toBookmarkDiaryList"><a href="({t_url m=pc a=page_h_bookmark_diary_blog_list})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="false" data-ajax="true">お気に入り最新({$WORD_DIARY})</a></div>
+<div id="toBookmarkDiaryList"><a href="({t_url m=pc a=page_h_bookmark_diary_blog_list})" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="false" data-ajax="true">お気に入り最新({$WORD_DIARY})</a></div>
 
 ({if $total_num})
 ({* {{{ recentList *})

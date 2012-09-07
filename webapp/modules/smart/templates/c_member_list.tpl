@@ -58,7 +58,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/strip})({/capture})({* pagerList }}} *})
 
 <h3>({$c_commu.name}) メンバー一覧</h3>
-({* {{{ photoTable *})<section class="photoTableBox" id="community({$c_commu.c_commu_id})memberPhotoTableBox" data-role="">
+({* {{{ photoTable *})<section class="photoTableBox" id="community({$c_commu.c_commu_id})memberPhotoTableBox">
 ({foreach from=$page_num key=key item=num name=table})
 <ul id="community({$c_commu.c_commu_id})memberPhotoTable({$num})content" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_member_table.tpl" member=$c_member_list _start=$key*9})

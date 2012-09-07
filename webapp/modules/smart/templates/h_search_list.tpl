@@ -22,7 +22,7 @@
 </section>({* searchCategoryList }}} *})
 
 <div class="pagerRelative">
-<a class="" href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
+<a href="({t_url m=pc a=page_h_search})" data-role="button" data-mini="false" data-ajax="true">メンバー検索</a>
 </div>
 
 </div>({* {{{ content *})

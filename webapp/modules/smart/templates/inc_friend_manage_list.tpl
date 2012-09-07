@@ -23,5 +23,5 @@
 <a href="({t_url m=pc a=do_h_friend_update_is_display_friend_home page=$page})&amp;target_c_member_id=({$item.c_member_id})&amp;target_is_display_friend_home=1&amp;sessid=({$PHPSESSID})" class="addButton" id="friend({$item.c_member_id})LatestDiary" data-role="button" data-inline="false" data-ajax="false">最新書き込みを表示する</a>({/if})
 </div>
 </a>
-<a title="管理" class="" href="javascript:void(0);" onclick="$('#friend({$item.c_member_id})Manage').toggle();">管理</a>
+<a title="管理" href="javascript:void(0);" onclick="$('#friend({$item.c_member_id})Manage').toggle();">管理</a>
 </li>

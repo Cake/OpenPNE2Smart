@@ -72,12 +72,12 @@ var page=2;
 ({/strip})({* Pager }}} *})
 
 ({elseif $keyword == ""})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>検索結果</h3>
 </section>({* simpleBox }}} *})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <h3>検索結果</h3>
 <p>該当する記事はありません。</p>
 </section>({* simpleBox }}} *})

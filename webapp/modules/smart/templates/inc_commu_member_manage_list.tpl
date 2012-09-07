@@ -32,5 +32,5 @@
 ({/if})
 </div>
 </a>
-<a title="管理" class="" href="javascript:void(0);" onclick="$('#community({$c_commu.c_commu_id})Member({$item.c_member_id})Manage').toggle();">管理</a>
+<a title="管理" href="javascript:void(0);" onclick="$('#community({$c_commu.c_commu_id})Member({$item.c_member_id})Manage').toggle();">管理</a>
 </li>

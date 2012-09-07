@@ -4,7 +4,7 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 ({if !$c_friend_list})
-({* {{{ simpleBox *})<section class="simpleBox" id="eventInviteNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="eventInviteNoavailableComment">
 <h3>イベントお知らせメッセージ</h3>
 <p>紹介できる({$WORD_MY_FRIEND})がいません。</p>
 </section>({* simpleBox }}} *})

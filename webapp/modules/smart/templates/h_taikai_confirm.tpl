@@ -15,7 +15,7 @@
 
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="password" class="required">パスワード</label>
-<input type="password" class="input_password" name="password" value="" placeholder="パスワード" autocapitalize="off">
+<input type="password" class="input_password" name="password" placeholder="パスワード" autocapitalize="off">
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="reason" class="required">退会理由</label>

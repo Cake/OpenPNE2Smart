@@ -46,7 +46,7 @@ $('#topicWriteForm').ready(function(){
 ({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
 ({if $is_writable_comment})
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a title="返信" data-icon="smart-write" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
+<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
 </div>
 ({/if})
 ({/if})
@@ -119,7 +119,7 @@ $('#topicWriteForm').ready(function(){
 
 ({else})
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="topicNoavailableComment" data-role="">
+<section class="simpleBox" id="topicNoavailableComment">
 <h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、このトピックにはコメントできません。</p>
 </section>({* simpleBox }}} *})

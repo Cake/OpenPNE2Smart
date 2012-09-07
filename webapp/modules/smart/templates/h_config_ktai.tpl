@@ -14,9 +14,9 @@
 <p>※ドメイン指定受信を設定されている方は、「({$smarty.const.ADMIN_EMAIL})」からのメールを受信できるように指定してください。</p>
 <p>※既に携帯メールアドレスが登録されている場合、新しいメールアドレスに変更されます。</p>
 ({t_form_block m=pc a=do_h_config_ktai_send _attr='data-ajax="false"'})
-<div data-role="fieldcontain" class=">
+<div data-role="fieldcontain" class="ui-hide-label">
 <label for="ktai_address">携帯メールアドレス</label>
-<input type="email" class="input_text" name="ktai_address" value="({$form_val.mail})" placeholder="" autocapitalize="off">
+<input type="email" class="input_text" name="ktai_address" value="({$form_val.mail})" placeholder="携帯メールアドレス" autocapitalize="off">
 </div>
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="送信">

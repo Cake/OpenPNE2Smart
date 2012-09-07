@@ -58,7 +58,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({/if})
 ({/strip})({/capture})({* pagerList }}} *})
 
-({* {{{ photoTable *})<section class="photoTableBox communityPhotoTableBox" id="communityPhotoTableBox" data-role="">
+({* {{{ photoTable *})<section class="photoTableBox communityPhotoTableBox" id="communityPhotoTableBox">
 ({foreach from=$page_list key=key item=page_num name=table})
 <ul id="hCommunityPhotoTable({$page_num})content" class="photoTable" data-role="listview" data-inset="false">
 ({ext_include file="inc_com_table.tpl" com_list=$fh_com_list_user _start=$key*9})
@@ -71,7 +71,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({if $target_member.c_member_id == $u})<a href="({t_url m=pc a=page_h_manage_commu})" data-role="button" data-inline="false" data-ajax="true">({$WORD_COMMUNITY})管理</a>({/if})
 
 ({else})
-({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment" data-role="">
+({* {{{ simpleBox *})<section class="simpleBox" id="topicNoavailableComment">
 <p>参加している({$WORD_COMMUNITY})はありません。</p>
 </section>({* simpleBox }}} *})
 ({/if})

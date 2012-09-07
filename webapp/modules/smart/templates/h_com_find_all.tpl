@@ -64,7 +64,7 @@ var page=2;
 </section>
 ({* searchFormBox }}} *})({/capture})
 
-({capture name=searchResult})({* {{{ simpleBox *})<section class="simpleBox" id="CommunityNoavailableComment" data-role="">
+({capture name=searchResult})({* {{{ simpleBox *})<section class="simpleBox" id="CommunityNoavailableComment">
 <h3>({$WORD_COMMUNITY})({if $keyword || $requests.category_id != '0'})検索結果({else})一覧({/if})</h3>
 <p>({$total_num|default:'0'})件が該当しました。</p>
 </section>({* simpleBox }}} *})

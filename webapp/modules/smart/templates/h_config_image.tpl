@@ -14,26 +14,26 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 
 ({* {{{ photoUploadFormBox *})<section class="photoUploadFormBox" id="configProfileImages" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>写真を編集する</h3>
-<ul class="" id="configProfileImageGallery">
+<ul id="configProfileImageGallery">
 ({if $c_member.image_filename_1})
 <li>
 <img src="({t_img_url filename=$c_member.image_filename_1 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_1==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_1==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image1Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image1Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image1Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image1Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_member.image_filename_2})
 <li>
 <img src="({t_img_url filename=$c_member.image_filename_2 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_2==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_2==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image2Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image2Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image2Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image2Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_member.image_filename_3})
 <li>
 <img src="({t_img_url filename=$c_member.image_filename_3 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_3==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_3==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image3Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image3Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image3Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image3Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
 ({/if})
 </ul>

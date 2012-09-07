@@ -18,5 +18,5 @@
 <a href="({t_url m=pc a=do_h_commu_update_is_display_topic_home page=$page})&amp;target_c_commu_id=({$item.c_commu_id})&amp;target_is_display_topic_home=1&amp;sessid=({$PHPSESSID})" class="addButton" id="community({$item.c_commu_id})LatestBbs" data-role="button" data-inline="false" data-ajax="false">({$WORD_COMMUNITY})最新書き込みを表示する</a>
 ({/if})
 </div>
-<a title="管理" class="" href="javascript:void(0);" onclick="$('#community({$item.c_commu_id})Manage').toggle();">管理</a>
+<a title="管理" href="javascript:void(0);" onclick="$('#community({$item.c_commu_id})Manage').toggle();">管理</a>
 </li>

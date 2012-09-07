@@ -8,11 +8,11 @@
 ({t_form_block m=pc a=do_h_config_1 _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="pc_address">PCメールアドレス</label>
-<input type="email" class="input_text" name="pc_address" id="pc_address" value="" placeholder="PCメールアドレス" autocapitalize="off">
+<input type="email" class="input_text" name="pc_address" id="pc_address" placeholder="PCメールアドレス" autocapitalize="off">
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="pc_address2">PCメールアドレス(確認)</label>
-<input type="email" class="input_text" name="pc_address2" id="pc_address2" value="" placeholder="PCメールアドレス(確認)" autocapitalize="off">
+<input type="email" class="input_text" name="pc_address2" id="pc_address2" placeholder="PCメールアドレス(確認)" autocapitalize="off">
 <p>※メールアドレスは公開されません。
 ({if $smarty.const.OPENPNE_AUTH_MODE == 'slavepne' && !$smarty.const.IS_SLAVEPNE_EMAIL_REGIST})
 <br>※初期設定ではメールアドレスが登録されておりません。新着情報などご希望の際はご登録ください。
@@ -36,13 +36,13 @@
 ({t_form_block m=pc a=do_h_config_2 _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="old_password">現在のパスワード</label>
-<input type="password" class="input_password" name="old_password" id="pc_address" value="" placeholder="現在のパスワード" autocapitalize="off">
+<input type="password" class="input_password" name="old_password" id="pc_address" placeholder="現在のパスワード" autocapitalize="off">
 </div>
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="new_password">新しいパスワード</label>
-<input type="password" class="input_password" name="new_password" id="new_password" value="" placeholder="新しいパスワード" autocapitalize="off">
+<input type="password" class="input_password" name="new_password" id="new_password" placeholder="新しいパスワード" autocapitalize="off">
 <label for="new_password2">新しいパスワード(確認)</label>
-<input type="password" class="input_password" name="new_password2" id="new_password2" value="" placeholder="新しいパスワード(確認)" autocapitalize="off">
+<input type="password" class="input_password" name="new_password2" id="new_password2" placeholder="新しいパスワード(確認)" autocapitalize="off">
 <p>※パスワードは6～12文字の半角英数で入力してください。</p>
 </div>
 <div data-role="fieldcontain">
@@ -59,19 +59,19 @@
 <div data-role="fieldcontain">
 <label for="c_password_query_id">秘密の質問</label>
 <select name="c_password_query_id">
-<option value="">選択してください</option>
+<option>選択してください</option>
 ({foreach from=$password_query_list key=key item=item})
 <option value="({$key})"({if $c_member.c_password_query_id==$key}) selected="selected"({/if})>({$item})</option>
 ({/foreach})
 </select>
 <label for="c_password_query_answer">秘密の質問の答え</label>
-<input type="text" class="input_text" name="c_password_query_answer" value="" placeholder="">
+<input type="text" class="input_text" name="c_password_query_answer">
 <p class="caution">※変更する場合のみ入力してください。</p>
 </div>
 ({/if})
 <div data-role="fieldcontain">
 <label for="rss">BlogのURL</label>
-<input type="url" class="input_text input_text_long" name="rss" id="pc_address" value="({$c_member.rss})" placeholder="" autocapitalize="off">
+<input type="url" class="input_text input_text_long" name="rss" id="pc_address" value="({$c_member.rss})" autocapitalize="off">
 <p>※外部にお持ちの日記・BlogのURLをご記入ください。<br>例： http://blog.example.com/</p>
 </div>
 ({if !$is_unused_daily_news})
@@ -111,7 +111,7 @@
 ({if !$is_unused_ashiato})
 <div data-role="fieldcontain">
 <label for="ashiato_mail_num">あしあとお知らせメール</label>
-<input type="number" class="input_text width_60" name="ashiato_mail_num" id="ashiato_mail_num" value="({$c_member.ashiato_mail_num})" placeholder="" autocapitalize="off">アクセス目にメールを受け取る
+<input type="number" class="input_text width_60" name="ashiato_mail_num" id="ashiato_mail_num" value="({$c_member.ashiato_mail_num})" autocapitalize="off">アクセス目にメールを受け取る
 <p>※ここで指定したアクセス数に達したとき、お知らせメールが届きます。</p>
 <p>※PCメールアドレス/携帯メールアドレスの両方に届きます。</p>
 </div>
@@ -150,9 +150,9 @@
 <fieldset data-role="controlgroup">
 <legend>アクセスブロック</legend>
 ID: ({foreach from=$c_member_id_block item=item})
-<input type="number" class="input_text  width_60" name="c_member_id_block[]" value="({$item})" placeholder="" autocapitalize="off">
+<input type="number" class="input_text  width_60" name="c_member_id_block[]" value="({$item})" autocapitalize="off">
 ({/foreach})
-<input type="number" class="input_text  width_60" name="c_member_id_block[]" value="" placeholder="" autocapitalize="off">
+<input type="number" class="input_text  width_60" name="c_member_id_block[]" autocapitalize="off">
 </fieldset>
 <p>※アクセスをブロックするメンバーのIDを指定します。</p>
 </div>
