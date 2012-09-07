@@ -7,6 +7,7 @@
 <div class="commentListFooter">
 <time datetime="({$item.last_login})" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})rDatetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})</time>
 </div>
+</div>
 </section>
 <div class="manageListAcion" id="friend({$item.c_member_id})Manage">
 ({if $item.intro})

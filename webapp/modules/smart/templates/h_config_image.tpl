@@ -49,6 +49,7 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 <div data-role="fieldcontain">
 <label for="upfile">写真を選択</label>
 <input type="file" class="input_file" name="upfile" />
+</div>
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="アップロード" />
 </div>

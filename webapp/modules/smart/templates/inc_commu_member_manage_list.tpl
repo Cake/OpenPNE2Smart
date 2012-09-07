@@ -1,10 +1,12 @@
 <li id="community({$c_commu.c_commu_id})Member({$item.c_member_id})ManageList" class="commentList manageList">
-<a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Link"><section class="authorBar">
+<a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Link">
+<section class="authorBar">
 <div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
 <div class="itemData">
 <div class="title authorData" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Name">({$item.nickname})</div>
 <div class="commentListFooter">
 <time datetime="({$item.last_login})" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})rDatetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})</time>
+</div>
 </div>
 </section>
 <div class="manageListAcion" id="community({$c_commu.c_commu_id})Member({$item.c_member_id})Manage">
