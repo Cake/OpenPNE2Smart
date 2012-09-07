@@ -9,7 +9,7 @@
 <input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="title">タイトル</label>
-<input type="text" name="title" id="title" value="({$title})" placeholder="タイトル"/>
+<input type="text" name="title" id="title" value="({$title})" placeholder="タイトル">
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _body=$body|smarty:nodefaults})
 

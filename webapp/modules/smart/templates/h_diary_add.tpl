@@ -18,7 +18,7 @@ $('#h_diary_add').live('pageinit',function(event){
 ({t_form_block _enctype=file m=pc a=page_h_diary_add_confirm _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="subject">タイトル</label>
-<input type="text" name="subject" id="subject" value="({$form_val.subject})" placeholder="タイトル"/>
+<input type="text" name="subject" id="subject" value="({$form_val.subject})" placeholder="タイトル">
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="required" _body=$form_val.body|smarty:nodefaults})
 
@@ -43,7 +43,7 @@ $('#h_diary_add').live('pageinit',function(event){
 ({if $use_diary_category})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="category">カテゴリ</label>
-<input type="text" name="category" id="category" value="({$form_val.category})" placeholder="カテゴリ"/>
+<input type="text" name="category" id="category" value="({$form_val.category})" placeholder="カテゴリ">
 <select onchange="if(selectedIndex){if(!category.value.match(/\s$/)){category.value += ' '}category.value += options[selectedIndex].value + ' ';}">
 <option>カテゴリを選択してください</option>
 ({foreach from=$category_list item=value})

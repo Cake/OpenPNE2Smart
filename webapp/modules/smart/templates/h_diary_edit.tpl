@@ -20,7 +20,7 @@ $('#h_diary_edit').live('pageinit',function(event){
 <input type="hidden" name="del_img" value="({$del_img})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="subject" class="required">タイトル</label>
-<input type="text" name="subject" id="subject" value="({$diary.subject})" placeholder="タイトル"/>
+<input type="text" name="subject" id="subject" value="({$diary.subject})" placeholder="タイトル">
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="required" _body=$diary.body|smarty:nodefaults})
 
