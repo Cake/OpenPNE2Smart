@@ -35,9 +35,9 @@ $('#topicWriteForm').ready(function(){
 ({if $c_topic.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="topic({$c_topic.c_topic_id})gallery">
 ({if $c_topic.image_filename1 || $c_topic.image_filename2 || $c_topic.image_filename3})
-({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt="" /></a></li>({/if})
-({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt=""></a></li>({/if})
 ({/if})
 </ul>
 
@@ -85,33 +85,33 @@ $('#topicWriteForm').ready(function(){
 ({* {{{ formTable *})<section class="formTable" id="topicWriteForm">
 <div class="operation">
 ({t_form_block _enctype=file m=pc a=page_c_topic_write_confirm _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
+<input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="body">コメント</label>
 <textarea id="comment_box" name="body" cols="({$_cols|default:'40'})" placeholder="コメント">({$body})</textarea>
 </div>
 ({if !($is_apple)})
 <div data-role="fieldcontain">
-<laber for="image_filename1">写真1</label><input type="file" class="input_file" name="image_filename1" size="40" /><br />
-<laber for="image_filename2">写真2</label><input type="file" class="input_file" name="image_filename2" size="40" /><br />
-<laber for="image_filename3">写真3</label><input type="file" class="input_file" name="image_filename3" size="40" /><br />
+<laber for="image_filename1">写真1</label><input type="file" class="input_file" name="image_filename1" size="40"><br>
+<laber for="image_filename2">写真2</label><input type="file" class="input_file" name="image_filename2" size="40"><br>
+<laber for="image_filename3">写真3</label><input type="file" class="input_file" name="image_filename3" size="40"><br>
 </div>
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <div data-role="fieldcontain">
-<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40" />
+<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40">
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
 </div>
 ({/if})
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </div>
 ({if $mail_address})({**OpenPNE2 スマートフォン対応：ここから**})
 <div class="operation">
 ({t_mail_post mailto=$mail_address _type=button})
-<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br />
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真も添付できます。</p>
 </div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})

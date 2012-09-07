@@ -14,10 +14,10 @@ var page=2;
 <p>({t_form_block _method=get m=pc a=page_h_diary_list_all})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="keyword">キーワード</label>
-<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
+<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" data-ajax="false" />
+<input type="submit" class="input_submit" value="検索" data-ajax="false">
 </div>
 <p class="note">※タイトル、本文より検索をおこないます。スペースで区切ると複数キーワードでの検索ができます。</p>
 ({/t_form_block})</p>

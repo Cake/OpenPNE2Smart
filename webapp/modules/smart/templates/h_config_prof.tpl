@@ -29,13 +29,13 @@ $('#h_config_prof').live('pageinit',function(event){
 ({capture name="nick"})
 <div data-role="fieldcontain">
 <label for="nickname" class="required">({$WORD_NICKNAME})</label>
-<input type="text" class="input_text" name="nickname" id="nickname" value="({$c_member.nickname})" placeholder="" />
+<input type="text" class="input_text" name="nickname" id="nickname" value="({$c_member.nickname})" placeholder="">
 </div>
 ({/capture})
 ({capture name="birth"})
 <div data-role="fieldcontain">
 <label for="birth_year" class="required">生まれた年</label>
-<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$c_member.birth_year})" maxlength="4" placeholder="" autocapitalize="off" />
+<input type="text" class="input_text" name="birth_year" id="birth_year" value="({$c_member.birth_year})" maxlength="4" placeholder="" autocapitalize="off">
 <select name="public_flag_birth_year">
 ({html_options options=$public_flags selected=$c_member.public_flag_birth_year})
 </select>
@@ -92,7 +92,7 @@ $('#h_config_prof').live('pageinit',function(event){
 ({if $profile.form_type != 'radio' && $profile.form_type != 'checkbox'})<label for="profile[({$profile.name})]"({if $profile.is_required}) class="required"({/if})>({$profile.caption})</label>({/if})
 ({strip})
 ({if $profile.form_type == 'text'})
-	<input type="text" class="input_text" name="profile[({$profile.name})]" id="profile_({$profile.name})" value="({$c_member.profile[$profile.name].value})" />
+	<input type="text" class="input_text" name="profile[({$profile.name})]" id="profile_({$profile.name})" value="({$c_member.profile[$profile.name].value})">
 ({elseif $profile.form_type == 'textlong'})
 	<textarea name="profile[({$profile.name})]" id="profile_({$profile.name})" class="input_text_long">({$c_member.profile[$profile.name].value})</textarea>
 ({elseif $profile.form_type == 'textarea'})
@@ -108,7 +108,7 @@ $('#h_config_prof').live('pageinit',function(event){
 	<fieldset data-role="controlgroup" data-type="">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options})
-			<input type="radio" class="input_radio" name="profile[({$profile.name})]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value == $item.value}) checked="checked"({/if}) />
+			<input type="radio" class="input_radio" name="profile[({$profile.name})]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value == $item.value}) checked="checked"({/if})>
 			<label for="profile-({$profile.name})-({$item.c_profile_option_id})">({$item.value|default:""})</label>
 		({/foreach})
 	</fieldset>
@@ -116,7 +116,7 @@ $('#h_config_prof').live('pageinit',function(event){
 	<fieldset data-role="controlgroup" data-type="">
 		<legend><span class="required">({$profile.caption})</span></legend>
 		({foreach item=item from=$profile.options name=check})
-			<input type="checkbox" class="input_checkbox" name="profile[({$profile.name})][]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value && in_array($item.value|smarty:nodefaults, $c_member.profile[$profile.name].value)}) checked="checked"({/if}) /><label for="profile-({$profile.name})-({$item.c_profile_option_id})">({$item.value|default:"--"})</label>
+			<input type="checkbox" class="input_checkbox" name="profile[({$profile.name})][]" id="profile-({$profile.name})-({$item.c_profile_option_id})" value="({$item.c_profile_option_id})"({if $c_member.profile[$profile.name].value && in_array($item.value|smarty:nodefaults, $c_member.profile[$profile.name].value)}) checked="checked"({/if})><label for="profile-({$profile.name})-({$item.c_profile_option_id})">({$item.value|default:"--"})</label>
 		({/foreach})
 	</fieldset>
 ({/if})
@@ -152,7 +152,7 @@ $('#h_config_prof').live('pageinit',function(event){
 ({if !$_cnt_birth})({$smarty.capture.birth|smarty:nodefaults})({/if})
 ({/if})({/strip})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

@@ -81,12 +81,12 @@
 </dl>
 <div class="operation">
 ({t_form_block m=pc a=do_h_regist_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="register" />
-<input type="submit" class="input_submit" value="登録" />
+<input type="hidden" name="mode" value="register">
+<input type="submit" class="input_submit" value="登録">
 ({/t_form_block})
 ({t_form_block m=pc a=do_h_regist_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="input" />
-<input type="submit" class="input_submit" value="修正" />
+<input type="hidden" name="mode" value="input">
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

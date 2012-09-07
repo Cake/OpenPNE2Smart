@@ -7,13 +7,13 @@
 <ul class="ui-grid-a">
 <li class="ui-block-a">
 ({t_form_block m=pc a=do_fh_friend_list_delete_c_friend _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_member_id" value="({$target_c_member_id})" />
-<input type="submit" class="input_submit" value="はい" />
+<input type="hidden" name="target_c_member_id" value="({$target_c_member_id})">
+<input type="submit" class="input_submit" value="はい">
 ({/t_form_block})
 </li>
 <li class="ui-block-b">
 ({t_form_block m=pc a=page_h_manage_friend})
-<input type="submit" class="input_submit" value="いいえ" />
+<input type="submit" class="input_submit" value="いいえ">
 ({/t_form_block})
 </li>
 </ul>

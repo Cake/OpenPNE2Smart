@@ -5,7 +5,7 @@
 
 ({* {{{ simpleBox *})<section class="simpleBox" id="registEnd" data-role="">
 <p>
-入力されたメールアドレス宛に パスワード再設定用メールを送信しました。<br />
+入力されたメールアドレス宛に パスワード再設定用メールを送信しました。<br>
 メールに記載されたURLからパスワードの再設定をおこなってください。
 </p>
 </section>({* simpleBox }}} *})

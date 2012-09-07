@@ -11,13 +11,13 @@
 <input type="hidden" name="session" value="({$session})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="new_password">新しいパスワード</label>
-<input type="password" class="input_password" name="new_password" id="new_password" value="" placeholder="新しいパスワード" autocapitalize="off" />
+<input type="password" class="input_password" name="new_password" id="new_password" value="" placeholder="新しいパスワード" autocapitalize="off">
 <label for="new_password2">新しいパスワード(確認)</label>
-<input type="password" class="input_password" name="new_password2" id="new_password2" value="" placeholder="新しいパスワード(確認)" autocapitalize="off" />
+<input type="password" class="input_password" name="new_password2" id="new_password2" value="" placeholder="新しいパスワード(確認)" autocapitalize="off">
 <p>※パスワードは6～12文字の半角英数で入力してください。</p>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="変更" />
+<input type="submit" class="input_submit" value="変更">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

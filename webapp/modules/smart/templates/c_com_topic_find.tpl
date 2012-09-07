@@ -23,9 +23,9 @@ var page=2;
 <section class="searchFormBox" id="searchTopicFormBox" data-role="collapsible" data-collapsed="({if $keyword || $requests.type != 'all'})false({else})true({/if})" data-content-theme="c">
 <h3>検索</h3>
 <p>({t_form_block _method=get m=pc a=page_c_com_topic_find})
-({if false})<input type="hidden" name="type" value="({$search_val_list.type})" />({*絞込み→検索*})({/if})
+({if false})<input type="hidden" name="type" value="({$search_val_list.type})">({*絞込み→検索*})({/if})
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード">
 </div>
 ({if $c_commu_id})
 <div data-role="fieldcontain" class="ui-hide-label">
@@ -35,10 +35,10 @@ var page=2;
 <option value="all">({$WORD_COMMUNITY})全体</option>
 </select>
 </div>
-<input type="hidden" name="c_commu_id" value="({$c_commu_id})" />
+<input type="hidden" name="c_commu_id" value="({$c_commu_id})">
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索">
 </div>
 ({/t_form_block})</p>
 <div class="label">絞りこみ</div>

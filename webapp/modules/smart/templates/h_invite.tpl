@@ -15,7 +15,7 @@
 ({t_form_block m=pc a=page_h_invite_confirm _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class=">
 <label for="mail">招待するアドレス</label>
-<input type="email" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off" />
+<input type="email" class="input_text" name="mail" value="({$requests.mail})" placeholder="" autocapitalize="off">
 ({if $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_PC})
 <p class="caution">※携帯メールアドレスには招待を送ることができません。</p>
 ({elseif $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_KTAI})
@@ -30,12 +30,12 @@
 <div data-role="fieldcontain" class="">
 <label for="captcha">確認キーワード</label>
 <p>※下に表示されているキーワードをご記入下さい。</p>
-<p><img src="./cap.php?rand=({math equation="rand(0,99999999)"})" alt="確認キーワード" /></p>
-<input type="text" class="input_text" name="captcha" value="" placeholder="" autocapitalize="off" />
+<p><img src="./cap.php?rand=({math equation="rand(0,99999999)"})" alt="確認キーワード"></p>
+<input type="text" class="input_text" name="captcha" value="" placeholder="" autocapitalize="off">
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({*  }}} *})
@@ -46,21 +46,21 @@
 <section class="commentListBox recentListBox" id="inviteListBox"  data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>招待中メールアドレス一覧</h3>
 ({t_form_block m=pc a=do_h_invite_delete_member _attr='data-ajax="false"'})
-<input type="hidden" name="c_member_id[]" value="({$item.c_member_pre_id})" />
+<input type="hidden" name="c_member_id[]" value="({$item.c_member_pre_id})">
 <div data-role="fieldcontain">
 ({foreach from=$inviting_member item=item})
 ({$item.r_date|date_format:"%Y年%m月%d日"})
-<input type="checkbox" class="input_checkbox" name="c_member_id[]" id="c_member_id-({$item.c_member_pre_id})" value="({$item.c_member_pre_id})" />
+<input type="checkbox" class="input_checkbox" name="c_member_id[]" id="c_member_id-({$item.c_member_pre_id})" value="({$item.c_member_pre_id})">
 <label for="c_member_id-({$item.c_member_pre_id})">({$item.regist_address})</label>
 ({/foreach})
 ({foreach from=$k_inviting_member item=item})
 ({$item.r_date|date_format:"%Y年%m月%d日"})
-<input type="checkbox" class="input_checkbox" name="c_member_id[]" id="c_member_id-({$item.c_member_pre_id})" value="({$item.c_member_pre_id})" />
+<input type="checkbox" class="input_checkbox" name="c_member_id[]" id="c_member_id-({$item.c_member_pre_id})" value="({$item.c_member_pre_id})">
 <label for="c_member_id-({$item.c_member_pre_id})">({$item.regist_address})</label>
 ({/foreach})
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="削除" />
+<input type="submit" class="input_submit" value="削除">
 </div>
 ({/t_form_block})
 </section>

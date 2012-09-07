@@ -35,7 +35,7 @@
 ({if $smarty.const.OPENPNE_IS_POINT_ADMIN || $c_member.c_member_id != 1})
 ({if ($smarty.const.OPENPNE_DISP_RANK && $rank) || ($smarty.const.OPENPNE_DISP_POINT && $point)})
 ({if $smarty.const.OPENPNE_DISP_RANK && $rank})
-<div class="rank"><img src="({t_img_url filename=$rank.image_filename})" alt="({$rank.name})" /></div>
+<div class="rank"><img src="({t_img_url filename=$rank.image_filename})" alt="({$rank.name})"></div>
 ({/if})
 ({if $smarty.const.OPENPNE_DISP_POINT && $point})
 <div class="point">({$point}) Point</div>

@@ -13,10 +13,10 @@
 </div>
 </section>
 ({t_form_block _enctype=file m=pc a=page_f_message_send_confirm _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})" />
-<input type="hidden" name="target_c_message_id" value="({$form_val.target_c_message_id})" />
-<input type="hidden" name="jyusin_c_message_id" value="({$form_val.jyusin_c_message_id})" />
-<input type="hidden" name="box" value="({$box})" />
+<input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})">
+<input type="hidden" name="target_c_message_id" value="({$form_val.target_c_message_id})">
+<input type="hidden" name="jyusin_c_message_id" value="({$form_val.jyusin_c_message_id})">
+<input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain">
 <label for="subject">件名</label>
 <input type="text" name="subject" id="subject" value="({$form_val.subject})" placeholder=""/>
@@ -27,21 +27,21 @@
 </div>
 ({if !($is_apple)})
 <div data-role="fieldcontain">
-<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br />
-<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40" /><br />
-<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br />
+<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40"><br>
+<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40"><br>
+<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40"><br>
 </div>
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <div data-role="fieldcontain">
-<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40" />
+<laber for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40">
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
 </div>
 ({/if})
 ({/if})
 <div data-role="fieldcontain">
 <ul class="moreInfo button">
-<li><input type="submit" class="input_submit" value="確認画面" /></li>
-<li><input type="submit" class="input_submit" name="save" value="下書き保存" /></li>
+<li><input type="submit" class="input_submit" value="確認画面"></li>
+<li><input type="submit" class="input_submit" name="save" value="下書き保存"></li>
 </ul>
 </div>
 ({/t_form_block})

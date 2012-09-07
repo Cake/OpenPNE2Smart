@@ -107,14 +107,14 @@
 <h3>メール受信設定</h3>
 <div class="recentListBox">
 ({t_form_block m=pc a=do_c_home_update_is_receive_mail _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
+<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
 ({if !$is_c_commu_admin})
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend>管理者からのメッセージを</legend>
-<input type="radio" class="input_radio" value="1" id="is_receive_message_1" name="is_receive_message"({if $is_receive_message}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="1" id="is_receive_message_1" name="is_receive_message"({if $is_receive_message}) checked="checked"({/if})>
 <label for="is_receive_message_1">受け取る</label>
-<input type="radio" class="input_radio" value="0" id="is_receive_message_0" name="is_receive_message"({if !$is_receive_message}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="0" id="is_receive_message_0" name="is_receive_message"({if !$is_receive_message}) checked="checked"({/if})>
 <label for="is_receive_message_0">受け取らない</label>
 </fieldset>
 </div>
@@ -123,9 +123,9 @@
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend>({$WORD_COMMUNITY})書き込みを携帯メールで</legend>
-<input type="radio" class="input_radio" value="1" id="is_receive_mail_1" name="is_receive_mail"({if $is_receive_mail}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="1" id="is_receive_mail_1" name="is_receive_mail"({if $is_receive_mail}) checked="checked"({/if})>
 <label for="is_receive_mail_1">受け取る</label>
-<input type="radio" class="input_radio" value="0" id="is_receive_mail_0" name="is_receive_mail"({if !$is_receive_mail}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="0" id="is_receive_mail_0" name="is_receive_mail"({if !$is_receive_mail}) checked="checked"({/if})>
 <label for="is_receive_mail_0">受け取らない</label>
 </fieldset>
 </div>
@@ -134,15 +134,15 @@
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend>({$WORD_COMMUNITY})書き込みをPCメールで</legend>
-<input type="radio" class="input_radio" value="1" id="is_receive_mail_pc_1" name="is_receive_mail_pc"({if $is_receive_mail_pc}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="1" id="is_receive_mail_pc_1" name="is_receive_mail_pc"({if $is_receive_mail_pc}) checked="checked"({/if})>
 <label for="is_receive_mail_pc_1">受け取る</label>
-<input type="radio" class="input_radio" value="0" id="is_receive_mail_pc_0" name="is_receive_mail_pc"({if !$is_receive_mail_pc}) checked="checked"({/if}) />
+<input type="radio" class="input_radio" value="0" id="is_receive_mail_pc_0" name="is_receive_mail_pc"({if !$is_receive_mail_pc}) checked="checked"({/if})>
 <label for="is_receive_mail_pc_0">受け取らない</label>
 </fieldset>
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="設定変更" />
+<input type="submit" class="input_submit" value="設定変更">
 </div>
 ({/t_form_block})
 </div>

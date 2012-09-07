@@ -14,13 +14,13 @@
 <h3>イベントお知らせメッセージ</h3>
 <p>このイベントを紹介したい({$WORD_MY_FRIEND})を一覧から選び、紹介メッセージを書いてください。</p>
 ({t_form_block _enctype=file m=pc a=do_c_event_invite _attr='data-ajax="false"'})
-<input type="hidden" name="c_commu_id" value="({$c_commu_id})" />
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
+<input type="hidden" name="c_commu_id" value="({$c_commu_id})">
+<input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})">
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend><span class="required">紹介先</span></legend>
 ({foreach from=$c_friend_list item=item})
-<input type="checkbox" class="input_checkbox" id="m({$item.c_member_id})" name="c_member_id[]" value="({$item.c_member_id})" />
+<input type="checkbox" class="input_checkbox" id="m({$item.c_member_id})" name="c_member_id[]" value="({$item.c_member_id})">
 <label for="m({$item.c_member_id})">({$item.nickname})</label>
 ({/foreach})
 </fieldset>
@@ -30,7 +30,7 @@
 <textarea name="body" id="eventInviteBody" rows="6" cols="50"></textarea>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="送信" />
+<input type="submit" class="input_submit" value="送信">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

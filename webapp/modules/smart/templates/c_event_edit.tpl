@@ -6,11 +6,11 @@
 ({* {{{ formTable *})<section class="formTable" id="eventEditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>イベントを編集する</h3>
 ({t_form_block _enctype=file m=pc a=do_c_event_edit_update_c_commu_topic _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_id" value="({$event.c_commu_id})" />
-<input type="hidden" name="target_c_commu_topic_id" value="({$event.c_commu_topic_id})" />
+<input type="hidden" name="target_c_commu_id" value="({$event.c_commu_id})">
+<input type="hidden" name="target_c_commu_topic_id" value="({$event.c_commu_topic_id})">
 <div data-role="fieldcontain">
 <label for="title" class="required">タイトル</label>
-<input type="text" class="input_text" name="title" value="({$event.name})" size="40" />
+<input type="text" class="input_text" name="title" value="({$event.name})" size="40">
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
@@ -33,7 +33,7 @@
 </fieldset>
 <div>
 <label for="open_date_comment">補足</label>
-<input type="text" class="input_text" name="open_date_comment" value="({$event.open_date_comment})" data-mini="false" />
+<input type="text" class="input_text" name="open_date_comment" value="({$event.open_date_comment})" data-mini="false">
 </div>
 </div>
 <div data-role="fieldcontain">
@@ -44,7 +44,7 @@
 </select>
 <div>
 <label for="open_pref_comment">補足</label>
-<input type="text" class="input_text" name="open_pref_comment" value="({$event.open_pref_comment})" data-mini="false" />
+<input type="text" class="input_text" name="open_pref_comment" value="({$event.open_pref_comment})" data-mini="false">
 </div>
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="detail" _show_label=true _label_class="required" _title="詳細" _body=$event.body|smarty:nodefaults})
@@ -70,23 +70,23 @@
 </div>
 <div data-role="fieldcontain">
 <label for="capacity">募集人数</label>
-<input type="text" class="input_text" name="capacity" value="({if $event.capacity})({$event.capacity})({/if})" />
+<input type="text" class="input_text" name="capacity" value="({if $event.capacity})({$event.capacity})({/if})">
 </div>
 ({strip})<fieldset data-role="fieldcontain">
 <ul class="gallery ui-grid-b" id="eventEdit({$event.c_commu_topic_id})gallery">
 ({if $event.image_filename1})
 <li class="ui-block-a">
-<a href="({t_img_url filename=$event.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename1 w=76 h=76})" alt="" /></a>
+<a href="({t_img_url filename=$event.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename1 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 ({if $event.image_filename2})
 <li class="ui-block-b">
-<a href="({t_img_url filename=$event.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename2 w=76 h=76})" alt="" /></a>
+<a href="({t_img_url filename=$event.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename2 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 ({if $event.image_filename3})
 <li class="ui-block-c">
-<a href="({t_img_url filename=$event.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename3 w=76 h=76})" alt="" /></a>
+<a href="({t_img_url filename=$event.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$event.image_filename3 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 </ul>
@@ -120,19 +120,19 @@
 ({if !$event.image_filename1})
 <div data-role="fieldcontain">
 <label for="image_filename1">写真1</label>
-<input type="file" class="input_file" name="image_filename1" />
+<input type="file" class="input_file" name="image_filename1">
 </div>
 ({/if})
 ({if !$event.image_filename2})
 <div data-role="fieldcontain">
 <label for="image_filename2">写真2</label>
-<input type="file" class="input_file" name="image_filename2" />
+<input type="file" class="input_file" name="image_filename2">
 </div>
 ({/if})
 ({if !$event.image_filename3})
 <div data-role="fieldcontain">
 <label for="image_filename3">写真3</label>
-<input type="file" class="input_file" name="image_filename3" />
+<input type="file" class="input_file" name="image_filename3">
 </div>
 ({/if})
 ({/if})
@@ -146,14 +146,14 @@
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})FileConfirm'); openDialog('deleteEvent({$event.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 ({else})
 ({if !($is_apple)})
-<input type="file" class="input_file" name="filename4" size="40" />
+<input type="file" class="input_file" name="filename4" size="40">
 <p class="caution">※({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})の(({$allowed_extensions}))({/if})ファイルのみアップロードできます。</p>
 ({/if})
 ({/if})
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})
@@ -162,9 +162,9 @@
 <h3>イベントを削除する</h3>
 <p>削除の際はトラブル等を避けるため、あらかじめ参加者へ削除を告知してください。</p>
 ({t_form_block m=pc a=page_c_event_delete_confirm})
-<input type="hidden" name="target_c_commu_topic_id" value="({$event.c_commu_topic_id})" />
+<input type="hidden" name="target_c_commu_topic_id" value="({$event.c_commu_topic_id})">
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

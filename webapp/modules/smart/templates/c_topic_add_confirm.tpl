@@ -30,16 +30,16 @@
 <div class="operation">
 ({t_form_block m=pc a=do_c_topic_add_insert_c_commu_topic _attr='data-ajax="false"'})
 ({foreach from=$c_topic key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="submit" class="input_submit" value="作成" />
+<input type="submit" class="input_submit" value="作成">
 ({/t_form_block})
 ({t_form_block m=pc a=page_c_topic_add _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_id" value="({$c_topic.c_commu_id})" />
+<input type="hidden" name="target_c_commu_id" value="({$c_topic.c_commu_id})">
 ({foreach from=$c_topic key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="submit" class="input_submit" value="修正" />
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

@@ -15,18 +15,18 @@
 </dl>
 <div class="operation">
 ({t_form_block m=pc a=do_c_event_mail _attr='data-ajax="false"'})
-<input type="hidden" name="c_commu_id" value="({$c_commu_id})" />
-<input type="hidden" name="c_commu_topic_id" value="({$c_commu_topic_id})" />
-<input type="hidden" name="c_member_ids" value="({$c_member_ids})" />
-<input type="hidden" name="body" value="({$body})" />
+<input type="hidden" name="c_commu_id" value="({$c_commu_id})">
+<input type="hidden" name="c_commu_topic_id" value="({$c_commu_topic_id})">
+<input type="hidden" name="c_member_ids" value="({$c_member_ids})">
+<input type="hidden" name="body" value="({$body})">
 ({foreach from=$c_mail_member item=c_member})
-<input type="hidden" name="c_member_ids[]" value="({$c_member.c_member_id})" />
+<input type="hidden" name="c_member_ids[]" value="({$c_member.c_member_id})">
 ({/foreach})
-<input type="submit" class="input_submit" value="送信" />
+<input type="submit" class="input_submit" value="送信">
 ({/t_form_block})
 ({t_form_block m=pc a=page_c_event_mail _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})" />
-<input type="submit" class="input_submit" value="キャンセル" />
+<input type="hidden" name="target_c_commu_topic_id" value="({$c_commu_topic_id})">
+<input type="submit" class="input_submit" value="キャンセル">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

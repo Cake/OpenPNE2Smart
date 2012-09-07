@@ -8,7 +8,7 @@
 <p>以下のボタンをクリックし、パスワードの再設定手続きをおこなってください。</p>
 ({t_form_block _method=get m=pc a=page_o_password_query})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="パスワード再設定ページへ" />
+<input type="submit" class="input_submit" value="パスワード再設定ページへ">
 </div>
 ({/t_form_block})
 </section>({* infoButtonBox }}} *})

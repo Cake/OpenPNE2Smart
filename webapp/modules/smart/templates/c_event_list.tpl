@@ -17,13 +17,13 @@ var page=2;
 ({* {{{ infoButtonBox *})<div class="infoButtonBox" id="writeTopicBodyBox" data-role="collapsible" data-content-theme="c">
 <h3>記事を作成する</h3>
 ({t_form_block m=pc a=page_c_topic_add})
-<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
+<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
 <ul data-role="" class="ui-grid-a narrow-bottom">
-<li class="ui-block-a"><input type="radio" class="input_radio" name="event_flag" id="event_flag_0" value="0" /><label for="event_flag_0">トピックを作成</label></li>
-<li class="ui-block-b"><input type="radio" class="input_radio" name="event_flag" id="event_flag_1" value="1" checked="checked" /><label for="event_flag_1">イベントを作成</label></li>
+<li class="ui-block-a"><input type="radio" class="input_radio" name="event_flag" id="event_flag_0" value="0"><label for="event_flag_0">トピックを作成</label></li>
+<li class="ui-block-b"><input type="radio" class="input_radio" name="event_flag" id="event_flag_1" value="1" checked="checked"><label for="event_flag_1">イベントを作成</label></li>
 </ul> 
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="新規作成" />
+<input type="submit" class="input_submit" value="新規作成">
 </div>
 ({/t_form_block})
 </div>({* infoButtonBox}}} *})({/if})

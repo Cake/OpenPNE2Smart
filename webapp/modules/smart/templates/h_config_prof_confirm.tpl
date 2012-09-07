@@ -84,58 +84,58 @@
 </dl>
 <div class="operation">
 ({t_form_block m=pc a=do_h_config_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="register" />
-<input type="hidden" name="is_search_result" value="({$prof.is_search_result})" />
-<input type="hidden" name="nickname" value="({$prof.nickname})" />
-<input type="hidden" name="birth_year" value="({$prof.birth_year})" />
-<input type="hidden" name="birth_month" value="({$prof.birth_month})" />
-<input type="hidden" name="birth_day" value="({$prof.birth_day})" />
-<input type="hidden" name="public_flag_birth_year" value="({$prof.public_flag_birth_year})" />
-<input type="hidden" name="public_flag_birth_month_day" value="({$prof.public_flag_birth_month_day})" />
+<input type="hidden" name="mode" value="register">
+<input type="hidden" name="is_search_result" value="({$prof.is_search_result})">
+<input type="hidden" name="nickname" value="({$prof.nickname})">
+<input type="hidden" name="birth_year" value="({$prof.birth_year})">
+<input type="hidden" name="birth_month" value="({$prof.birth_month})">
+<input type="hidden" name="birth_day" value="({$prof.birth_day})">
+<input type="hidden" name="public_flag_birth_year" value="({$prof.public_flag_birth_year})">
+<input type="hidden" name="public_flag_birth_month_day" value="({$prof.public_flag_birth_month_day})">
 ({strip})
 ({foreach from=$prof.profile key=key item=item})
 ({if is_array($item.c_profile_option_id)})
     ({foreach from=$item.c_profile_option_id item=i})
     ({if $i})
-    <input type="hidden" name="profile[({$key})][]" value="({$i})" />
+    <input type="hidden" name="profile[({$key})][]" value="({$i})">
     ({/if})
     ({/foreach})
 ({elseif $item.c_profile_option_id})
-    <input type="hidden" name="profile[({$key})]" value="({$item.c_profile_option_id})" />
+    <input type="hidden" name="profile[({$key})]" value="({$item.c_profile_option_id})">
 ({else})
-    <input type="hidden" name="profile[({$key})]" value="({$item.value})" />
+    <input type="hidden" name="profile[({$key})]" value="({$item.value})">
 ({/if})
-<input type="hidden" name="public_flag[({$key})]" value="({$item.public_flag})" />
+<input type="hidden" name="public_flag[({$key})]" value="({$item.public_flag})">
 ({/foreach})
 ({/strip})
-<input type="submit" class="input_submit" value="変更" />
+<input type="submit" class="input_submit" value="変更">
 ({/t_form_block})
 ({t_form_block m=pc a=do_h_config_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="input" />
-<input type="hidden" name="is_search_result" value="({$prof.is_search_result})" />
-<input type="hidden" name="nickname" value="({$prof.nickname})" />
-<input type="hidden" name="birth_year" value="({$prof.birth_year})" />
-<input type="hidden" name="birth_month" value="({$prof.birth_month})" />
-<input type="hidden" name="birth_day" value="({$prof.birth_day})" />
-<input type="hidden" name="public_flag_birth_year" value="({$prof.public_flag_birth_year})" />
-<input type="hidden" name="public_flag_birth_month_day" value="({$prof.public_flag_birth_month_day})" />
+<input type="hidden" name="mode" value="input">
+<input type="hidden" name="is_search_result" value="({$prof.is_search_result})">
+<input type="hidden" name="nickname" value="({$prof.nickname})">
+<input type="hidden" name="birth_year" value="({$prof.birth_year})">
+<input type="hidden" name="birth_month" value="({$prof.birth_month})">
+<input type="hidden" name="birth_day" value="({$prof.birth_day})">
+<input type="hidden" name="public_flag_birth_year" value="({$prof.public_flag_birth_year})">
+<input type="hidden" name="public_flag_birth_month_day" value="({$prof.public_flag_birth_month_day})">
 ({strip})
 ({foreach from=$prof.profile key=key item=item})
 ({if is_array($item.c_profile_option_id)})
     ({foreach from=$item.c_profile_option_id item=i})
     ({if $i})
-    <input type="hidden" name="profile[({$key})][]" value="({$i})" />
+    <input type="hidden" name="profile[({$key})][]" value="({$i})">
     ({/if})
     ({/foreach})
 ({elseif $item.c_profile_option_id})
-    <input type="hidden" name="profile[({$key})]" value="({$item.c_profile_option_id})" />
+    <input type="hidden" name="profile[({$key})]" value="({$item.c_profile_option_id})">
 ({else})
-    <input type="hidden" name="profile[({$key})]" value="({$item.value})" />
+    <input type="hidden" name="profile[({$key})]" value="({$item.value})">
 ({/if})
-<input type="hidden" name="public_flag[({$key})]" value="({$item.public_flag})" />
+<input type="hidden" name="public_flag[({$key})]" value="({$item.public_flag})">
 ({/foreach})
 ({/strip})
-<input type="submit" class="input_submit" value="修正" />
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

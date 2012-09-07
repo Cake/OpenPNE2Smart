@@ -20,15 +20,15 @@
 <div class="operation">
 ({t_form_block m=pc a=do_h_com_add_insert_c_commu _attr='data-ajax="false"'})
 ({foreach from=$form_val key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="submit" class="input_submit" value="作成" />
+<input type="submit" class="input_submit" value="作成">
 ({/t_form_block})
 ({t_form_block m=pc a=page_h_com_add _attr='data-ajax="false"'})
 ({foreach from=$form_val key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="submit" class="input_submit" value="修正" />
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

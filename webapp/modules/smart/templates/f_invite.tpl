@@ -15,19 +15,19 @@
 <h3>({$WORD_MY_FRIEND})にこの人を紹介する</h3>
 <p>この人を紹介したい({$WORD_MY_FRIEND})を一覧から選び、紹介するメッセージを書いてください。</p>
 ({t_form_block m=pc a=do_f_invite_insert_c_message_friend_invite _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})" />
+<input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})">
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend><span class="required">紹介先</span></legend>
 ({foreach from=$f_invite_list item=c_invite})
-<input type="checkbox" class="input_checkbox" id="m({$c_invite.c_member_id})" name="c_member_id_list[]" value="({$c_invite.c_member_id})" />
+<input type="checkbox" class="input_checkbox" id="m({$c_invite.c_member_id})" name="c_member_id_list[]" value="({$c_invite.c_member_id})">
 <label for="m({$c_invite.c_member_id})">({$c_invite.nickname})</label>
 ({/foreach})
 </fieldset>
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="required" _title="メッセージ "})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="送信" />
+<input type="submit" class="input_submit" value="送信">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

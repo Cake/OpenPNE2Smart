@@ -16,8 +16,8 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({* {{{ formTable *})<section class="formTable" id="diary({$diary.c_diary_id})EditForm" data-role="collapsible" data-collapsed="false" data-content-theme="c">
 <h3>({$WORD_DIARY})を編集する</h3>
 ({t_form_block _enctype=file m=pc a=page_h_diary_edit_confirm _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_diary_id" value="({$diary.c_diary_id})" />
-<input type="hidden" name="del_img" value="({$del_img})" />
+<input type="hidden" name="target_c_diary_id" value="({$diary.c_diary_id})">
+<input type="hidden" name="del_img" value="({$del_img})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="subject" class="required">タイトル</label>
 <input type="text" name="subject" id="subject" value="({$diary.subject})" placeholder="タイトル"/>
@@ -28,20 +28,20 @@ $('#h_diary_edit').live('pageinit',function(event){
 <ul class="gallery ui-grid-b" id="diaryEdit({$diary.c_diary_id})gallery">
 ({if $diary.image_filename_1 && !($del_img & 0x01)})
 <li class="ui-block-a">
-<input type="hidden" name="pre_image_filename_1" value="({$diary.image_filename_1})" />
-<a href="({t_img_url filename=$diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_1 w=76 h=76})" alt="" /></a>
+<input type="hidden" name="pre_image_filename_1" value="({$diary.image_filename_1})">
+<a href="({t_img_url filename=$diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_1 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 ({if $diary.image_filename_2 && !($del_img & 0x02)})
 <li class="ui-block-b">
-<input type="hidden" name="pre_image_filename_2" value="({$diary.image_filename_2})" />
-<a href="({t_img_url filename=$diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_2 w=76 h=76})" alt="" /></a>
+<input type="hidden" name="pre_image_filename_2" value="({$diary.image_filename_2})">
+<a href="({t_img_url filename=$diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_2 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 ({if $diary.image_filename_3 && !($del_img & 0x04)})
 <li class="ui-block-c">
-<input type="hidden" name="pre_image_filename_3" value="({$diary.image_filename_3})" />
-<a href="({t_img_url filename=$diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_3 w=76 h=76})" alt="" /></a>
+<input type="hidden" name="pre_image_filename_3" value="({$diary.image_filename_3})">
+<a href="({t_img_url filename=$diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$diary.image_filename_3 w=76 h=76})" alt=""></a>
 </li>
 ({/if})
 </ul>
@@ -74,19 +74,19 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({if !($diary.image_filename_1 && !($del_img & 0x01))})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label>
-<input type="file" class="input_file" name="upfile_1" />
+<input type="file" class="input_file" name="upfile_1">
 </div>
 ({/if})
 ({if !($diary.image_filename_2 && !($del_img & 0x02))})
 <div data-role="fieldcontain">
 <label for="upfile_2">写真2</label>
-<input type="file" class="input_file" name="upfile_2" />
+<input type="file" class="input_file" name="upfile_2">
 </div>
 ({/if})
 ({if !($diary.image_filename_3 && !($del_img & 0x04))})
 <div data-role="fieldcontain">
 <label for="upfile_3">写真3</label>
-<input type="file" class="input_file" name="upfile_3" />
+<input type="file" class="input_file" name="upfile_3">
 </div>
 ({/if})
 ({/if})
@@ -95,7 +95,7 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({if $use_diary_category})
 <div data-role="fieldcontain">
 <label for="category">カテゴリ</label>
-<input type="text" class="input_text" name="category" id="category" value="({foreach from=$category item=item})({$item.category_name}) ({/foreach})" />
+<input type="text" class="input_text" name="category" id="category" value="({foreach from=$category item=item})({$item.category_name}) ({/foreach})">
 <select onchange="if(selectedIndex){if(!category.value.match(/\s$/)){category.value += ' '}category.value += options[selectedIndex].value + ' ';}">
 <option>カテゴリを選択してください</option>
 ({foreach from=$category_list item=value})
@@ -109,11 +109,11 @@ $('#h_diary_edit').live('pageinit',function(event){
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend><span class="required">公開範囲</span></legend>
-<input type="radio" name="public_flag" id="public_flag_public" value="public"({if $diary.public_flag == "public"}) checked="checked"({/if}) />
+<input type="radio" name="public_flag" id="public_flag_public" value="public"({if $diary.public_flag == "public"}) checked="checked"({/if})>
 	<label for="public_flag_public">全員に公開</label>
-	<input type="radio" name="public_flag" id="public_flag_friend" value="friend"({if $diary.public_flag == "friend"}) checked="checked"({/if}) />
+	<input type="radio" name="public_flag" id="public_flag_friend" value="friend"({if $diary.public_flag == "friend"}) checked="checked"({/if})>
 	<label for="public_flag_friend">({$WORD_MY_FRIEND})まで公開</label>
-<input type="radio" name="public_flag" id="public_flag_private" value="private"({if $diary.public_flag == "private"}) checked="checked"({/if}) />
+<input type="radio" name="public_flag" id="public_flag_private" value="private"({if $diary.public_flag == "private"}) checked="checked"({/if})>
 	<label for="public_flag_private">公開しない</label>
 </fieldset>
 </div>
@@ -127,7 +127,7 @@ $('#h_diary_edit').live('pageinit',function(event){
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})
@@ -136,9 +136,9 @@ $('#h_diary_edit').live('pageinit',function(event){
 <h3>({$WORD_DIARY})を削除する</h3>
 <p>({$WORD_DIARY})を削除するとこの({$WORD_DIARY})に書かれたコメントもすべて削除されます。</p>
 ({t_form_block m=pc a=page_h_delete_diary})
-<input type="hidden" name="target_c_diary_id" value="({$diary.c_diary_id})" />
+<input type="hidden" name="target_c_diary_id" value="({$diary.c_diary_id})">
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

@@ -7,14 +7,14 @@
 <ul class="ui-grid-a">
 <li class="ui-block-a">
 ({t_form_block m=pc a=do_inc_join_c_commu _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
-<input type="submit" class="input_submit" value="はい" />
+<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
+<input type="submit" class="input_submit" value="はい">
 ({/t_form_block})
 </li>
 <li class="ui-block-b">
 ({t_form_block m=pc a=page_c_home})
-<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})" />
-<input type="submit" class="input_submit" value="いいえ" />
+<input type="hidden" name="target_c_commu_id" value="({$c_commu.c_commu_id})">
+<input type="submit" class="input_submit" value="いいえ">
 ({/t_form_block})
 </li>
 </ul>

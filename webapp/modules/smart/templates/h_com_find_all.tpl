@@ -25,7 +25,7 @@ var page=2;
 ({t_form_block _method=get m=pc a=page_h_com_find_all})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="keyword">キーワード</label>
-<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード" />
+<input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="キーワード">
 </div>
 <div data-role="fieldcontain">
 <label for="category">カテゴリ</label>
@@ -39,7 +39,7 @@ var page=2;
 </select>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" data-ajax="false" />
+<input type="submit" class="input_submit" value="検索" data-ajax="false">
 </div>
 ({/t_form_block})
 </div>({* searchCommunityAll }}} *})

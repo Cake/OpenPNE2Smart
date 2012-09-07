@@ -11,16 +11,16 @@
 </dl>
 <div class="operation">
 ({t_form_block m=pc a=do_h_invite_insert_c_invite _attr='data-ajax="false"'})
-<input type="hidden" name="c_member_id_to" value="({$target_member.c_member_id})" />
-<input type="hidden" name="mail" value="({$form_val.mail})" />
-<input type="hidden" name="message" value="({$form_val.message})" />
-<input type="hidden" name="captcha_confirm" value="({$captcha_confirm})" />
-<input type="submit" class="input_submit" value="送信" />
+<input type="hidden" name="c_member_id_to" value="({$target_member.c_member_id})">
+<input type="hidden" name="mail" value="({$form_val.mail})">
+<input type="hidden" name="message" value="({$form_val.message})">
+<input type="hidden" name="captcha_confirm" value="({$captcha_confirm})">
+<input type="submit" class="input_submit" value="送信">
 ({/t_form_block})
 ({t_form_block m=pc a=page_h_invite _attr='data-ajax="false"'})
-<input type="hidden" name="mail" value="({$form_val.mail})" />
-<input type="hidden" name="message" value="({$form_val.message})" />
-<input type="submit" class="input_submit" value="修正" />
+<input type="hidden" name="mail" value="({$form_val.mail})">
+<input type="hidden" name="message" value="({$form_val.message})">
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

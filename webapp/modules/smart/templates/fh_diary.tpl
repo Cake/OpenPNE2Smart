@@ -68,9 +68,9 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({if $target_diary.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="diary({$target_diary.c_diary_id})gallery">
 ({if $target_diary.image_filename_1 || $target_diary.image_filename_2 || $target_diary.image_filename_3})
-({if $target_diary.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
-({if $target_diary.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt="" /></a></li>({/if})
-({if $target_diary.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt="" /></a></li>({/if})
+({if $target_diary.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$target_diary.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_1 w=76 h=76})" alt=""></a></li>({/if})
+({if $target_diary.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$target_diary.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_2 w=76 h=76})" alt=""></a></li>({/if})
+({if $target_diary.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$target_diary.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$target_diary.image_filename_3 w=76 h=76})" alt=""></a></li>({/if})
 ({/if})
 </ul>
 
@@ -111,20 +111,20 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({* {{{ formTable *})<section class="formTable" id="diarycommentForm">
 <div class="operation">
 ({t_form_block _enctype=file m=pc a=page_fh_diary_comment_confirm _attr='data-ajax="false"'})
-<input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})" />
+<input type="hidden" name="target_c_diary_id" value="({$target_diary.c_diary_id})">
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="body">コメント</label>
 <textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメント">({$requests.body})</textarea>
 </div>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <div data-role="fieldcontain">
-<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40" /><br />
-<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40" /><br />
-<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40" /><br />
+<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40"><br>
+<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40"><br>
+<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40"><br>
 </div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </div>

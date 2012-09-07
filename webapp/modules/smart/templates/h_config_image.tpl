@@ -17,21 +17,21 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 <ul class="" id="configProfileImageGallery">
 ({if $c_member.image_filename_1})
 <li>
-<img src="({t_img_url filename=$c_member.image_filename_1 w=240 h=320})" alt="" />
+<img src="({t_img_url filename=$c_member.image_filename_1 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_1==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_1==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image1Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image1Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_member.image_filename_2})
 <li>
-<img src="({t_img_url filename=$c_member.image_filename_2 w=240 h=320})" alt="" />
+<img src="({t_img_url filename=$c_member.image_filename_2 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_2==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_2==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image2Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image2Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $c_member.image_filename_3})
 <li>
-<img src="({t_img_url filename=$c_member.image_filename_3 w=240 h=320})" alt="" />
+<img src="({t_img_url filename=$c_member.image_filename_3 w=240 h=320})" alt="">
 <a href="({t_url m=pc a=do_h_config_image_change_main_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})"({if $c_member.image_filename_3==$c_member.image_filename}) id="image_main"({/if}) data-role="button" data-mini="false" data-ajax="false">({if $c_member.image_filename_3==$c_member.image_filename})現在のメイン写真({else})メイン写真にする({/if})</a>
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_config_image_delete_c_member_image})&amp;img_num=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_config_image})', 'deleteImage({$c_member.c_member_id})Image3Confirm'); openDialog('deleteImage({$c_member.c_member_id})Image3Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 </li>
@@ -48,17 +48,17 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({t_form_block _enctype=file m=pc a=do_h_config_image _attr='data-ajax="false"'})
 <div data-role="fieldcontain">
 <label for="upfile">写真を選択</label>
-<input type="file" class="input_file" name="upfile" />
+<input type="file" class="input_file" name="upfile">
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="アップロード" />
+<input type="submit" class="input_submit" value="アップロード">
 </div>
 ({/t_form_block})
 ({else})
 ({t_mail_post mailto=$mail_address _linktxt=メールでアップロード})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。</p>
 ({/if})
-<p>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください<br />
+<p>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください<br>
 著作権や肖像権の侵害にあたる写真、暴力的・卑猥な写真、他のメンバーが見て不快に感じる写真の掲載は禁止しております。掲載はご自身の責任でお願いいたします。
 </p>
 ({/if})

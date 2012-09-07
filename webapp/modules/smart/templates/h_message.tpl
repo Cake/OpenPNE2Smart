@@ -7,7 +7,7 @@
 <h3>メッセージの詳細</h3>
 <div class="authorBar" id="message({$c_message.c_message_id})Author">
 <div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({if $c_message.is_received})({$c_message.c_member_id_from})({else})({$c_message.c_member_id_to})({/if})">
-<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image})" alt="" /></a></div>
+<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image})" alt=""></a></div>
 <div class="itemData">
 <div class="title">
 <h2>({$c_message.subject})</h2>
@@ -24,9 +24,9 @@
 ({if $c_message.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="message({$c_message.c_message_id})gallery">
 ({if $c_message.image_filename_1 || $c_message.image_filename_2 || $c_message.image_filename_3})
-({if $c_message.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$c_message.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_1 w=76 h=76})" alt="" /></a></li>({/if})
-({if $c_message.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$c_message.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_2 w=76 h=76})" alt="" /></a></li>({/if})
-({if $c_message.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$c_message.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_3 w=76 h=76})" alt="" /></a></li>({/if})
+({if $c_message.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$c_message.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_1 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_message.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$c_message.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_2 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_message.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$c_message.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_3 w=76 h=76})" alt=""></a></li>({/if})
 ({/if})
 </ul>
 ({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="true"><a href="({t_url m=pc a=do_h_message_file_download})&amp;target_c_message_id=({$c_message.c_message_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_message.original_filename})</a></div>({/if})
@@ -37,9 +37,9 @@
 <li class="ui-block-a">
 ({if $box != 'trash'})
 ({t_form_block m=pc a=do_h_message_box_delete_message _attr='class="delete" data-ajax="false"'})
-<input type="hidden" name="c_message_id[]" value="({$c_message.c_message_id})" />
-<input type="hidden" name="box" value="({$box})" />
-<input type="submit" class="input_submit" name="remove" value="削除" />
+<input type="hidden" name="c_message_id[]" value="({$c_message.c_message_id})">
+<input type="hidden" name="box" value="({$box})">
+<input type="submit" class="input_submit" name="remove" value="削除">
 ({/t_form_block})
 ({else})
 <a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_h_message_box_delete_message})&amp;c_message_id[]=({$c_message.c_message_id})&amp;box=({$box})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_h_message})&amp;target_c_message_id=({$c_message.c_message_id})&amp;box=({$box})', 'deleteMessage({$c_message.c_message_id})Confirm'); openDialog('deleteMessage({$c_message.c_message_id})Confirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
@@ -48,18 +48,18 @@
 <li class="ui-block-b">
 ({if ($box == 'inbox' || !$box) && $c_message.c_member_nickname_from})
 ({t_form_block m=pc a=page_f_message_send _attr='class="send" data-ajax="false"'})
-<input type="hidden" name="target_c_message_id" value="({$c_message.c_message_id})" />
-<input type="hidden" name="jyusin_c_message_id" value="({$jyusin_c_message_id})" />
-<input type="hidden" name="target_c_member_id" value="({$c_message.c_member_id_from})" />
+<input type="hidden" name="target_c_message_id" value="({$c_message.c_message_id})">
+<input type="hidden" name="jyusin_c_message_id" value="({$jyusin_c_message_id})">
+<input type="hidden" name="target_c_member_id" value="({$c_message.c_member_id_from})">
 <ul class="moreInfo button">
-<li><input type="submit" class="input_submit" name="hensin2" value="返信する" /></li>
+<li><input type="submit" class="input_submit" name="hensin2" value="返信する"></li>
 </ul>
 ({/t_form_block})
 ({elseif $box == 'trash'})
 ({t_form_block m=pc a=do_h_message_box_delete_message _attr='class="delete" data-ajax="false"'})
-<input type="hidden" name="c_message_id[]" value="({$c_message.c_message_id})" />
-<input type="hidden" name="box" value="({$box})" />
-<input type="submit" class="input_submit" name="move" value="元に戻す" />
+<input type="hidden" name="c_message_id[]" value="({$c_message.c_message_id})">
+<input type="hidden" name="box" value="({$box})">
+<input type="submit" class="input_submit" name="move" value="元に戻す">
 ({/t_form_block})
 ({/if})
 </li>

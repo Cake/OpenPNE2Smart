@@ -28,16 +28,16 @@
 <div class="operation">
 ({t_form_block m=pc a=do_c_event_write_insert_c_commu_topic_comment _attr='data-ajax="false"'})
 ({foreach from=$event_write key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="submit" class="input_submit" value="決定" />
+<input type="submit" class="input_submit" value="決定">
 ({/t_form_block})
 ({t_form_block m=pc a=page_c_event_detail _attr='data-ajax="false"'})
 ({foreach from=$event_write key=key item=item})
-<input type="hidden" name="({$key})" value="({$item})" />
+<input type="hidden" name="({$key})" value="({$item})">
 ({/foreach})
-<input type="hidden" name="body" value="({$event_write.body})" />
-<input type="submit" class="input_submit" value="修正" />
+<input type="hidden" name="body" value="({$event_write.body})">
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

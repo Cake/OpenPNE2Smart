@@ -16,10 +16,10 @@
 ({t_form_block m=pc a=do_h_config_ktai_send _attr='data-ajax="false"'})
 <div data-role="fieldcontain" class=">
 <label for="ktai_address">携帯メールアドレス</label>
-<input type="email" class="input_text" name="ktai_address" value="({$form_val.mail})" placeholder="" autocapitalize="off" />
+<input type="email" class="input_text" name="ktai_address" value="({$form_val.mail})" placeholder="" autocapitalize="off">
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="送信" />
+<input type="submit" class="input_submit" value="送信">
 </div>
 ({/t_form_block})
 </section>({*  }}} *})

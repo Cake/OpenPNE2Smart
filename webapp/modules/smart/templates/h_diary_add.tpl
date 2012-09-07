@@ -29,15 +29,15 @@ $('#h_diary_add').live('pageinit',function(event){
 ({else})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label>
-<input type="file" class="input_file" name="upfile_1" />
+<input type="file" class="input_file" name="upfile_1">
 </div>
 <div data-role="fieldcontain">
 <label for="upfile_2">写真2</label>
-<input type="file" class="input_file" name="upfile_2" />
+<input type="file" class="input_file" name="upfile_2">
 </div>
 <div data-role="fieldcontain">
 <label for="upfile_3">写真3</label>
-<input type="file" class="input_file" name="upfile_3" />
+<input type="file" class="input_file" name="upfile_3">
 </div>
 ({/if})
 ({if $use_diary_category})
@@ -57,11 +57,11 @@ $('#h_diary_add').live('pageinit',function(event){
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup">
 <legend><span class="required">公開範囲</span></legend>
-<input type="radio" name="public_flag" id="public_flag_public" value="public"({if $form_val.public_flag == "public"}) checked="checked"({/if}) />
+<input type="radio" name="public_flag" id="public_flag_public" value="public"({if $form_val.public_flag == "public"}) checked="checked"({/if})>
 	<label for="public_flag_public">全員に公開</label>
-	<input type="radio" name="public_flag" id="public_flag_friend" value="friend"({if $form_val.public_flag == "friend"}) checked="checked"({/if}) />
+	<input type="radio" name="public_flag" id="public_flag_friend" value="friend"({if $form_val.public_flag == "friend"}) checked="checked"({/if})>
 	<label for="public_flag_friend">({$WORD_MY_FRIEND})まで公開</label>
-<input type="radio" name="public_flag" id="public_flag_private" value="private"({if $form_val.public_flag == "private"}) checked="checked"({/if}) />
+<input type="radio" name="public_flag" id="public_flag_private" value="private"({if $form_val.public_flag == "private"}) checked="checked"({/if})>
 	<label for="public_flag_private">公開しない</label>
 </fieldset>
 </div>
@@ -75,7 +75,7 @@ $('#h_diary_add').live('pageinit',function(event){
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面" />
+<input type="submit" class="input_submit" value="確認画面">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

@@ -100,18 +100,18 @@
 </dl>
 <div class="operation">
 ({t_form_block m=pc a=do_o_regist_smart_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="register" />
-<input type="hidden" name="ses" value="({$ses})" />
+<input type="hidden" name="mode" value="register">
+<input type="hidden" name="ses" value="({$ses})">
 ({if $smarty.const.IS_SNS_ENTRY_CONFIRM })
-<input type="submit" class="input_submit" value="参加申請" />
+<input type="submit" class="input_submit" value="参加申請">
 ({else})
-<input type="submit" class="input_submit" value="登録" />
+<input type="submit" class="input_submit" value="登録">
 ({/if})
 ({/t_form_block})
 ({t_form_block m=pc a=do_o_regist_smart_prof _attr='data-ajax="false"'})
-<input type="hidden" name="mode" value="input" />
-<input type="hidden" name="ses" value="({$ses})" />
-<input type="submit" class="input_submit" value="修正" />
+<input type="hidden" name="mode" value="input">
+<input type="hidden" name="ses" value="({$ses})">
+<input type="submit" class="input_submit" value="修正">
 ({/t_form_block})
 </div>({* formTable }}} *})
 

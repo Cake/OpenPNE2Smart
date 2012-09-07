@@ -7,9 +7,9 @@
 <div class="itemBody">({$item.body|t_url2a|nl2br})</div>
 ({if $item.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('#topicWrite({$item.c_commu_topic_comment_id}) .itemData'); return false;">続きを読む</a></div>({/if})
 ({if $item.image_filename1||$item.image_filename2||$item.image_filename3})<ul class="gallery ui-grid-b" id="topicWrite({$item.c_commu_topic_comment_id})gallery">
-({if $item.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$item.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename1 w=76 h=76})" alt="" /></a></li>({/if})
-({if $item.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$item.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename2 w=76 h=76})" alt="" /></a></li>({/if})
-({if $item.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$item.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename3 w=76 h=76})" alt="" /></a></li>({/if})
+({if $item.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$item.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename1 w=76 h=76})" alt=""></a></li>({/if})
+({if $item.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$item.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename2 w=76 h=76})" alt=""></a></li>({/if})
+({if $item.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$item.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$item.image_filename3 w=76 h=76})" alt=""></a></li>({/if})
 </ul>({/if})
 ({if $item.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="false"><a href="({t_url m=pc a=do_c_file_download})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_topic.original_filename})</a></div>({/if})
 <div class="commentListFooter">

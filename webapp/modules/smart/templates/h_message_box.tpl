@@ -12,9 +12,9 @@ var page=2;
 <section class="searchFormBox searchFormLine" id="searchMessageFormBox" data-role="collapsible" data-collapsed="({if $keyword || $requests.target_c_member_id})false({else})true({/if})" data-content-theme="c">
 <h3>検索</h3>
 <p>({t_form_block _method=get m=pc a=page_h_message_box})
-<input type="hidden" name="box" value="({$box})" />
+<input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
 </div>
 <div data-role="fieldcontain">
 <label for="target_c_member_id">送信者</label>
@@ -26,7 +26,7 @@ var page=2;
 </select>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索">
 </div>
 ({/t_form_block})</p>
 </section>
@@ -35,9 +35,9 @@ var page=2;
 <section class="searchFormBox searchFormLine" id="searchMessageFormBox" data-role="collapsible" data-collapsed="({if $keyword || $requests.target_c_member_id})false({else})true({/if})" data-content-theme="c">
 <h3>検索</h3>
 <p>({t_form_block _method=get m=pc a=page_h_message_box})
-<input type="hidden" name="box" value="({$box})" />
+<input type="hidden" name="box" value="({$box})">
 <div data-role="fieldcontain" class="ui-hide-label">
-<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="" />
+<label for="keyword">キーワード</label> <input type="search" class="input_text" name="keyword" id="keyword" size="15" value="({$keyword})" placeholder="">
 </div>
 <div data-role="fieldcontain">
 <label for="target_c_member_id">宛先</label>
@@ -49,7 +49,7 @@ var page=2;
 </select>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索">
 </div>
 ({/t_form_block})</p>
 </section>

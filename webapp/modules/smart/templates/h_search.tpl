@@ -8,14 +8,14 @@
 ({t_form_block _method=get m=pc a=page_h_search_result _attr='data-ajax="false"'})
 <div data-role="fieldcontain">
 <label for="nickname">({$WORD_NICKNAME})</label>
-<input type="text" class="input_text" name="nickname" id="nickname" placeholder="" />
+<input type="text" class="input_text" name="nickname" id="nickname" placeholder="">
 </div>
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
 <legend>生年月日</legend>
-<input type="text" class="input_text width_80" name="birth_year" maxlength="4" maxlength="4" placeholder="" autocapitalize="off" /> 年
-<input type="text" class="input_text width_40" name="birth_month" maxlength="2" maxlength="2" placeholder="" autocapitalize="off" /> 月
-<input type="text" class="input_text width_40" name="birth_day" maxlength="2" maxlength="2" placeholder="" autocapitalize="off" /> 日
+<input type="text" class="input_text width_80" name="birth_year" maxlength="4" maxlength="4" placeholder="" autocapitalize="off"> 年
+<input type="text" class="input_text width_40" name="birth_month" maxlength="2" maxlength="2" placeholder="" autocapitalize="off"> 月
+<input type="text" class="input_text width_40" name="birth_day" maxlength="2" maxlength="2" placeholder="" autocapitalize="off"> 日
 </fieldset>
 </div>
 ({foreach from=$profile_list item=profile})
@@ -40,7 +40,7 @@
     ({/foreach})
     </select>
 ({elseif $profile.form_type == 'text' || $profile.form_type == 'textlong' || $profile.form_type == 'textarea'})
-    <input type="text" class="input_text" name="profile[({$profile.name})]" id="profile_({$profile.name})" />
+    <input type="text" class="input_text" name="profile[({$profile.name})]" id="profile_({$profile.name})">
 ({/if})
 ({/strip})
 </div>
@@ -50,11 +50,11 @@
 <div data-role="fieldcontain">
 <legend>写真の有無</legend>
 <fieldset data-role="controlgroup">
-<input type="checkbox" class="input_checkbox" name="image" id="image" value="1" /><label for="image">有のみ</label>
+<input type="checkbox" class="input_checkbox" name="image" id="image" value="1"><label for="image">有のみ</label>
 </fieldset>
 </div>
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="検索" />
+<input type="submit" class="input_submit" value="検索">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})
