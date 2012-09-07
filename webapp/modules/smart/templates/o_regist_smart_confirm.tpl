@@ -8,7 +8,7 @@
 ({/if})
 ({ext_include file="common/inc_msg.tpl" msg=$confirmMsg})
 
-({* {{{ formTable *})<dl id="registProfConfirm">
+({* {{{ formTable *})<dl id="registSmartProfConfirm">
 ({if $smarty.const.OPENPNE_AUTH_MODE == 'pneid'})
 <dt class="required">ログインID</dt>
 <dd>({$prof.login_id})</dd>
