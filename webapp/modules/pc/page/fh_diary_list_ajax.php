@@ -68,6 +68,7 @@ class pc_page_fh_diary_list_ajax extends OpenPNE_Action
 	$arr = array(
         	'type' => $type,
         	'list' => $list_set[0],
+        	'target_member' => $target_member,
         	'page' => $page,
         	'page_size' => $page_size,
         	'is_prev' => $list_set[1],

@@ -37,6 +37,10 @@ class pc_page_c_event_list extends OpenPNE_Action
         $this->set('start_num', $start_num);
         $this->set('end_num', $end_num);
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $total_page_num = ceil($total_num / $page_size);
+        $this->set("total_page_num", $total_page_num);
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         //--- 権限チェック
         $is_c_commu_member = db_commu_is_c_commu_member($c_commu_id, $u);

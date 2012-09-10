@@ -40,6 +40,7 @@ class pc_page_c_event_list_ajax extends OpenPNE_Action
 	// テンプレート出力
 	$arr = array(
         	'c_commu' => $c_commu,
+        	'c_topic' => $c_topic,
         	'list' => $result,
         	'is_next' => $is_next,
         	'page' => $page,
