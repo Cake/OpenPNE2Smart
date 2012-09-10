@@ -4,7 +4,7 @@
 ({ext_include file="common/inc_msg.tpl"})
 
 <section class="authorBar" id="diaryAuthor">
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt=""></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt="({$target_member.nickname})さんの写真"></a></div>
 <div class="itemData">
 <div class="title">({$target_member.nickname})さん</div>
 </div>

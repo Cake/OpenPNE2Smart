@@ -226,7 +226,7 @@
 <li class="commentList">
 <a href="javascript:void(0);" id="member({$item.c_member_id})Intro({$target_c_member.c_member_id})" onclick="readMore('#member({$item.c_member_id})Intro({$target_c_member.c_member_id}) .authorBar .itemData'); return false;">
 <section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title authorData" id="member({$item.c_member_id})Name">({$item.nickname})</div>
 <div class="itemBody">({$item.intro|t_url2a|nl2br})</div>

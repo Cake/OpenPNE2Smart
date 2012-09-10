@@ -13,7 +13,7 @@
 ({/if})({/strip})
 <li id="bbsList({$item.c_commu_topic_id})" class="commentList bbsList">
 <a class="listItemLink" href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})" id="bbs({$item.c_commu_topic_id})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$commu_image w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$commu_image w=48 h=48 noimg=no_image})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title" id="bbs({$item.c_commu_topic_id})Title">({if isset($item.c_commu_topic_name)})({$item.c_commu_topic_name})({else})({$item.name})({/if})</div>
 ({strip})<div class="authorData">

@@ -18,7 +18,7 @@
 <img src="({t_img_url_skin filename=icon_mail_3})" alt="受信者未開封">
 ({/if})
 ({else})
-<img src="({t_img_url_skin filename=icon_mail_3})" alt="">
+<img src="({t_img_url_skin filename=icon_mail_3})" alt="返信済み">
 ({/if})
 ({/capture})
 ({capture name="params"})&amp;box=outbox({/capture})
@@ -33,7 +33,7 @@
     <img src="({t_img_url_skin filename=icon_mail_2})" alt="受信">
 ({else})
     ({if $item.is_send})({* 送信メッセージ *})
-        <img src="({t_img_url_skin filename=icon_mail_3})" alt="送信済み">
+        <img src="({t_img_url_skin filename=icon_mail_3})" alt="送信">
     ({else})({* 下書きメッセージ *})
         <img src="({t_img_url_skin filename=icon_mail_1})" alt="下書き">
     ({/if})
@@ -43,7 +43,7 @@
 ({/if})({/strip})
 <li id="message({$item.c_message_id})List" class="commentList messageList({if !$c_message_ru.is_read}) unread({/if})">
 <a class="listItemLink" href="({t_url m=pc a=page_h_message})&amp;target_c_message_id=({$item.c_message_id})({$smarty.capture.params|smarty:nodefaults})" id="message({$item.c_message_id})Link"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt=""></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title" id="message({$item.c_message_id})Title">({$item.subject})</div>
 ({strip})<div class="authorData">

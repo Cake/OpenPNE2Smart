@@ -5,7 +5,7 @@
 
 ({* {{{ formTable *})<dl>
 <dt>送信先</dt>
-<dd><img src="({t_img_url filename=$target_c_member.image_filename w=76 h=76 noimg=no_image})" class="memberPhoto" alt=""><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_c_member.c_member_id})">({$target_c_member.nickname})</a>さん</dd>
+<dd><img src="({t_img_url filename=$target_c_member.image_filename w=76 h=76 noimg=no_image})" class="memberPhoto" alt="プロフィール写真"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_c_member.c_member_id})">({$target_c_member.nickname})</a>さん</dd>
 <dt>メッセージ (任意)</dt>
 <dd>({$body|t_url2a|nl2br|t_decoration})</dd>
 </dl>

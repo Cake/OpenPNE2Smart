@@ -20,7 +20,7 @@ $('#topicWriteForm').ready(function(){
 ({* {{{ topicDetailBox *})
 <section class="topicDetailBox" id="topic({$c_topic.c_topic_id})DetailBox">
 <div class="authorBar" id="topic({$c_topic.c_topic_id})Author">
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt=""></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt="トピック({$c_topic.c_topic_id})作成者プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title"><h2>({$c_topic.name})</h2></div>
 </div>
@@ -35,9 +35,9 @@ $('#topicWriteForm').ready(function(){
 ({if $c_topic.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="topic({$c_topic.c_topic_id})gallery">
 ({if $c_topic.image_filename1 || $c_topic.image_filename2 || $c_topic.image_filename3})
-({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt=""></a></li>({/if})
-({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt=""></a></li>({/if})
-({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_topic.image_filename1})<li class="ui-block-a"><a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt="写真1"></a></li>({/if})
+({if $c_topic.image_filename2})<li class="ui-block-b"><a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt="写真2"></a></li>({/if})
+({if $c_topic.image_filename3})<li class="ui-block-c"><a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt="写真3"></a></li>({/if})
 ({/if})
 </ul>
 

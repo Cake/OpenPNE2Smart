@@ -7,7 +7,7 @@
 <h3>メッセージの詳細</h3>
 <div class="authorBar" id="message({$c_message.c_message_id})Author">
 <div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({if $c_message.is_received})({$c_message.c_member_id_from})({else})({$c_message.c_member_id_to})({/if})">
-<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image})" alt=""></a></div>
+<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image})" alt="プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title">
 <h2>({$c_message.subject})</h2>
@@ -24,9 +24,9 @@
 ({if $c_message.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('.detailBody'); return false;">続きを読む</a></div>({/if})
 <ul class="gallery ui-grid-b" id="message({$c_message.c_message_id})gallery">
 ({if $c_message.image_filename_1 || $c_message.image_filename_2 || $c_message.image_filename_3})
-({if $c_message.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$c_message.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_1 w=76 h=76})" alt=""></a></li>({/if})
-({if $c_message.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$c_message.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_2 w=76 h=76})" alt=""></a></li>({/if})
-({if $c_message.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$c_message.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_3 w=76 h=76})" alt=""></a></li>({/if})
+({if $c_message.image_filename_1})<li class="ui-block-a"><a href="({t_img_url filename=$c_message.image_filename_1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_1 w=76 h=76})" alt="写真1"></a></li>({/if})
+({if $c_message.image_filename_2})<li class="ui-block-b"><a href="({t_img_url filename=$c_message.image_filename_2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_2 w=76 h=76})" alt="写真2"></a></li>({/if})
+({if $c_message.image_filename_3})<li class="ui-block-c"><a href="({t_img_url filename=$c_message.image_filename_3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_message.image_filename_3 w=76 h=76})" alt="写真3"></a></li>({/if})
 ({/if})
 </ul>
 ({if $c_topic.filename && $smarty.const.OPENPNE_USE_FILEUPLOAD})<div class="attachFile" data-inline="true"><a href="({t_url m=pc a=do_h_message_file_download})&amp;target_c_message_id=({$c_message.c_message_id})&amp;sessid=({$PHPSESSID})&amp;({$smarty.now})" data-inline="true" data-ajax="false">({$c_message.original_filename})</a></div>({/if})

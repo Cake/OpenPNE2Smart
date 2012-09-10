@@ -16,17 +16,17 @@
 <ul class="gallery ui-grid-b" id="topicEdit({$c_topic.c_commu_topic_id})gallery">
 ({if $c_topic.image_filename1})
 <li class="ui-block-a">
-<a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$c_topic.image_filename1})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename1 w=76 h=76})" alt="写真1"></a>
 </li>
 ({/if})
 ({if $c_topic.image_filename2})
 <li class="ui-block-b">
-<a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$c_topic.image_filename2})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename2 w=76 h=76})" alt="写真2"></a>
 </li>
 ({/if})
 ({if $c_topic.image_filename3})
 <li class="ui-block-c">
-<a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt=""></a>
+<a href="({t_img_url filename=$c_topic.image_filename3})" data-transition="pop" data-ajax="false"><img src="({t_img_url filename=$c_topic.image_filename3 w=76 h=76})" alt="写真3"></a>
 </li>
 ({/if})
 </ul>
