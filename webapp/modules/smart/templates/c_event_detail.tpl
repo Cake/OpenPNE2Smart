@@ -1,9 +1,4 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
-<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topic_id})">
 ({if $smarty.const.USE_RESPONSE_COMMENT}) 
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
@@ -100,7 +95,7 @@ var page=2;
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
 ({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.is_next})
-<div class="pagerRelative" id="event({$c_topic.c_topic_id})WriteNextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_event_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', 'li.commentList', 'event({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
+<div class="pagerRelative" id="event({$c_topic.c_topic_id})WriteNextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_event_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', '#({$INC_HEADER_page_name})({$c_commu.c_commu_topic_id}) li.commentList', 'event({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
 ({/if})({* Pager }}} *})
 ({* {{{ commentList *})<section class="commentListBox" id="eventWriteList">
 <ul id="event({$c_topic.c_topic_id})WriteList" class="pictureList" data-role="listview" data-inset="false"> 

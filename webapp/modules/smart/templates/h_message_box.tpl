@@ -1,8 +1,3 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
@@ -83,22 +78,22 @@ var page=2;
 ({* {{{ Pager *})({strip})
 ({if $ru_data.is_ru_next})
 <div class="pagerRelative" id="ruMessageListNextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=inbox&amp;keyword=({$url_keyword})&amp;target_c_member_id=({$target_c_member_id})', 'ru_page', 'asc', 'li.commentList', 'ruMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=inbox&amp;keyword=({$url_keyword})&amp;target_c_member_id=({$target_c_member_id})', 'ru_page', 'asc', '#({$INC_HEADER_page_name}) li.commentList', 'ruMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({if $s_data.is_s_next})
 <div class="pagerRelative" id="sMessageListNextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=outbox&amp;keyword=({$url_keyword})&amp;target_c_member_id=({$target_c_member_id})', 's_page', 'asc', 'li.commentList', 'sMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=outbox&amp;keyword=({$url_keyword})&amp;target_c_member_id=({$target_c_member_id})', 's_page', 'asc', '#({$INC_HEADER_page_name}) li.commentList', 'sMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({if $save_data.is_save_next})
 <div class="pagerRelative" id="saveMessageListNextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=savebox', 'save_page', 'asc', 'li.commentList', 'saveMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=savebox', 'save_page', 'asc', '#({$INC_HEADER_page_name}) li.commentList', 'saveMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({if $trash_data.is_trash_next})
 <div class="pagerRelative" id="trashMessageListNextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=trash', 'trash_page', 'asc', 'li.commentList', 'trashMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPageName('({t_url m=pc a=page_h_message_box_ajax})&amp;box=trash', 'trash_page', 'asc', '#({$INC_HEADER_page_name}) li.commentList', 'trashMessageListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({/strip})({* Pager }}} *})

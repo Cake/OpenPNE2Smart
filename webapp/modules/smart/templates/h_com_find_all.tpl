@@ -1,8 +1,3 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
@@ -79,7 +74,7 @@ var page=2;
 ({strip})
 ({if $is_next})
 <div class="pagerRelative" id="communitySearchResult({$u})NextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_com_find_all_ajax})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;val_order=({$search_val_list.val_order})&amp;category_id=({$search_val_list.category_id})', 'asc', 'li.commentList', 'communitySearchResult({$u})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_com_find_all_ajax})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;val_order=({$search_val_list.val_order})&amp;category_id=({$search_val_list.category_id})', 'asc', '#({$INC_HEADER_page_name}) li.commentList', 'communitySearchResult({$u})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと見る</a></span>
 </div>
 ({/if})
 ({/strip})

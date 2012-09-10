@@ -1,8 +1,3 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
@@ -46,7 +41,7 @@ var page=2;
 ({* {{{ Pager *})({strip})
 ({if $is_next})
 <div class="pagerRelative" id="bbsSearchAllResultListNextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_com_topic_find_all_ajax})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;type=({$search_val_list.type})', 'asc', 'li.bbsList', 'bbsSearchAllResultListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_h_com_topic_find_all_ajax})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;keyword=({$smarty.capture.keyword_url|smarty:nodefaults})&amp;type=({$search_val_list.type})', 'asc', '#({$INC_HEADER_page_name}) li.bbsList', 'bbsSearchAllResultListNextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({/strip})({* Pager }}} *})

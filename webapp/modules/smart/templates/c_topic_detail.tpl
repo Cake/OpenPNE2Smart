@@ -1,7 +1,5 @@
 <script language="JavaScript">
 <!--
-var page=2;
-
 ({if $body})
 $('#topicWriteForm').ready(function(){
 	jump_to('comment_box','comment_box');
@@ -9,7 +7,7 @@ $('#topicWriteForm').ready(function(){
 ({/if})
 //-->
 </script>
-<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topi_id})">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topic_id})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
@@ -46,7 +44,7 @@ $('#topicWriteForm').ready(function(){
 ({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
 ({if $is_writable_comment})
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
+<a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
 </div>
 ({/if})
 ({/if})
@@ -68,7 +66,7 @@ $('#topicWriteForm').ready(function(){
 <script type="text/javascript" src="./js/comment.js"></script>
 ({/if})
 ({* {{{ Pager *})({if $pager.total_page_num > 1 && $pager.is_next})
-<div class="pagerRelative" id="topic({$c_topic.c_topic_id})WriteNextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_topic_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', 'li.commentList', 'topic({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
+<div class="pagerRelative" id="topic({$c_topic.c_topic_id})WriteNextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_topic_detail_ajax})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})', 'desc', '#({$INC_HEADER_page_name})({$c_commu.c_commu_topic_id}) li.commentList', 'topic({$c_topic.c_topic_id})WriteNextPager', '({$pager.total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
 ({/if})({* Pager }}} *})
 ({* {{{ commentList *})<section class="commentListBox" id="topicWriteList">
 <ul id="topic({$c_topic.c_topic_id})WriteList" class="pictureList" data-role="listview" data-inset="false"> 

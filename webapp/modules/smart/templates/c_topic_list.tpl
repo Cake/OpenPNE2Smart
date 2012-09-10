@@ -1,9 +1,4 @@
-<script language="JavaScript">
-<!--
-var page=2;
-//-->
-</script>
-<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})">
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_id})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
@@ -40,7 +35,7 @@ var page=2;
 ({* {{{ Pager *})({strip})
 ({if $is_next})
 <div class="pagerRelative" id="topicList({$c_commu.c_commu_id})NextPager">
-<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_topic_list_ajax})&amp;target_c_commu_id=({$c_commu.c_commu_id})', 'asc', 'li.bbsList', 'topicList({$c_commu.c_commu_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
+<span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_c_topic_list_ajax})&amp;target_c_commu_id=({$c_commu.c_commu_id})', 'asc', '#({$INC_HEADER_page_name})({$c_commu.c_commu_id}) li.bbsList', 'topicList({$c_commu.c_commu_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">もっと読む</a></span>
 </div>
 ({/if})
 ({/strip})({* Pager }}} *})

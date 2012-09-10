@@ -14,7 +14,6 @@ $('#diarycommentForm').ready(function(){
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$target_diary.c_diary_id})">
 <script language="JavaScript">
 <!--
-var page=2;
 var prevDiaryId = null;
 var nextDiaryId = null;
 
@@ -96,7 +95,7 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({if $target_diary_comment_list})
 ({* {{{ commentList *})<section class="commentListBox" id="diaryCommentList">
 ({* {{{ Pager *})({if $total_page_num > 1 && $pager.page_prev})
-<div class="pagerRelative" id="diaryComment({$target_diary.c_diary_id})NextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', 'li.commentList', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
+<div class="pagerRelative" id="diaryComment({$target_diary.c_diary_id})NextPager"><span class="next"><a href="javascript:void(0);" onclick="submitPagerPage('({t_url m=pc a=page_fh_diary_ajax})&amp;target_c_diary_id=({$target_diary.c_diary_id})', 'desc', '#({$INC_HEADER_page_name})({$target_diary.c_diary_id}) li.commentList', 'diaryComment({$target_diary.c_diary_id})NextPager', '({$total_page_num})', true); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="false" data-mini="false" data-ajax="true">コメントをもっと読む</a></span></div>
 ({/if})({* Pager }}} *})
 <ul id="diary({$target_diary.c_diary_id})CommentList" class="pictureList" data-role="listview" data-inset="false"> 
 ({foreach from=$target_diary_comment_list item=item})

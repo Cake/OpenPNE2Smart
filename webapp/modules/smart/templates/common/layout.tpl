@@ -12,8 +12,15 @@
 <script type="text/javascript" src="./modules/smart/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
 <script language="JavaScript">
 	<!--
+	var page=2;
+
 	(function(window, $, PhotoSwipe){
 		$(document).bind('mobileinit', function(){
+			$('.page').live('pagehide', function(event, ui){
+				 menuHide();
+				 page=2;
+			});
+		
 		//	$.mobile.ajaxEnabled = false; // Ajax を使用した遷移を無効にする
 
 			// Swipe
