@@ -73,7 +73,7 @@ var page=2;
 ({if $is_c_commu_member || ($c_commu.is_comment == 'public')})
 ({if $is_writable_comment})
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a title="返信" data-icon="smart-write" class="" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
+<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('topicWriteForm', '');$('#comment_box').focus();return false;">返信</a>
 </p>
 </div>
 ({/if})
@@ -162,14 +162,14 @@ var page=2;
 
 ({else})
 ({* {{{ simpleBox *})
-<section class="simpleBox" id="eventNoavailableComment" data-role="">
+<section class="simpleBox" id="eventNoavailableComment">
 <h3>コメントを書く</h3>
 <p>コメントが1000番に達したので、このイベントにはコメントできません。</p>
 </section>({* simpleBox }}} *})
 
 ({if $is_event_join_date})
 ({if $is_c_event_member})
-({* {{{ infoButtonBox *})<section class="infoButtonBox" data-role="">
+({* {{{ infoButtonBox *})<section class="infoButtonBox">
 <h3>参加をキャンセルする</h3>
 <p>イベント「({$c_topic.name})」の参加をキャンセルしますか？</p>
 
@@ -180,7 +180,7 @@ var page=2;
 </section>({* infoButtonBox }}} *})
 
 ({elseif $is_event_join_capacity})
-({* {{{ infoButtonBox *})<section class="infoButtonBox" data-role="">
+({* {{{ infoButtonBox *})<section class="infoButtonBox">
 <h3>このイベントに参加</h3>
 <p>イベント「({$c_topic.name})」に参加しますか？</p>
 

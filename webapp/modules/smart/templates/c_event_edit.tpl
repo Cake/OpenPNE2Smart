@@ -17,17 +17,17 @@
 <legend><span class="required">開催日時</span></legend>
 <label for="open_date_year">年</label>
 <select name="open_date_year" id="open_date_year" data-mini="false">
-<option value="">年</option>
+<option>年</option>
 ({html_options values=$year selected=$event.open_date_year output=$year})
 </select> 
 <label for="open_date_month">月</label>
 <select name="open_date_month"id="open_date_month" data-mini="false">
-<option value="">月</option>
+<option>月</option>
 ({html_options values=$month selected=$event.open_date_month output=$month})
 </select>
 <label for="open_date_day">日</label>
 <select name="open_date_day" id="open_date_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({html_options values=$day selected=$event.open_date_day output=$day})
 </select> 
 </fieldset>
@@ -50,20 +50,20 @@
 ({ext_include file="inc_tinymce_textarea.tpl" _name="detail" _show_label=true _label_class="required" _title="詳細" _body=$event.body|smarty:nodefaults})
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
-<legend><span class="">募集期限</span></legend>
+<legend><span>募集期限</span></legend>
 <label for="invite_period_year">年</label>
 <select name="invite_period_year" id="invite_period_year" data-mini="false">
-<option value="">年</option>
+<option>年</option>
 ({html_options values=$year selected=$event.invite_period_year output=$year})
 </select> 
 <label for="invite_period_month">月</label>
 <select name="invite_period_month"id="invite_period_month" data-mini="false">
-<option value="">月</option>
+<option>月</option>
 ({html_options values=$month selected=$event.invite_period_month output=$month})
 </select>
 <label for="invite_period_day">日</label>
 <select name="invite_period_day" id="invite_period_day" data-mini="false">
-<option value="">日</option>
+<option>日</option>
 ({html_options values=$day selected=$event.invite_period_day output=$day})
 </select> 
 </fieldset>
@@ -93,17 +93,17 @@
 <ul class="ui-grid-b" id="eventEdit({$event.c_commu_topic_id})operation">
 ({if $event.image_filename1})
 <li class="ui-block-a">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image1Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image1Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image1Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $event.image_filename2})
 <li class="ui-block-b">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image2Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image2Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image2Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 ({if $event.image_filename3})
 <li class="ui-block-c">
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image3Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})Image3Confirm'); openDialog('deleteEvent({$event.c_commu_topic_id})Image3Confirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 </li>
 ({/if})
 </ul>
@@ -143,7 +143,7 @@
 <label for="uploadfile">ファイル</label>
 ({if $event.filename})
 ({$event.original_filename})
-<a title="削除" class="" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})FileConfirm'); openDialog('deleteEvent({$event.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
+<a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_event_edit})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})', 'deleteEvent({$event.c_commu_topic_id})FileConfirm'); openDialog('deleteEvent({$event.c_commu_topic_id})FileConfirm')" data-role="button" data-mini="true" data-ajax="true">削除</a>
 ({else})
 ({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40">

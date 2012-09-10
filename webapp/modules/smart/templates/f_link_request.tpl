@@ -18,7 +18,7 @@
 </p>
 ({t_form_block m=pc a=page_f_link_request_confirm _attr='data-ajax="false"'})
 <input type="hidden" name="target_c_member_id" value="({$target_member.c_member_id})">
-({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="" _title="メッセージ (任意)" _body=$form.body|smarty:nodefaults})
+({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _title="メッセージ (任意)" _body=$form.body|smarty:nodefaults})
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面">
 </div>
