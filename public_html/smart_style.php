@@ -580,6 +580,7 @@ ul.ui-listview li.commentList {
 
 ul.ui-listview li.commentList .ui-li-thumb {
 	padding: 0;
+	margin-top: 7px;
 }
 
 ul.ui-listview li.commentList .itemData {

@@ -51,9 +51,7 @@
 <input type="hidden" name="target_c_message_id" value="({$c_message.c_message_id})">
 <input type="hidden" name="jyusin_c_message_id" value="({$jyusin_c_message_id})">
 <input type="hidden" name="target_c_member_id" value="({$c_message.c_member_id_from})">
-<ul class="moreInfo button">
-<li><input type="submit" class="input_submit" name="hensin2" value="返信する"></li>
-</ul>
+<input type="submit" class="input_submit" name="hensin2" value="返信する">
 ({/t_form_block})
 ({elseif $box == 'trash'})
 ({t_form_block m=pc a=do_h_message_box_delete_message _attr='class="delete" data-ajax="false"'})
