@@ -113,9 +113,9 @@ $('#diarycommentForm').ready(function(){
 </div>
 ({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <div data-role="fieldcontain">
-<laber for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40"><br>
-<laber for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40"><br>
-<laber for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40"><br>
+<label for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40"><br>
+<label for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40"><br>
+<label for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40"><br>
 </div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 <div data-role="fieldcontain">
