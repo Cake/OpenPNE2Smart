@@ -71,16 +71,14 @@ $('#diarycommentForm').ready(function(){
 ({/if})
 </ul>
 
-<p>
 <div id="diaryCategory" data-inline="true"><small>({if $category_list})(
 ({foreach from=$category_list item=category})
 <span><a href="({t_url m=pc a=page_fh_diary_list})&amp;target_c_member_id=({$target_member.c_member_id})&amp;category_id=({$category.c_diary_category_id})">({$category.category_name})</a></span>
 ({/foreach}))
 ({/if})</small></div>
 <div class="operation" data-inline="true">
-<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('diarycommentForm', '');$('#comment_box').focus();return false;">返信</a>
+<p class="commentWriteButton"><a title="返信" data-icon="smart-write" data-iconshadow="false" data-shadow="false" data-corners="true" data-inline="true" href="javascript:void(0);" data-role="button" data-iconpos="notext" onclick="jump_to('diarycommentForm', '');$('#comment_box').focus();return false;">返信</a></p>
 </div>
-</p>
 </article>
 
 ({if $type == "h"})
@@ -131,7 +129,6 @@ $('#diarycommentForm').ready(function(){
 <li>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br></li>
 <li>写真も添付できます。<br></li>
 </ul>
-</p>
 </div>
 </section>({* formTable }}} *})
 ({else})

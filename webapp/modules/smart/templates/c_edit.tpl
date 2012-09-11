@@ -40,7 +40,7 @@
 <legend><span class="required">トピック作成権限</span></legend>
 <input type="radio" class="input_radio" name="is_topic" id="is_topic_member" value="member"({if $c_commu.is_topic == 'member'}) checked="checked"({/if})><label for="is_topic_member">({$WORD_COMMUNITY})参加者が作成可能</label>
 <li><input type="radio" class="input_radio" name="is_topic" id="is_topic_admin_only" value="admin_only"({if $c_commu.is_topic == 'admin_only'}) checked="checked"({/if})><label for="is_topic_admin_only">({$WORD_COMMUNITY})管理者のみが作成可能</label></li>
-<input type="radio" class="input_radio" name="is_topic" id="is_topic_public" value="public"({if $c_commu.is_topic == 'public'}) checked="checked"({/if})><label for="is_topic_public">誰でも作成可能</label></li>
+<li><input type="radio" class="input_radio" name="is_topic" id="is_topic_public" value="public"({if $c_commu.is_topic == 'public'}) checked="checked"({/if})><label for="is_topic_public">誰でも作成可能</label></li>
 </fieldset>
 </div>
 <div data-role="fieldcontain">
@@ -48,6 +48,7 @@
 <legend><span class="required">コメント作成権限</span></legend>
 <input type="radio" class="input_radio" name="is_comment" id="is_comment_member" value="member"({if $c_commu.is_comment == 'member'}) checked="checked"({/if})><label for="is_comment_member">({$WORD_COMMUNITY})参加者のみ可能</label>
 <input type="radio" class="input_radio" name="is_comment" id="is_comment_public" value="public"({if $c_commu.is_comment == 'public'}) checked="checked"({/if})><label for="is_comment_public">誰でもコメント可能</label>
+</fieldset>
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="info" _show_label=true _label_class="required" _title="$WORD_COMMUNITY説明文" _body=$c_commu.info|smarty:nodefaults})
 <div data-role="fieldcontain">

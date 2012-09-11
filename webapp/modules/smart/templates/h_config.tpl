@@ -165,7 +165,8 @@ ID: ({foreach from=$c_member_id_block item=item})
 <input type="radio" class="input_radio" name="is_shinobiashi" id="is_shinobiashi_1" value="1"({if $is_shinobiashi == 1}) checked="checked"({/if})>
 <label for="is_shinobiashi_1">あしあとを残さない</label>
 </fieldset>
-<p>※他人のページを見たときに、あしあとを残すかどうかを設定することができます。</div>
+<p>※他人のページを見たときに、あしあとを残すかどうかを設定することができます。</p>
+</div>
 ({/if})
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="設定変更">
@@ -240,7 +241,8 @@ ID: ({foreach from=$c_member_id_block item=item})
 <input type="radio" class="input_radio" name="public_flag_diary_all" id="public_flag_diary_all_private" value="private">
 <label for="public_flag_diary_all_private">公開しない</label>
 </fieldset>
-<p>※これまでに書いた({$WORD_DIARY})の公開範囲を一括で変更することができます。</div>
+<p>※これまでに書いた({$WORD_DIARY})の公開範囲を一括で変更することができます。</p>
+</div>
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面へ">
 </div>

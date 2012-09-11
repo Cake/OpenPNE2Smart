@@ -20,7 +20,7 @@
 </ul>
 
 <section class="descriptionBox">
-<p class="strong">総アクセス数: ({$c_ashiato_num})<p>
+<p class="strong">総アクセス数: ({$c_ashiato_num})</p>
 <p>({$c_member.nickname})さんのページを訪れた人たちです。</p>
 </section>
 

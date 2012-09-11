@@ -11,10 +11,10 @@
 ({if $num_f_confirm_list || $num_message_not_is_read || $num_diary_not_is_read || $num_h_confirm_list || $anatani_c_commu_admin_confirm_list || $anatani_c_commu_sub_admin_confirm_list})
 <ul>
 ({if $num_f_confirm_list})
-<li><a href="({t_url m=pc a=page_h_confirm_list})"><span class="caution">承認待ちのメンバーが({$num_f_confirm_list})名います</a></li>
+<li><a href="({t_url m=pc a=page_h_confirm_list})"><span class="caution">承認待ちのメンバーが({$num_f_confirm_list})名います</span></a></li>
 ({/if})
 ({if $num_message_not_is_read})
-<li><a href="({t_url m=pc a=page_h_message_box})"><span class="caution">({$num_message_not_is_read})件の新着メッセージがあります</a></li>
+<li><a href="({t_url m=pc a=page_h_message_box})"><span class="caution">({$num_message_not_is_read})件の新着メッセージがあります</span></a></li>
 ({/if})
 ({if $num_diary_not_is_read})
 <li><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$first_diary_read})"><span class="caution">({$num_diary_not_is_read})件の({$WORD_DIARY})に対して新着コメントがあります</span></a></li>

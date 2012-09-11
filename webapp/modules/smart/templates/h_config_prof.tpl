@@ -25,6 +25,7 @@ $('#h_config_prof').live('pageinit',function(event){
 	<option value="0"({if !$c_member.is_search_result})checked="checked" ({/if})>公開しない</option>
 	<option value="1"({if $c_member.is_search_result})checked="checked" ({/if})>公開</option>
 </select>
+</fieldset>
 </div>
 ({capture name="nick"})
 <div data-role="fieldcontain">
