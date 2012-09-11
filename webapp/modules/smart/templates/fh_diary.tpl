@@ -1,16 +1,3 @@
-<script language="JavaScript">
-<!--
-({if $comment_count})
-$('#diarycommentForm').ready(function(){
-	jump_to('diaryComment({$comment_count})','diaryCommentList');
-});
-({elseif $requests.body})
-$('#diarycommentForm').ready(function(){
-	jump_to('comment_box','comment_box');
-});
-({/if})
-//-->
-</script>
 <div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$target_diary.c_diary_id})">
 <script language="JavaScript">
 <!--
@@ -36,6 +23,17 @@ $('#({$INC_HEADER_page_name})({$target_diary.c_diary_id})').live('pageinit',func
 ({/if})
 ({/if})
 });
+
+({if $comment_count})
+$('#diarycommentForm').ready(function(){
+	jump_to('diaryComment({$comment_count})','diaryCommentList');
+});
+({elseif $requests.body})
+$('#diarycommentForm').ready(function(){
+	jump_to('comment_box','comment_box');
+});
+({/if})
+
 //-->
 </script>
 
