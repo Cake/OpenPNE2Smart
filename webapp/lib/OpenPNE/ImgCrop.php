@@ -5,7 +5,7 @@
  */
 
 // エラー出力
-ini_set('display_errors', true);
+ini_set('display_errors', false);
 
 class OpenPNE_ImgCrop
 {
