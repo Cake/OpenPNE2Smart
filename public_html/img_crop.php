@@ -107,7 +107,7 @@ if (defined('USE_IMAGEMAGICK')) {
         break;
     case 1:
         $pieces = explode('.', $_GET['filename']);
-        $source_format = OpenPNE_Img::check_format(array_pop($pieces));
+        $source_format = OpenPNE_ImgCrop::check_format(array_pop($pieces));
         $use_IM = ($source_format == 'gif');
         break;
     case 2:

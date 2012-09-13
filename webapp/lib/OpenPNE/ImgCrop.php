@@ -236,7 +236,7 @@ class OpenPNE_ImgCrop
     }
 
     /**
-     * GDイメージのリサイズ＋形式変換
+     * 形式変換
      *
      * @access protected
      * @param resource $gdimg source GD image
