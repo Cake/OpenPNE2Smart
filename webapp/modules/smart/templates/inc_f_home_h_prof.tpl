@@ -26,12 +26,10 @@
 <span>最終ログイン</span>:<time datetime="({$target_c_member.last_login})" id="({$id_header})LastLoginDatetime" class="datetime">({$target_c_member.last_login})</time>
 </div>
 <div class="link">
-({if $target_c_member.image_filename})
 ({if $is_h_prof})
 <a href="({t_url m=pc a=page_h_config_image})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">写真を編集</a>
 ({else})
 <a href="({t_url m=pc a=page_f_show_image})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">写真を見る</a>
-({/if})
 ({/if})
 </div>
 </div>
