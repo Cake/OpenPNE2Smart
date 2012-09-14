@@ -267,8 +267,8 @@ class OpenPNE_Img
         $o_height = $s_height;
 
         /* OpenPNE2 スマートフォン対応：ここから */
-        switch (trim) {
-            // trim (指定サイズ＝短辺縮小し、長辺トリミング)
+        switch ($trim) {
+            // 正方形にトリミング
             case 'square':
                 if ($s_width == $s_height) {
                     $o_width = $w;
@@ -310,8 +310,7 @@ class OpenPNE_Img
 
                 break;
 */
-            // その他：fit (指定サイズ＝長辺で縮小)
-            case 'fit':
+            // その他：指定サイズ＝長辺で縮小
             case '':
             default: 
                 if ($w < $s_width) {
@@ -338,6 +337,7 @@ class OpenPNE_Img
 
         imagecopyresampled($output_gdimg, $source_gdimg,
             0, 0, 0, 0, $o_width, $o_height, $s_width, $s_height);
+
 
         // トリミング
         if ($trim == 'square' && $s_width != $s_height) {
@@ -549,7 +549,7 @@ class OpenPNE_Img
         $prefix = OPENPNE_IMG_CACHE_PREFIX;
 
         if ($trim) {
-            $prefix .= 'trim_';
+            $prefix .= $trim.'_';
         }
 
         if (!$w) $w = '';
