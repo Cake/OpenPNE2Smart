@@ -3,6 +3,10 @@
  * @copyright 2005-2008 OpenPNE Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
+/* 
+ * OpenPNE2 スマートフォン対応
+ * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
+ */
 
 class OpenPNE_Img
 {
@@ -13,6 +17,7 @@ class OpenPNE_Img
      *     - h : height
      *     - f : format
      *     - filename : image filename
+     *     - trim : trim type // OpenPNE2 スマートフォン対応
      */
     var $requests;
 
@@ -67,6 +72,7 @@ class OpenPNE_Img
             'h' => 0,
             'f' => '',
             'filename' => '',
+            'trim' => '', // OpenPNE2 スマートフォン対応
         );
 
         foreach ($vars as $key => $value) {
@@ -88,6 +94,15 @@ class OpenPNE_Img
                     $this->requests[$key] = $value;
                 }
                 break;
+            /* OpenPNE2 スマートフォン対応：ここから */
+            case 'trim':
+                if ($value == 'square') {
+                    $this->requests[$key] = $value;
+                } else {
+                    $this->requests[$key] = '';
+                }
+                break;
+            /* OpenPNE2 スマートフォン対応：ここまで */
             }
         }
     }
@@ -143,7 +158,7 @@ class OpenPNE_Img
         }
 
         //リサイズ
-        $output_img = $this->resize_img($source_gdimg, $w, $h);
+        $output_img = $this->resize_img($source_gdimg, $w, $h, $this->requests['trim']);
 
         //キャッシュを生成
         if ($output_img) {
@@ -227,9 +242,10 @@ class OpenPNE_Img
      * @param resource $gdimg source GD image
      * @param int $w width
      * @param int $h height
+     * @param int $trim trim type
      * @return resource output GD image
      */
-    function resize_img($source_gdimg, $w, $h)
+    function resize_img($source_gdimg, $w, $h, $trim = '')
     {
         $s_width  = imagesx($source_gdimg);
         $s_height = imagesy($source_gdimg);
@@ -250,14 +266,66 @@ class OpenPNE_Img
         $o_width  = $s_width;
         $o_height = $s_height;
 
-        if ($w < $s_width) {
-            $o_width  = $w;
-            $o_height = $s_height * $w / $s_width;
+        /* OpenPNE2 スマートフォン対応：ここから */
+        switch (trim) {
+            // trim (指定サイズ＝短辺縮小し、長辺トリミング)
+            case 'square':
+                if ($s_width == $s_height) {
+                    $o_width = $w;
+                    $o_height = $h;
+
+                    $x = $y = 0;
+                    $r_width = $o_width;
+                    $r_height = $o_height;
+                } elseif ($s_width > $s_height) {
+                    $o_height = $h;
+                    $o_width = $s_width * $h / $s_height;
+
+                    $x = ($o_width - $w) / 2;
+                    $y = 0;
+                    $r_width = $r_height = $o_height;
+                } else {
+                    $o_width = $w;
+                    $o_height = $s_height * $w / $s_width;
+
+                    $x = 0;
+                    $y = ($o_height - $h) / 2;
+                    $r_width = $r_height = $o_width;
+                }
+
+                break;
+
+/*            // fitLong (指定サイズ＝短辺で縮小)
+            case 'fitLong':
+                if ($s_width == $s_height) {
+                    $o_width = $w;
+                    $o_height = $h;
+                } elseif ($s_width > $s_height) {
+                    $o_height = $h;
+                    $o_width = $s_width * $h / $s_height;
+                } else {
+                    $o_width = $w;
+                    $o_height = $s_height * $w / $s_width;
+                }
+
+                break;
+*/
+            // その他：fit (指定サイズ＝長辺で縮小)
+            case 'fit':
+            case '':
+            default: 
+                if ($w < $s_width) {
+                    $o_width  = $w;
+                    $o_height = $s_height * $w / $s_width;
+                }
+                if ($h < $o_height && $h < $s_height) {
+                    $o_width  = $s_width * $h / $s_height;
+                    $o_height = $h;
+                }
+
+                break;
         }
-        if ($h < $o_height && $h < $s_height) {
-            $o_width  = $s_width * $h / $s_height;
-            $o_height = $h;
-        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
 
         if ($o_height < 1.) {
             $o_height = 1;
@@ -266,6 +334,27 @@ class OpenPNE_Img
             $o_width = 1;
         }
 
+        $output_gdimg = $this->create_pallet($o_width, $o_height);
+
+        imagecopyresampled($output_gdimg, $source_gdimg,
+            0, 0, 0, 0, $o_width, $o_height, $s_width, $s_height);
+
+        // トリミング
+        if ($trim == 'square' && $s_width != $s_height) {
+            // トリミング出力先
+            $trim_gidimage = $this->create_pallet($r_height, $r_height);
+
+            // トリミング画像出力
+            imagecopy($trim_gidimage, $output_gdimg, 
+                0, 0, $x, $y, $r_width, $r_height);
+
+            $output_gdimg = $trim_gidimage;
+        }
+
+        return $output_gdimg;
+    }
+
+    function create_pallet($o_width, $o_height) {
         $output_gdimg = imagecreatetruecolor($o_width, $o_height);
 
         if (($this->output_format == 'gif') || ($this->output_format == 'png')) {
@@ -296,8 +385,6 @@ class OpenPNE_Img
             }
         }
 
-        imagecopyresampled($output_gdimg, $source_gdimg,
-                0, 0, 0, 0, $o_width, $o_height, $s_width, $s_height);
         return $output_gdimg;
     }
 
@@ -430,10 +517,11 @@ class OpenPNE_Img
         $w = $this->requests['w'];
         $h = $this->requests['h'];
         $f = $this->output_format;
+        $trim = $this->requests['trim'];
 
         $this->cache_fullpath =
                  $this->cache_dir . '/' .
-                 $this->get_cache_path($filename, $w, $h, $f);
+                 $this->get_cache_path($filename, $w, $h, $f, $trim);
     }
 
     /**
@@ -456,9 +544,13 @@ class OpenPNE_Img
     /**
      * static
      */
-    function get_cache_path($filename, $w, $h, $f)
+    function get_cache_path($filename, $w, $h, $f, $trim = '')
     {
         $prefix = OPENPNE_IMG_CACHE_PREFIX;
+
+        if ($trim) {
+            $prefix .= 'trim_';
+        }
 
         if (!$w) $w = '';
         if (!$h) $h = '';
@@ -467,6 +559,7 @@ class OpenPNE_Img
         $path = "{$f}/w{$w}_h{$h}/{$prefix}{$file}";
         return $path;
     }
+
 }
 
 ?>

@@ -10,7 +10,7 @@
 ({/if})({/strip})
 <li id="diary({$item.c_diary_id})" class="commentList diaryList">
 <a class="listItemLink" href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})" id="diary({$item.c_diary_id})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_smart_url filename=$author_image w=48 h=48 noimg=no_image thumbnail=fitCrop})" alt="プロフィール写真"></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$author_image w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title" id="diary({$item.c_diary_id})Title">({$item.subject})</div>
 ({strip})<div class="authorData">
