@@ -8,18 +8,44 @@ function image_cache_delete($image_filename)
 {
     $cache_dir = OPENPNE_IMG_CACHE_DIR;
     $cache_filename = OPENPNE_IMG_CACHE_PREFIX . str_replace('.', '_', $image_filename);
+    /* OpenPNE2 スマートフォン対応：ここから */
+    $cache_trim_filename = array(
+        OPENPNE_IMG_CACHE_PREFIX . 'square_'. str_replace('.', '_', $image_filename),
+    );
+    /* OpenPNE2 スマートフォン対応：ここまで */
 
     foreach ((array)glob($cache_dir.'/jpg/w*_h*', GLOB_ONLYDIR) as $dir) {
         $path = $dir . '/' . $cache_filename . '.jpg';
         if (file_exists($path)) unlink($path);
+
+        /* OpenPNE2 スマートフォン対応：ここから */
+        foreach ((array)$cache_trim_filename as $file) {
+            $path = $dir . '/' . $file . '.jpg';
+            if (file_exists($path)) unlink($path);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
     foreach ((array)glob($cache_dir.'/gif/w*_h*', GLOB_ONLYDIR) as $dir) {
         $path = $dir . '/' . $cache_filename . '.gif';
         if (file_exists($path)) unlink($path);
+
+        /* OpenPNE2 スマートフォン対応：ここから */
+        foreach ((array)$cache_trim_filename as $file) {
+            $path = $dir . '/' . $file . '.gif';
+            if (file_exists($path)) unlink($path);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
     foreach ((array)glob($cache_dir.'/png/w*_h*', GLOB_ONLYDIR) as $dir) {
         $path = $dir . '/' . $cache_filename . '.png';
         if (file_exists($path)) unlink($path);
+
+        /* OpenPNE2 スマートフォン対応：ここから */
+        foreach ((array)$cache_trim_filename as $file) {
+            $path = $dir . '/' . $file . '.png';
+            if (file_exists($path)) unlink($path);
+        }
+        /* OpenPNE2 スマートフォン対応：ここまで */
     }
 }
 
