@@ -27,7 +27,7 @@
 </div>
 <div class="link">
 ({if $is_h_prof})
-<a href="({t_url m=pc a=page_h_config_image})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">写真を編集</a>
+<a href="({t_url m=pc a=page_h_config_image})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">写真を編集</a>
 ({else})
 <a href="({t_url m=pc a=page_f_show_image})&amp;target_c_member_id=({$target_c_member.c_member_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">写真を見る</a>
 ({/if})
