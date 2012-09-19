@@ -5,7 +5,7 @@
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="community({$c_commu.c_commu_id})PhotoBox">
 <div class="photo76">
-<img class="memberPhoto" src="({t_img_url filename=$c_commu.image_filename w=76 h=76 noimg=no_logo})" alt="({$WORD_COMMUNITY})写真">
+<img class="memberPhoto" src="({t_img_url filename=$c_commu.image_filename w=76 h=76 noimg=no_logo trim=square})" alt="({$WORD_COMMUNITY})写真">
 </div>
 <div class="itemData">
 <div class="title authorData" id="community({$c_commu.c_commu_id})Name">({$c_commu.name})</div>

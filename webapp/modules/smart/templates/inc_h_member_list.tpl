@@ -1,6 +1,6 @@
 <li id="member({$item.c_member_id})" class="commentList">
 <a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" id="memberLink({$item.c_member_id})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title authorData" id="member({$item.c_member_id})Name">({$item.nickname})</div>
 <div class="itemBody">({$item.profile.self_intro.value})</div>

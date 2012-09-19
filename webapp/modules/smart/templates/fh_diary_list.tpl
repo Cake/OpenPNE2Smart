@@ -3,7 +3,7 @@
 <div class="menu-content" data-role="content">({* {{{ content *})
 
 <section class="authorBar" id="diaryAuthor">
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt="プロフィール写真"></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$target_member.c_member_id})"><img src="({t_img_url filename=$target_member.image_filename w=48 h=48 noimg=no_image trim=square})" class="memberPhoto" alt="プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title">
 <h2><span>({$target_member.nickname})({if $type == "f"})さん({/if})の({$WORD_DIARY})({if !$all})({if !$category}) ({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})({/if})({$category_name})({/if})</span> <span class="pagerRelative">全({$total_num})件</span></h2>

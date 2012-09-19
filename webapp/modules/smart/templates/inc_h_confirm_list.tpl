@@ -18,7 +18,7 @@
 <li class="commentList"><div>
 ({if $item.c_commu_id})<div class="communityInfo">({$WORD_COMMUNITY}) : <a href="({t_url m=pc a=page_c_home})&amp;target_c_commu_id=({$item.c_commu_id})">({$item.c_commu_name})</a></div>({/if})
 
-<div class="photo48 communityRequest"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_member_id})" class="listItemLink"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></a></div>
+<div class="photo48 communityRequest"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_member_id})" class="listItemLink"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></a></div>
 
 <div class="itemData">
 <div class="title authorData" id="member({$c_member_id})Name"><a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_member_id})">({$item.nickname})</a></div>

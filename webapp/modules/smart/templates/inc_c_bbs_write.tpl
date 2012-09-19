@@ -1,5 +1,5 @@
 <li id="topicWrite({$item.c_commu_topic_comment_id})" class="commentList">
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></a></div>
 <div class="itemData">
 ({strip})<div class="authorData">
 ({$item.number}):({if $item.nickname})<span class="authorName"><a id="comment-({$item.number})-member" title="({$item.nickname})" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname})</a></span>({/if})

@@ -7,7 +7,7 @@
 <h3>メッセージの詳細</h3>
 <div class="authorBar" id="message({$c_message.c_message_id})Author">
 <div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({if $c_message.is_received})({$c_message.c_member_id_from})({else})({$c_message.c_member_id_to})({/if})">
-<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image})" alt="プロフィール写真"></a></div>
+<img src="({t_img_url filename=$c_message.image_filename_disp w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title">
 <h2>({$c_message.subject})</h2>

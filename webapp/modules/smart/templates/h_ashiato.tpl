@@ -9,7 +9,7 @@
 <ul id="ashiatoList({$u})" class="pictureIconList" data-role="listview" data-inset="false">
 ({foreach from=$c_ashiato_list item=item})
 <li class="commentList ashiatoList"><a class="listItemLink" href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})"><section class="authorBar">
-<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image})" alt="プロフィール写真"></div>
+<div class="photo48"><img class="ui-li-thumb memberPhoto" src="({t_img_url filename=$item.image_filename w=48 h=48 noimg=no_image trim=square})" alt="プロフィール写真"></div>
 <div class="itemData">
 <div class="title authorData">({$item.nickname})</div>
 <div class="commentListFooter">

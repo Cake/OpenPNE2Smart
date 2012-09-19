@@ -20,7 +20,7 @@
 ({* {{{ topicDetailBox *})
 <section class="topicDetailBox" id="event({$c_topic.c_topic_id})DetailBox">
 <div class="authorBar" id="event({$c_topic.c_topic_id})Author">
-<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image})" class="memberPhoto" alt="イベント({$c_topic.c_topic_id})作成者プロフィール写真"></a></div>
+<div class="photo48"><a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_topic.c_member_id})"><img src="({t_img_url filename=$c_topic.image_filename w=48 h=48 noimg=no_image trim=square})" class="memberPhoto" alt="イベント({$c_topic.c_topic_id})作成者プロフィール写真"></a></div>
 <div class="itemData">
 <div class="title"><h2>({$c_topic.name})</h2></div>
 </div>

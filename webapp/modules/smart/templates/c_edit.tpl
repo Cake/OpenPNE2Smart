@@ -54,7 +54,7 @@
 <div data-role="fieldcontain">
 <label for="image_filename">写真</label>
 ({if $c_commu.image_filename})
-<img src="({t_img_url filename=$c_commu.image_filename w=120 h=120})" class="memberPhoto"><br>
+<img src="({t_img_url filename=$c_commu.image_filename w=120 h=120 trim=square})" class="memberPhoto"><br>
 <a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_edit_image_delete_c_commu_image})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_edit})&amp;target_c_commu_id=({$c_commu.c_commu_id})', 'deleteCommunity({$c_commu.c_commu_id})ImageConfirm'); openDialog('deleteCommunity({$c_commu.c_commu_id})ImageConfirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 ({/if})
 ({if ($is_apple)})
