@@ -103,6 +103,10 @@ class pc_page_c_topic_detail extends OpenPNE_Action
         $this->set('allowed_extensions', util_get_file_allowed_extensions('string'));
 
         /* OpenPNE2 スマートフォン対応：ここから */
+        // 次/前のトピック
+        $this->set('c_topic_id_prev', db_commu_c_topic_id_prev4c_commu_topic($c_topic));
+        $this->set('c_topic_id_next', db_commu_c_topic_id_next4c_commu_topic($c_topic));
+
         // メール投稿
         $smartPhone = new OpenPNE_SmartPhoneUA();
 

@@ -1400,6 +1400,33 @@ function db_commu_c_topic_list4target_c_commu_id($c_commu_id, $c_member_id, $pag
     return array($lst, $prev, $next, $total_num, $start_num, $end_num);
 }
 
+/* OpenPNE2 スマートフォン対応：ここから */
+/**
+ * 指定したトピック/イベントの前のトピック/イベントIDを取得する
+ * u_datetime順
+ */
+function db_commu_c_topic_id_prev4c_commu_topic($c_commu_topic)
+{
+    $sql = 'SELECT c_commu_topic_id FROM c_commu_topic'
+        .' WHERE c_commu_id = ? AND u_datetime < ? AND event_flag = ?'
+        .' ORDER BY u_datetime DESC';
+    return db_get_one($sql, array(intval($c_commu_topic['c_commu_id']), $c_commu_topic['u_datetime'], intval($c_commu_topic['event_flag'])));
+}
+
+/**
+ * 指定したトピック/イベントの次のトピック/イベントのIDを取得する
+ * u_datetime順
+ */
+function db_commu_c_topic_id_next4c_commu_topic($c_commu_topic)
+{
+    $sql = 'SELECT c_commu_topic_id FROM c_commu_topic'
+        .' WHERE c_commu_id = ? AND u_datetime > ? AND event_flag = ?'
+        .' ORDER BY u_datetime ASC';
+    return db_get_one($sql, array(intval($c_commu_topic['c_commu_id']), $c_commu_topic['u_datetime'], intval($c_commu_topic['event_flag'])));
+}
+/* OpenPNE2 スマートフォン対応：ここまで */
+
+
 function db_commu_c_topic4c_commu_topic_id($c_commu_topic_id)
 {
     $sql = "SELECT ct.*, ctc.*, c_member.nickname" .

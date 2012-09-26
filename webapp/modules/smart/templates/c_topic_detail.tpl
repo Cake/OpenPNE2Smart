@@ -1,3 +1,4 @@
+<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})">
 <script language="JavaScript">
 <!--
 ({if $body})
@@ -5,9 +6,31 @@ $('#topicWriteForm').ready(function(){
 	jump_to('comment_box','comment_box');
 });
 ({/if})
+
+var prevTopicId = null;
+var nextTopicId = null;
+
+// Swipe
+$('#({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})').live('pageinit',function(event){
+({if $c_topic_id_prev || $c_topic_id_next})
+({if $c_topic_id_prev})	// 前のトピック
+	prevTopicId = '({$c_topic_id_prev})';
+	$("#({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})").bind("swiperight", function(){
+		var params = setTopicIdparams(prevTopicId);
+		changePage('({t_url m=pc a=page_c_topic_detail _html=false _absolute=true})', params, true);
+	});
+({/if})
+({if $c_topic_id_next})	// 次のトピック
+	nextTopicId = '({$c_topic_id_next})';
+	$("#({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})").bind("swipeleft", function(){
+		var params = setTopicIdparams(nextTopicId);
+		changePage('({t_url m=pc a=page_c_topic_detail _html=false _absolute=true})', params, false);
+	});
+({/if})
+({/if})
+});
 //-->
 </script>
-<div class="page ({$INC_HEADER_page_name})" data-role="page" id="({$INC_HEADER_page_name})({$c_commu.c_commu_topic_id})">
 ({ext_include file="common/inc_header.tpl"})
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})

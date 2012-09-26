@@ -10,6 +10,9 @@ function readMore(element) {
 function setDiaryIdparams(diaryId) {
 	return '&target_c_diary_id='+diaryId;
 }
+function setTopicIdparams(topicId) {
+	return '&target_c_commu_topic_id='+topicId;
+}
 function changePage(url, params, direction) {
 	$.mobile.changePage(url+params,{ 
 		transition: "slide",
