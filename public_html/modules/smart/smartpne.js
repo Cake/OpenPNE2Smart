@@ -235,7 +235,7 @@ function setDialog(header, msg, id) {
 
 	// ダイアログの内容
 	var dialog_html = [
-		'<div data-role="page" id="'+id+'">',
+		'<div data-role="page" id="'+id+'" class="dynamicDialog">',
 		'<div data-role="header"><h3>'+header+'</h3></div>',
 		'<div data-role="content"><p>'+msg+'</p></div>',
 		'</div>'

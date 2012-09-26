@@ -16,8 +16,12 @@
 
 	(function(window, $, PhotoSwipe){
 		$(document).bind('mobileinit', function(){
+			// ページ移動時処理
+			//前のページの処理
 			$('.page').live('pagehide', function(event, ui){
+				 // 右上メニューを隠す
 				 menuHide();
+				 // ページャリセット
 				 page=2;
 			});
 		

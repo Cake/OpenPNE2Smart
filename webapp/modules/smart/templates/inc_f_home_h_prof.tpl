@@ -12,7 +12,7 @@
 <div class="menu-content" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
-({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="false">プロフィールを変更する</a>({/if})({/capture})
+({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="true">プロフィールを変更する</a>({/if})({/capture})
 
 ({* {{{ homePhotoBox *})<section class="homePhotoBox" id="({$id_header})PhotoBox">
 <div class="photo76">
