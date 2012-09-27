@@ -37,20 +37,17 @@ small {
 /*----------------------------------------------
  * ベースレイアウト
  *--------------------------------------------*/
-.ui-content {
-	margin-top: 42px;
-}
 .menu-content {
-	margin-top: 93px;
+	margin-top: 51px;
 }
 
 /* ヘッダー */
 div#mainHeader {
-	position: fixed;
 	top: 0px;
 	z-index: 90;
 	width: 100%; 
 	height: 40px;
+	opacity: 0.89;
 }
 div#mainHeader #headerHomeButton {
 	margin-left: 48px;
@@ -65,12 +62,13 @@ h1#pageTitle {
 /* メニュー */
 div#menu {
 	overflow: hidden;
-	position: fixed;
-	top: 42px;
+	position: absolute;
+	top: 41px;
 	width: 100%; 
 	display: none;
 	padding: 0;
 	z-index: 99;
+	font-size: 14px;
 }
 div#menu ul {
 	margin: 0;
@@ -118,21 +116,6 @@ div.topNav ul li a.ui-btn span {
 #commonPageScrollDown {
 	display: none;
 }
-/*
-#commonPageScrollUp, 
-#commonPageScrollDown {
-	opacity: 0.5;
-	position: fixed;
-	top: 50%;
-	z-index: 90;
-}
-#commonPageScrollUp {
-	left: 5px;
-}
-#commonPageScrollDown {
-	right: 5px;
-}
-*/
 
 .ui-dialog .ui-header, 
 .ui-dialog .ui-content, 

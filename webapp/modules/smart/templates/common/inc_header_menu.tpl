@@ -1,4 +1,4 @@
-({* {{{ menu *})({strip})<div id="menu">
+({* {{{ menu *})({strip})<div id="menu" class="ui-bar-d">
 <ul class="ui-grid-b">
 <li id="menuDiary" class="ui-block-a"><a href="({t_url m=pc a=page_fh_diary_list})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-diary" data-iconshadow="true" data-iconpos="bottom">({$WORD_DIARY})</a></li>
 <li id="menuCommunity" class="ui-block-b"><a href="({t_url m=pc a =page_h_com_topic_find_all})" data-role="button" data-corners="false" data-mini="false" data-icon="smart-bbs" data-iconshadow="true" data-iconpos="bottom">掲示板</a></li>
