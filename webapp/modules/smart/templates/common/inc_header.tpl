@@ -34,7 +34,6 @@
 	|| ($INC_HEADER_page_name == 'fh_diary_list' && $type == "f")
 	|| ($INC_HEADER_page_name == 'fh_friend_list' && $type == "f")
 	|| $INC_HEADER_page_name == 'fh_friend_list_delete_c_friend_confilm'
-	|| $INC_HEADER_page_name == 'h_prof'
 })({ext_include file="common/inc_header_nav_friend.tpl"})({/if})
 ({if 
 	$INC_HEADER_page_name == 'c_home'

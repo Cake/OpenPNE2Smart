@@ -9,7 +9,7 @@
 </script>
 <div class="page inc_f_home_h_prof" data-role="page" id="({$INC_HEADER_page_name})({$target_c_member_id})">
 ({ext_include file="common/inc_header.tpl"})
-<div class="menu-content" data-role="content">({* {{{ content *})
+<div class="({if !$is_h_prof})menu-content({else})content({/if})" data-role="content">({* {{{ content *})
 ({ext_include file="common/inc_msg.tpl"})
 
 ({capture name=change_prof})({if $is_h_prof})<a href="({t_url m=pc a=page_h_config_prof})" data-role="button" data-inline="false" data-mini="true" data-ajax="true">プロフィールを変更する</a>({/if})({/capture})
