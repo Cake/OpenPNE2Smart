@@ -1,7 +1,15 @@
 <?php
+/**
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
+ */
+
 /* 
-  * コメント履歴をJSON形式で出力
-  * View出力なし */
+ * コメント履歴をJSON形式で出力
+ * View出力なし
+ */
 require_once OPENPNE_WEBAPP_DIR. '/lib/util/json.php';
 
 class pc_page_h_diary_comment_list_ajax extends OpenPNE_Action

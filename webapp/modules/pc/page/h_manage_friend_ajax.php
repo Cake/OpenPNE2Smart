@@ -1,7 +1,16 @@
 <?php
+/**
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
+ */
+
 /* 
-  * ƒ}ƒCƒtƒŒŠÇ—‚ğJSONŒ`®‚Åo—Í
-  * Viewo—Í‚È‚µ */
+ * ãƒã‚¤ãƒ•ãƒ¬ç®¡ç†ã‚’JSONå½¢å¼ã§å‡ºåŠ›
+ * Viewå‡ºåŠ›ãªã—
+ */
+
 require_once OPENPNE_WEBAPP_DIR. '/lib/util/json.php';
 
 class pc_page_h_manage_friend_ajax extends OpenPNE_Action
@@ -25,7 +34,7 @@ class pc_page_h_manage_friend_ajax extends OpenPNE_Action
             $pager['end'] = $total_num;
         }
 
-	// ƒeƒ“ƒvƒŒ[ƒgo—Í
+	// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆå‡ºåŠ›
 	$arr = array(
         	'list' => $c_friend_list,
         	'page' => $page,
@@ -35,7 +44,7 @@ class pc_page_h_manage_friend_ajax extends OpenPNE_Action
 
         $data = openpne_display_ajax($arr, 'h_manage_friend_ajax');
 
-	// JSONo—Í
+	// JSONå‡ºåŠ›
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

@@ -1,7 +1,20 @@
 <?php
+/**
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
+ */
+
+/**
+ * @copyright 2005-2008 OpenPNE Project
+ * @license   http://www.php.net/license/3_01.txt PHP License 3.01
+ */
+
 /* 
-  * お気に入り一覧をJSON形式で出力
-  * View出力なし */
+ * お気に入り一覧をJSON形式で出力
+ * View出力なし
+ */
 require_once OPENPNE_WEBAPP_DIR. '/lib/util/json.php';
 
 class pc_page_h_search_result_ajax extends OpenPNE_Action

@@ -1,5 +1,11 @@
 <?php
-/* OpenPNE2 スマートフォン対応 */
+/**
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
+ */
+
 /* 
  * PEAR::JSON
  */

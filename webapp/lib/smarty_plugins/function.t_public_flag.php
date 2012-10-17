@@ -1,9 +1,10 @@
 <?php
 /**
- * @copyright 2005-2008 OpenPNE Project
- * @license   http://www.php.net/license/3_01.txt PHP License 3.01
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
  */
-/* OpenPNE2 スマートフォン対応 */
 
 function smarty_function_t_public_flag($params, &$smarty)
 {

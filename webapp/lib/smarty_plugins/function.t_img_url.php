@@ -3,8 +3,11 @@
  * @copyright 2005-2008 OpenPNE Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
-/* 
- * OpenPNE2 スマートフォン対応
+/**
+ * OpenPNE2 for SmartPhone
+ * @copyright 2012 OpenPNE2 SmartPhone Project
+ * @author K.Kudoh
+ * @license http://www.php.net/license/3_01.txt PHP License 3.01
  * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
  */
 
@@ -53,7 +56,9 @@ function smarty_function_t_img_url($params, &$smarty)
                 break;
             }
         }
+    /* OpenPNE2 スマートフォン対応：ここから */
         $path = OpenPNE_Img::get_cache_path($p['filename'], $p['w'], $p['h'], $p['f'], $p['trim']);
+    /* OpenPNE2 スマートフォン対応：ここまで */
         $url .= 'img/' . $path;
     }
 
@@ -96,6 +101,7 @@ function _smarty_function_t_img_url($params)
         case 'gif':
         case 'png':
             $result['f'] = $params['f'];
+    /* OpenPNE2 スマートフォン対応：ここから */
             break;
         }
     }
@@ -104,6 +110,7 @@ function _smarty_function_t_img_url($params)
         switch ($params['trim']) {
         case 'square':
             $result['trim'] = $params['trim'];
+    /* OpenPNE2 スマートフォン対応：ここまで */
             break;
         }
     }
