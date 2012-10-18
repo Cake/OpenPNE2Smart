@@ -1,11 +1,15 @@
 <?php
 /**
+ * OpenPNE2 for Smart Phone
+ * @copyright 2012 OpenPNE2 Smart Phone Project
+ * @author    Cake
+ * @url       http://cake.github.com/OpenPNE2/
+ * @version   version beta
+ * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
+ */
+/**
  * @copyright 2005-2008 OpenPNE Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
- */
-/* 
- * OpenPNE2 スマートフォン対応
- * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
  */
 
 class OpenPNE_Img_ImageMagick extends OpenPNE_Img

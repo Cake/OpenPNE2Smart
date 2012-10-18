@@ -1,9 +1,11 @@
 <?php
 /**
- * OpenPNE2 for SmartPhone
- * @copyright 2012 OpenPNE2 SmartPhone Project
- * @author K.Kudoh
- * @license http://www.php.net/license/3_01.txt PHP License 3.01
+ * OpenPNE2 for Smart Phone
+ * @copyright 2012 OpenPNE2 Smart Phone Project
+ * @author    Cake
+ * @url       http://cake.github.com/OpenPNE2/
+ * @version   version beta
+ * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  *
  * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
  */
