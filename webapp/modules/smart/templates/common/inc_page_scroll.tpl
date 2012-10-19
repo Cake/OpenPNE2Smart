@@ -1,2 +1,0 @@
-({* Go Top *})<span><a id="commonPageScrollUp" title="Top" data-iconshadow="true" data-shadow="false" data-corners="true" href="javascript:void(0);" data-role="button" data-icon="arrow-u" data-iconpos="notext" onclick="go_top();return false;">Up</a></span>
-({* Go Bottom *})<span><a id="commonPageScrollDown" title="Bottom" data-iconshadow="true" data-shadow="false" data-corners="true" href="javascript:void(0);" data-role="button" data-icon="arrow-d" data-iconpos="notext" onclick="jump_to('Footer', '');return false;">Down</a></span>
