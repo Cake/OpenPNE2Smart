@@ -1,0 +1,13 @@
+【iphoneのメールアドレスドメインの変更バッチ実行方法】
+ＳＮＳのアップデートは、事前にＳＮＳをメンテナンスモードにして運用を停止し、データベースをバックアップしてリストア可能な状態にしてから実行してください。
+
+config.phpを設定して、ウェブブラウザからＳＮＳ管理画面でメンバー一覧が正常に表示される状態になっている事を確認してください。
+i.softbank.jpドメインのアドレスが、PCアドレスに登録されているメンバーを確認してください。
+
+同梱の、bin/tool_update_smartphone_maildomain2ktai_address.php を実行してください。
+
+[実行例]
+$php bin/tool_update_smartphone_maildomain2ktai_address.php
+
+ＳＮＳ管理画面のメンバー一覧で、i.softbank.jpドメインのアドレスが携帯アドレスに変更されている事を確認してください。
+
