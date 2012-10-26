@@ -176,3 +176,16 @@
 </div>({* {{{ content *})
 ({ext_include file="common/inc_footer.tpl"})
 </div>({* page }}} *})
+
+({* {{{ PC版表示ダイアログ  *})
+<div data-role="page" id="changePCViewDialog">
+<div data-role="header"><h3>表示をPC版に切り替えます</h3></div>
+<div data-role="content">
+<p>戻す場合は、ホーム画面下の「スマートフォン版」から切り替え可能です</p>
+<ul class="ui-grid-a">
+<li class="ui-block-a"><a href="({t_url m=pc a=do_o_set_view})&amp;value=pc" data-role="button" data-ajax="false">はい</a></li>
+<li class="ui-block-b"><a href="#" data-role="button" rel="back" onclick="$('.ui-dialog').dialog('close')" data-ajax="true">いいえ</a></li>
+</ul>
+</div>
+</div>
+({* PC版表示ダイアログ }}}  *})

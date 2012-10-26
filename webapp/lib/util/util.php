@@ -1173,6 +1173,41 @@ function util_check_is_shorten($str, $width = 40, $max_lines = 3)
         return false;
     }
 }
+
+/**
+ * スマートフォンでPCテンプレート表示クッキーをセットする
+ */
+function set_cookie_pc_view()
+{
+    $expire = time() + intval($GLOBALS['_OPENPNE_SMART_PCVIEW_COOKIE']['settings']['expire']);
+
+    // cookie_path を OPENPNE_URLから抜き出す
+    $url = parse_url(OPENPNE_URL);
+    if (substr($url['path'], -1) != '/') {
+        $url['path'] .= '/';
+    }
+    $cookie_path = $url['path'];
+
+    setcookie($GLOBALS['_OPENPNE_SMART_PCVIEW_COOKIE']['settings']['cookie_name'], 'pc', $expire, $cookie_path);
+}
+
+/**
+ * スマートフォンでPCテンプレート表示クッキーを削除する
+ */
+function delete_cookie_pc_view()
+{
+    $expire = time() - 3600;
+
+    // cookie_path を OPENPNE_URLから抜き出す
+    $url = parse_url(OPENPNE_URL);
+    if (substr($url['path'], -1) != '/') {
+        $url['path'] .= '/';
+    }
+    $cookie_path = $url['path'];
+
+    setcookie($GLOBALS['_OPENPNE_SMART_PCVIEW_COOKIE']['settings']['cookie_name'], '', $expire, $cookie_path);
+}
+
 /* OpenPNE2 スマートフォン対応：ここまで */
 
 ?>

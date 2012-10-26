@@ -180,6 +180,15 @@ $GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
 		'smart-camera' => './skin/default/img/icon_camera.gif',
 	), 
 );
+
+// スマートフォンでPC版表示のクッキー設定
+$GLOBALS['_OPENPNE_SMART_PCVIEW_COOKIE'] = array(
+    'settings' => array(
+        'cookie_name' => 'openpne2_smartview',
+        'expire' => 2592000 * 12,  // 20days * 12
+    ), 
+);
+
 /* OpenPNE2 スマートフォン対応：ここまで追加 */
 
 ?>

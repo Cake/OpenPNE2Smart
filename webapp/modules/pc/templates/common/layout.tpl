@@ -10,6 +10,18 @@
 ({t_url_style})
 <script type="text/javascript" src="./js/Selection.js?r7140"></script>
 <script type="text/javascript" src="./js/pne.js"></script>
+({* OpenPNE2 スマートフォン対応:ここから *})
+<script language="JavaScript">
+<!--
+function confirmSmartphoneView(){
+	var confirm=window.confirm("表示をスマートフォン版に切り替えます。\n戻す場合は、ホーム画面下の「PC版」から切り替え可能です。\nよろしいですか？");
+	if (confirm==true){
+		location.href="({t_url m=pc a=do_o_set_view _html=false})";
+	}
+}
+//-->
+</script>
+({* OpenPNE2 スマートフォン対応:ここまで *})
 </head>
 <body id="pc_page_({$INC_HEADER_page_name})"><div id="Body">
 ({if $INC_HEADER_inc_page_top2})({$INC_HEADER_inc_page_top2|smarty:nodefaults})({/if})
@@ -89,7 +101,14 @@
 
 ({if !$INC_FOOTER_is_login})
 <div id="Footer">
-<p>({$INC_FOOTER_inc_page_footer|smarty:nodefaults})</p>
+({* OpenPNE2 スマートフォン対応:ここから *})
+<p>
+({$INC_FOOTER_inc_page_footer|smarty:nodefaults})
+({if $INC_HEADER_page_name == 'h_home' && $is_smart})
+<a title="スマートフォン版" href="javascript:void(0);" onclick="confirmSmartphoneView();">スマートフォン版</a>
+({/if})
+</p>
+({* OpenPNE2 スマートフォン対応:ここまで *})
 </div>
 ({/if})
 

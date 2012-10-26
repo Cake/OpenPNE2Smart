@@ -163,6 +163,11 @@ class pc_page_h_home extends OpenPNE_Action
         // API用セッションID
         $this->set('api_session_id', get_api_sessionid($u));
 
+        /* OpenPNE2 スマートフォン対応：ここから */
+        $smartPhone = new OpenPNE_SmartPhoneUA();
+        $this->set('is_smart', $smartPhone->is_smart);
+        /* OpenPNE2 スマートフォン対応：ここまで */
+
         // アクセス日時を記録
         db_member_do_access($u);
 

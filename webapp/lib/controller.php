@@ -164,8 +164,10 @@ function openpne_forward($module, $type = '', $action = '', $errors = array())
 
         /* OpenPNE2 スマートフォン対応：ここから追加 */
         // スマートフォン用テンプレートセット
+        // PC版設定があるときを除く
         $smartPhone = new OpenPNE_SmartPhoneUA();
-        if ($module == 'pc' && $smartPhone->is_smart) {
+        $pcview_cookie = $_COOKIE[$GLOBALS['_OPENPNE_SMART_PCVIEW_COOKIE']['settings']['cookie_name']];
+        if ($module == 'pc' && $smartPhone->is_smart && $pcview_cookie != 'pc') {
             // スマホ対応テンプレートがあるアクションのみ
             if ($smarty->ext_search("smart/templates/{$action}.tpl", $place)) {
                 $smarty->templates_dir = 'smart' . '/templates';
