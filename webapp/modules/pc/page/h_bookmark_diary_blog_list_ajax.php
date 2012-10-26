@@ -36,15 +36,15 @@ class pc_page_h_bookmark_diary_blog_list_ajax extends OpenPNE_Action
 
         $lst = db_bookmark_diary_list_with_pager($u, $page_size, $page);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $lst[0],
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $lst[0],
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_bookmark_diary_blog_list_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

@@ -64,26 +64,26 @@ class pc_page_fh_diary_list_ajax extends OpenPNE_Action
             }
         }
 
-	// テンプレート出力
-	$arr = array(
-        	'type' => $type,
-        	'list' => $list_set[0],
-        	'target_member' => $target_member,
-        	'page' => $page,
-        	'page_size' => $page_size,
-        	'is_prev' => $list_set[1],
-        	'is_next' => $list_set[2],
-        	'total_num' => $list_set[3],
-        	'diary_list_count' => count($list_set[0]),
-        	'keyword' => $keyword,
-        	'url_keyword' => urlencode($keyword),
-        	'is_writable_comment' => db_diary_is_writable_comment4c_diary_id($target_c_diary_id),
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'type' => $type,
+            'list' => $list_set[0],
+            'target_member' => $target_member,
+            'page' => $page,
+            'page_size' => $page_size,
+            'is_prev' => $list_set[1],
+            'is_next' => $list_set[2],
+            'total_num' => $list_set[3],
+            'diary_list_count' => count($list_set[0]),
+            'keyword' => $keyword,
+            'url_keyword' => urlencode($keyword),
+            'is_writable_comment' => db_diary_is_writable_comment4c_diary_id($target_c_diary_id),
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'fh_diary_list_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

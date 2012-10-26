@@ -85,17 +85,17 @@ class pc_page_h_message_box_ajax extends OpenPNE_Action
             break;
         }
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result,
-        	'box' => $box,
-        	'target_c_member_id' => $target_c_member_id,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $result,
+            'box' => $box,
+            'target_c_member_id' => $target_c_member_id,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_message_box_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

@@ -57,23 +57,23 @@ class pc_page_c_com_topic_find_ajax extends OpenPNE_Action
             'type' => $type,
         );
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result,
-        	'is_prev' => $is_prev,
-        	'is_next' => $is_next,
-        	'total_num' => $total_num,
-        	'search_val_list' => $search_val_list,
-        	'c_commu_id' => $c_commu_id,
-        	'page' => $page,
-        	'page_size' => $page_size,
-        	'keyword' => $keyword,
+           // テンプレート出力
+        $arr = array(
+            'list' => $result,
+            'is_prev' => $is_prev,
+            'is_next' => $is_next,
+            'total_num' => $total_num,
+            'search_val_list' => $search_val_list,
+            'c_commu_id' => $c_commu_id,
+            'page' => $page,
+            'page_size' => $page_size,
+            'keyword' => $keyword,
                 'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'c_com_topic_find_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

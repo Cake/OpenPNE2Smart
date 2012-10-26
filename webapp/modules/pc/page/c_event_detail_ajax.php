@@ -67,21 +67,21 @@ class pc_page_c_event_detail_ajax extends OpenPNE_Action
             /* OpenPNE2 スマートフォン対応：ここまで */
         }
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $c_topic_write,
-        	'page' => $page,
-        	'pager' => $pager,
-        	'total_num' => $pager["total_num"],
-        	'is_c_commu_member' => db_commu_is_c_commu_member($c_commu_id, $u),
-        	'c_member_id' => $u,
-        	'is_writable_comment' => db_commu_is_writable_c_commu_topic_comment4c_commu_topic_id($c_commu_topic_id),
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $c_topic_write,
+            'page' => $page,
+            'pager' => $pager,
+            'total_num' => $pager["total_num"],
+            'is_c_commu_member' => db_commu_is_c_commu_member($c_commu_id, $u),
+            'c_member_id' => $u,
+            'is_writable_comment' => db_commu_is_writable_c_commu_topic_comment4c_commu_topic_id($c_commu_topic_id),
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'c_topic_write_list_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

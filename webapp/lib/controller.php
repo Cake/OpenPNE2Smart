@@ -430,9 +430,9 @@ function openpne_display_ajax($data = array(), $action = null)
         $smarty->templates_dir = 'smart' . '/templates';
 
 //        send_nocache_headers();
-	foreach ((array)$data as $key => $item) {
-	        $smarty->assign($key, $item);
-	}
+    foreach ((array)$data as $key => $item) {
+            $smarty->assign($key, $item);
+    }
 
         $smarty->load_filter('output', 'pne_display_emoji');
         $smarty->register_outputfilter('smarty_outputfilter_pne_display_emoji');

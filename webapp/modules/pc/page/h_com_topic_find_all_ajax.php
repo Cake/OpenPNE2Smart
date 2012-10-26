@@ -37,21 +37,21 @@ class pc_page_h_com_topic_find_all_ajax extends OpenPNE_Action
         list($result, $is_prev, $is_next, $total_num, $start_num, $end_num)
          = db_commu_search_c_commu_topic($keyword, $page_size, $page, $type);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result,
-        	'is_prev' => $is_prev,
-        	'is_next' => $is_next,
-        	'total_num' => $total_num,
-        	'page' => $page,
-        	'page_size' => $page_size,
-        	'keyword' => $keyword,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $result,
+            'is_prev' => $is_prev,
+            'is_next' => $is_next,
+            'total_num' => $total_num,
+            'page' => $page,
+            'page_size' => $page_size,
+            'keyword' => $keyword,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_com_topic_find_all_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

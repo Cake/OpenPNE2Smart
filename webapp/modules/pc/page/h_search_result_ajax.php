@@ -53,15 +53,15 @@ class pc_page_h_search_result_ajax extends OpenPNE_Action
 
         $result = db_member_search($cond, $cond_like, $limit, $page, $u, $profiles);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result[0],
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $result[0],
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_search_result_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

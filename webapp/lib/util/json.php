@@ -20,18 +20,18 @@ require_once 'JSON.php';
  * @return JSON
  */
 function array2json($data) {
-	if (!is_array($data)) {
-		$data = array();
-	}
+    if (!is_array($data)) {
+        $data = array();
+    }
 
-	// UTF-8コンバート
-	array_walk_recursive($data,  'convert2utf8');
+    // UTF-8コンバート
+    array_walk_recursive($data,  'convert2utf8');
 
-	$json = new Services_JSON();
-	return $json->encode($data);
+    $json = new Services_JSON();
+    return $json->encode($data);
 }
 function convert2utf8(&$val) {
-	$val = mb_convert_encoding($val, 'utf-8', mb_internal_encoding());
+    $val = mb_convert_encoding($val, 'utf-8', mb_internal_encoding());
 }
 
 ?>

@@ -47,23 +47,23 @@ class pc_page_h_diary_list_all_ajax extends OpenPNE_Action
                                  'c_commu_search_list_count'=>$result[3]);
 
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result[0],
-        	'is_prev' => $result[1],
-        	'is_next' => $result[2],
+        // テンプレート出力
+        $arr = array(
+            'list' => $result[0],
+            'is_prev' => $result[1],
+            'is_next' => $result[2],
         //検索に一致したコミュニティ数
-        	'c_diary_search_list_count' => $result[3],
-        	'page' => $page,
-        	'pager' => $pager,
-        	'page_size' => $page_size,
-        	'keyword' => $keyword,
-                'requests' => $requests,
+            'c_diary_search_list_count' => $result[3],
+            'page' => $page,
+            'pager' => $pager,
+            'page_size' => $page_size,
+            'keyword' => $keyword,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_diary_list_all_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

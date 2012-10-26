@@ -37,21 +37,21 @@ class pc_page_h_diary_list_friend_ajax extends OpenPNE_Action
         }
         $this->set('pager', $pager);
 
-	// テンプレート出力
-	$arr = array(
-        	'page_size' => $page_size,
-        	'list' => $lst[0],
-        	'is_prev' => $lst[1],
-        	'is_next' => $lst[2],
-        	'total_num' => $lst[3],
-        	'page' => $page,
-        	'pager' => $pager,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'page_size' => $page_size,
+            'list' => $lst[0],
+            'is_prev' => $lst[1],
+            'is_next' => $lst[2],
+            'total_num' => $lst[3],
+            'page' => $page,
+            'pager' => $pager,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_diary_list_friend_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

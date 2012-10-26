@@ -36,17 +36,17 @@ class pc_page_h_manage_friend_ajax extends OpenPNE_Action
             $pager['end'] = $total_num;
         }
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $c_friend_list,
-        	'page' => $page,
-        	'pager' => $pager,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $c_friend_list,
+            'page' => $page,
+            'pager' => $pager,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_manage_friend_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

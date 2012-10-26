@@ -35,20 +35,20 @@ class pc_page_h_com_find_all_ajax extends OpenPNE_Action
                 $val_order,
                 $category_id);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $result,
-        	'is_prev' => $is_prev,
-        	'is_next' => $is_next,
-        	'total_num' => $total_num,
-        	'page' => $page,
-        	'page_size' => $page_size,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $result,
+            'is_prev' => $is_prev,
+            'is_next' => $is_next,
+            'total_num' => $total_num,
+            'page' => $page,
+            'page_size' => $page_size,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_com_find_all_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

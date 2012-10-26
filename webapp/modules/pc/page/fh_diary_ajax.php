@@ -83,18 +83,18 @@ class pc_page_fh_diary_ajax extends OpenPNE_Action
             }
         }
 
-	// テンプレート出力
+        // テンプレート出力
         $data = openpne_display_ajax(array(
-        	'target_diary' => $target_c_diary,
-        	'c_diary_comment_list' => $c_diary_comment_list,
-                'type' => $type,
-        	'is_writable_comment' => db_diary_is_writable_comment4c_diary_id($target_c_diary_id),
-        	'is_comment_input' => $target_c_diary['is_comment_input'],
-                'requests' => $requests,
-        ), 
+            'target_diary' => $target_c_diary,
+            'c_diary_comment_list' => $c_diary_comment_list,
+            'type' => $type,
+            'is_writable_comment' => db_diary_is_writable_comment4c_diary_id($target_c_diary_id),
+            'is_comment_input' => $target_c_diary['is_comment_input'],
+            'requests' => $requests,
+        ),
         'fh_diary_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '',
                 'comment_list' => $data,
         );

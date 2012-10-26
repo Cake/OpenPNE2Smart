@@ -29,20 +29,20 @@ class pc_page_h_bookmark_list_ajax extends OpenPNE_Action
 
         $list = db_bookmark_list($u, $page, $page_size);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $list[0],
-        	'c_members' => $list[0],
-        	'page' => $page,
-        	'page_size' => $page_size,
-        	'is_prev' => $list[1],
-        	'is_next' => $list[2],
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $list[0],
+            'c_members' => $list[0],
+            'page' => $page,
+            'page_size' => $page_size,
+            'is_prev' => $list[1],
+            'is_next' => $list[2],
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_bookmark_list_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

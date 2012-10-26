@@ -25,17 +25,17 @@ class pc_page_h_manage_commu_ajax extends OpenPNE_Action
 
         list($c_commu_list, $pager) = db_commu_c_commu_list4c_member_id($u, $page, $size);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $c_commu_list,
-        	'page' => $page,
-        	'pager' => $pager,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $c_commu_list,
+            'page' => $page,
+            'pager' => $pager,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'h_manage_commu_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

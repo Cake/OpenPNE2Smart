@@ -39,18 +39,18 @@ class pc_page_c_edit_member_ajax extends OpenPNE_Action
         //コミュニティメンバーリスト
         $list = db_commu_c_member_list4c_commu_id($target_c_commu_id, $page_size, $page);
 
-	// テンプレート出力
-	$arr = array(
-        	'list' => $list[0],
-        	'c_commu' => db_commu_c_commu4c_commu_id($target_c_commu_id),
-        	'page' => $page,
-        	'page_size' => $page_size,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'list' => $list[0],
+            'c_commu' => db_commu_c_commu4c_commu_id($target_c_commu_id),
+            'page' => $page,
+            'page_size' => $page_size,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'c_edit_member_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );

@@ -48,24 +48,24 @@ class pc_page_c_event_list_ajax extends OpenPNE_Action
         }
         //---
 
-	// テンプレート出力
-	$arr = array(
-        	'c_commu' => $c_commu,
-        	'c_topic' => $c_topic,
-        	'list' => $result,
-        	'is_next' => $is_next,
-        	'page' => $page,
-        	'page_size' => $page_size,
-        	'total_num' => $total_num,
-        	'is_warning' => $is_warning,
-        	'is_c_commu_admin' => db_commu_is_c_commu_admin($c_commu_id, $u),
-        	'is_c_commu_member' => $is_c_commu_member,
-                'requests' => $requests,
+        // テンプレート出力
+        $arr = array(
+            'c_commu' => $c_commu,
+            'c_topic' => $c_topic,
+            'list' => $result,
+            'is_next' => $is_next,
+            'page' => $page,
+            'page_size' => $page_size,
+            'total_num' => $total_num,
+            'is_warning' => $is_warning,
+            'is_c_commu_admin' => db_commu_is_c_commu_admin($c_commu_id, $u),
+            'is_c_commu_member' => $is_c_commu_member,
+            'requests' => $requests,
         );
 
         $data = openpne_display_ajax($arr, 'c_event_list_ajax');
 
-	// JSON出力
+        // JSON出力
         $data = array('msg' => '', 
                 'comment_list' => $data,
         );
