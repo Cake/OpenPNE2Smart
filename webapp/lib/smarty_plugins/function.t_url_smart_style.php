@@ -15,6 +15,8 @@ function smarty_function_t_url_smart_style($params, &$smarty)
 
     $hash = md5(OPENPNE_VERSION . OPENPNE_SKIN_THEME . serialize($decoration_config) . serialize($skin_filename_list));
 
+    $hash .= 'verb';
+
     $result = <<<EOD
 <script type="text/javascript" src="./modules/smart/smartpne.js"></script>
 <script type="text/javascript" src="./js/pne.js"></script>

@@ -167,18 +167,18 @@ $GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'] = array(
 
 // アイコン
 $GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
-	'settings' => array(
-		'smart-home' => './modules/smart/icons/190-bank.png',
-		'smart-diary' => './modules/smart/icons/96-book.png',
-		'smart-bbs' => './modules/smart/icons/112-group.png',
-		'smart-visitor' => './modules/smart/icons/102-walk.png',
-		'smart-message' => './modules/smart/icons/18-envelope.png',
-		'smart-profile' => './modules/smart/icons/157-wrench.png',
-		'smart-write' => './modules/smart/icons/187-pencil.png',
-		'smart-public-friend' => './modules/smart/icons/111-user.png',
-		'smart-public-private' => './modules/smart/icons/54-lock.png',
-		'smart-camera' => './skin/default/img/icon_camera.gif',
-	), 
+    'settings' => array(
+        'smart-home' => './modules/smart/icons/Home.png',
+        'smart-diary' => './modules/smart/icons/Book.png',
+        'smart-bbs' => './modules/smart/icons/Conversession.png',
+        'smart-visitor' => './modules/smart/icons/Foot.png',
+        'smart-message' => './modules/smart/icons/Mail.png',
+        'smart-profile' => './modules/smart/icons/Person.png',
+        'smart-write' => './modules/smart/icons/Pen.png',
+        'smart-public-friend' => './modules/smart/icons/Person.png',
+        'smart-public-private' => './modules/smart/icons/Lock.png',
+        'smart-camera' => './modules/smart/icons/Camera.png',
+    ), 
 );
 
 // スマートフォンでPC版表示のクッキー設定

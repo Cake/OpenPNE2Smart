@@ -181,7 +181,7 @@ a.smartIcon span.ui-icon {
 foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
 	if (!empty($icon_name) && !empty($icon_url)) {
 		echo ".ui-icon-". $icon_name. " { \n".
-			"\t".'background: url("'.$icon_url.'") no-repeat !important;'."\n".
+			"\t".'background: url("'.$icon_url.'") no-repeat scroll 3px 3px transparent !important;'."\n".
 		'}'."\n";
 	}
 }
@@ -319,11 +319,6 @@ a .itemData .title *,
 
 .photo48 + .itemData {
 	margin-left: 55px !important;
-}
-
-.icon_public {
-	width: 16px;
-	height: 16px;
 }
 
 .gallery li {
