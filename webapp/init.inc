@@ -168,16 +168,42 @@ $GLOBALS['_OPENPNE_KTAI2PC_DIFFERENT_NANE_ACTION_LIST'] = array(
 // アイコン
 $GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
     'settings' => array(
-        'smart-home' => './modules/smart/icons/Home.png',
-        'smart-diary' => './modules/smart/icons/Book.png',
-        'smart-bbs' => './modules/smart/icons/Conversession.png',
-        'smart-visitor' => './modules/smart/icons/Foot.png',
-        'smart-message' => './modules/smart/icons/Mail.png',
-        'smart-profile' => './modules/smart/icons/Person.png',
-        'smart-write' => './modules/smart/icons/Pen.png',
-        'smart-public-friend' => './modules/smart/icons/Person.png',
-        'smart-public-private' => './modules/smart/icons/Lock.png',
-        'smart-camera' => './modules/smart/icons/Camera.png',
+        'smart-home' => array(
+		'url' => './modules/smart/icons/Home.png',
+        	'alt' => 'ホーム',
+	),
+        'smart-diary' => array(
+		'url' => './modules/smart/icons/Book.png',
+        	'alt' => '日記',
+	),
+        'smart-bbs' => array(
+		'url' => './modules/smart/icons/Conversession.png',
+        	'alt' => '掲示板',
+	),
+        'smart-message' => array(
+		'url' => './modules/smart/icons/Foot.png',
+        	'alt' => 'あしあと',
+	),
+        'smart-profile' => array(
+		'url' => './modules/smart/icons/Person.png',
+        	'alt' => 'プロフィール',
+	),
+        'smart-write' => array(
+		'url' => './modules/smart/icons/Pen.png',
+        	'alt' => '書き込む',
+	),
+        'smart-public-friend' => array(
+		'url' => './modules/smart/icons/Person.png',
+        	'alt' => WORD_MY_FRIEND. 'まで公開',
+	),
+        'smart-public-private' => array(
+		'url' => './modules/smart/icons/Lock.png',
+        	'alt' => '公開しない',
+	),
+        'smart-camera' => array(
+		'url' => './modules/smart/icons/Camera.png',
+        	'alt' => '写真あり',
+	),
     ), 
 );
 

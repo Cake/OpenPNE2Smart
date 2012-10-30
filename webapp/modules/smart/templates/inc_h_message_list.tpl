@@ -52,7 +52,7 @@
 <div class="commentListFooter">
 <time datetime="({$item.r_datetime})" id="message({$item.c_message_id})Datetime" class="datetime">({$item.r_datetime|date_format:"%Y年%m月%d日%H:%M"})</time>
 <span class="icon">({$smarty.capture.icon|smarty:nodefaults})</span>
-({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<span class="icon"><img src="({t_img_url_skin filename=icon_camera})" alt="写真あり"></span>({/if})
+({if $item.image_filename_1||$item.image_filename_2||$item.image_filename_3})<span class="footer-icon">({t_smart_icon_url icon_name="smart-camera"})</span>({/if})
 </div></div>
 </section></a></li>
 

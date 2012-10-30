@@ -171,18 +171,32 @@ div.topNav ul li a.ui-btn span {
 
 }
 a.smartIcon span.ui-icon {
-/*	width: 24px !important;
-	height: 24px !important;*/
 	background-size: 18px !important;
 	background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
+.footer-icon {
+    position: relative;
+    top: 2px;}
+
 <?php
-foreach( $_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_url ) {
-	if (!empty($icon_name) && !empty($icon_url)) {
+foreach ($_OPENPNE_SMART_ICON_LIST['settings'] as $icon_name => $icon_settings) {
+	if (!empty($icon_name) && !empty($icon_settings['url'])) {
 		echo ".ui-icon-". $icon_name. " { \n".
-			"\t".'background: url("'.$icon_url.'") no-repeat scroll 3px 3px transparent !important;'."\n".
-		'}'."\n";
+			"\t".'background: url("'.$icon_settings['url'].'") no-repeat scroll';
+		switch ($icon_name) {
+			case 'smart-diary':
+				echo ' 0';
+				break;
+			case 'smart-bbs':
+				echo ' 2px';
+				break;
+			default:
+				echo ' 3px';
+			break;
+		}
+
+		echo  ' 3px transparent !important;'."\n".'}'."\n";
 	}
 }
 ?>
