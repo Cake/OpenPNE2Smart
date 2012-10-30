@@ -51,7 +51,7 @@ $('#diarycommentForm').ready(function(){
 <div class="itemData">
 <div class="title">
 <h2>({$target_diary.subject})</h2>
-<span class="public">({t_public_flag public_flag=$target_diary.public_flag})</span>
+<span class="footer-icon">({t_smart_icon_url public_flag=$target_diary.public_flag})</span>
 </div>
 </div>
 </div>
