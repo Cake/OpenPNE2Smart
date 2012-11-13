@@ -180,9 +180,13 @@ $GLOBALS['_OPENPNE_SMART_ICON_LIST'] = array(
 		'url' => './modules/smart/icons/Conversession.png',
         	'alt' => '掲示板',
 	),
-        'smart-message' => array(
+        'smart-visitor' => array(
 		'url' => './modules/smart/icons/Foot.png',
         	'alt' => 'あしあと',
+	),
+        'smart-message' => array(
+		'url' => './modules/smart/icons/Mail.png',
+        	'alt' => 'メッセージ',
 	),
         'smart-profile' => array(
 		'url' => './modules/smart/icons/Person.png',
