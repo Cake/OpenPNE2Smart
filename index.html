@@ -75,22 +75,31 @@
 				<article class="markdown-body">
 					<h2>主な特徴</h2>
 						<ol>
-							<li><h3>携帯電話のメールアドレスドメイン、ＰＣメールアドレスドメインの両方で登録/ログイン可能</h3>
-従来のOpenPNE2ではできなかった、携帯メールアドレス＋スマートフォンのみでのＳＮＳへの登録・利用が可能です。</li>
-							<li><h3>jQuery Mobileを用いた、スマートフォン向けのユーザインターフェース（ＵＩ）</h3>
+							<li><h3>携帯電話のメールアドレス、ＰＣメールアドレスの両方で登録/ログイン可能</h3>
+従来のOpenPNE2では、携帯メールアドレスだけで登録していたユーザーが、スマートフォンに機種変更するとログインできなくなる不具合がありました。<br>
+同様に、携帯アドレス＋スマートフォンのみでＳＮＳの新規登録もできませんでした。<br>
+OpenPNE2 for Smart Phoneでは、この不具合を解消しました。携帯メールアドレス＋スマートフォンのみでの登録・利用が可能になります。<sup>*1</sup></li>
+							<li><h3>写真のメール投稿に対応しました</h3>
+iPhone/iPadは、デフォルトブラウザからの写真アップロードができませんが、OpenPNE2 for Smart Phoneでは、メールによる写真投稿が可能です。<br>
+メール投稿のアドレスは、携帯メール/ＰＣメールの両方で可能です。</li>
+							<li><h3>スマートフォン向けのユーザインターフェース</h3>
+							<p>スマートフォン版画面は、専用のCSSとテンプレートで作成しています。<br>
+							デザインだけの変更ではなく、コンテンツの配置や表示件数も、スマートフォン向けに調整。<br>
+							日記やコメントの「もっと読む」では、画面全体を更新するのではなく、続きの記事だけを読み込んで表示するなど、スマートフォンにあわせた機能も導入しました。<br>
+							</p>
+							<p>スマートフォン版画面は、広く利用されているモバイルフレームワークjQuery Mobileをベースに開発しました。iPhone/Androidなど、多種多様なスマートフォンデバイスに対応できます。<sup>*2</sup> <sup>*3</sup><br>
+							</p>
+							<p>
 スマートフォン表示に対応した機能は、以下の通りです。<br>
 								<blockquote>ＳＮＳ登録、日記、コミュニティ、トピック／イベント、メッセージ、マイフレンド機能、招待機能、プロフィール、設定変更</blockquote>
-対応していない機能の画面を表示しようとした場合は、既存のＰＣ画面レイアウトで表示されます。<br>
-							従来どおり、全てPC用画面で表示する事も可能です。切り替えは、ホーム一番下のボタンで行います。
-					<div class="image">
-						<img src="images/example_change.png" alt="PC版・スマートフォン版の切り替え" class="disp_image">
-					</div>
+対応していない機能の画面は、既存のＰＣ版画面で表示されます。<br>
+							</p>
+							<p>従来通り、全てＰＣ版画面で表示する事も可能です。切り替えは、ホーム一番下のボタンで行います。
+							</p>
+							<div class="image">
+								<img src="images/example_change.png" alt="PC版・スマートフォン版の切り替え" class="disp_image">
+							</div>
 							</li>
-							<li><h3>「もっと読む」の動的表示</h3>
-日記やコメントの「もっと読む」では、画面全体を更新するのではなく、続きの記事だけを読み込んで表示します。</li>
-							<li><h3>写真のメール投稿に対応しました</h3>
-iPhone/iPadは、デフォルトブラウザからの写真アップロードができませんが、メールにより写真投稿を可能にしました。<br>
-メール投稿のアドレスも、携帯メール/ＰＣメールの両方に対応しています。</li>
 						</ol>
 				</article>
 
@@ -99,7 +108,7 @@ iPhone/iPadは、デフォルトブラウザからの写真アップロードが
 					<div class="Description">
 						<ul>
 							<li>ページ上部の「zip」あるいは「tar」アイコンをクリックしてダウンロードしてください。<br>
-							圧縮形式は、それぞれ、zip/tar.gzです。<br></li>
+							圧縮形式は、それぞれzipおよびtar.gzです。<br></li>
 						</ul>
 					</div>
 					<div class="image">
@@ -111,7 +120,6 @@ iPhone/iPadは、デフォルトブラウザからの写真アップロードが
 					<div class="Description">
 						<ul>
 							<li>導入は、自己の判断でお願いいたします。万一、このソースを用いたことによる損害などが発生しましても、責任を負いかねます。</li>
-							<li>すべてのスマートフォンデバイスでの完全な動作を保障するものではありません。</li>
 							<li>サーバ内に保管される画像およびテンプレートキャッシュの容量が、従来のOpenPNEよりも増えます。</li>
 							<li>既にiphoneのメールアドレスドメイン(i.softbank.jp)で登録済のユーザがいる場合は、該当者のアドレスを変更する必要があります。<br>
 詳細は、ダウンロード後、同梱のテキストを参照してください。</li>
@@ -132,11 +140,33 @@ iPhone/iPadは、デフォルトブラウザからの写真アップロードが
 					</div>
 				</article>
 
+				<article class="markdown-body">
+					<h5>脚注</h5>
+					<div class="note">
+						<dl>
+							<dt>*1</dt>
+							<dd>SNSの管理画面から、以下の設定にする必要があります。
+								<ul>
+	 								<li>「PC版使用設定」を使用可</li>
+									<li>「メンバー登録時の携帯個体識別番号取得設定」で個体識別番号を任意あるいは取得しない</li>
+								</ul>
+							</dd>
+							<dt>*2</dt>
+							<dd>すべてのスマートフォンデバイスでの完全な動作を保障するものではありません。</dd>
+							<dt>*3</dt>
+							<dd>タブレットはパソコン扱いで、従来のPC版画面の表示になります。</dd>
+						</dl>
+					</div>
+					<div class="image">
+					</div>
+				</article>
+
+
 			</div>
 		</div>
 		<footer>
 			<div class="owner">
-			<p><a href="https://twitter.com/cake6767" class="avatar"><img src="https://secure.gravatar.com/avatar/1a4e1d8d9c48ecd75f89b0c9a9bb4e32?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/Cake/OpenPNE2Smart">OpenPNE2 for Smart Phone</a> (c) 2012 <a href="https://github.com/Cake">Cake</a></p>
+			<p><a href="https://twitter.com/openpne2smart" class="avatar"><img src="images/icon_openpne2smart.png" width="48" height="48" /></a> <a href="https://github.com/Cake/OpenPNE2Smart">OpenPNE2 for Smart Phone</a> (c) 2012 <a href="https://github.com/Cake">Cake</a></p>
 			<p>based on OpenPNE2 (c) 2005-2008 <a href="https://github.com/openpne/OpenPNE2" target="_blank">OpenPNE Project</a></p>
 
 

@@ -14,3 +14,13 @@ div.image-right {
 .current-section p {
 	padding-left: 70px;
 }
+
+.note {
+	font-size: 14px;
+
+}
+
+sup {
+	font-size: 10px;
+	vertical-align: super;
+}
