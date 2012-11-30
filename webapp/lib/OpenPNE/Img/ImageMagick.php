@@ -4,7 +4,6 @@
  * @copyright 2012 OpenPNE2 Smart Phone Project
  * @author    Cake
  * @url       http://cake.github.com/OpenPNE2/
- * @version   version beta
  * サムネイルのトリミング出力：正方形、短辺基準、長辺トリミング
  */
 /**
