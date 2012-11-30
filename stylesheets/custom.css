@@ -24,3 +24,20 @@ sup {
 	font-size: 10px;
 	vertical-align: super;
 }
+
+
+.date {
+	font-size: 12px;
+	text-align: right;
+}
+
+.news {
+	margin: 10px 0;
+	border-bottom: 1px dashed;
+}
+
+.news h2 {
+	color: #ff6600;
+	margin-bottom: 0;
+}
+
