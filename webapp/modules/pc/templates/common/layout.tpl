@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <title>({$INC_HEADER_title})</title>
 ({t_url_style})
+<script type="text/javascript" src="./js/prototype.js?r7140"></script>
 <script type="text/javascript" src="./js/Selection.js?r7140"></script>
 <script type="text/javascript" src="./js/pne.js"></script>
 ({* OpenPNE2 スマートフォン対応:ここから *})
