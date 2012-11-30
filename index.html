@@ -17,6 +17,37 @@
 	<link rel="stylesheet" href="stylesheets/custom.css"/>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/script.js"></script>
+	<script type="text/javascript" src="javascripts/jquery/jquery.socialbutton-1.9.0.min.js"></script>
+<script>
+<!--
+$(function() {
+
+	$('#google_plusone').socialbutton('google_plusone', {
+		lang: 'ja',
+		size: 'medium'
+	});
+
+	$('#hatena').socialbutton('hatena');
+
+	$('#evernote').socialbutton('evernote', {
+        button: 'article-clipper-jp',
+        styling: 'full'
+    });
+
+	$('#twitter').socialbutton('twitter', {
+		button: 'horizontal',
+		text: 'スマートフォン対応したOpenPNE2 「OpenPNE2 for Smart Phone」',
+		via: 'openpne2smart'
+	});
+
+	$('#facebook_like').socialbutton('facebook_like', {
+		button: 'button_count'
+	});
+
+});
+-->
+</script>
+
 
 	<title>OpenPNE2 for Smart Phone</title>
 
@@ -25,7 +56,6 @@
 </head>
 
 <body>
-
 	<div class="wrapper">
 		<header>
 			<h1 class="title">OpenPNE2 for Smart Phone</h1>
@@ -56,6 +86,16 @@
 					<div class="image">
 					</div>
 				</article>
+
+
+				<article class="markdown-body socialbutton">
+					<div id="twitter"></div>
+					<div id="facebook_like"></div>
+<!--					<div id="evernote"></div> -->
+					<div id="hatena"></div>
+					<div id="google_plusone"></div>
+				</article>
+
 
 				<article class="markdown-body">
 <!--					<div class="image-right">

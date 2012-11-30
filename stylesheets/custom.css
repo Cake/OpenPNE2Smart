@@ -41,3 +41,20 @@ sup {
 	margin-bottom: 0;
 }
 
+.socialbutton {
+	text-align: right;
+	margin-bottom: 15px;
+}
+
+.socialbutton div {
+	display: inline;
+}
+
+.socialbutton div#twitter iframe {
+	width: 105px !important;
+}
+
+.socialbutton div#facebook_like iframe {
+	width: 105px !important;
+	height: 20px !important;
+}
