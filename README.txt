@@ -3,7 +3,7 @@
  * @copyright 2012 OpenPNE2 for Smart Phone Project
  * @author    Cake
  * @url       http://cake.github.com/OpenPNE2/
- * @version   version beta
+ * @version   version beta 1.1
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
