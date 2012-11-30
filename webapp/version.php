@@ -1,5 +1,5 @@
 <?php define('OPENPNE_VERSION', '2.15-dev'); ?>
 <?php
-/* OpenPNE2 ƒXƒ}[ƒgƒtƒHƒ“‘Î‰ž */
+/* OpenPNE2 ã‚¹ãƒžãƒ¼ãƒˆãƒ•ã‚©ãƒ³å¯¾å¿œ */
 define('OPENPNE_SMART_VERSION', ' Beta');
 ?>
