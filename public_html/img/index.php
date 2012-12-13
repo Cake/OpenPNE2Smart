@@ -5,14 +5,24 @@ $request_uri = $_SERVER['REQUEST_URI'];
 chdir('../');
 require_once './config.inc.php';
 
+    /* OpenPNE2 スマートフォン対応：ここから */
 $regexp = '/img\/(jpg|gif|png)\/w(\d+)?_h(\d+)?\/' .
-             OPENPNE_IMG_CACHE_PREFIX.'(\w+)\.(?:jpe?g|gif|png)$/';
+             OPENPNE_IMG_CACHE_PREFIX.'(square_)?(\w+)\.(?:jpe?g|gif|png)$/';
+    /* OpenPNE2 スマートフォン対応：ここまで */
 if (preg_match($regexp, $request_uri, $matches)) {
     $f = $matches[1];
     $w = $matches[2];
     $h = $matches[3];
-    $filename = preg_replace('/_(jpe?g|gif|png)$/', '.\\1', $matches[4]);
 
+    /* OpenPNE2 スマートフォン対応：ここから */
+    $filename = preg_replace('/_(jpe?g|gif|png)$/', '.\\1', $matches[5]);
+    if ($matches[4] == 'square_') {
+        $trim = 'square';
+    } else {
+        $trim = '';
+    }
+    $_GET['trim'] = $trim;
+    /* OpenPNE2 スマートフォン対応：ここまで */
     $_GET['filename'] = $filename;
     $_GET['w'] = $w;
     $_GET['h'] = $h;
