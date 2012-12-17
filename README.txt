@@ -3,7 +3,7 @@
  * @copyright 2012 OpenPNE2 for Smart Phone Project
  * @author    Cake
  * @url       http://cake.github.com/OpenPNE2/
- * @version   version beta 1.1
+ * @version   version beta 1.2
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
@@ -92,6 +92,11 @@ OpenPNE2のインストールガイドと同様に行ってください。
 
 
 【更新履歴】
+・2012/12/17
+　β1.2版公開
+画像キャッシュをpublic_html以下に置く設定での画像表示不具合修正
+・2012/11/30
+　β1.1版公開
+PC版アルバム挿入機能が動作しない不具合修正
 ・2012/11/15
 　β版公開
-
