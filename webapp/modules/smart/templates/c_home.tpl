@@ -52,7 +52,7 @@
 ({if $c_commu.isShorten})<div class="readMore">...</div><div class="readMore"><a title="続きを読む" href="javascript:void(0);" onclick="readMore('#community({$c_commu.c_commu_id})info'); return false;">続きを読む</a></div>({/if})
 </dd>
 </dl>
-({if $is_c_commu_admin})<a href="({t_url m=pc a=page_c_edit})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="true">({$WORD_COMMUNITY})設定変更</a>({/if})
+({if $is_c_commu_admin})<a href="({t_url m=pc a=page_c_edit})&amp;target_c_commu_id=({$c_commu.c_commu_id})" data-role="button" data-inline="false" data-mini="false" data-ajax="false">({$WORD_COMMUNITY})設定変更</a>({/if})
 </section>({* }}} *})
 
 ({if $is_c_commu_member || $c_commu.is_open != "member"})
