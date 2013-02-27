@@ -22,11 +22,6 @@ $('#h_diary_add').live('pageinit',function(event){
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _show_label=true _label_class="required" _body=$form_val.body|smarty:nodefaults})
 
-({if ($is_apple)})
-<div data-role="fieldcontain" class="ui-hide-label">
-写真は、日記投稿後にメールで追加編集できます。
-</div>
-({else})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label>
 <input type="file" class="input_file" name="upfile_1">
@@ -39,7 +34,10 @@ $('#h_diary_add').live('pageinit',function(event){
 <label for="upfile_3">写真3</label>
 <input type="file" class="input_file" name="upfile_3">
 </div>
-({/if})
+<div data-role="fieldcontain" class="ui-hide-label">
+写真は、日記投稿後にメールでも投稿できます。
+</div>
+
 ({if $use_diary_category})
 <div data-role="fieldcontain" class="ui-hide-label">
 <label for="category">カテゴリ</label>

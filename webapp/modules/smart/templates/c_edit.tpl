@@ -57,22 +57,20 @@
 <img src="({t_img_url filename=$c_commu.image_filename w=120 h=120 trim=square})" class="memberPhoto"><br>
 <a title="削除" href="javascript:void(0);" onclick="setConfirmDialog('本当に削除しますか？', '({t_url m=pc a=do_c_edit_image_delete_c_commu_image})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;sessid=({$PHPSESSID})', '({t_url m=pc a=page_c_edit})&amp;target_c_commu_id=({$c_commu.c_commu_id})', 'deleteCommunity({$c_commu.c_commu_id})ImageConfirm'); openDialog('deleteCommunity({$c_commu.c_commu_id})ImageConfirm')" data-role="button" data-mini="false" data-ajax="true">削除</a>
 ({/if})
-({if ($is_apple)})
+<input type="file" class="input_file" name="image_filename" id="image_filename">
 <p>
 ({if $c_commu.image_filename})
 新しい写真を登録する場合は今の写真を削除してください。<br>
 ({else})
-以下のメールアドレスに写真を添付して送信してください。<br>
-({t_mail_post mailto=$mail_address _linktxt=写真設定用アドレス})<br>
+({t_mail_post mailto=$mail_address _linktxt=メールで写真を設定する})<br>
+リンクのメールアドレスに写真を添付して送信してください。<br>
 写真は1枚以上登録できません。<br>
 タイトルと本文は反映されません。<br>
 ({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 ({/if})
 </p>
-({else})
-<input type="file" class="input_file" name="image_filename" id="image_filename">
-({/if})
 </div>
+
 ({if !$is_unused_join_commu})
 <div data-role="fieldcontain">
 <label for="image_filename">参加お知らせメール受信設定</label>

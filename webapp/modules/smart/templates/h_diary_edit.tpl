@@ -65,12 +65,6 @@ $('#h_diary_edit').live('pageinit',function(event){
 ({if $diary.image_filename_1 && $diary.image_filename_2 && $diary.image_filename_3})
 <p>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</p>
 ({else})
-({if ($is_apple)})
-<p>({t_mail_post mailto=$mail_address _linktxt=新しい写真をメールで投稿})<br>
-({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
-写真を添付すると写真付き({$WORD_DIARY})になります。<br>
-</p>
-({else})
 ({if !($diary.image_filename_1 && !($del_img & 0x01))})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label>
@@ -89,7 +83,10 @@ $('#h_diary_edit').live('pageinit',function(event){
 <input type="file" class="input_file" name="upfile_3">
 </div>
 ({/if})
-({/if})
+<p>({t_mail_post mailto=$mail_address _linktxt=新しい写真をメールで投稿})<br>
+({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真を添付すると写真付き({$WORD_DIARY})になります。<br>
+</p>
 ({/if})
 </fieldset>({/strip})
 ({if $use_diary_category})

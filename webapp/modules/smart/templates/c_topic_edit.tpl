@@ -50,13 +50,6 @@
 ({if $c_topic.image_filename1 && $c_topic.image_filename2 && $c_topic.image_filename3})
 <p>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</p>
 ({else})
-({if ($is_apple)})
-<p>({t_mail_post mailto=$mail_address _linktxt=写真をメールで投稿})<br>
-({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
-1回のメールで登録できる画像は1枚までです。<br>
-タイトルと本文は反映されません。<br>
-</p>
-({else})
 ({if !$c_topic.image_filename1})
 <div data-role="fieldcontain">
 <label for="image_filename1">写真1</label>
@@ -75,7 +68,11 @@
 <input type="file" class="input_file" name="image_filename3">
 </div>
 ({/if})
-({/if})
+<p>({t_mail_post mailto=$mail_address _linktxt=写真をメールで投稿})<br>
+({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+1回のメールで登録できる画像は1枚までです。<br>
+タイトルと本文は反映されません。<br>
+</p>
 ({/if})
 </fieldset>({/strip})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $c_topic.original_filename)})

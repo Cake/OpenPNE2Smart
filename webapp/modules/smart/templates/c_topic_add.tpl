@@ -13,11 +13,6 @@
 </div>
 ({ext_include file="inc_tinymce_textarea.tpl" _name="body" _body=$body|smarty:nodefaults})
 
-({if ($is_apple)})
-<div data-role="fieldcontain" class="ui-hide-label">
-写真は、投稿後にメールで追加できます。
-</div>
-({else})
 <div data-role="fieldcontain">
 <label for="image_filename1">写真1</label>
 <input type="file" class="input_file" name="image_filename1">
@@ -30,13 +25,15 @@
 <label for="image_filename3">写真3</label>
 <input type="file" class="input_file" name="image_filename3">
 </div>
+<div data-role="fieldcontain" class="ui-hide-label">
+写真は、投稿後にメールでも追加できます。
+</div>
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <div data-role="fieldcontain">
 <label for="uploadfile">ファイル</label>
 <input type="file" class="input_file" name="uploadfile" size="40">
 <p class="caution">※({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})の(({$allowed_extensions}))({/if})ファイルのみアップロードできます。</p>
 </div>
-({/if})
 ({/if})
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面">

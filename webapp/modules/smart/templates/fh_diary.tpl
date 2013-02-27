@@ -111,13 +111,13 @@ $('#diarycommentForm').ready(function(){
 <label for="body">コメント</label>
 <textarea id="comment_box" name="body" rows="({$_rows|default:'1'})" cols="({$_cols|default:'40'})" placeholder="コメント">({$requests.body})</textarea>
 </div>
-({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
+({**OpenPNE2 スマートフォン対応：ここから**})
 <div data-role="fieldcontain">
 <label for="upfile_1">写真1</label><input type="file" class="input_file" name="upfile_1" size="40"><br>
 <label for="upfile_2">写真2</label><input type="file" class="input_file" name="upfile_2" size="40"><br>
 <label for="upfile_3">写真3</label><input type="file" class="input_file" name="upfile_3" size="40"><br>
 </div>
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
+({**OpenPNE2 スマートフォン対応：ここまで**})
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面">
 </div>

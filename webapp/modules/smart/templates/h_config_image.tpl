@@ -44,7 +44,6 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 ({if $c_member.image_filename_1&&$c_member.image_filename_2&&$c_member.image_filename_3})
 <p>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</p>
 ({else})
-({if (!$is_apple)})
 ({t_form_block _enctype=file m=pc a=do_h_config_image _attr='data-ajax="false"'})
 <div data-role="fieldcontain">
 <label for="upfile">写真を選択</label>
@@ -54,10 +53,8 @@ $('#({$INC_HEADER_page_name})').live('pageinit',function(event){
 <input type="submit" class="input_submit" value="アップロード">
 </div>
 ({/t_form_block})
-({else})
-({t_mail_post mailto=$mail_address _linktxt=メールでアップロード})
+({t_mail_post mailto=$mail_address _linktxt=メールでアップロード _type=button})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。</p>
-({/if})
 <p>({$smarty.const.IMAGE_MAX_FILESIZE})KB以内のGIF・JPEG・PNGにしてください<br>
 著作権や肖像権の侵害にあたる写真、暴力的・卑猥な写真、他のメンバーが見て不快に感じる写真の掲載は禁止しております。掲載はご自身の責任でお願いいたします。
 </p>
