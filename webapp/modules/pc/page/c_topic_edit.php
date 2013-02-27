@@ -76,7 +76,7 @@ class pc_page_c_topic_edit extends OpenPNE_Action
         $this->set('is_apple', $smartPhone->is_apple);
         $mail_address = null;
 
-        if ($smartPhone->is_apple) {
+        if ($smartPhone->is_apple || $smartPhone->is_smart) {
             if (MAIL_ADDRESS_HASHED) {
                 $mail_address = 'ti' . $c_commu_topic_id . '-' . t_get_user_hash($u) . "@" . MAIL_SERVER_DOMAIN;
             } else {
