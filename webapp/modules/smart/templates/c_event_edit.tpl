@@ -150,7 +150,7 @@
 </div>
 ({/if})
 <div data-role="fieldcontain">
-<input type="submit" class="input_submit" value="確認画面">
+<input type="submit" class="input_submit" value="編集">
 </div>
 ({/t_form_block})
 </section>({* formTable }}} *})

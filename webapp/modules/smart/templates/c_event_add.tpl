@@ -49,7 +49,7 @@
 ({ext_include file="inc_tinymce_textarea.tpl" _name="detail" _show_label=true _label_class="required" _title="詳細" _body=$event.detail|smarty:nodefaults})
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
-<legend><span>募集期限</span></legend>
+<legend><span class="required">募集期限</span></legend>
 <label for="invite_period_year">年</label>
 <select name="invite_period_year" id="invite_period_year" data-mini="false">
 <option>年</option>
