@@ -1,3 +1,31 @@
+body {
+	font-family: 'serif', Arial, Helvetica;
+	color: #3e3e3e;
+}
+
+footer {
+	color: #3e3e3e;
+}
+
+footer a {
+	color: #5353ff;
+	font-weight: bold;
+}
+
+h3 {
+	color: #006600;
+}
+
+a {
+	color: #5353ff;
+	font-weight: bold;
+}
+a:hover {
+	color: #c5000c;
+	text-decoration: underline;
+}
+
+
 .pre {
 	color: #ff3300;
 	font-size: 24px;
@@ -10,10 +38,6 @@ div.image-right {
 	margin-top: 6px;
 }
 
-
-.current-section p {
-	padding-left: 70px;
-}
 
 .note {
 	font-size: 14px;
@@ -37,8 +61,23 @@ sup {
 }
 
 .news h2 {
-	color: #ff6600;
 	margin-bottom: 0;
+}
+
+.history dt {
+	display: block;
+	color: #5353ff;
+	cursor: pointer;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.history dt:hover {
+	color: #c5000c;
+	text-decoration: underline;
+}
+
+.history dd {
+	display:none;
 }
 
 .socialbutton {
