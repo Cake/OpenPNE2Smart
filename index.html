@@ -10,7 +10,7 @@
 	<meta name="keywords" content="OpenPNE2,スマートフォン,スマートフォン対応,スマホ,スマホ対応,iPhone,iPad,iPod,Android,SNS,オープンソース,jQuery mobile">
 	<meta name="description" content="OpenPNE2 for Smart Phoneは、広く使われているオープンソースのSNSエンジン「OpenPNE2」を、スマートフォン向けに対応させたソフトウエアです。">
 	<meta name="author" content="Cake">
-	<meta name="copyright" content="(c) 2012 Cake">
+	<meta name="copyright" content="(c) 2012-2013 Cake">
 
 	<link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
 	<link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
@@ -65,8 +65,8 @@ $(function() {
 			<div id="main" role="main">
 				<div class="download-bar">
 					<div class="inner">
-						<a href="https://github.com/Cake/OpenPNE2Smart/archive/OpenPNE2Smart-beta1.2.tar.gz" class="download-button tar"><span>Download</span></a>
-						<a href="https://github.com/Cake/OpenPNE2Smart/archive/OpenPNE2Smart-beta1.2.zip" class="download-button zip"><span>Download</span></a>
+						<a href="https://github.com/Cake/OpenPNE2Smart/archive/OpenPNE2Smart-beta1.3.tar.gz" class="download-button tar"><span>Download</span></a>
+						<a href="https://github.com/Cake/OpenPNE2Smart/archive/OpenPNE2Smart-beta1.3.zip" class="download-button zip"><span>Download</span></a>
 						<a href="https://github.com/Cake/OpenPNE2Smart/" class="code">View OpenPNE2 for Smart Phone on GitHub</a>
 					</div>
 				<span class="blc"></span><span class="trc"></span>
@@ -76,10 +76,11 @@ $(function() {
 					<h2>What's New</h2>
 					<div class="Description">
 						<dl>
-							<dt>2012/12/17</dt>
+							<dt>2013/03/03</dt>
 							<dd>
-								β1.2版を公開しました。<br>
-								画像キャッシュをpublic_html以下に置く設定での表示不具合を修正しました。
+								β1.3版を公開しました。<br>
+								iOS6でファイルアップロードに対応した事を受け、iPhone/iPod/iPadでもファイルアップロード/メール投稿の両方を使用できるようにしました。<br>
+								日記編集メール投稿の、投稿用アドレスprefix設定不具合に対応しました。<br>
 							</dd>
 						</dl>
 					</div>
@@ -139,8 +140,9 @@ $(function() {
 同様に、携帯アドレス＋スマートフォンのみでSNSの新規登録もできませんでした。<br>
 OpenPNE2 for Smart Phoneでは、この不具合を解消しました。携帯メールアドレス＋スマートフォンのみでの登録・利用が可能になります。<sup>*1</sup></li>
 							<li><h3>写真のメール投稿に対応しました</h3>
-iPhone/iPadは、デフォルトブラウザからの写真アップロードができませんが、OpenPNE2 for Smart Phoneでは、メールによる写真投稿が可能です。<br>
-メール投稿のアドレスは、携帯メール/ＰＣメールの両方で可能です。</li>
+OpenPNE2 for Smart Phoneでは、通常のフォーム投稿の他、メールによる日記・掲示板トピック/イベントへの投稿が可能です。<br>
+メール投稿のアドレスは、携帯メール/ＰＣメールの両方で可能です。<br>
+iOS5以前の端末など、ファイルアップロードに対応していない端末でも、メール投稿により写真を投稿できます。</li>
 							<li><h3>スマートフォン向けのユーザインターフェース</h3>
 							<p>スマートフォン版画面は、専用のCSSとテンプレートで作成しています。<br>
 							デザインだけの変更ではなく、コンテンツの配置や表示件数も、スマートフォン向けに調整。<br>
@@ -192,6 +194,7 @@ iPhone/iPadは、デフォルトブラウザからの写真アップロードが
 					<h2>更新履歴</h2>
 					<div class="Description">
 						<ol>
+							<li><a href="history/beta_1-3.html">2013/03/03 β1.3版公開</a></li>
 							<li><a href="history/beta_1-2.html">2012/12/17 β1.2版公開</a></li>
 							<li><a href="history/beta_1-1.html">2012/11/30 β1.1版公開</a></li>
 							<li>2012/11/15 β版公開</li>
@@ -227,7 +230,7 @@ iPhone/iPadは、デフォルトブラウザからの写真アップロードが
 		</div>
 		<footer>
 			<div class="owner">
-			<p><a href="https://twitter.com/openpne2smart" class="avatar"><img src="images/icon_openpne2smart.png" width="48" height="48" /></a> <a href="https://github.com/Cake/OpenPNE2Smart">OpenPNE2 for Smart Phone</a> (c) 2012 <a href="https://github.com/Cake">Cake</a> (<a href="http://d.hatena.ne.jp/cake67/" target="_blank">BLOG</a> | <a href="https://twitter.com/openpne2smart" target="_blank">Twitter</a>)</p>
+			<p><a href="https://twitter.com/openpne2smart" class="avatar"><img src="images/icon_openpne2smart.png" width="48" height="48" /></a> <a href="https://github.com/Cake/OpenPNE2Smart">OpenPNE2 for Smart Phone</a> (c) 2012-2013 <a href="https://github.com/Cake">Cake</a> (<a href="http://d.hatena.ne.jp/cake67/" target="_blank">BLOG</a> | <a href="https://twitter.com/openpne2smart" target="_blank">Twitter</a>)</p>
 			<p>based on OpenPNE2 (c) 2005-2008 <a href="https://github.com/openpne/OpenPNE2" target="_blank">OpenPNE Project</a></p>
 
 
