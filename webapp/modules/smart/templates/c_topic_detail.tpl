@@ -111,7 +111,6 @@ $('#({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})').live('pageinit',fun
 <label for="body">コメント</label>
 <textarea id="comment_box" name="body" cols="({$_cols|default:'40'})" placeholder="コメント">({$body})</textarea>
 </div>
-({if !($is_apple)})
 <div data-role="fieldcontain">
 <label for="image_filename1">写真1</label><input type="file" class="input_file" name="image_filename1" size="40"><br>
 <label for="image_filename2">写真2</label><input type="file" class="input_file" name="image_filename2" size="40"><br>
@@ -122,7 +121,6 @@ $('#({$INC_HEADER_page_name})({$c_topic.c_commu_topic_id})').live('pageinit',fun
 <label for="uploadfile">ファイル</label><input type="file" class="input_file" name="uploadfile" size="40">
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
 </div>
-({/if})
 ({/if})
 <div data-role="fieldcontain">
 <input type="submit" class="input_submit" value="確認画面">
