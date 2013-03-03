@@ -1,9 +1,9 @@
 /**
  * OpenPNE2 for Smart Phone
- * @copyright 2012 OpenPNE2 for Smart Phone Project
+ * @copyright 2012-2013 OpenPNE2 for Smart Phone Project
  * @author    Cake
  * @url       http://cake.github.com/OpenPNE2/
- * @version   version beta 1.2
+ * @version   version beta 1.3
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
@@ -41,7 +41,7 @@ OpenPNE2 for Smart Phoneでは、この不具合を解消しました。携帯�
     「メンバー登録時の携帯個体識別番号取得設定」で個体識別番号を任意あるいは取得しない
 
 ２．写真のメール投稿に対応しました。
-iPhone/iPadは、デフォルトブラウザからの写真アップロードができませんが、OpenPNE2 for Smart Phoneでは、メールによる写真投稿が可能です。
+OpenPNE2 for Smart Phoneでは、スマートフォンからメールによる写真投稿が可能です。
 メール投稿のアドレスは、携帯メール/ＰＣメールの両方で可能です。
 
 ３．スマートフォン向けのユーザインターフェース
@@ -92,6 +92,10 @@ OpenPNE2のインストールガイドと同様に行ってください。
 
 
 【更新履歴】
+・2013/03/03
+　β1.3版公開
+Apple製品でファイルアップロード/メール投稿両方使用に対応
+日記編集メール投稿の不具合修正
 ・2012/12/17
 　β1.2版公開
 画像キャッシュをpublic_html以下に置く設定での画像表示不具合修正
