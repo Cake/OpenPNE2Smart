@@ -18,9 +18,7 @@
 <a href="({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename1" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 <tr>
@@ -32,9 +30,7 @@
 <a href="({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename2" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 <tr>
@@ -46,27 +42,25 @@
 <a href="({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename3" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 ({**OpenPNE2 スマートフォン対応：ここから**})
 ({if ($is_apple)})
-<tr><th>写真追加</th><td>
-<ul class="" style="padding-left: 50px;">
+<tr><th>メールで写真追加</th><td>
+<ul class="">
 ({if $c_topic.image_filename1 && $c_topic.image_filename2 && $c_topic.image_filename3})
 <li>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</li>
 ({else})
 <li>({t_mail_post mailto=$mail_address})</li>
 ({/if})
 <li>({$SNS_NAME})に登録したメールアドレスから、写真を添付して投稿してください。<br></li>
-<li>1回のﾒｰﾙで登録できる画像は1枚までです。<br></li>
+<li>1回のメールで登録できる画像は1枚までです。<br></li>
 <li>タイトルと本文は反映されません。<br></li>
 </ul>
 </td></tr>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
-({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $c_topic.original_filename)})
+({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <tr>
 <th>ファイル</th>
 <td>
@@ -76,11 +70,8 @@
 <a href="({t_url m=pc a=do_c_topic_edit_delete_c_commu_topic_comment_file})&amp;target_c_commu_topic_id=({$c_topic.c_commu_topic_id})&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if !($is_apple)})
 <input type="file" class="input_file" name="filename4" size="40" />
 <p class="caution">※ファイルサイズは({$smarty.const.FILE_MAX_FILESIZE})KB以内({if $allowed_extensions})、ファイルの種類は(({$allowed_extensions}))({/if})のファイルがアップロードできます。</p>
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 ({/if})

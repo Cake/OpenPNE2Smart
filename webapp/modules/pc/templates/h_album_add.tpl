@@ -16,14 +16,13 @@
 </tr>
 <tr>
 <th>表紙</th>
-({**OpenPNE2 スマートフォン対応：ここから**})
-<tr>
-<th>写真</th>
 <td>
-({if $is_apple})
-アルバム作成後に設定できます。
-({else})
 <input type="file" class="input_file" name="image_filename" size="40" />
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if $is_apple})
+<p>
+写真は、アルバム作成後にメールでも追加できます。
+</p>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>

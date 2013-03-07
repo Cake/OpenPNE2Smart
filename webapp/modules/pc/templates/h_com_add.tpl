@@ -50,11 +50,12 @@
 <tr>
 <th>写真</th>
 <td>
-({if $is_apple})
-({$WORD_COMMUNITY})作成後に設定してください。
-<input type="hidden" name="image_filename" value="" />
-({else})
 <input type="file" class="input_file" name="image_filename" size="40" />
+({if $is_apple})
+<p>
+写真は、({$WORD_COMMUNITY})作成後にメールでも追加できます。
+</p>
+({else})
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>

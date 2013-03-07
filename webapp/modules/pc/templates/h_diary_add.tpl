@@ -107,13 +107,6 @@
 </td>
 </tr>
 <tr>
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if ($is_apple)})
-<th>写真</th>
-<td>
-写真は、日記投稿後にメールで追加編集できます。<br>
-</td>
-({else})({**OpenPNE2 スマートフォン対応：ここまで**})
 <th>写真1</th>
 <td>
 <input type="file" class="input_file" name="upfile_1" size="40" />
@@ -130,8 +123,14 @@
 <td>
 <input type="file" class="input_file" name="upfile_3" size="40" />
 </td>
-({/if})({**OpenPNE2 スマートフォン対応：ここ追加行**})
 </tr>
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if ($is_apple)})
+<th></th>
+<td>
+写真は、日記投稿後にメールでも追加編集できます。<br>
+</td>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $use_diary_category})
 <tr>
 <th>カテゴリ</th>

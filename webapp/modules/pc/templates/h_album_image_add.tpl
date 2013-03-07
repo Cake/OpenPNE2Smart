@@ -1,21 +1,6 @@
 <div id="LayoutC">
 <div id="Center">
 
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if $is_apple})
-<div class="dparts infoButtonBox"><div class="parts">
-<div class="partsHeading"><h3>写真を追加する</h3></div>
-<div class="block">
-({t_mail_post mailto=$mail_address _type=button})
-<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
-写真は1枚目のみをアルバムに登録します。<br>
-メールの件名は写真の説明になります。<br>
-絵文字は反映されません。<br>
-</p>
-</div>
-</div></div>
-
-({else})
 ({* {{{ formTable *})
 <div class="dparts formTable"><div class="parts">
 <div class="partsHeading"><h3>写真を追加する</h3></div>
@@ -83,6 +68,19 @@
 </div></div>
 ({* }}} *})
 
+({**OpenPNE2 スマートフォン対応：ここから**})
+({if $is_apple})
+<div class="dparts infoButtonBox"><div class="parts">
+<div class="partsHeading"><h3>メールで写真を設定する</h3></div>
+<div class="block">
+({t_mail_post mailto=$mail_address _type=button})
+<p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
+写真は1枚目のみをアルバムに登録します。<br>
+メールの件名は写真の説明になります。<br>
+絵文字は反映されません。<br>
+</p>
+</div>
+</div></div>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 
 ({* {{{ linkLine *})

@@ -37,8 +37,6 @@
 <textarea name="body" rows="10" cols="50">({$form_val.body})</textarea>
 </td>
 </tr>
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if !$is_apple})
 <tr>
 <th>写真1</th>
 <td>
@@ -66,7 +64,6 @@
 </td>
 </tr>
 ({/if})
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </table>
 <div class="operation">
 <ul class="moreInfo button">

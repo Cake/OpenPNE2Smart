@@ -201,7 +201,6 @@
 <input type="hidden" name="target_c_commu_topic_id" value="({$c_topic.c_commu_topic_id})" />
 <table>
 <tr><th>本文</th><td><textarea name="body" id="comment_box" rows="10" cols="50">({$body})</textarea></td></tr>
-({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <tr><th>写真1</th><td><input type="file" class="input_file" name="image_filename1" size="40" /></td></tr>
 <tr><th>写真2</th><td><input type="file" class="input_file" name="image_filename2" size="40" /></td></tr>
 <tr><th>写真3</th><td><input type="file" class="input_file" name="image_filename3" size="40" /></td></tr>
@@ -214,7 +213,6 @@
 </td>
 </tr>
 ({/if})
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </table>
 <div class="operation">
 <ul class="moreInfo button">

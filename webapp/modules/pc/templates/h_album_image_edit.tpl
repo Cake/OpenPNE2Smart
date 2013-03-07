@@ -12,10 +12,7 @@
 <td>
 <a href="({t_img_url filename=$c_album_image.image_filename})" target="_blank">
 <img src="({t_img_url filename=$c_album_image.image_filename w=180 h=180})" alt="" /></a><br />
-({**OpenPNE2 スマートフォン対応：ここから**})
-({if !$is_apple})
 <input type="file" class="input_file" name="upfile_1" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td>
 </tr>
 <tr>

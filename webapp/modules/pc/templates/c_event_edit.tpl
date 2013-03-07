@@ -54,9 +54,7 @@
 <a href="({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=1&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename1" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td></tr>
 <tr><th>写真2</th><td>
 ({if $event.image_filename2})
@@ -65,9 +63,7 @@
 <a href="({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=2&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename2" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td></tr>
 <tr><th>写真3</th><td>
 ({if $event.image_filename3})
@@ -75,15 +71,12 @@
 <a href="({t_url m=pc a=do_c_event_edit_delete_c_commu_topic_comment_image})&amp;target_c_commu_topic_id=({$event.c_commu_topic_id})&amp;pic_delete=3&amp;sessid=({$PHPSESSID})">削除</a>
 </p>
 ({/if})
-({**OpenPNE2 スマートフォン対応：ここから**})({if !($is_apple)})
 <input type="file" class="input_file" name="image_filename3" size="40" />
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </td></tr>
 ({**OpenPNE2 スマートフォン対応：ここから**})
 ({if ($is_apple)})
-<tr><th>写真追加</th><td>
-<div class="operation">
-<ul class="" style="padding-left: 50px;">
+<tr><th>メールで写真追加</th><td>
+<ul class="">
 ({if $event.image_filename1 && $event.image_filename2 && $event.image_filename3})
 <li>すでに写真が3枚登録されています。新しい写真を登録する場合は今の写真を削除してください。</li>
 ({else})
@@ -93,7 +86,6 @@
 <li>1回のﾒｰﾙで登録できる画像は1枚までです。<br></li>
 <li>タイトルと本文は反映されません。<br></li>
 </ul>
-</div>
 </td></tr>
 ({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD && (!$is_apple || $event.original_filename)})

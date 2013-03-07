@@ -153,7 +153,6 @@
 <th>本文</th>
 <td><textarea name="body" id="comment_box" rows="10" cols="50">({$body})</textarea></td>
 </tr>
-({if !($is_apple)})({**OpenPNE2 スマートフォン対応：ここから**})
 <tr>
 <th>写真1</th>
 <td><input type="file" class="input_file" name="image_filename1" size="40" /></td>
@@ -175,7 +174,6 @@
 </td>
 </tr>
 ({/if})
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </table>
 <div class="operation">
 <ul class="moreInfo button">

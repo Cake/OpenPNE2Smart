@@ -9,10 +9,12 @@
 <table>
 <tr><th>タイトル</th><td><input type="text" class="input_text" name="title" value="({$title})" size="50" /></td></tr>
 <tr><th>本文</th><td><textarea name="body" rows="10" cols="50">({$body})</textarea></td></tr>
-({if !$is_apple})
 <tr><th>写真1</th><td><input type="file" class="input_file" name="image_filename1" size="40" /></td></tr>
 <tr><th>写真2</th><td><input type="file" class="input_file" name="image_filename2" size="40" /></td></tr>
 <tr><th>写真3</th><td><input type="file" class="input_file" name="image_filename3" size="40" /></td></tr>
+({if $is_apple})
+<tr><th></th><td>写真は、投稿後にメールでも追加できます。</td></tr>
+({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 ({if $smarty.const.OPENPNE_USE_FILEUPLOAD})
 <tr>
 <th>ファイル</th>
@@ -22,7 +24,6 @@
 </td>
 </tr>
 ({/if})
-({/if})({**OpenPNE2 スマートフォン対応：ここまで**})
 </table>
 <div class="operation">
 <ul class="moreInfo button">

@@ -27,15 +27,14 @@
 ({/if})
 <input type="hidden" name="pre_image_filename" value="({$album.album_cover_image})" />
 ({**OpenPNE2 スマートフォン対応：ここから**})
+<input type="file" class="input_file" name="upfile_1" size="40" /><br />
 ({if $is_apple})
-({t_mail_post mailto=$mail_address})
+({t_mail_post mailto=$mail_address _linktxt=メールで写真を設定する})
 <p>({$SNS_NAME})に登録したメールアドレスから投稿してください。<br>
 写真は1枚目のみをアルバムに登録します。<br>
 メールの件名は写真の説明になります。<br>
 絵文字は反映されません。<br>
 </p>
-({else})
-<input type="file" class="input_file" name="upfile_1" size="40" />
 ({/if})
 </td>
 </tr>
