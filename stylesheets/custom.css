@@ -49,6 +49,11 @@ sup {
 	vertical-align: super;
 }
 
+@media only screen and (max-width: 767px) {
+  #download-zip, #download-tar-gz {
+    display: block;
+  }
+}
 
 .date {
 	font-size: 12px;
