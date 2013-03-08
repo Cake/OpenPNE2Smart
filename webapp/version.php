@@ -1,5 +1,5 @@
 <?php define('OPENPNE_VERSION', '2.15-dev'); ?>
 <?php
 /* OpenPNE2 スマートフォン対応 */
-define('OPENPNE_SMART_VERSION', ' Beta1.3');
+define('OPENPNE_SMART_VERSION', ' Beta1.3.1');
 ?>

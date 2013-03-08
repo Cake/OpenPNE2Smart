@@ -3,7 +3,7 @@
  * @copyright 2012-2013 OpenPNE2 for Smart Phone Project
  * @author    Cake
  * @url       http://cake.github.com/OpenPNE2/
- * @version   version beta 1.3
+ * @version   version beta 1.3.1
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
@@ -92,6 +92,10 @@ OpenPNE2のインストールガイドと同様に行ってください。
 
 
 【更新履歴】
+・2013/03/08
+　β1.3.1版公開
+トピック/イベントのコメント読み込み不具合修正
+iPadでファイルアップロード/メール投稿両方使用に対応
 ・2013/03/03
 　β1.3版公開
 Apple製品でファイルアップロード/メール投稿両方使用に対応
