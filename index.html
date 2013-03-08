@@ -25,9 +25,19 @@ $(document).ready(function(){
     $('.history dt').click(function() {
         $(this).next().slideToggle();
     }).next().hide();
-});
 
-$(function() {
+	//ページ内スクロール
+	$('a[href^=#]').click(function(){
+		var target= $(this).attr("href");
+		$('html,body').animate({ scrollTop: $(target).offset().top }, 'fast');
+		return false;
+	});
+
+	//ページ上部へ戻る
+	$(".topLink").click(function () {
+		$('html,body').animate({ scrollTop: 0 }, 'fast');
+		return false;
+	});
 
 	$('#google_plusone').socialbutton('google_plusone', {
 		lang: 'ja',
@@ -62,9 +72,19 @@ $(function() {
       <div class="inner">
 
         <header>
-          <h1>OpenPNE2 for Smart Phone</h1>
-          <h2></h2>
+          <h1 id="Title">OpenPNE2 for Smart Phone</h1>
         </header>
+
+        <section id="globalnavi" class="globalnavi">
+          <ul>
+            <li><a href="./">Top</a></li>
+            <li><a href="#description">概要</a></li>
+            <li><a href="#functions">特徴</a></li>
+            <li><a href="#demo">デモサイト</a></li>
+            <li><a href="#rss">ユーザフォーラム</a></li>
+            <li><a href="#history">更新履歴</a></li>
+          </ul>
+         </section>
 
         <section id="downloads" class="clearfix">
           <a href="https://github.com/Cake/OpenPNE2Smart/archive/OpenPNE2Smart-beta1.3.1.zip" id="download-zip" class="button"><span>Download .zip</span></a>
@@ -72,12 +92,17 @@ $(function() {
           <a href="https://github.com/Cake/OpenPNE2Smart" id="view-on-github" class="button" target="_blank"><span>View on GitHub</span></a>
         </section>
 
-        <hr>
+	<article class="socialbutton">
+		<div id="twitter"></div>
+		<div id="facebook_like"></div>
+<!--		<div id="evernote"></div> -->
+		<div id="hatena"></div>
+		<div id="google_plusone"></div>
+	</article>
 
         <section id="main_content">
-
 				<article class="markdown-body news">
-					<h2>What's New</h2>
+					<h2 is="news">What's New</h2>
 					<div class="Description">
 						<dl>
 							<dt>2013/03/08</dt>
@@ -85,39 +110,32 @@ $(function() {
 								<ol>
 								<li>β1.3.1版を公開しました。<br>
 								トピック/イベントのコメント読み込み不具合に対応しました。<br>
-								iPadでもファイルアップロード/メール投稿の両方を使用できるようにしました。<br>
+								iPadでもファイルアップロード/メール投稿の両方を使用できるようにしました。<br><br></li>
+								<li>有志の方に<a href="https://groups.google.com/forum/?fromgroups#!forum/openpne2-for-smartphone" target="_blank">ユーザフォーラム</a>・<a href="http://openpne2sp.s502.xrea.com/" target="_blank">デモサイト</a>を作成していただきました。<br>
+								デモサイトは、現在、一部機能のみの動作となっているそうです。<b>ログインや画面レイアウトなどの確認</b>にご利用下さい。<br>
+								また、全ての環境でデモサイトと同様の動作を保証するものではありません。予めご了承下さい。
+								</li>
+								</ol>
+
 							</dd>
 						</dl>
 					</div>
-					<div class="image">
-					</div>
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
-
-
-				<article class="socialbutton">
-					<div id="twitter"></div>
-					<div id="facebook_like"></div>
-<!--					<div id="evernote"></div> -->
-					<div id="hatena"></div>
-					<div id="google_plusone"></div>
-				</article>
-
 
 				<article class="markdown-body">
 <!--					<div class="image-right">
 						<img src="images/example_community.png" alt="OpenPNE2 for Smart Phone イメージ画面" class="disp_image">
 					</div> -->
-					<h2>OpenPNE2 for Smart Phoneとは？</h2>
+					<h2 id="description">OpenPNE2 for Smart Phoneとは？</h2>
 					<div class="Description">
 						<p>OpenPNE2 for Smart Phoneは、広く使われているオープンソースのSNSエンジン「OpenPNE2」を、スマートフォン向けに対応させたソフトウエアです。</p>
 					</div>
 					<div class="image">
 						<img src="images/example_h_home.png" alt="PC版・スマートフォン版の画面比較" class="disp_image">
 					</div>
-				</article>
 
-				<article class="markdown-body">
-					<h2>このような方にお勧め</h2>
+					<h3 id="recommend">このような方にお勧め</h3>
 					<div class="Description">
 						<ul>
 							<li>SNSを携帯で使っていたメンバーがスマートフォンに買い換えて、<br>
@@ -135,10 +153,12 @@ $(function() {
 ぜひご利用ください。
 						</p>
 					</div>
+
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
 
 				<article class="markdown-body">
-					<h2>主な特徴</h2>
+					<h2 id="functions">主な特徴</h2>
 						<ol>
 							<li><h3>携帯電話のメールアドレス、ＰＣメールアドレスの両方で登録/ログイン可能</h3>
 従来のOpenPNE2では、携帯メールアドレスだけで登録していたユーザーが、スマートフォンに機種変更するとログインできなくなる不具合がありました。<br>
@@ -167,22 +187,77 @@ iOS5以前の端末など、ファイルアップロードに対応していな�
 							</div>
 							</li>
 						</ol>
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
 
 				<article class="markdown-body">
-					<h2>ダウンロード</h2>
+					<h2 id="demo">デモサイト</h2>
 					<div class="Description">
 						<ul>
-							<li>ページ上部の「zip」あるいは「tar」アイコンをクリックしてダウンロードしてください。<br>
+							<li>デモサイトは<a href="http://openpne2sp.s502.xrea.com/" target="_blank">こちら</a>です。</li>
+							<li>現在、一部機能のみの動作となっているそうです。<b>ログインや画面レイアウトなどの確認</b>にご利用下さい。</li>
+							<li>全ての環境でデモサイトと同様の動作を保証するものではありません。予めご了承下さい。
+</li>
+						</ul>
+					</div>
+					<div class="topLink"><a href="./">▲TOP</a></div>
+				</article>
+
+				<article class="rss">
+					<h2 id="rss">ユーザフォーラム</h2>
+					<div>
+					不具合、ご要望などは、以下の<a href="https://groups.google.com/forum/?fromgroups#!forum/openpne2-for-smartphone" target="_blank">ユーザフォーラム</a>へお寄せ下さい。
+					</div>
+<!-- start feedwind code -->
+<script type="text/javascript">
+<!--
+rssmikle_url="https://groups.google.com/group/openpne2-for-smartphone/feed/rss_v2_0_msgs.xml";
+rssmikle_frame_width="600";
+rssmikle_frame_height="180";
+rssmikle_target="_blank";
+rssmikle_font="";
+rssmikle_font_size="12";
+rssmikle_border="off";
+rssmikle_css_url="";
+rssmikle_title="on";
+rssmikle_title_bgcolor="#006699";
+rssmikle_title_color="#FFFFFF";
+rssmikle_title_bgimage="";
+rssmikle_item_bgcolor="#FFFFFF";
+rssmikle_item_bgimage="";
+rssmikle_item_title_length="50";
+rssmikle_item_title_color="#666666";
+rssmikle_item_border_bottom="on";
+rssmikle_item_description="on";
+rssmikle_item_description_length="120";
+rssmikle_item_description_color="#666666";
+rssmikle_item_date="ja";
+rssmikle_item_description_tag="off";
+rssmikle_item_podcast="icon";
+//-->
+</script>
+<script type="text/javascript" src="http://feed.mikle.com/js/rssmikle.js"></script>
+<div style="font-size:10px; text-align:right;">
+<a href="http://feed.mikle.com/" target="_blank" style="color:#737373;">FeedWind</a>
+<!--利用規約に従ってページ内に必ずリンクを表示してください-->
+</div>
+<!-- end feedwind code -->
+					<div class="topLink"><a href="./">▲TOP</a></div>
+				</article>
+
+				<article class="markdown-body">
+					<h2 id="downloadLink">ダウンロード</h2>
+					<div class="Description">
+						<ul>
+							<li>ページ上部の「Download.zip」あるいは「Download.tar.gz」アイコンをクリックしてダウンロードしてください。<br>
 							圧縮形式は、それぞれzipおよびtar.gzです。<br></li>
 						</ul>
 					</div>
-					<div class="image">
-					</div>
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
 
 				<article class="markdown-body">
-					<h2>注意事項</h2>
+					<h2 id="notice">注意事項</h2>
 					<div class="Description">
 						<ul>
 							<li>導入は、自己の判断でお願いいたします。万一、このソースを用いたことによる損害などが発生しましても、責任を負いかねます。</li>
@@ -191,12 +266,11 @@ iOS5以前の端末など、ファイルアップロードに対応していな�
 詳細は、ダウンロード後、同梱のテキストを参照してください。</li>
 						</ul>
 					</div>
-					<div class="image">
-					</div>
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
 
 				<article class="markdown-body">
-					<h2>更新履歴</h2>
+					<h2 id="history">更新履歴</h2>
 					<div class="history">
 						<dl>
 							<dt>2013/03/08 β1.3.1版公開</dt>
@@ -250,8 +324,7 @@ iOS5以前の端末など、ファイルアップロードに対応していな�
 							<dd>タブレットはパソコン扱いで、従来のPC版画面の表示になります。</dd>
 						</dl>
 					</div>
-					<div class="image">
-					</div>
+					<div class="topLink"><a href="./">▲TOP</a></div>
 				</article>
 
 

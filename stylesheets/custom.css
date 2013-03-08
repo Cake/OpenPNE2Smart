@@ -3,6 +3,10 @@ body {
 	color: #3e3e3e;
 }
 
+header h1 {
+	line-height: inherit;
+}
+
 footer {
 	color: #3e3e3e;
 }
@@ -10,6 +14,10 @@ footer {
 footer a {
 	color: #5353ff;
 	font-weight: bold;
+}
+
+article {
+	border-bottom: 1px dashed;
 }
 
 h3 {
@@ -25,6 +33,57 @@ a:hover {
 	text-decoration: underline;
 }
 
+#globalnavi{
+	margin: 0;
+	padding: 0;
+	display: table;
+	position: absolute;
+	top: 0;
+	width: 620px;
+	height: 25px;
+}
+
+#globalnavi ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#globalnavi li{
+	list-style-type: none;
+	float: left;
+	width: 102px;
+	margin: 0;
+	padding: 0;
+}
+
+#globalnavi a{
+	text-align: center;
+	display:block;
+	font-size: 11px;
+	padding: 0.6em 0.1em;
+	width: auto;
+	color: white;
+	background-color: #333;
+	background-image: -moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
+	filter: alpha(opacity=75);
+	-moz-opacity:0.75;
+	opacity:0.75;
+}
+
+#globalnavi a:hover{
+	color: white;
+	text-decoration: none;
+	background-color: #336699;
+	background-image: -moz-linear-gradient(top, #336699 0%, #225588 50%, #114477 50%, #336699 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #336699), color-stop(0.50, #225588), color-stop(0.50, #114477), color-stop(1, #225588));
+}
+
+.topLink {
+	font-size: 14px;
+	text-align: left;
+}
 
 .pre {
 	color: #ff3300;
@@ -50,9 +109,13 @@ sup {
 }
 
 @media only screen and (max-width: 767px) {
-  #download-zip, #download-tar-gz {
-    display: block;
-  }
+	#download-zip, #download-tar-gz {
+		display: block;
+	}
+}
+
+#downloads {
+	margin-bottom: 14px;
 }
 
 .date {
